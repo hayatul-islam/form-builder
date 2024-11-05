@@ -26,6 +26,11 @@ const builderReducer = (state, action) => {
           element.id === action.payload.id ? action.payload : element
         ),
       };
+    case "REORDER_ELEMENTS":
+      return {
+        ...state,
+        elements: action.payload,
+      };
     default:
       return state;
   }
