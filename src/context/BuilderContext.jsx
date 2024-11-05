@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 // Initial state of the builder
 const initialState = {
@@ -10,7 +11,13 @@ const builderReducer = (state, action) => {
     case "ADD_ELEMENT":
       return {
         ...state,
-        elements: [...state.elements, action.payload],
+        elements: [
+          ...state.elements,
+          {
+            id: uuidv4(),
+            ...action.payload,
+          },
+        ],
       };
     case "REMOVE_ELEMENT":
       return {

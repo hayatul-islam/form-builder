@@ -17,70 +17,60 @@ import {
 
 export const elementData = [
   {
-    id: 1,
     name: "firstName",
     label: "First Name",
     icon: <FaUser />,
     type: "text",
   },
   {
-    id: 2,
     name: "lastName",
     label: "Last Name",
     icon: <FaUser />,
     type: "text",
   },
   {
-    id: 3,
     name: "email",
     label: "Email Address",
     icon: <FaEnvelope />,
     type: "email",
   },
   {
-    id: 4,
     name: "phone",
     label: "Phone Number",
     icon: <FaPhone />,
     type: "tel",
   },
   {
-    id: 5,
     name: "password",
     label: "Password",
     icon: <FaLock />,
     type: "password",
   },
   {
-    id: 6,
     name: "username",
     label: "Username",
     icon: <FaUserCircle />,
     type: "text",
   },
   {
-    id: 7,
     name: "file",
     label: "Upload File",
     icon: <FaUpload />,
     type: "file",
   },
   {
-    id: 8,
     name: "date",
     label: "Pick a Date",
     icon: <FaCalendar />,
     type: "date",
   },
   {
-    id: 9,
     name: "time",
     label: "Time",
     icon: <FaClock />,
     type: "time",
   },
   {
-    id: 10,
     name: "select",
     label: "Select",
     icon: <FaList />,
@@ -88,28 +78,24 @@ export const elementData = [
     options: ["Option 1", "Option 2", "Option 3"],
   },
   {
-    id: 11,
     name: "title",
     label: "Title",
     icon: <FaHeading />,
     type: "text",
   },
   {
-    id: 12,
     name: "text",
     label: "Text Field",
     icon: <FaAlignLeft />,
     type: "text",
   },
   {
-    id: 13,
     name: "textarea",
     label: "Text Area",
     icon: <FaAlignJustify />,
     type: "textarea",
   },
   {
-    id: 14,
     name: "checkbox",
     label: "Checkbox",
     icon: <FaCheckSquare />,
@@ -117,7 +103,6 @@ export const elementData = [
     options: ["Option 1", "Option 2", "Option 3"], // Example options
   },
   {
-    id: 15,
     name: "radio",
     label: "Radio",
     icon: <FaDotCircle />,

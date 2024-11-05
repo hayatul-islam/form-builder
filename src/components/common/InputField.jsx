@@ -7,12 +7,11 @@ const InputField = ({
   isRequired = false,
   label,
   className = "",
-  id,
 }) => {
   return (
-    <div>
+    <div className="space-y-1">
       {label && (
-        <h4 className="pb-1">
+        <h4>
           {label}
           {isRequired && <span className="text-red-500">*</span>}
         </h4>
@@ -25,7 +24,7 @@ const InputField = ({
           placeholder={placeholder}
           required={isRequired}
           disabled={disabled}
-          className={`${className}  h-[40px] w-full  bg-transparent px-4 text-[14px] focus:outline-blue-400`}
+          className={`${className} h-[40px] w-full bg-transparent px-4 text-[14px] focus:outline-blue-400`}
         />
       </div>
     </div>

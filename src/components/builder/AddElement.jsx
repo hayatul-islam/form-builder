@@ -13,7 +13,7 @@ const AddElement = () => {
       <div className="border border-gray p-3 rounded-lg grid grid-cols-2 gap-4">
         {elementData?.map((item) => (
           <button
-            key={item?.id}
+            key={item?.name}
             onClick={() => addElement(item)}
             className="flex justify-between items-center bg-gray p-3 rounded-md"
           >
