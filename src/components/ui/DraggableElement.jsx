@@ -1,19 +1,28 @@
-import { useDraggable } from "@dnd-kit/core";
+import { DragOverlay, useDraggable } from "@dnd-kit/core";
+
 const DraggableElement = ({ id, children }) => {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+  const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
     id,
   });
 
-  const style = transform
-    ? {
-        transform: `translate(${transform.x}px, ${transform.y}px)`,
-      }
-    : undefined;
-
   return (
-    <div ref={setNodeRef} {...listeners} {...attributes} style={style}>
-      {children}
-    </div>
+    <>
+      <div
+        ref={setNodeRef}
+        {...listeners}
+        {...attributes}
+        className={`${
+          isDragging
+            ? "opacity-50 pointer-events-none"
+            : "!opacity-100 !pointer-events-auto"
+        }`}
+      >
+        {children}
+      </div>
+      <DragOverlay>
+        {isDragging ? <div className="opacity-50">{children}</div> : null}{" "}
+      </DragOverlay>
+    </>
   );
 };
 

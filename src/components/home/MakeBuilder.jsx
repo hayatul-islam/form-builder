@@ -25,11 +25,6 @@ export default function MakeBuilder() {
     }
   }
 
-  function handleElementClick(element) {
-    // Add click functionality, such as opening an editor for the clicked element
-    console.log("Element clicked:", element);
-  }
-
   return (
     <div className="p-4">
       <div className="flex gap-8">

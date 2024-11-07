@@ -16,7 +16,7 @@ const AddElement = () => {
           <DraggableElement key={item?.name} id={item?.name}>
             <button
               onClick={() => addElement(item)}
-              className="flex justify-between items-center bg-gray p-3 rounded-md"
+              className="flex justify-between items-center bg-gray p-3 rounded-md pointer-events-auto"
             >
               <div className="flex items-center gap-2 text-[14px] font-medium">
                 <span>{item?.icon}</span> <span>{item?.label}</span>
