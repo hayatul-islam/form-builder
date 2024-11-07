@@ -13,8 +13,12 @@ export default function DesignerContextProvider({ children }) {
     });
   };
 
+  const onRemoveElement = (id) => {
+    setElements((prev) => prev.filter((element) => element.id !== id));
+  };
+
   return (
-    <DesignerContext.Provider value={{ elements, addElement }}>
+    <DesignerContext.Provider value={{ elements, addElement, onRemoveElement }}>
       {children}
     </DesignerContext.Provider>
   );

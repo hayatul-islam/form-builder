@@ -38,7 +38,7 @@ function Designer() {
         <div
           ref={droppable.setNodeRef}
           className={`bg-gray max-w-[920px] h-full min-h-[70vh] m-auto rounded-xl flex flex-col flex-grow items-center justify-start flex-1 overflow-y-auto ${
-            droppable.isOver && "ring ring-primary/20"
+            droppable.isOver && elements.length === 0 && "ring ring-primary/20"
           }`}
         >
           {!droppable.isOver && elements?.length === 0 && (
@@ -46,7 +46,7 @@ function Designer() {
               Drop here
             </p>
           )}
-          {droppable.isOver && (
+          {droppable.isOver && elements.length === 0 && (
             <div className="p-4 w-full">
               <div className="h-[120px] rounded-md bg-primary/50"></div>
             </div>
