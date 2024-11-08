@@ -2,6 +2,7 @@ import { useDraggable, useDroppable } from "@dnd-kit/core";
 import { useState } from "react";
 import useDesigner from "../../hooks/useDesigner";
 import InputField from "../common/InputField";
+import DroppableElement from "../ui/DroppableElement";
 
 const DesignerElementWrapper = ({ element }) => {
   const { onRemoveElement, setSelectedElement } = useDesigner();
@@ -77,22 +78,12 @@ const DesignerElementWrapper = ({ element }) => {
         </>
       )}
 
-      {topHalf.isOver && (
-        <div className="pb-4 h-[120px]">
-          <div className=" h-full w-full rounded-md border border-red-500 px-4 py-2 border-b-none" />
-        </div>
-      )}
+      {topHalf.isOver && <DroppableElement />}
       <div
         className={`bg-white p-4 ${mouseIsOver && "group-hover:opacity-60"}`}
       >
         <InputField label={element.label} type={element.type} disabled={true} />
       </div>
-
-      {bottomHalf.isOver && (
-        <div className="pb-4 h-[120px]">
-          <div className=" h-full w-full rounded-md border border-primary/50 px-4 py-2 border-b-none" />
-        </div>
-      )}
     </div>
   );
 };

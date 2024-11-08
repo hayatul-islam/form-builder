@@ -1,6 +1,7 @@
 import { useDndMonitor, useDroppable } from "@dnd-kit/core";
 import { v4 as uuidv4 } from "uuid";
 import useDesigner from "../../hooks/useDesigner";
+import DroppableElement from "../ui/DroppableElement";
 import DesignerElementWrapper from "./DesignerElementWrapper";
 
 function FormBuilder() {
@@ -86,8 +87,6 @@ function FormBuilder() {
         const activeId = active?.data?.current?.elementId;
         const overId = over?.data?.current?.elementId;
 
-        console.log(activeId);
-
         const activeElementIndex = elements.findIndex(
           (el) => el.id === activeId
         );
@@ -115,11 +114,11 @@ function FormBuilder() {
       onClick={() => {
         if (selectedElement) setSelectedElement(null);
       }}
-      className=" w-full"
+      className="w-full"
     >
       <div
         ref={droppable.setNodeRef}
-        className={`bg-gray h-full m-auto rounded-xl flex flex-col flex-grow items-center overflow-y-auto ${
+        className={`bg-gray h-auto m-auto rounded-xl flex flex-col flex-grow items-center overflow-y-auto ${
           droppable.isOver && "ring ring-primary/20"
         }`}
       >
@@ -131,8 +130,8 @@ function FormBuilder() {
           </div>
         )}
         {droppable.isOver && elements.length === 0 && (
-          <div className="p-4 w-full">
-            <div className="h-[90px] rounded-md border-2 border-dashed border-primary"></div>
+          <div className="px-6 pt-6 w-full">
+            <DroppableElement />
           </div>
         )}
 
@@ -141,6 +140,12 @@ function FormBuilder() {
             {elements?.map((element) => (
               <DesignerElementWrapper key={element?.id} element={element} />
             ))}
+          </div>
+        )}
+
+        {droppable.isOver && elements?.length > 0 && (
+          <div className="px-6 w-full">
+            <DroppableElement />
           </div>
         )}
       </div>
