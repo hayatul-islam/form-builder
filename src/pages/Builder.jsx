@@ -1,6 +1,5 @@
 import AddElement from "../components/builder/AddElement";
 import FormBuilder from "../components/builder/FormBuilder";
-import MakeBuilder from "../components/home/MakeBuilder";
 import { BuilderProvider } from "../context/BuilderContext";
 
 const Builder = () => {
@@ -11,7 +10,6 @@ const Builder = () => {
 
         <FormBuilder />
       </div>
-      <MakeBuilder />
     </BuilderProvider>
   );
 };

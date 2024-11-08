@@ -1,6 +1,4 @@
-import { DndContext } from "@dnd-kit/core";
 import { useState } from "react";
-import { Column } from "./Column";
 
 const COLUMNS = [
   { id: "TODO", title: "To Do" },
@@ -58,23 +56,5 @@ export default function App() {
     );
   }
 
-  return (
-    <div className="p-4">
-      <div className="flex gap-8">
-        <DndContext onDragEnd={handleDragEnd}>
-          {COLUMNS.map((column) => {
-            return (
-              <Column
-                key={column.id}
-                column={column}
-                tasks={tasks.filter((task) => task.status === column.id)}
-              />
-            );
-          })}
-        </DndContext>
-      </div>
-
-      {/* <MakeBuilder /> */}
-    </div>
-  );
+  return <div className="p-4">Home page</div>;
 }
