@@ -4,8 +4,7 @@ import useDesigner from "../../hooks/useDesigner";
 import InputField from "../common/InputField";
 
 const DesignerElementWrapper = ({ element }) => {
-  const { onRemoveElement, selectedElement, setSelectedElement } =
-    useDesigner();
+  const { onRemoveElement, setSelectedElement } = useDesigner();
   const [mouseIsOver, setMouseIsOver] = useState(false);
 
   const draggable = useDraggable({
@@ -35,8 +34,6 @@ const DesignerElementWrapper = ({ element }) => {
     },
   });
 
-  console.log(selectedElement);
-
   if (draggable?.isDragging) return null;
 
   return (
@@ -54,11 +51,11 @@ const DesignerElementWrapper = ({ element }) => {
     >
       <div
         ref={topHalf.setNodeRef}
-        className={`absolute  w-full h-[100px] rounded-t-md `}
+        className={`absolute  w-full h-[120px] rounded-t-md `}
       ></div>
       <div
         ref={bottomHalf.setNodeRef}
-        className={`absolute w-full h-[100px] rounded-b-md `}
+        className={`absolute w-full h-[120px] rounded-b-md `}
       ></div>
 
       {mouseIsOver && (
@@ -81,8 +78,8 @@ const DesignerElementWrapper = ({ element }) => {
       )}
 
       {topHalf.isOver && (
-        <div className="pb-4 h-[100px]">
-          <div className=" h-full w-full rounded-md border border-primary/50 px-4 py-2 border-b-none" />
+        <div className="pb-4 h-[120px]">
+          <div className=" h-full w-full rounded-md border border-red-500 px-4 py-2 border-b-none" />
         </div>
       )}
       <div
@@ -92,7 +89,7 @@ const DesignerElementWrapper = ({ element }) => {
       </div>
 
       {bottomHalf.isOver && (
-        <div className="pb-4 h-[100px]">
+        <div className="pb-4 h-[120px]">
           <div className=" h-full w-full rounded-md border border-primary/50 px-4 py-2 border-b-none" />
         </div>
       )}
