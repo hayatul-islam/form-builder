@@ -4,6 +4,7 @@ export const DesignerContext = createContext(null);
 
 export default function DesignerContextProvider({ children }) {
   const [elements, setElements] = useState([]);
+  const [selectedElement, setSelectedElement] = useState();
 
   const addElement = (index, element) => {
     setElements((prev) => {
@@ -13,12 +14,30 @@ export default function DesignerContextProvider({ children }) {
     });
   };
 
+  const onUpdateElement = (id, element) => {
+    setElements((prev) => {
+      const newElements = [...prev];
+      const index = newElements.findIndex((el) => el.id === id);
+      newElements[index] = element;
+      return newElements;
+    });
+  };
+
   const onRemoveElement = (id) => {
     setElements((prev) => prev.filter((element) => element.id !== id));
   };
 
   return (
-    <DesignerContext.Provider value={{ elements, addElement, onRemoveElement }}>
+    <DesignerContext.Provider
+      value={{
+        elements,
+        addElement,
+        onUpdateElement,
+        onRemoveElement,
+        selectedElement,
+        setSelectedElement,
+      }}
+    >
       {children}
     </DesignerContext.Provider>
   );

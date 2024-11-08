@@ -4,7 +4,8 @@ import useDesigner from "../../hooks/useDesigner";
 import InputField from "../common/InputField";
 
 const DesignerElementWrapper = ({ element }) => {
-  const { onRemoveElement } = useDesigner();
+  const { onRemoveElement, selectedElement, setSelectedElement } =
+    useDesigner();
   const [mouseIsOver, setMouseIsOver] = useState(false);
 
   const draggable = useDraggable({
@@ -34,6 +35,8 @@ const DesignerElementWrapper = ({ element }) => {
     },
   });
 
+  console.log(selectedElement);
+
   if (draggable?.isDragging) return null;
 
   return (
@@ -41,6 +44,10 @@ const DesignerElementWrapper = ({ element }) => {
       ref={draggable.setNodeRef}
       {...draggable.listeners}
       {...draggable.attributes}
+      onClick={(e) => {
+        e.stopPropagation();
+        setSelectedElement(element);
+      }}
       onMouseEnter={() => setMouseIsOver(true)}
       onMouseLeave={() => setMouseIsOver(false)}
       className="relative cursor-pointer rounded-md group"
@@ -51,20 +58,23 @@ const DesignerElementWrapper = ({ element }) => {
       ></div>
       <div
         ref={bottomHalf.setNodeRef}
-        className={`absolute  w-full h-1/2 rounded-t-md `}
+        className={`absolute w-full h-[100px] rounded-b-md `}
       ></div>
 
       {mouseIsOver && (
         <>
           <div className="absolute right-0 h-full z-50">
             <button
-              onClick={() => onRemoveElement(element.id)}
+              onClick={(e) => {
+                e.stopPropagation();
+                onRemoveElement(element.id);
+              }}
               className="flex justify-center items-center h-full border bg-red-500 text-white px-5 rounded-md rounded-l-none"
             >
               d
             </button>
           </div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
+          <div className="absolute h-full w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex justify-center items-center">
             <p>Click for properties or drag to move</p>
           </div>
         </>
@@ -76,9 +86,7 @@ const DesignerElementWrapper = ({ element }) => {
         </div>
       )}
       <div
-        className={`bg-white p-4 z-30 ${
-          mouseIsOver && "group-hover:opacity-60"
-        }`}
+        className={`bg-white p-4 ${mouseIsOver && "group-hover:opacity-60"}`}
       >
         <InputField label={element.label} type={element.type} disabled={true} />
       </div>

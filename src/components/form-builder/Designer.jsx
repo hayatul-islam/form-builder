@@ -5,7 +5,8 @@ import DesignerElementWrapper from "./DesignerElementWrapper";
 import DesignerSidebar from "./DesignerSidebar";
 
 function Designer() {
-  const { elements, addElement } = useDesigner();
+  const { elements, addElement, selectedElement, setSelectedElement } =
+    useDesigner();
 
   const droppable = useDroppable({
     id: "designer-drop-area",
@@ -34,7 +35,12 @@ function Designer() {
 
   return (
     <div className="flex w-full h-full">
-      <div className="p-4 w-full">
+      <div
+        onClick={() => {
+          if (selectedElement) setSelectedElement(null);
+        }}
+        className="p-4 w-full"
+      >
         <div
           ref={droppable.setNodeRef}
           className={`bg-gray max-w-[920px] h-full min-h-[70vh] m-auto rounded-xl flex flex-col flex-grow items-center justify-start flex-1 overflow-y-auto ${

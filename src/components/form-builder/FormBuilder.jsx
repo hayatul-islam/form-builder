@@ -1,11 +1,32 @@
-import { DndContext } from "@dnd-kit/core";
+import {
+  DndContext,
+  MouseSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 import DesignerContextProvider from "../../context/DesignerContext";
 import DragOverlayWrapper from "../ui/DragOverlayWrapper";
 import Designer from "./Designer";
 const FormBuilder = () => {
+  const mouseSensors = useSensor(MouseSensor, {
+    activationConstraint: {
+      distance: 10,
+    },
+  });
+
+  const touchSensor = useSensor(TouchSensor, {
+    activationConstraint: {
+      delay: 300,
+      tolerance: 5,
+    },
+  });
+
+  const sensors = useSensors(mouseSensors, touchSensor);
+
   return (
     <DesignerContextProvider>
-      <DndContext>
+      <DndContext sensors={sensors}>
         <div className="py-12">
           <Designer />
         </div>
