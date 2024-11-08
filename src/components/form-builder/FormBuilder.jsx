@@ -1,4 +1,5 @@
 import { useDndMonitor, useDroppable } from "@dnd-kit/core";
+import { ImEnlarge } from "react-icons/im";
 import { v4 as uuidv4 } from "uuid";
 import useDesigner from "../../hooks/useDesigner";
 import DroppableElement from "../ui/DroppableElement";
@@ -114,19 +115,26 @@ function FormBuilder() {
       onClick={() => {
         if (selectedElement) setSelectedElement(null);
       }}
-      className="w-full"
+      className="w-full "
     >
       <div
         ref={droppable.setNodeRef}
-        className={`bg-gray h-auto m-auto rounded-xl flex flex-col flex-grow items-center overflow-y-auto ${
+        className={`bg-gray p-6 h-auto m-auto rounded-xl flex flex-col flex-grow items-center overflow-y-auto ${
           droppable.isOver && "ring ring-primary/20"
         }`}
       >
         {!droppable.isOver && elements?.length === 0 && (
-          <div className="flex justify-center items-center flex-grow w-full px-8">
-            <div className="w-full h-[150px] flex justify-center items-center border-2 border-dashed border-primary rounded-md ">
-              <p className="text-3xl text-muted  font-bold">Drop here</p>
-            </div>
+          <div className="p-8 w-full">
+            <DroppableElement
+              className={
+                "!h-[150px] bg-primary/10 flex justify-center items-center rounded-xl"
+              }
+            >
+              <div className="flex justify-center items-center gap-2 text-primary">
+                <ImEnlarge />
+                <p>Drag you first element form the left.</p>
+              </div>
+            </DroppableElement>
           </div>
         )}
         {droppable.isOver && elements.length === 0 && (
@@ -136,7 +144,7 @@ function FormBuilder() {
         )}
 
         {elements.length > 0 && (
-          <div className="w-full p-6 space-y-3">
+          <div className="w-full space-y-3 ">
             {elements?.map((element) => (
               <DesignerElementWrapper key={element?.id} element={element} />
             ))}
