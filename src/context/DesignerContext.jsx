@@ -23,6 +23,10 @@ export default function DesignerContextProvider({ children }) {
     });
   };
 
+  const onRenderElement = (elements) => {
+    setElements(elements);
+  };
+
   const onRemoveElement = (id) => {
     setElements((prev) => prev.filter((element) => element.id !== id));
   };
@@ -36,6 +40,7 @@ export default function DesignerContextProvider({ children }) {
         onRemoveElement,
         selectedElement,
         setSelectedElement,
+        onRenderElement,
       }}
     >
       {children}

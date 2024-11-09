@@ -57,11 +57,11 @@ const DesignerElementWrapper = ({ element }) => {
     >
       <div
         ref={topHalf.setNodeRef}
-        className={`absolute w-full h-[120px] rounded-t-md `}
+        className={`absolute top-0 w-full h-[120px] rounded-t-md `}
       ></div>
       <div
         ref={bottomHalf.setNodeRef}
-        className={`absolute w-full h-[120px] rounded-b-md `}
+        className={`absolute bottom-0 w-full h-[120px] rounded-b-md `}
       ></div>
 
       {mouseIsOver && (
@@ -96,15 +96,20 @@ const DesignerElementWrapper = ({ element }) => {
         </>
       )}
 
-      {topHalf.isOver && <DroppableElement />}
-      {bottomHalf.isOver && <DroppableElement />}
+      {topHalf?.isOver && <DroppableElement />}
+      {bottomHalf?.isOver && <DroppableElement />}
 
       <div
         className={`p-3 pb-5 rounded-md ${
           (mouseIsOver || isSelected) && " bg-gray group-hover:blur-6"
         }`}
       >
-        <InputField label={element.label} type={element.type} disabled={true} />
+        <InputField
+          label={element.label}
+          type={element.type}
+          value=""
+          disabled={true}
+        />
       </div>
     </div>
   );

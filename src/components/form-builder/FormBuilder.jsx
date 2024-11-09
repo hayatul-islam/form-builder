@@ -1,4 +1,5 @@
 import { useDndMonitor, useDroppable } from "@dnd-kit/core";
+import { arrayMove } from "@dnd-kit/sortable";
 import { ImEnlarge } from "react-icons/im";
 import { v4 as uuidv4 } from "uuid";
 import useDesigner from "../../hooks/useDesigner";
@@ -11,7 +12,7 @@ function FormBuilder() {
     addElement,
     selectedElement,
     setSelectedElement,
-    onRemoveElement,
+    onRenderElement,
   } = useDesigner();
 
   const droppable = useDroppable({
@@ -25,8 +26,6 @@ function FormBuilder() {
     onDragEnd: (event) => {
       const { active, over } = event;
       if (!active || !over) return;
-
-      console.log(event);
 
       // Dropping a sidebar btn element over the designer drop area
       const isDesignerBtnElement = active?.data?.current?.isDesignerBtnElement;
@@ -80,33 +79,18 @@ function FormBuilder() {
         return;
       }
 
-      // third scenario
-      const isDraggingDesignerElement =
-        active?.data?.current?.isDesignerElement;
-      const draggingDesignerElementOverAnotherDesignerElement =
-        isDraggingDesignerElement && isDroppingOverDesignerElement;
-
-      if (draggingDesignerElementOverAnotherDesignerElement) {
-        const activeId = active?.data?.current?.elementId;
-        const overId = over?.data?.current?.elementId;
-
-        const activeElementIndex = elements.findIndex(
-          (el) => el.id === activeId
-        );
-        const overElementIndex = elements.findIndex((el) => el.id === overId);
-        if (activeElementIndex === -1 || overElementIndex === -1) {
-          throw new Error("Element not found");
-        }
-
-        const activeElement = { ...elements[activeElementIndex] };
-        onRemoveElement(activeId);
-
-        let indexForNewElement = overElementIndex;
+      // new third
+      const activeId = active?.data?.current?.elementId;
+      const overId = over?.data?.current?.elementId;
+      if (activeId !== overId) {
+        const oldIndex = elements.findIndex((el) => el.id === activeId);
+        let newIndex = elements.findIndex((el) => el.id === overId);
         if (isDroppingOverDesignerBottomHalf) {
-          indexForNewElement = overElementIndex + 1;
+          newIndex = newIndex - 1;
         }
-
-        addElement(indexForNewElement, activeElement);
+        const newElements = arrayMove(elements, oldIndex, newIndex);
+        console.log(newElements);
+        onRenderElement(newElements);
       }
     },
   });
@@ -149,7 +133,6 @@ function FormBuilder() {
             {elements?.map((element) => (
               <DesignerElementWrapper key={element?.id} element={element} />
             ))}
-
             {droppable.isOver && elements?.length > 0 && (
               <div className="pt-3 w-full">
                 <DroppableElement />
@@ -163,3 +146,32 @@ function FormBuilder() {
 }
 
 export default FormBuilder;
+
+// third scenario
+//   const isDraggingDesignerElement =
+//   active?.data?.current?.isDesignerElement;
+// const draggingDesignerElementOverAnotherDesignerElement =
+//   isDraggingDesignerElement && isDroppingOverDesignerElement;
+
+// if (draggingDesignerElementOverAnotherDesignerElement) {
+//   const activeId = active?.data?.current?.elementId;
+//   const overId = over?.data?.current?.elementId;
+
+//   const activeElementIndex = elements.findIndex(
+//     (el) => el.id === activeId
+//   );
+//   const overElementIndex = elements.findIndex((el) => el.id === overId);
+//   if (activeElementIndex === -1 || overElementIndex === -1) {
+//     throw new Error("Element not found");
+//   }
+
+//   const activeElement = { ...elements[activeElementIndex] };
+//   onRemoveElement(activeId);
+
+//   let indexForNewElement = overElementIndex;
+//   if (isDroppingOverDesignerBottomHalf) {
+//     indexForNewElement = overElementIndex - 1;
+//   }
+
+//   addElement(indexForNewElement, activeElement);
+// }
