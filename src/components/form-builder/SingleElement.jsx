@@ -10,6 +10,8 @@ const SingleElement = ({ element }) => {
         <InputFile
           label={element.label}
           placeholder={element?.placeholder}
+          isRequired={element?.isRequired}
+          isReadOnly={element?.isReadOnly}
           type="file"
           value=""
         />
@@ -20,8 +22,10 @@ const SingleElement = ({ element }) => {
       filed = (
         <InputField
           label={element.label}
-          placeholder={element?.placeholder}
           type={element.type}
+          placeholder={element?.placeholder}
+          isRequired={element?.isRequired}
+          isReadOnly={element?.isReadOnly}
           value=""
         />
       );

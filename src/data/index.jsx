@@ -21,6 +21,7 @@ export const btnElements = [
     type: "text",
     placeholder: "Enter text here",
     isRequired: false,
+    isReadOnly: false,
   },
   {
     name: "numberField",
@@ -29,6 +30,7 @@ export const btnElements = [
     type: "number",
     placeholder: "Enter a number",
     isRequired: false,
+    isReadOnly: false,
   },
   {
     name: "emailField",
@@ -37,6 +39,7 @@ export const btnElements = [
     type: "email",
     placeholder: "Enter your email",
     isRequired: true,
+    isReadOnly: false,
   },
   {
     name: "passwordField",
@@ -45,6 +48,7 @@ export const btnElements = [
     type: "password",
     placeholder: "Enter your password",
     isRequired: true,
+    isReadOnly: false,
   },
   {
     name: "dateField",
@@ -53,6 +57,7 @@ export const btnElements = [
     type: "date",
     placeholder: "Select a date",
     isRequired: false,
+    isReadOnly: false,
   },
   {
     name: "timeField",
@@ -61,6 +66,7 @@ export const btnElements = [
     type: "time",
     placeholder: "Select a time",
     isRequired: false,
+    isReadOnly: false,
   },
   {
     name: "urlField",
@@ -69,6 +75,7 @@ export const btnElements = [
     type: "url",
     placeholder: "Enter a URL",
     isRequired: false,
+    isReadOnly: false,
   },
   {
     name: "telField",
@@ -77,6 +84,7 @@ export const btnElements = [
     type: "tel",
     placeholder: "Enter phone number",
     isRequired: false,
+    isReadOnly: false,
   },
   {
     name: "checkboxField",
@@ -85,6 +93,7 @@ export const btnElements = [
     type: "checkbox",
     placeholder: "", // Not applicable for checkbox
     isRequired: false,
+    isReadOnly: false,
   },
   {
     name: "radioField",
@@ -93,6 +102,7 @@ export const btnElements = [
     type: "radio",
     placeholder: "", // Not applicable for radio
     isRequired: false,
+    isReadOnly: false,
   },
   {
     name: "selectField",
@@ -101,13 +111,15 @@ export const btnElements = [
     type: "select",
     placeholder: "Select an option",
     isRequired: false,
+    isReadOnly: false,
   },
   {
     name: "fileField",
     label: "File",
     icon: <FaFileUpload />,
     type: "file",
-    placeholder: "", // Not applicable for file input
+    placeholder: "",
     isRequired: false,
+    isReadOnly: false,
   },
 ];

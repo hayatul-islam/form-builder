@@ -1,8 +1,11 @@
 import useDesigner from "../../hooks/useDesigner";
+import ToggleButton from "../common/ToggleButton";
 
 const Properties = () => {
   const { selectedElement, setSelectedElement, onUpdateElement } =
     useDesigner();
+
+  console.log(selectedElement);
 
   const onChange = (key, value) => {
     const newElement = {
@@ -28,6 +31,18 @@ const Properties = () => {
         label="Placeholder"
         value={selectedElement?.placeholder || ""}
         type="text"
+        onChange={onChange}
+      />
+      <ToggleButton
+        name="isRequired"
+        label="Required"
+        value={selectedElement?.isRequired || false}
+        onChange={onChange}
+      />
+      <ToggleButton
+        name="isReadOnly"
+        label="Read Only"
+        value={selectedElement?.isReadOnly || false}
         onChange={onChange}
       />
     </div>

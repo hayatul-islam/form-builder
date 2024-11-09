@@ -1,9 +1,9 @@
 const InputFile = ({ name, label, className, isRequired }) => {
   return (
-    <div>
+    <div className="space-y-1">
       <label>
         {label}
-        {isRequired && <span className="text-red-500">*</span>}
+        {isRequired && <span className="text-red-500"> *</span>}
       </label>
       <div
         className={`${className} flex h-[40px] items-center rounded border `}
