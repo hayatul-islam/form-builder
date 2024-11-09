@@ -26,6 +26,8 @@ function FormBuilder() {
       const { active, over } = event;
       if (!active || !over) return;
 
+      console.log(event);
+
       // Dropping a sidebar btn element over the designer drop area
       const isDesignerBtnElement = active?.data?.current?.isDesignerBtnElement;
       const isDroppingOverDesignerDropArea =
@@ -92,7 +94,6 @@ function FormBuilder() {
           (el) => el.id === activeId
         );
         const overElementIndex = elements.findIndex((el) => el.id === overId);
-
         if (activeElementIndex === -1 || overElementIndex === -1) {
           throw new Error("Element not found");
         }
@@ -119,7 +120,7 @@ function FormBuilder() {
     >
       <div
         ref={droppable.setNodeRef}
-        className={`bg-gray p-6 h-auto m-auto rounded-xl flex flex-col flex-grow items-center overflow-y-auto ${
+        className={`bg-gray h-auto rounded-xl p-4 ${
           droppable.isOver && "ring ring-primary/20"
         }`}
       >
@@ -144,16 +145,16 @@ function FormBuilder() {
         )}
 
         {elements.length > 0 && (
-          <div className="w-full space-y-3 ">
+          <div className="w-full p-6 bg-white rounded-lg ">
             {elements?.map((element) => (
               <DesignerElementWrapper key={element?.id} element={element} />
             ))}
-          </div>
-        )}
 
-        {droppable.isOver && elements?.length > 0 && (
-          <div className="px-6 w-full">
-            <DroppableElement />
+            {droppable.isOver && elements?.length > 0 && (
+              <div className="pt-3 w-full">
+                <DroppableElement />
+              </div>
+            )}
           </div>
         )}
       </div>

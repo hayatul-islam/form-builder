@@ -1,12 +1,17 @@
 import { useDraggable, useDroppable } from "@dnd-kit/core";
 import { useState } from "react";
+import { RiDeleteBin6Line, RiSettingsLine } from "react-icons/ri";
+import { RxDragHandleDots2 } from "react-icons/rx";
 import useDesigner from "../../hooks/useDesigner";
 import InputField from "../common/InputField";
 import DroppableElement from "../ui/DroppableElement";
 
 const DesignerElementWrapper = ({ element }) => {
-  const { onRemoveElement, setSelectedElement } = useDesigner();
+  const { onRemoveElement, selectedElement, setSelectedElement } =
+    useDesigner();
   const [mouseIsOver, setMouseIsOver] = useState(false);
+
+  const isSelected = selectedElement?.id === element?.id;
 
   const draggable = useDraggable({
     id: element.id + "-drag-handler",
@@ -52,7 +57,7 @@ const DesignerElementWrapper = ({ element }) => {
     >
       <div
         ref={topHalf.setNodeRef}
-        className={`absolute  w-full h-[120px] rounded-t-md `}
+        className={`absolute w-full h-[120px] rounded-t-md `}
       ></div>
       <div
         ref={bottomHalf.setNodeRef}
@@ -60,27 +65,44 @@ const DesignerElementWrapper = ({ element }) => {
       ></div>
 
       {mouseIsOver && (
+        <div className="absolute h-full w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex justify-center items-center opacity-60">
+          <p>Click for properties or drag to move</p>
+        </div>
+      )}
+
+      {isSelected && (
         <>
-          <div className="absolute right-0 h-full z-50">
+          <div className="absolute -right-1 top-[50%] translate-y-[-50%] space-y-1 ">
+            <RxDragHandleDots2 />
+          </div>
+          <div className="absolute -right-7 top-[50%] translate-y-[-50%] space-y-3 ">
+            <button
+              // onClick={handleSetting}
+              className="bg-black text-white w-[24px] h-[24px] rounded-full flex justify-center items-center"
+            >
+              <RiSettingsLine size={14} />
+            </button>
+
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                onRemoveElement(element.id);
+                onRemoveElement(element?.id);
               }}
-              className="flex justify-center items-center h-full border bg-red-500 text-white px-5 rounded-md rounded-l-none"
+              className="bg-red-500 text-white w-[24px] h-[24px] rounded-full flex justify-center items-center"
             >
-              d
+              <RiDeleteBin6Line size={14} />
             </button>
-          </div>
-          <div className="absolute h-full w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex justify-center items-center">
-            <p>Click for properties or drag to move</p>
           </div>
         </>
       )}
 
       {topHalf.isOver && <DroppableElement />}
+      {bottomHalf.isOver && <DroppableElement />}
+
       <div
-        className={`bg-white p-4 ${mouseIsOver && "group-hover:opacity-60"}`}
+        className={`p-3 pb-5 rounded-md ${
+          (mouseIsOver || isSelected) && " bg-gray group-hover:blur-6"
+        }`}
       >
         <InputField label={element.label} type={element.type} disabled={true} />
       </div>
