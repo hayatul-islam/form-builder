@@ -6,7 +6,7 @@ export default function DesignerContextProvider({ children }) {
   const [elements, setElements] = useState([]);
   const [selectedElement, setSelectedElement] = useState();
 
-  const addElement = (index, element) => {
+  const onAddElement = (index, element) => {
     setElements((prev) => {
       const newElements = [...prev];
       newElements.splice(index, 0, element);
@@ -35,7 +35,7 @@ export default function DesignerContextProvider({ children }) {
     <DesignerContext.Provider
       value={{
         elements,
-        addElement,
+        onAddElement,
         onUpdateElement,
         onRemoveElement,
         selectedElement,

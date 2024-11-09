@@ -32,7 +32,7 @@ const Builder = () => {
         <div className="py-12 px-6 flex w-full h-full gap-6">
           <DesignerSidebar />
           <FormBuilder />
-          {/* <DesignerSidebar /> */}
+          <div className=" max-w-[300px] w-full border"></div>
         </div>
         <DragOverlayWrapper />
       </DndContext>

@@ -9,7 +9,7 @@ import DesignerElementWrapper from "./DesignerElementWrapper";
 function FormBuilder() {
   const {
     elements,
-    addElement,
+    onAddElement,
     selectedElement,
     setSelectedElement,
     onRenderElement,
@@ -42,7 +42,7 @@ function FormBuilder() {
           id: uuidv4(),
           ...element,
         };
-        addElement(elements?.length, newElement);
+        onAddElement(elements?.length, newElement);
         return;
       }
 
@@ -75,7 +75,7 @@ function FormBuilder() {
           indexForNewElement = overElementIndex + 1;
         }
 
-        addElement(indexForNewElement, newElement);
+        onAddElement(indexForNewElement, newElement);
         return;
       }
 
