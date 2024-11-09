@@ -3,10 +3,10 @@ import { useState } from "react";
 import { RiDeleteBin6Line, RiSettingsLine } from "react-icons/ri";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import useDesigner from "../../hooks/useDesigner";
-import InputField from "../common/InputField";
 import DroppableElement from "../ui/DroppableElement";
+import SingleElement from "./SingleElement";
 
-const DesignerElementWrapper = ({ element }) => {
+const ElementWrapper = ({ element }) => {
   const { onRemoveElement, selectedElement, setSelectedElement } =
     useDesigner();
   const [mouseIsOver, setMouseIsOver] = useState(false);
@@ -104,15 +104,10 @@ const DesignerElementWrapper = ({ element }) => {
           (mouseIsOver || isSelected) && " bg-gray group-hover:blur-6"
         }`}
       >
-        <InputField
-          label={element.label}
-          type={element.type}
-          value=""
-          disabled={true}
-        />
+        <SingleElement element={element} />
       </div>
     </div>
   );
 };
 
-export default DesignerElementWrapper;
+export default ElementWrapper;

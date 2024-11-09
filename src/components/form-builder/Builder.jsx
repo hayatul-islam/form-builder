@@ -9,6 +9,7 @@ import DesignerContextProvider from "../../context/DesignerContext";
 import DragOverlayWrapper from "../ui/DragOverlayWrapper";
 import DesignerSidebar from "./DesignerSidebar";
 import FormBuilder from "./FormBuilder";
+import RightSidebar from "./RightSidebar";
 
 const Builder = () => {
   const mouseSensors = useSensor(MouseSensor, {
@@ -32,7 +33,7 @@ const Builder = () => {
         <div className="py-12 px-6 flex w-full h-full gap-6">
           <DesignerSidebar />
           <FormBuilder />
-          <div className=" max-w-[300px] w-full border"></div>
+          <RightSidebar />
         </div>
         <DragOverlayWrapper />
       </DndContext>

@@ -4,7 +4,7 @@ import { ImEnlarge } from "react-icons/im";
 import { v4 as uuidv4 } from "uuid";
 import useDesigner from "../../hooks/useDesigner";
 import DroppableElement from "../ui/DroppableElement";
-import DesignerElementWrapper from "./DesignerElementWrapper";
+import ElementWrapper from "./ElementWrapper";
 
 function FormBuilder() {
   const {
@@ -89,7 +89,7 @@ function FormBuilder() {
           newIndex = newIndex - 1;
         }
         const newElements = arrayMove(elements, oldIndex, newIndex);
-        console.log(newElements);
+
         onRenderElement(newElements);
       }
     },
@@ -131,7 +131,7 @@ function FormBuilder() {
         {elements.length > 0 && (
           <div className="w-full p-6 bg-white rounded-lg ">
             {elements?.map((element) => (
-              <DesignerElementWrapper key={element?.id} element={element} />
+              <ElementWrapper key={element?.id} element={element} />
             ))}
             {droppable.isOver && elements?.length > 0 && (
               <div className="pt-3 w-full">

@@ -1,6 +1,6 @@
 import { PiDotsSixVerticalBold } from "react-icons/pi";
 import { useBuilderContext } from "../../context/BuilderContext";
-import { elementData } from "../../data";
+import { btnElements } from "../../data";
 import DraggableElement from "../ui/DraggableElement";
 
 const AddElement = () => {
@@ -12,7 +12,7 @@ const AddElement = () => {
   return (
     <div className="max-w-[400px] w-full">
       <div className="border border-gray p-3 rounded-lg grid grid-cols-2 gap-4">
-        {elementData?.map((item) => (
+        {btnElements?.map((item) => (
           <DraggableElement key={item?.name} id={item?.name}>
             <button
               onClick={() => addElement(item)}
