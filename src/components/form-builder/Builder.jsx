@@ -6,6 +6,7 @@ import {
   useSensors,
 } from "@dnd-kit/core";
 import DesignerContextProvider from "../../context/DesignerContext";
+import Header from "../common/Header";
 import DragOverlayWrapper from "../ui/DragOverlayWrapper";
 import DesignerSidebar from "./DesignerSidebar";
 import FormBuilder from "./FormBuilder";
@@ -30,12 +31,16 @@ const Builder = () => {
   return (
     <DesignerContextProvider>
       <DndContext sensors={sensors}>
-        <div className="py-12 px-6 flex w-full h-full gap-6">
-          <DesignerSidebar />
-          <FormBuilder />
-          <RightSidebar />
+        <div className="space-y-6">
+          <Header />
+          {/* <BuilderHeader /> */}
+          <div className="px-6 flex w-full h-full gap-6">
+            <DesignerSidebar />
+            <FormBuilder />
+            <RightSidebar />
+          </div>
+          <DragOverlayWrapper />
         </div>
-        <DragOverlayWrapper />
       </DndContext>
     </DesignerContextProvider>
   );

@@ -91,7 +91,7 @@ export const btnElements = [
     label: "Checkbox",
     icon: <FaCheckSquare />,
     type: "checkbox",
-    placeholder: "", // Not applicable for checkbox
+    placeholder: "",
     isRequired: false,
     isReadOnly: false,
   },
@@ -100,7 +100,7 @@ export const btnElements = [
     label: "Radio",
     icon: <FaDotCircle />,
     type: "radio",
-    placeholder: "", // Not applicable for radio
+    placeholder: "",
     isRequired: false,
     isReadOnly: false,
   },
