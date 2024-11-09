@@ -35,6 +35,7 @@ export default function DesignerContextProvider({ children }) {
     <DesignerContext.Provider
       value={{
         elements,
+        setElements,
         onAddElement,
         onUpdateElement,
         onRemoveElement,

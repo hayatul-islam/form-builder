@@ -1,4 +1,3 @@
-import React from "react";
 import InputField from "../common/InputField";
 import InputFile from "../common/InputFile";
 
@@ -7,11 +6,25 @@ const SingleElement = ({ element }) => {
 
   switch (element?.type) {
     case "file":
-      filed = <InputFile label={element.label} type="file" value="" />;
+      filed = (
+        <InputFile
+          label={element.label}
+          placeholder={element?.placeholder}
+          type="file"
+          value=""
+        />
+      );
       break;
 
     default:
-      filed = <InputField label={element.label} type={element.type} value="" />;
+      filed = (
+        <InputField
+          label={element.label}
+          placeholder={element?.placeholder}
+          type={element.type}
+          value=""
+        />
+      );
       break;
   }
 

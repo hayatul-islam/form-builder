@@ -9,6 +9,7 @@ import SingleElement from "./SingleElement";
 const ElementWrapper = ({ element }) => {
   const { onRemoveElement, selectedElement, setSelectedElement } =
     useDesigner();
+
   const [mouseIsOver, setMouseIsOver] = useState(false);
 
   const isSelected = selectedElement?.id === element?.id;
