@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { onGetLocalStorage, onSetLocalStorage } from "../utils";
 
 export const DesignerContext = createContext(null);
@@ -6,9 +6,10 @@ export const DesignerContext = createContext(null);
 export default function DesignerContextProvider({ children }) {
   const [forms, setForms] = useState([]);
   const [selectForm, setSelectForm] = useState({});
-  const [elements, setElements] = useState([]);
-  const [settings, setSettings] = useState({});
+  // const [elementssss, setElements] = useState([]);
   const [selectedElement, setSelectedElement] = useState();
+
+  const elements = selectForm?.elements || [];
 
   // form functionality
   const onAddForm = (newForm) => {
@@ -20,21 +21,21 @@ export default function DesignerContextProvider({ children }) {
     if (form?.id) {
       onSetLocalStorage("form", form);
       setSelectForm(form || {});
-      setElements(form?.elements || []);
+      // setElements(form?.elements || []);
     } else {
       const form = onGetLocalStorage("form");
       setSelectForm(form || {});
-      setElements(form?.elements || []);
+      // setElements(form?.elements || []);
     }
   };
 
   // element functionality
   const onAddElement = (index, element) => {
-    setElements((prev) => {
-      const newElements = [...prev];
-      newElements.splice(index, 0, element);
-      return newElements;
-    });
+    // setElements((prev) => {
+    //   const newElements = [...prev];
+    //   newElements.splice(index, 0, element);
+    //   return newElements;
+    // });
 
     setSelectForm((prev) => ({
       ...prev,
@@ -47,12 +48,12 @@ export default function DesignerContextProvider({ children }) {
   };
 
   const onUpdateElement = (id, element) => {
-    setElements((prev) => {
-      const newElements = [...prev];
-      const index = newElements.findIndex((el) => el.id === id);
-      newElements[index] = element;
-      return newElements;
-    });
+    // setElements((prev) => {
+    //   const newElements = [...prev];
+    //   const index = newElements.findIndex((el) => el.id === id);
+    //   newElements[index] = element;
+    //   return newElements;
+    // });
 
     setSelectForm((prev) => {
       const newElements = [...prev.elements];
@@ -68,7 +69,7 @@ export default function DesignerContextProvider({ children }) {
   };
 
   const onRenderElement = (elements) => {
-    setElements(elements);
+    // setElements(elements);
 
     setSelectForm((prev) => ({
       ...prev,
@@ -77,12 +78,17 @@ export default function DesignerContextProvider({ children }) {
   };
 
   const onRemoveElement = (id) => {
-    setElements((prev) => prev.filter((element) => element.id !== id));
+    // setElements((prev) => prev.filter((element) => element.id !== id));
     setSelectForm((prev) => ({
       ...prev,
       elements: prev.elements.filter((element) => element.id !== id),
     }));
   };
+
+  // When the selected form data changes, store the updated form data in localStorage
+  useEffect(() => {
+    selectForm?.id && onSetLocalStorage("form", selectForm);
+  }, [selectForm]);
 
   return (
     <DesignerContext.Provider
