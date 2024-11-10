@@ -28,8 +28,6 @@ export default function DesignerContextProvider({ children }) {
     }
   };
 
-  console.log(selectForm);
-
   // element functionality
   const onAddElement = (index, element) => {
     setElements((prev) => {
