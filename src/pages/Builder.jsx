@@ -1,9 +1,13 @@
+import Forms from "../components/builder/Forms";
 import { BuilderProvider } from "../context/BuilderContext";
+import PageLayout from "../layout/PageLayout";
 
 const Builder = () => {
   return (
     <BuilderProvider>
-      <div className="container py-12 flex gap-6">Builder</div>
+      <PageLayout>
+        <Forms />
+      </PageLayout>
     </BuilderProvider>
   );
 };
