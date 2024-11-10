@@ -5,8 +5,6 @@ const Properties = () => {
   const { selectedElement, setSelectedElement, onUpdateElement } =
     useDesigner();
 
-  console.log(selectedElement);
-
   const onChange = (key, value) => {
     const newElement = {
       ...selectedElement,

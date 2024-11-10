@@ -5,8 +5,9 @@ export const DesignerContext = createContext(null);
 
 export default function DesignerContextProvider({ children }) {
   const [forms, setForms] = useState([]);
-  const [selectForm, setSelForm] = useState({});
+  const [selectForm, setSelectForm] = useState({});
   const [elements, setElements] = useState([]);
+  const [settings, setSettings] = useState({});
   const [selectedElement, setSelectedElement] = useState();
 
   // form functionality
@@ -18,14 +19,16 @@ export default function DesignerContextProvider({ children }) {
     const form = forms?.find((form) => form?.id === id);
     if (form?.id) {
       onSetLocalStorage("form", form);
-      setSelForm(form || {});
+      setSelectForm(form || {});
       setElements(form?.elements || []);
     } else {
       const form = onGetLocalStorage("form");
-      setSelForm(form || {});
+      setSelectForm(form || {});
       setElements(form?.elements || []);
     }
   };
+
+  console.log(selectForm);
 
   // element functionality
   const onAddElement = (index, element) => {
@@ -34,6 +37,15 @@ export default function DesignerContextProvider({ children }) {
       newElements.splice(index, 0, element);
       return newElements;
     });
+
+    setSelectForm((prev) => ({
+      ...prev,
+      elements: [
+        ...prev.elements.slice(0, index),
+        element,
+        ...prev.elements.slice(index),
+      ],
+    }));
   };
 
   const onUpdateElement = (id, element) => {
@@ -43,14 +55,35 @@ export default function DesignerContextProvider({ children }) {
       newElements[index] = element;
       return newElements;
     });
+
+    setSelectForm((prev) => {
+      const newElements = [...prev.elements];
+      const index = newElements.findIndex((el) => el.id === id);
+      if (index !== -1) {
+        newElements[index] = element;
+      }
+      return {
+        ...prev,
+        elements: newElements,
+      };
+    });
   };
 
   const onRenderElement = (elements) => {
     setElements(elements);
+
+    setSelectForm((prev) => ({
+      ...prev,
+      elements,
+    }));
   };
 
   const onRemoveElement = (id) => {
     setElements((prev) => prev.filter((element) => element.id !== id));
+    setSelectForm((prev) => ({
+      ...prev,
+      elements: prev.elements.filter((element) => element.id !== id),
+    }));
   };
 
   return (
@@ -62,7 +95,6 @@ export default function DesignerContextProvider({ children }) {
         onSelectForm,
 
         elements,
-        setElements,
         onAddElement,
         onUpdateElement,
         onRemoveElement,
