@@ -1,15 +1,30 @@
 import { createContext, useState } from "react";
+import { onGetLocalStorage, onSetLocalStorage } from "../utils";
 
 export const DesignerContext = createContext(null);
 
 export default function DesignerContextProvider({ children }) {
   const [forms, setForms] = useState([]);
+  const [selectForm, setSelForm] = useState({});
   const [elements, setElements] = useState([]);
   const [selectedElement, setSelectedElement] = useState();
 
   // form functionality
   const onAddForm = (newForm) => {
     setForms((prev) => [...prev, newForm]);
+  };
+
+  const onSelectForm = (id) => {
+    const form = forms?.find((form) => form?.id === id);
+    if (form?.id) {
+      onSetLocalStorage("form", form);
+      setSelForm(form || {});
+      setElements(form?.elements || []);
+    } else {
+      const form = onGetLocalStorage("form");
+      setSelForm(form || {});
+      setElements(form?.elements || []);
+    }
   };
 
   // element functionality
@@ -43,6 +58,8 @@ export default function DesignerContextProvider({ children }) {
       value={{
         forms,
         onAddForm,
+        selectForm,
+        onSelectForm,
 
         elements,
         setElements,

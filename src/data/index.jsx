@@ -129,7 +129,26 @@ export const demo = [
     id: 1,
     name: "Login Form",
     image: "",
-    elements: [],
+    elements: [
+      {
+        id: "5b5f372e-1a05-4890-8ca5-27b05d9d44b9",
+        name: "emailField",
+        label: "Email",
+        type: "email",
+        placeholder: "Enter your email",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "9c57340e-f5a5-41b4-8bb7-f0c87636615f",
+        name: "passwordField",
+        label: "Password",
+        type: "password",
+        placeholder: "Enter your password",
+        isRequired: true,
+        isReadOnly: false,
+      },
+    ],
     settings: {},
   },
   {

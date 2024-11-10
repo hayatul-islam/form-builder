@@ -5,6 +5,9 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import useDesigner from "../../hooks/useDesigner";
 import DragOverlayWrapper from "../ui/DragOverlayWrapper";
 import BuilderHeader from "./BuilderHeader";
 import DesignerSidebar from "./DesignerSidebar";
@@ -12,6 +15,13 @@ import FormBuilder from "./FormBuilder";
 import RightSidebar from "./RightSidebar";
 
 const Builder = () => {
+  const { id } = useParams();
+  const { onSelectForm } = useDesigner();
+
+  useEffect(() => {
+    if (id) onSelectForm(id);
+  }, [id]);
+
   const mouseSensors = useSensor(MouseSensor, {
     activationConstraint: {
       distance: 10,

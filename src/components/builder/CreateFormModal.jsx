@@ -20,6 +20,8 @@ const CreateFormModal = ({ demo, onClose }) => {
     };
 
     onAddForm(newForm);
+    navigate(`/builder/${newForm?.id}`);
+    onClose();
   };
 
   return (
