@@ -3,9 +3,16 @@ import { createContext, useState } from "react";
 export const DesignerContext = createContext(null);
 
 export default function DesignerContextProvider({ children }) {
+  const [forms, setForms] = useState([]);
   const [elements, setElements] = useState([]);
   const [selectedElement, setSelectedElement] = useState();
 
+  // form functionality
+  const onAddForm = (newForm) => {
+    setForms((prev) => [...prev, newForm]);
+  };
+
+  // element functionality
   const onAddElement = (index, element) => {
     setElements((prev) => {
       const newElements = [...prev];
@@ -34,11 +41,15 @@ export default function DesignerContextProvider({ children }) {
   return (
     <DesignerContext.Provider
       value={{
+        forms,
+        onAddForm,
+
         elements,
         setElements,
         onAddElement,
         onUpdateElement,
         onRemoveElement,
+
         selectedElement,
         setSelectedElement,
         onRenderElement,

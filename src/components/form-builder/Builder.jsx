@@ -5,9 +5,8 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
-import DesignerContextProvider from "../../context/DesignerContext";
-import Header from "../common/Header";
 import DragOverlayWrapper from "../ui/DragOverlayWrapper";
+import BuilderHeader from "./BuilderHeader";
 import DesignerSidebar from "./DesignerSidebar";
 import FormBuilder from "./FormBuilder";
 import RightSidebar from "./RightSidebar";
@@ -29,20 +28,17 @@ const Builder = () => {
   const sensors = useSensors(mouseSensors, touchSensor);
 
   return (
-    <DesignerContextProvider>
-      <DndContext sensors={sensors}>
-        <div className="space-y-6">
-          <Header />
-          {/* <BuilderHeader /> */}
-          <div className="px-6 flex w-full h-full gap-6">
-            <DesignerSidebar />
-            <FormBuilder />
-            <RightSidebar />
-          </div>
-          <DragOverlayWrapper />
+    <DndContext sensors={sensors}>
+      <div className="space-y-6">
+        <BuilderHeader />
+        <div className="px-6 flex w-full h-full gap-6">
+          <DesignerSidebar />
+          <FormBuilder />
+          <RightSidebar />
         </div>
-      </DndContext>
-    </DesignerContextProvider>
+        <DragOverlayWrapper />
+      </div>
+    </DndContext>
   );
 };
 

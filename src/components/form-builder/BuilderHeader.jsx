@@ -4,8 +4,10 @@ import Button from "../ui/Button";
 
 const BuilderHeader = () => {
   return (
-    <div className="bg-white border-b border-gray py-4 px-6 flex justify-between items-center">
-      <div></div>
+    <div className=" flex justify-between items-center px-6 py-4 border-b border-black/10">
+      <div>
+        <h2 className="text-[24px] font-medium text-primary">Easy Form</h2>
+      </div>
       <div className="flex items-center gap-3">
         <Button className="bg-transparent border w-8 h-8 !p-0 flex justify-center items-center">
           <FaRegEye className="text-[12px]" />

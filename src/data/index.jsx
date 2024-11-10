@@ -123,3 +123,20 @@ export const btnElements = [
     isReadOnly: false,
   },
 ];
+
+export const demo = [
+  {
+    id: 1,
+    name: "Login Form",
+    image: "",
+    elements: [],
+    settings: {},
+  },
+  {
+    id: 2,
+    name: "Register Form",
+    image: "",
+    elements: [],
+    settings: {},
+  },
+];
