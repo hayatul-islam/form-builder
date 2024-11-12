@@ -13,7 +13,7 @@ const ColorPicker = ({ name, label, value, onChange, className }) => {
   };
 
   return (
-    <div>
+    <div id="colorPicker">
       {label && <label className="font-medium pb-1 block">{label}</label>}
 
       <div
@@ -25,13 +25,13 @@ const ColorPicker = ({ name, label, value, onChange, className }) => {
         onFocus={handleContainerFocus}
         onBlur={handleContainerBlur}
       >
-        <div className="w-[20px] h-[20px] ">
+        <div className="h-7">
           <input
             type="color"
             name={name}
             value={value}
             onChange={(e) => onChange(name, e.target.value)}
-            className="w-[20px] h-[20px] border-none cursor-pointer"
+            className="h-full w-6 border-none cursor-pointer"
             aria-label={`${label} color picker`}
           />
         </div>
