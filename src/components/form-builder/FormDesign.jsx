@@ -8,7 +8,6 @@ const FormDesign = () => {
   const onChange = (key, value) => {
     setValues(onInputValueChange(values, key, value));
   };
-  console.log(values);
 
   return (
     <div>
