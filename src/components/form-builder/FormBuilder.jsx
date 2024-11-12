@@ -100,7 +100,7 @@ function FormBuilder() {
       onClick={() => {
         if (selectedElement) setSelectedElement(null);
       }}
-      className="w-full "
+      className="max-w-[800px] w-full mx-auto "
     >
       <div
         ref={droppable.setNodeRef}

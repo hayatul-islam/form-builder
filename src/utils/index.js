@@ -10,3 +10,12 @@ export const onGetLocalStorage = (name) => {
 
   return JSON.parse(value);
 };
+
+export const onInputValueChange = (values, key, value) => {
+  const newValues = {
+    ...values,
+    [key]: value,
+  };
+
+  return newValues;
+};

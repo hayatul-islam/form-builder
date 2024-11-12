@@ -1,0 +1,17 @@
+const Input = ({ name, label, value, type, onChange, className }) => {
+  return (
+    <div className="space-y-1">
+      <label className="font-medium">{label}</label>
+      <input
+        type={type}
+        name={name}
+        id={name}
+        value={value}
+        onChange={(e) => onChange(name, e.target.value)}
+        className={`${className} w-full border border-black/20 bg-white py-1.5 px-2 rounded focus:border-black/50 focus:outline-none`}
+      />
+    </div>
+  );
+};
+
+export default Input;

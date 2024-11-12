@@ -1,12 +1,12 @@
 const InputField = ({
   name,
-  placeholder,
   type = "text",
-  disabled = false,
   value = "",
-  isRequired = false,
   label,
+  placeholder,
   className = "",
+  isDisabled = false,
+  isRequired = false,
   isReadOnly = false,
 }) => {
   return (
@@ -20,10 +20,10 @@ const InputField = ({
       <input
         type={type}
         name={name}
-        value={value}
+        // value={value}
         placeholder={placeholder}
         required={isRequired}
-        disabled={disabled}
+        disabled={isDisabled}
         readOnly={isReadOnly}
         className={`${className} h-[40px]  rounded border  w-full bg-transparent px-4 text-[14px] focus:outline-blue-400`}
       />
