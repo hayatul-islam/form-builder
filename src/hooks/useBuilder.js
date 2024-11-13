@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { DesignerContext } from "../context/DesignerContext";
 
-const useDesigner = () => {
+const useBuilder = () => {
   const context = useContext(DesignerContext);
 
   if (!context) {
-    throw new Error("useDesigner must be withing a designer context!");
+    throw new Error("useBuilder must be withing a designer context!");
   }
 
   return context;
 };
 
-export default useDesigner;
+export default useBuilder;

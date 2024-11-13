@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { MdOutlineColorLens } from "react-icons/md";
 import { RiSettingsLine } from "react-icons/ri";
-import useDesigner from "../../hooks/useDesigner";
+import useBuilder from "../../hooks/useBuilder";
 import ToggleButton from "../common/ToggleButton";
 import Input from "./Input";
 
 const Properties = () => {
-  const { selectedElement, setSelectedElement, onUpdateElement } =
-    useDesigner();
+  const { selectedElement, setSelectedElement, onUpdateElement } = useBuilder();
   const [type, setType] = useState("property");
 
   const onChange = (key, value) => {

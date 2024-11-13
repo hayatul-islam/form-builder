@@ -7,7 +7,7 @@ import {
 } from "@dnd-kit/core";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import useDesigner from "../../hooks/useDesigner";
+import useBuilder from "../../hooks/useBuilder";
 import DragOverlayWrapper from "../ui/DragOverlayWrapper";
 import BuilderHeader from "./BuilderHeader";
 import DesignerSidebar from "./DesignerSidebar";
@@ -16,7 +16,7 @@ import RightSidebar from "./RightSidebar";
 
 const Builder = () => {
   const { id } = useParams();
-  const { onSelectForm } = useDesigner();
+  const { onSelectForm } = useBuilder();
 
   useEffect(() => {
     if (id) onSelectForm(id);

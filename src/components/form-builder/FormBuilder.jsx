@@ -2,7 +2,7 @@ import { useDndMonitor, useDroppable } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
 import { ImEnlarge } from "react-icons/im";
 import { v4 as uuidv4 } from "uuid";
-import useDesigner from "../../hooks/useDesigner";
+import useBuilder from "../../hooks/useBuilder";
 import DroppableElement from "../ui/DroppableElement";
 import ElementWrapper from "./ElementWrapper";
 
@@ -13,7 +13,7 @@ function FormBuilder() {
     selectedElement,
     setSelectedElement,
     onRenderElement,
-  } = useDesigner();
+  } = useBuilder();
 
   const droppable = useDroppable({
     id: "designer-drop-area",

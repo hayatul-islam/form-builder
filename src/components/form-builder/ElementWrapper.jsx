@@ -2,13 +2,12 @@ import { useDraggable, useDroppable } from "@dnd-kit/core";
 import { useState } from "react";
 import { RiDeleteBin6Line, RiSettingsLine } from "react-icons/ri";
 import { RxDragHandleDots2 } from "react-icons/rx";
-import useDesigner from "../../hooks/useDesigner";
+import useBuilder from "../../hooks/useBuilder";
 import DroppableElement from "../ui/DroppableElement";
 import SingleElement from "./SingleElement";
 
 const ElementWrapper = ({ element }) => {
-  const { onRemoveElement, selectedElement, setSelectedElement } =
-    useDesigner();
+  const { onRemoveElement, selectedElement, setSelectedElement } = useBuilder();
 
   const [mouseIsOver, setMouseIsOver] = useState(false);
 

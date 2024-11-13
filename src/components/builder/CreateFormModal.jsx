@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import useDesigner from "../../hooks/useDesigner";
+import useBuilder from "../../hooks/useBuilder";
 import Button from "../ui/Button";
 
 const CreateFormModal = ({ demo, onClose }) => {
-  const { onAddForm } = useDesigner();
+  const { onAddForm } = useBuilder();
   const navigate = useNavigate();
 
   const [inputValue, setInputValue] = useState(demo?.name || "");

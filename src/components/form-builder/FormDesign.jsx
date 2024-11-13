@@ -1,9 +1,9 @@
-import useDesigner from "../../hooks/useDesigner";
+import useBuilder from "../../hooks/useBuilder";
 import { onInputValueChange } from "../../utils";
 import ColorPicker from "../ui/ColorPicker";
 
 const FormDesign = () => {
-  const { settings, onUpdateSettings } = useDesigner();
+  const { settings, onUpdateSettings } = useBuilder();
 
   const onChange = (key, value, subKey) => {
     const updateSettings = onInputValueChange(settings, key, value, subKey);

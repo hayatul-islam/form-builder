@@ -1,9 +1,9 @@
 import { useDraggable } from "@dnd-kit/core";
 import { v4 as uuidv4 } from "uuid";
-import useDesigner from "../../hooks/useDesigner";
+import useBuilder from "../../hooks/useBuilder";
 
 const ButtonElement = ({ element }) => {
-  const { elements, onAddElement } = useDesigner();
+  const { elements, onAddElement } = useBuilder();
 
   const draggable = useDraggable({
     id: `designer-btn-${element?.name}`,

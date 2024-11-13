@@ -1,9 +1,9 @@
-import useDesigner from "../../hooks/useDesigner";
+import useBuilder from "../../hooks/useBuilder";
 import FormDesign from "./FormDesign";
 import Properties from "./Properties";
 
 const RightSidebar = () => {
-  const { selectedElement } = useDesigner();
+  const { selectedElement } = useBuilder();
 
   return (
     <div className="bg-gray max-w-[300px] w-full rounded-lg space-y-3 p-4">
