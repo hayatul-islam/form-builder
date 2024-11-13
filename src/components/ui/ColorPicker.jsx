@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-const ColorPicker = ({ name, label, value, onChange, className }) => {
+const ColorPicker = ({ name, subKey, label, value, onChange, className }) => {
   const containerRef = useRef(null);
   const [isContainerFocused, setIsContainerFocused] = useState(false);
 
@@ -30,7 +30,7 @@ const ColorPicker = ({ name, label, value, onChange, className }) => {
             type="color"
             name={name}
             value={value}
-            onChange={(e) => onChange(name, e.target.value)}
+            onChange={(e) => onChange(name, e.target.value, subKey)}
             className="h-full w-6 border-none cursor-pointer"
             aria-label={`${label} color picker`}
           />

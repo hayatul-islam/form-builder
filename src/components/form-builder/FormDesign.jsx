@@ -1,12 +1,13 @@
-import { useState } from "react";
+import useDesigner from "../../hooks/useDesigner";
 import { onInputValueChange } from "../../utils";
 import ColorPicker from "../ui/ColorPicker";
 
 const FormDesign = () => {
-  const [values, setValues] = useState({});
+  const { settings, onUpdateSettings } = useDesigner();
 
-  const onChange = (key, value) => {
-    setValues(onInputValueChange(values, key, value));
+  const onChange = (key, value, subKey) => {
+    const updateSettings = onInputValueChange(settings, key, value, subKey);
+    onUpdateSettings(updateSettings);
   };
 
   return (
@@ -15,16 +16,18 @@ const FormDesign = () => {
         <h3>Text Color</h3>
         <div className="flex justify-between items-center gap-3">
           <ColorPicker
-            name="light"
             label="Light"
-            value={values?.textColor || ""}
+            name="textColor"
+            subKey="light"
+            value={settings?.textColor?.light || ""}
             type="color"
             onChange={onChange}
           />
           <ColorPicker
-            name="dark"
-            label="dark"
-            value={values?.textColor || ""}
+            label="Dark"
+            name="textColor"
+            subKey="dark"
+            value={settings?.textColor?.dark || ""}
             type="color"
             onChange={onChange}
           />

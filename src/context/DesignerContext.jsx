@@ -6,10 +6,10 @@ export const DesignerContext = createContext(null);
 export default function DesignerContextProvider({ children }) {
   const [forms, setForms] = useState([]);
   const [selectForm, setSelectForm] = useState({});
-  // const [elementssss, setElements] = useState([]);
   const [selectedElement, setSelectedElement] = useState();
 
   const elements = selectForm?.elements || [];
+  const settings = selectForm?.settings || {};
 
   // form functionality
   const onAddForm = (newForm) => {
@@ -27,6 +27,14 @@ export default function DesignerContextProvider({ children }) {
       setSelectForm(form || {});
       // setElements(form?.elements || []);
     }
+  };
+
+  // settings functionality
+  const onUpdateSettings = (settings) => {
+    setSelectForm((prev) => ({
+      ...prev,
+      settings,
+    }));
   };
 
   // element functionality
@@ -98,14 +106,17 @@ export default function DesignerContextProvider({ children }) {
         selectForm,
         onSelectForm,
 
+        settings,
+        onUpdateSettings,
+
         elements,
         onAddElement,
         onUpdateElement,
         onRemoveElement,
+        onRenderElement,
 
         selectedElement,
         setSelectedElement,
-        onRenderElement,
       }}
     >
       {children}

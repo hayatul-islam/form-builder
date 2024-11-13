@@ -11,11 +11,29 @@ export const onGetLocalStorage = (name) => {
   return JSON.parse(value);
 };
 
-export const onInputValueChange = (values, key, value) => {
-  const newValues = {
-    ...values,
-    [key]: value,
-  };
-
-  return newValues;
+export const onInputValueChange = (values, key, value, subKey = null) => {
+  if (subKey) {
+    const nestedValue = values?.[key] || {};
+    return {
+      ...values,
+      [key]: {
+        ...nestedValue,
+        [subKey]: value,
+      },
+    };
+  } else {
+    return {
+      ...values,
+      [key]: value,
+    };
+  }
 };
+
+// export const onInputValueChange = (values, key, value) => {
+//   const newValues = {
+//     ...values,
+//     [key]: value,
+//   };
+
+//   return newValues;
+// };
