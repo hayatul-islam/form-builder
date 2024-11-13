@@ -3,32 +3,13 @@ import InputFile from "../common/InputFile";
 
 const SingleElement = ({ element }) => {
   let filed;
-
   switch (element?.type) {
     case "file":
-      filed = (
-        <InputFile
-          label={element.label}
-          placeholder={element?.placeholder}
-          isRequired={element?.isRequired}
-          isReadOnly={element?.isReadOnly}
-          type="file"
-          value=""
-        />
-      );
+      filed = <InputFile {...element} />;
       break;
 
     default:
-      filed = (
-        <InputField
-          label={element.label}
-          type={element.type}
-          placeholder={element?.placeholder}
-          isRequired={element?.isRequired}
-          isReadOnly={element?.isReadOnly}
-          value=""
-        />
-      );
+      filed = <InputField {...element} />;
       break;
   }
 

@@ -5,7 +5,10 @@ export const DesignerContext = createContext(null);
 
 export default function DesignerContextProvider({ children }) {
   const [forms, setForms] = useState([]);
-  const [selectForm, setSelectForm] = useState({});
+
+  const initialForm = onGetLocalStorage("form") || {};
+
+  const [selectForm, setSelectForm] = useState(initialForm);
   const [selectedElement, setSelectedElement] = useState();
 
   const elements = selectForm?.elements || [];

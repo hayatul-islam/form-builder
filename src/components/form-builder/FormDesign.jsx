@@ -1,6 +1,7 @@
 import useBuilder from "../../hooks/useBuilder";
 import { onInputValueChange } from "../../utils";
 import ColorPicker from "../ui/ColorPicker";
+import Input from "./Input";
 
 const FormDesign = () => {
   const { settings, onUpdateSettings } = useBuilder();
@@ -9,6 +10,8 @@ const FormDesign = () => {
     const updateSettings = onInputValueChange(settings, key, value, subKey);
     onUpdateSettings(updateSettings);
   };
+
+  console.log(settings);
 
   return (
     <div>
@@ -33,6 +36,14 @@ const FormDesign = () => {
           />
         </div>
       </div>
+
+      <Input
+        label="Font Size"
+        name="fontSize"
+        value={settings?.fontSize || ""}
+        type="number"
+        onChange={onChange}
+      />
     </div>
   );
 };

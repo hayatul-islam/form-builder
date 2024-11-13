@@ -1,3 +1,5 @@
+import useBuilder from "../../hooks/useBuilder";
+
 const InputField = ({
   name,
   type = "text",
@@ -9,10 +11,19 @@ const InputField = ({
   isRequired = false,
   isReadOnly = false,
 }) => {
+  const { settings } = useBuilder();
+
+  const { fontSize, textColor } = settings || {};
+
   return (
     <div className="space-y-1">
       {label && (
-        <label>
+        <label
+          style={{
+            color: textColor?.light,
+            fontSize: `${fontSize}px`,
+          }}
+        >
           {label}
           {isRequired && <span className="text-red-500"> *</span>}
         </label>
