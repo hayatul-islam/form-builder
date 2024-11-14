@@ -149,7 +149,87 @@ export const demo = [
         isReadOnly: false,
       },
     ],
-    settings: {},
+    settings: {
+      layout: {
+        width: "",
+        background: {
+          light: "",
+          dark: "",
+        },
+        pageBackground: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+      label: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+      },
+      inputField: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        background: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+    },
   },
   {
     id: 2,
@@ -159,3 +239,85 @@ export const demo = [
     settings: {},
   },
 ];
+
+const settings = {
+  layout: {
+    width: "",
+    background: {
+      light: "",
+      dark: "",
+    },
+    pageBackground: {
+      light: "",
+      dark: "",
+    },
+    margin: {
+      top: "",
+      bottom: "",
+      left: "",
+      right: "",
+    },
+    padding: {
+      top: "",
+      bottom: "",
+      left: "",
+      right: "",
+    },
+    border: {
+      color: "",
+      darkColor: "",
+      style: "",
+      thickness: "",
+    },
+  },
+  label: {
+    fontSize: "",
+    fontWeight: "",
+    color: {
+      light: "",
+      dark: "",
+    },
+    margin: {
+      top: "",
+      bottom: "",
+      left: "",
+      right: "",
+    },
+    padding: {
+      top: "",
+      bottom: "",
+      left: "",
+      right: "",
+    },
+  },
+  inputField: {
+    fontSize: "",
+    fontWeight: "",
+    color: {
+      light: "",
+      dark: "",
+    },
+    background: {
+      light: "",
+      dark: "",
+    },
+    margin: {
+      top: "",
+      bottom: "",
+      left: "",
+      right: "",
+    },
+    padding: {
+      top: "",
+      bottom: "",
+      left: "",
+      right: "",
+    },
+    border: {
+      color: "",
+      darkColor: "",
+      style: "",
+      thickness: "",
+    },
+  },
+};

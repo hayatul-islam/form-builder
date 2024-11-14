@@ -1,6 +1,6 @@
 import useBuilder from "../../hooks/useBuilder";
 import { onInputValueChange } from "../../utils";
-import ColorPicker from "../ui/ColorPicker";
+import DualColorPicker from "../ui/DualColorPicker";
 import Input from "./Input";
 
 const FormDesign = () => {
@@ -15,35 +15,26 @@ const FormDesign = () => {
 
   return (
     <div>
-      <div>
-        <h3>Text Color</h3>
-        <div className="flex justify-between items-center gap-3">
-          <ColorPicker
-            label="Light"
-            name="textColor"
-            subKey="light"
-            value={settings?.textColor?.light || ""}
-            type="color"
+      <div className="space-y-4">
+        <h2>LAYOUT</h2>
+
+        <div className="space-y-3">
+          <DualColorPicker
+            label="Background"
+            name="layout"
+            value={settings?.layout?.bg || {}}
             onChange={onChange}
+            subKey="bg"
           />
-          <ColorPicker
-            label="Dark"
-            name="textColor"
-            subKey="dark"
-            value={settings?.textColor?.dark || ""}
-            type="color"
+          <Input
+            label="Font Size"
+            name="fontSize"
+            value={settings?.fontSize || ""}
+            type="number"
             onChange={onChange}
           />
         </div>
       </div>
-
-      <Input
-        label="Font Size"
-        name="fontSize"
-        value={settings?.fontSize || ""}
-        type="number"
-        onChange={onChange}
-      />
     </div>
   );
 };
