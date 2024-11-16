@@ -1,10 +1,13 @@
+import { fontWeightStyle } from "../../data";
 import useBuilder from "../../hooks/useBuilder";
 import { onInputValueChange } from "../../utils";
 import Accordion from "../ui/Accordion";
 import BorderStyle from "../ui/BorderStyle";
+import ColorPicker from "../ui/ColorPicker";
 import DualColorPicker from "../ui/DualColorPicker";
 import Input from "../ui/Input";
 import MarginPaddingStyle from "../ui/MarginPaddingStyle";
+import Select from "../ui/Select";
 
 const FormDesign = () => {
   const { settings, onUpdateSettings } = useBuilder();
@@ -18,64 +21,115 @@ const FormDesign = () => {
 
   return (
     <div className="space-y-4">
+      {/* layout  */}
       <Accordion title="Layout">
         <div className="space-y-3">
-          <Input
-            label="Max Width"
-            name="layout"
-            subKey="width"
-            value={settings?.layout?.width || ""}
-            type="number"
-            placeholder="0px"
-            onChange={onChange}
-          />
-          <DualColorPicker
-            label="Background"
-            name="layout"
-            value={settings?.layout?.background || {}}
-            onChange={onChange}
-            subKey="background"
-          />
-          <BorderStyle
-            label="Border"
-            name="layout"
-            value={settings?.layout?.border || {}}
-            onChange={onChange}
-            subKey="border"
-          />
-          <MarginPaddingStyle
-            label="Margin"
-            name="layout"
-            value={settings?.layout?.margin || {}}
-            onChange={onChange}
-            subKey="margin"
-          />
-          <MarginPaddingStyle
-            label="Padding"
-            name="layout"
-            value={settings?.layout?.padding || {}}
-            onChange={onChange}
-            subKey="padding"
-          />
+          <h3 className="font-medium text-[18px]">Form</h3>
+          <div className="space-y-3">
+            <Input
+              label="Max Width"
+              name="layout"
+              subKey="width"
+              value={settings?.layout?.width || ""}
+              type="number"
+              placeholder="0px"
+              onChange={onChange}
+            />
+            <DualColorPicker
+              label="Background"
+              name="layout"
+              value={settings?.layout?.background || {}}
+              onChange={onChange}
+              subKey="background"
+            />
+            <BorderStyle
+              label="Border"
+              name="layout"
+              value={settings?.layout?.border || {}}
+              onChange={onChange}
+              subKey="border"
+            />
+            <MarginPaddingStyle
+              label="Margin"
+              name="layout"
+              value={settings?.layout?.margin || {}}
+              onChange={onChange}
+              subKey="margin"
+            />
+            <MarginPaddingStyle
+              label="Padding"
+              name="layout"
+              value={settings?.layout?.padding || {}}
+              onChange={onChange}
+              subKey="padding"
+            />
+          </div>
+        </div>
+        <div className="space-y-3 pt-4">
+          <h3 className="font-medium text-[18px]">Page</h3>
+          <div className="space-y-3">
+            <DualColorPicker
+              label="Background"
+              name="layout"
+              value={settings?.layout?.pageBackground || {}}
+              onChange={onChange}
+              subKey="pageBackground"
+            />
+
+            <MarginPaddingStyle
+              label="Padding"
+              name="layout"
+              value={settings?.layout?.pagePadding || {}}
+              onChange={onChange}
+              subKey="pagePadding"
+            />
+          </div>
         </div>
       </Accordion>
 
+      {/* label  */}
       <Accordion title="Label">
         <div className="space-y-3">
-          <Input
-            label="Font Size"
-            name="label"
-            subKey="fontSize"
-            value={settings?.label?.fontSize || ""}
-            type="number"
-            onChange={onChange}
-          />
           <DualColorPicker
             label="Color"
             name="label"
             value={settings?.label?.color || {}}
             onChange={onChange}
             subKey="color"
+          />
+          <Input
+            label="Font Size"
+            name="label"
+            subKey="fontSize"
+            value={settings?.label?.fontSize || ""}
+            type="number"
+            placeholder="0px"
+            onChange={onChange}
+          />
+          <Select
+            label="Font Weight"
+            name="label"
+            subKey="fontWeight"
+            value={settings?.label?.fontWeight || ""}
+            options={fontWeightStyle}
+            onChange={onChange}
+          />
+
+          <ColorPicker
+            label="Required Color"
+            name="label"
+            subKey="requiredColor"
+            value={settings?.label?.requiredColor || ""}
+            type="color"
+            onChange={onChange}
+          />
+
+          <MarginPaddingStyle
+            label="Margin"
+            name="label"
+            value={settings?.label?.margin || {}}
+            onChange={onChange}
+            subKey="margin"
           />
         </div>
       </Accordion>

@@ -11,7 +11,7 @@ const Select = ({
 
   return (
     <div className="space-y-1">
-      <label className="font-medium block">{label}</label>
+      <label className="font-normal block">{label}</label>
       <select
         name={name}
         id={name}

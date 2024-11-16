@@ -14,7 +14,7 @@ const ColorPicker = ({ name, subKey, label, value, onChange, className }) => {
 
   return (
     <div id="colorPicker">
-      {label && <label className="font-medium pb-1 block">{label}</label>}
+      {label && <label className="font-normal pb-1 block">{label}</label>}
 
       <div
         ref={containerRef}

@@ -259,6 +259,21 @@ export const borderStyle = [
   },
 ];
 
+export const fontWeightStyle = [
+  {
+    label: "Normal",
+    value: "normal",
+  },
+  {
+    label: "Medium",
+    value: "medium",
+  },
+  {
+    label: "Bold",
+    value: "bold",
+  },
+];
+
 const settings = {
   layout: {
     width: "",
