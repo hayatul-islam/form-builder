@@ -1,5 +1,5 @@
 import useBuilder from "../../hooks/useBuilder";
-import { onLabelStyle } from "../../utils";
+import { onInputStyle, onLabelStyle } from "../../utils";
 
 const InputField = ({
   name,
@@ -15,6 +15,7 @@ const InputField = ({
   const { settings } = useBuilder();
 
   const labelStyle = onLabelStyle(settings?.label);
+  const inputStyle = onInputStyle(settings?.inputField);
 
   return (
     <div className="space-y-1">
@@ -37,7 +38,8 @@ const InputField = ({
         required={isRequired}
         disabled={isDisabled}
         readOnly={isReadOnly}
-        className={`${className} h-[40px]  rounded border  w-full bg-transparent px-4 text-[14px] focus:outline-blue-400`}
+        style={inputStyle?.style}
+        className={`${className}  rounded border  w-full bg-transparent px-4 text-[14px] focus:outline-blue-400`}
       />
     </div>
   );

@@ -131,6 +131,57 @@ const FormDesign = () => {
           />
         </div>
       </Accordion>
+
+      {/* input  */}
+      <Accordion title="Input">
+        <div className="space-y-3">
+          <Input
+            label="Font Size"
+            name="inputField"
+            subKey="fontSize"
+            value={settings?.inputField?.fontSize || ""}
+            type="number"
+            placeholder="0px"
+            onChange={onChange}
+          />
+          <Select
+            label="Font Weight"
+            name="inputField"
+            subKey="fontWeight"
+            value={settings?.inputField?.fontWeight || ""}
+            options={fontWeightStyle}
+            onChange={onChange}
+          />
+          <DualColorPicker
+            label="Background"
+            name="inputField"
+            value={settings?.inputField?.background || {}}
+            onChange={onChange}
+            subKey="background"
+          />
+          <BorderStyle
+            label="Border"
+            name="inputField"
+            value={settings?.inputField?.border || {}}
+            onChange={onChange}
+            subKey="border"
+          />
+          <MarginPaddingStyle
+            label="Padding"
+            name="inputField"
+            value={settings?.inputField?.padding || {}}
+            onChange={onChange}
+            subKey="padding"
+          />
+          <MarginPaddingStyle
+            label="Margin"
+            name="inputField"
+            value={settings?.inputField?.margin || {}}
+            onChange={onChange}
+            subKey="margin"
+          />
+        </div>
+      </Accordion>
     </div>
   );
 };
