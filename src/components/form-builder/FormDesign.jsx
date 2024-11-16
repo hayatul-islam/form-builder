@@ -3,7 +3,6 @@ import useBuilder from "../../hooks/useBuilder";
 import { onInputValueChange } from "../../utils";
 import Accordion from "../ui/Accordion";
 import BorderStyle from "../ui/BorderStyle";
-import ColorPicker from "../ui/ColorPicker";
 import DualColorPicker from "../ui/DualColorPicker";
 import Input from "../ui/Input";
 import MarginPaddingStyle from "../ui/MarginPaddingStyle";
@@ -115,13 +114,12 @@ const FormDesign = () => {
             onChange={onChange}
           />
 
-          <ColorPicker
+          <DualColorPicker
             label="Required Color"
             name="label"
-            subKey="requiredColor"
-            value={settings?.label?.requiredColor || ""}
-            type="color"
+            value={settings?.label?.requiredColor || {}}
             onChange={onChange}
+            subKey="requiredColor"
           />
 
           <MarginPaddingStyle

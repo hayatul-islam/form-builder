@@ -1,4 +1,5 @@
 import useBuilder from "../../hooks/useBuilder";
+import { onLabelStyle } from "../../utils";
 
 const InputField = ({
   name,
@@ -13,19 +14,19 @@ const InputField = ({
 }) => {
   const { settings } = useBuilder();
 
-  const { fontSize, textColor } = settings || {};
+  const labelStyle = onLabelStyle(settings?.label);
 
   return (
     <div className="space-y-1">
       {label && (
-        <label
-          style={{
-            color: textColor?.light,
-            fontSize: `${fontSize}px`,
-          }}
-        >
+        <label style={labelStyle?.style}>
           {label}
-          {isRequired && <span className="text-red-500"> *</span>}
+          {isRequired && (
+            <span style={labelStyle?.requiredStyle} className="text-red-500">
+              {" "}
+              *
+            </span>
+          )}
         </label>
       )}
       <input

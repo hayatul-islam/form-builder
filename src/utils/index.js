@@ -29,6 +29,32 @@ export const onInputValueChange = (values, key, value, subKey = null) => {
   }
 };
 
+export const onPageStyle = (layout = {}) => {
+  const { pageBackground = {}, pagePadding = {} } = layout;
+
+  // Generate CSS style
+  const style = {
+    backgroundColor: pageBackground?.light || "white",
+    paddingTop: pagePadding?.top ? `${pagePadding.top}px` : "",
+    paddingBottom: pagePadding?.bottom ? `${pagePadding.bottom}px` : "",
+    paddingLeft: pagePadding?.left ? `${pagePadding.left}px` : "",
+    paddingRight: pagePadding?.right ? `${pagePadding.right}px` : "",
+  };
+
+  // Generate Tailwind classes
+  const className = [
+    pageBackground.light ? `bg-[${pageBackground.light}]` : "bg-white",
+    pagePadding.top ? `pt-[${pagePadding.top}px]` : "",
+    pagePadding.bottom ? `pb-[${pagePadding.bottom}px]` : "",
+    pagePadding.left ? `pl-[${pagePadding.left}px]` : "",
+    pagePadding.right ? `pr-[${pagePadding.right}px]` : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return { style, className };
+};
+
 export const onFormStyle = (layout = {}) => {
   const {
     width,
@@ -41,7 +67,7 @@ export const onFormStyle = (layout = {}) => {
   // Generate css style
   const style = {
     maxWidth: width ? `${width}px` : "auto",
-    background: background.light || "white",
+    background: background.light || "#F9F7F7",
     margin: "auto",
     marginTop: margin.top ? `${margin.top}px` : "auto",
     marginBottom: margin.bottom ? `${margin.bottom}px` : "auto",
@@ -78,4 +104,56 @@ export const onFormStyle = (layout = {}) => {
     .join(" ");
 
   return { style, className };
+};
+
+export const onLabelStyle = (label = {}) => {
+  const {
+    fontSize,
+    fontWeight,
+    margin = {},
+    padding = {},
+    color = {},
+    requiredColor = {},
+  } = label;
+
+  // Generate CSS style
+  const style = {
+    color: color.light || "",
+    fontSize: fontSize ? `${fontSize}px` : "",
+    fontWeight: fontWeight || "",
+    marginTop: margin.top ? `${margin.top}px` : "",
+    marginBottom: margin.bottom ? `${margin.bottom}px` : "",
+    marginLeft: margin.left ? `${margin.left}px` : "",
+    marginRight: margin.right ? `${margin.right}px` : "",
+    paddingTop: padding.top ? `${padding.top}px` : "",
+    paddingBottom: padding.bottom ? `${padding.bottom}px` : "",
+    paddingLeft: padding.left ? `${padding.left}px` : "",
+    paddingRight: padding.right ? `${padding.right}px` : "",
+  };
+
+  const requiredStyle = {
+    color: requiredColor.light || "red",
+  };
+
+  const requiredClassName = requiredColor.light
+    ? `text-[${requiredColor.light}]`
+    : "text-red-500";
+
+  // Generate Tailwind classes
+  const className = [
+    fontSize ? `text-[${fontSize}px]` : "",
+    fontWeight ? `font-[${fontWeight}]` : "",
+    margin.top ? `mt-[${margin.top}px]` : "",
+    margin.bottom ? `mb-[${margin.bottom}px]` : "",
+    margin.left ? `ml-[${margin.left}px]` : "",
+    margin.right ? `mr-[${margin.right}px]` : "",
+    padding.top ? `pt-[${padding.top}px]` : "",
+    padding.bottom ? `pb-[${padding.bottom}px]` : "",
+    padding.left ? `pl-[${padding.left}px]` : "",
+    padding.right ? `pr-[${padding.right}px]` : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return { style, className, requiredStyle, requiredClassName };
 };
