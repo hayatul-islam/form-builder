@@ -1,5 +1,6 @@
 import useBuilder from "../../hooks/useBuilder";
 import { onInputValueChange } from "../../utils";
+import Accordion from "../ui/Accordion";
 import BorderStyle from "../ui/BorderStyle";
 import DualColorPicker from "../ui/DualColorPicker";
 import Input from "../ui/Input";
@@ -16,10 +17,8 @@ const FormDesign = () => {
   console.log(settings);
 
   return (
-    <div className="space-y-6">
-      <div className="space-y-4">
-        <h2>LAYOUT</h2>
-
+    <div className="space-y-4">
+      <Accordion title="Layout">
         <div className="space-y-3">
           <Input
             label="Max Width"
@@ -59,9 +58,9 @@ const FormDesign = () => {
             subKey="padding"
           />
         </div>
-      </div>
-      <div className="space-y-4">
-        <h2>LABEL</h2>
+      </Accordion>
+
+      <Accordion title="Label">
         <div className="space-y-3">
           <Input
             label="Font Size"
@@ -79,7 +78,7 @@ const FormDesign = () => {
             subKey="color"
           />
         </div>
-      </div>
+      </Accordion>
     </div>
   );
 };
