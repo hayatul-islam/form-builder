@@ -13,6 +13,7 @@ function FormBuilder() {
     selectedElement,
     setSelectedElement,
     onRenderElement,
+    settings,
   } = useBuilder();
 
   const droppable = useDroppable({
@@ -95,6 +96,9 @@ function FormBuilder() {
     },
   });
 
+  const bg = settings?.layout?.background;
+  const background = bg?.light ? `bg-[${bg?.light}] ` : "bg-gray";
+
   return (
     <div
       onClick={() => {
@@ -129,7 +133,12 @@ function FormBuilder() {
         )}
 
         {elements.length > 0 && (
-          <div className="w-full p-6 bg-white rounded-lg ">
+          <div
+            style={{
+              background: bg?.light,
+            }}
+            className="w-full p-6 bg-white rounded-lg "
+          >
             {elements?.map((element) => (
               <ElementWrapper key={element?.id} element={element} />
             ))}

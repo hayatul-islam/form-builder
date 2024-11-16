@@ -3,7 +3,7 @@ import { MdOutlineColorLens } from "react-icons/md";
 import { RiSettingsLine } from "react-icons/ri";
 import useBuilder from "../../hooks/useBuilder";
 import ToggleButton from "../common/ToggleButton";
-import Input from "./Input";
+import Input from "../ui/Input";
 
 const Properties = () => {
   const { selectedElement, setSelectedElement, onUpdateElement } = useBuilder();

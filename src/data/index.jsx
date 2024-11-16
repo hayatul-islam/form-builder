@@ -240,6 +240,25 @@ export const demo = [
   },
 ];
 
+export const borderStyle = [
+  {
+    label: "None",
+    value: "none",
+  },
+  {
+    label: "Solid",
+    value: "solid",
+  },
+  {
+    label: "Dotted",
+    value: "dotted",
+  },
+  {
+    label: "Dashed",
+    value: "dashed",
+  },
+];
+
 const settings = {
   layout: {
     width: "",
