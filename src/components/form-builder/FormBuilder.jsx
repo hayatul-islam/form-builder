@@ -3,6 +3,7 @@ import { arrayMove } from "@dnd-kit/sortable";
 import { ImEnlarge } from "react-icons/im";
 import { v4 as uuidv4 } from "uuid";
 import useBuilder from "../../hooks/useBuilder";
+import { onFormStyle } from "../../utils";
 import DroppableElement from "../ui/DroppableElement";
 import ElementWrapper from "./ElementWrapper";
 
@@ -96,21 +97,25 @@ function FormBuilder() {
     },
   });
 
-  const bg = settings?.layout?.background;
-  const background = bg?.light ? `bg-[${bg?.light}] ` : "bg-gray";
+  const formStyle = onFormStyle(settings?.layout);
 
   return (
     <div
       onClick={() => {
         if (selectedElement) setSelectedElement(null);
       }}
-      className="max-w-[800px] w-full mx-auto "
+      className="max-w-[800px] w-full mx-auto"
+      style={{
+        background: settings?.layout?.pageBackground?.light || "white",
+        paddingTop: `${settings?.layout?.pagePadding?.top}px`,
+        paddingBottom: `${settings?.layout?.pagePadding?.bottom}px`,
+        paddingLeft: `${settings?.layout?.pagePadding?.left}px`,
+        paddingRight: `${settings?.layout?.pagePadding?.right}px`,
+      }}
     >
       <div
         ref={droppable.setNodeRef}
-        className={`bg-gray h-auto rounded-xl p-4 ${
-          droppable.isOver && "ring ring-primary/20"
-        }`}
+        className={`h-auto  ${droppable.isOver && "ring ring-primary/20"}`}
       >
         {!droppable.isOver && elements?.length === 0 && (
           <div className="p-8 w-full">
@@ -132,12 +137,10 @@ function FormBuilder() {
           </div>
         )}
 
-        {elements.length > 0 && (
+        {elements?.length > 0 && (
           <div
-            style={{
-              background: bg?.light,
-            }}
-            className="w-full p-6 bg-white rounded-lg "
+            style={formStyle?.style}
+            className="w-full p-6 bg-gray rounded-lg "
           >
             {elements?.map((element) => (
               <ElementWrapper key={element?.id} element={element} />
