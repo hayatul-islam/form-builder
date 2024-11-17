@@ -274,6 +274,24 @@ export const onFormCodeGenerator = (form = {}) => {
                   )
                   .join("")}
               </select>`
+            : field.type === "radio"
+            ? `<div className="flex flex-wrap gap-4">
+                ${field.options
+                  ?.map(
+                    (option) => `
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="${field.name}"
+                    value="${option?.value}"
+                    className="focus:ring focus:ring-blue-400"
+                  />
+                  ${option?.label}
+                </label>
+                `
+                  )
+                  .join("")}
+              </div>`
             : `<input
                 type="${field.type}"
                 name="${field.name}"
@@ -333,6 +351,24 @@ const Form = () => {
                       )
                       .join("")}
                   </select>`
+                : field.type === "radio"
+                ? `<div className="flex flex-wrap gap-4">
+                    ${field.options
+                      ?.map(
+                        (option) => `
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="${field.name}"
+                        value="${option?.value}"
+                        className="focus:ring focus:ring-blue-400"
+                      />
+                      ${option?.label}
+                    </label>
+                    `
+                      )
+                      .join("")}
+                  </div>`
                 : `<input
                     type="${field.type}"
                     name="${field.name}"

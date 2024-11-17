@@ -1,4 +1,5 @@
 import InputField from "../ui/InputField";
+import RadioButtonGroup from "../ui/RadioButtonGroup";
 import SelectOptions from "../ui/SelectOption";
 
 const SingleElement = ({ element }) => {
@@ -6,6 +7,10 @@ const SingleElement = ({ element }) => {
   switch (element?.type) {
     case "select":
       filed = <SelectOptions {...element} />;
+      break;
+
+    case "radio":
+      filed = <RadioButtonGroup {...element} />;
       break;
 
     default:

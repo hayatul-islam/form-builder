@@ -15,7 +15,7 @@ import {
 
 export const btnElements = [
   {
-    name: "textField",
+    name: "text",
     label: "Text Field",
     icon: <FaTextWidth />,
     type: "text",
@@ -24,7 +24,7 @@ export const btnElements = [
     isReadOnly: false,
   },
   {
-    name: "numberField",
+    name: "number",
     label: "Number",
     icon: <FaHashtag />,
     type: "number",
@@ -33,7 +33,7 @@ export const btnElements = [
     isReadOnly: false,
   },
   {
-    name: "emailField",
+    name: "email",
     label: "Email",
     icon: <FaAt />,
     type: "email",
@@ -42,7 +42,7 @@ export const btnElements = [
     isReadOnly: false,
   },
   {
-    name: "passwordField",
+    name: "password",
     label: "Password",
     icon: <FaLock />,
     type: "password",
@@ -51,7 +51,7 @@ export const btnElements = [
     isReadOnly: false,
   },
   {
-    name: "dateField",
+    name: "date",
     label: "Date",
     icon: <FaCalendarAlt />,
     type: "date",
@@ -60,7 +60,7 @@ export const btnElements = [
     isReadOnly: false,
   },
   {
-    name: "timeField",
+    name: "time",
     label: "Time",
     icon: <FaClock />,
     type: "time",
@@ -69,7 +69,7 @@ export const btnElements = [
     isReadOnly: false,
   },
   {
-    name: "urlField",
+    name: "url",
     label: "URL",
     icon: <FaLink />,
     type: "url",
@@ -78,7 +78,7 @@ export const btnElements = [
     isReadOnly: false,
   },
   {
-    name: "telField",
+    name: "phone",
     label: "Phone",
     icon: <FaPhone />,
     type: "number",
@@ -87,7 +87,7 @@ export const btnElements = [
     isReadOnly: false,
   },
   {
-    name: "checkboxField",
+    name: "checkbox",
     label: "Checkbox",
     icon: <FaCheckSquare />,
     type: "checkbox",
@@ -96,16 +96,30 @@ export const btnElements = [
     isReadOnly: false,
   },
   {
-    name: "radioField",
+    name: "radio",
     label: "Radio",
     icon: <FaDotCircle />,
     type: "radio",
     placeholder: "",
     isRequired: false,
     isReadOnly: false,
+    options: [
+      {
+        label: "Option 1",
+        value: "1",
+      },
+      {
+        label: "Option 2",
+        value: "2",
+      },
+      {
+        label: "Option 3",
+        value: "3",
+      },
+    ],
   },
   {
-    name: "selectField",
+    name: "select",
     label: "Select",
     icon: <FaCaretSquareDown />,
     type: "select",
