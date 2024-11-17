@@ -34,7 +34,7 @@ export const onPageStyle = (layout = {}) => {
 
   // Generate CSS style
   const style = {
-    backgroundColor: pageBackground?.light || "white",
+    background: pageBackground?.light ?? "#fff",
     paddingTop: pagePadding?.top ? `${pagePadding.top}px` : "16px",
     paddingBottom: pagePadding?.bottom ? `${pagePadding.bottom}px` : "16px",
     paddingLeft: pagePadding?.left ? `${pagePadding.left}px` : "16px",
@@ -44,6 +44,7 @@ export const onPageStyle = (layout = {}) => {
   // Generate Tailwind classes
   const className = [
     pageBackground.light ? `bg-[${pageBackground.light}]` : "bg-white",
+    pageBackground.dark ? `dark:bg-[${pageBackground.light}]` : "dark:bg-black",
     pagePadding.top ? `pt-[${pagePadding.top}px]` : "pt-4",
     pagePadding.bottom ? `pb-[${pagePadding.bottom}px]` : "pb-4",
     pagePadding.left ? `pl-[${pagePadding.left}px]` : "pl-4",
@@ -175,6 +176,7 @@ export const onInputStyle = (inputField = {}) => {
 
   // Generate CSS style
   const style = {
+    width: "100%",
     backgroundColor: background.light || "#F9F7F7",
     color: color.light || "",
     fontSize: fontSize ? `${fontSize}px` : "",
@@ -228,17 +230,25 @@ export const onFormCodeGenerator = (form = {}) => {
   const labelStyle = onLabelStyle(settings?.label);
   const inputStyle = onInputStyle(settings?.inputField);
 
-  const formCode = `
-    <div className="${pageStyle?.className}">
-      <form className="${formStyle?.className}">
+  const previewCode = `
+    <div style={${JSON.stringify(pageStyle?.style || {})}} className="${
+    pageStyle?.className
+  }">
+      <form style={${JSON.stringify(formStyle?.style || {})}} className="${
+    formStyle?.className
+  }">
         ${elements
           .map(
             (field) => `
         <div key="${field.id}" className="flex flex-col">
-          <label className="${labelStyle?.className}">
+          <label style={${JSON.stringify(
+            labelStyle?.style || {}
+          )}} className="${labelStyle?.className}">
             ${field.label}${
               field.isRequired
-                ? `<span className="text-[${
+                ? `<span style={${JSON.stringify(
+                    labelStyle?.requiredStyle || {}
+                  )}} className="text-[${
                     settings?.label?.requiredColor?.light || "red"
                   }]"> *</span>`
                 : ""
@@ -250,6 +260,7 @@ export const onFormCodeGenerator = (form = {}) => {
             placeholder="${field.placeholder}"
             ${field.isRequired ? "required" : ""}
             ${field.isReadOnly ? "readOnly" : ""}
+            style={${JSON.stringify(inputStyle?.style || {})}}
             className="${
               inputStyle?.className
             } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -260,47 +271,52 @@ export const onFormCodeGenerator = (form = {}) => {
           .join("")}
       </form>
     </div>
+  `;
+
+  const reactCode = `
+  import React from "react";
+
+  const Form = () => {
+    return (
+      <div className="${pageStyle?.className || "p-4 bg-gray-100"}">
+        <form className="${formStyle?.className || "space-y-4"}">
+          ${elements
+            .map(
+              (field) => `
+          <div key="${field.id}" className="flex flex-col space-y-1">
+            <label className="${
+              labelStyle?.className || "font-medium text-gray-700"
+            }">
+              ${field.label}${
+                field.isRequired
+                  ? `<span className="text-[${
+                      settings?.label?.requiredColor?.light || "red"
+                    }]"> *</span>`
+                  : ""
+              }
+            </label>
+            <input
+              type="${field.type}"
+              name="${field.name}"
+              placeholder="${field.placeholder}"
+              ${field.isRequired ? "required" : ""}
+              ${field.isReadOnly ? "readOnly" : ""}
+              className="${
+                inputStyle?.className ||
+                "border rounded p-2 focus:ring focus:ring-blue-400"
+              }"
+            />
+          </div>
+          `
+            )
+            .join("")}
+        </form>
+      </div>
+    );
+  };
+
+  export default Form;
 `;
 
-  return formCode;
-
-  //   return `import React from "react";
-
-  // const FormComponent = () => {
-  //   return (
-  //     <div className="${pageStyle?.className}">
-  //       <form className="${formStyle?.className}">
-  //         ${elements
-  //           .map(
-  //             (field) => `
-  //         <div key="${field.id}" className="flex flex-col">
-  //           <label className="${labelStyle?.className}">
-  //             ${field.label}${
-  //               field.isRequired
-  //                 ? `<span className="text-[${
-  //                     settings?.label?.requiredColor?.light || "red"
-  //                   }]"> *</span>`
-  //                 : ""
-  //             }
-  //           </label>
-  //           <input
-  //             type="${field.type}"
-  //             name="${field.name}"
-  //             placeholder="${field.placeholder}"
-  //             ${field.isRequired ? "required" : ""}
-  //             ${field.isReadOnly ? "readOnly" : ""}
-  //             className="${
-  //               inputStyle?.className
-  //             } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-  //           />
-  //         </div>
-  //         `
-  //           )
-  //           .join("")}
-  //       </form>
-  //     </div>
-  //   );
-  // };
-
-  // export default FormComponent;`;
+  return { previewCode, reactCode };
 };

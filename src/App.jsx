@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Code from "./components/code/Code";
 import FormBuilder from "./components/form-builder/Builder";
 import Preview from "./components/preview/Preview";
 import Builder from "./pages/Builder";
@@ -13,6 +14,7 @@ function App() {
           <Route path="/builder" element={<Builder />} />
           <Route path="/builder/:id" element={<FormBuilder />} />
           <Route path="/preview" element={<Preview />} />
+          <Route path="/code" element={<Code />} />
         </Routes>
       </BrowserRouter>
     </div>
