@@ -2,8 +2,8 @@ import { useState } from "react";
 import { MdOutlineColorLens } from "react-icons/md";
 import { RiSettingsLine } from "react-icons/ri";
 import useBuilder from "../../hooks/useBuilder";
-import ToggleButton from "../common/ToggleButton";
 import Input from "../ui/Input";
+import ToggleButton from "../ui/ToggleButton";
 
 const Properties = () => {
   const { selectedElement, setSelectedElement, onUpdateElement } = useBuilder();

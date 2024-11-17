@@ -1,8 +1,8 @@
 import { DragOverlay, useDndMonitor } from "@dnd-kit/core";
 import { useState } from "react";
 import useBuilder from "../../hooks/useBuilder";
-import InputField from "../common/InputField";
 import { ButtonElementOverlay } from "../form-builder/ButtonElement";
+import InputField from "./InputField";
 
 function DragOverlayWrapper() {
   const { elements } = useBuilder();

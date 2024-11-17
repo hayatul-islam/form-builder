@@ -1,11 +1,11 @@
-import InputField from "../common/InputField";
-import InputFile from "../common/InputFile";
+import InputField from "../ui/InputField";
+import SelectOptions from "../ui/SelectOption";
 
 const SingleElement = ({ element }) => {
   let filed;
   switch (element?.type) {
-    case "file":
-      filed = <InputFile {...element} />;
+    case "select":
+      filed = <SelectOptions {...element} />;
       break;
 
     default:

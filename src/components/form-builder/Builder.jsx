@@ -8,8 +8,8 @@ import {
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useBuilder from "../../hooks/useBuilder";
+import PageLayout from "../../layout/PageLayout";
 import DragOverlayWrapper from "../ui/DragOverlayWrapper";
-import BuilderHeader from "./BuilderHeader";
 import DesignerSidebar from "./DesignerSidebar";
 import FormBuilder from "./FormBuilder";
 import RightSidebar from "./RightSidebar";
@@ -38,17 +38,18 @@ const Builder = () => {
   const sensors = useSensors(mouseSensors, touchSensor);
 
   return (
-    <DndContext sensors={sensors}>
-      <div className="space-y-6">
-        <BuilderHeader />
-        <div className="px-6 flex w-full h-full gap-6">
-          <DesignerSidebar />
-          <FormBuilder />
-          <RightSidebar />
+    <PageLayout type="builder">
+      <DndContext sensors={sensors}>
+        <div className="space-y-6">
+          <div className="px-6 flex w-full h-full gap-6">
+            <DesignerSidebar />
+            <FormBuilder />
+            <RightSidebar />
+          </div>
+          <DragOverlayWrapper />
         </div>
-        <DragOverlayWrapper />
-      </div>
-    </DndContext>
+      </DndContext>
+    </PageLayout>
   );
 };
 

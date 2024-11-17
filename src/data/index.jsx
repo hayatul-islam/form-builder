@@ -81,7 +81,7 @@ export const btnElements = [
     name: "telField",
     label: "Phone",
     icon: <FaPhone />,
-    type: "tel",
+    type: "number",
     placeholder: "Enter phone number",
     isRequired: false,
     isReadOnly: false,
@@ -112,6 +112,20 @@ export const btnElements = [
     placeholder: "Select an option",
     isRequired: false,
     isReadOnly: false,
+    options: [
+      {
+        label: "Option 1",
+        value: "1",
+      },
+      {
+        label: "Option 2",
+        value: "2",
+      },
+      {
+        label: "Option 3",
+        value: "3",
+      },
+    ],
   },
   {
     name: "fileField",

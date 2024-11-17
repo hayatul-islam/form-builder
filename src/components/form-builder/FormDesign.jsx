@@ -182,6 +182,23 @@ const FormDesign = () => {
           />
         </div>
       </Accordion>
+
+      <div>
+        <h3>Choose an Option:</h3>
+
+        <label style={{ display: "block", margin: "8px 0" }}>
+          <input type="radio" name="radioGroup" value="" />
+          option
+        </label>
+        <label style={{ display: "block", margin: "8px 0" }}>
+          <input type="radio" name="radioGroup" value="" />
+          option
+        </label>
+        <label style={{ display: "block", margin: "8px 0" }}>
+          <input type="radio" name="radioGroup" value="" />
+          option
+        </label>
+      </div>
     </div>
   );
 };

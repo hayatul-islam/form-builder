@@ -34,7 +34,7 @@ export const onPageStyle = (layout = {}) => {
 
   // Generate CSS style
   const style = {
-    background: pageBackground?.light ?? "#fff",
+    backgroundColor: pageBackground?.light ?? "#F9F7F7",
     paddingTop: pagePadding?.top ? `${pagePadding.top}px` : "16px",
     paddingBottom: pagePadding?.bottom ? `${pagePadding.bottom}px` : "16px",
     paddingLeft: pagePadding?.left ? `${pagePadding.left}px` : "16px",
@@ -43,7 +43,7 @@ export const onPageStyle = (layout = {}) => {
 
   // Generate Tailwind classes
   const className = [
-    pageBackground.light ? `bg-[${pageBackground.light}]` : "bg-white",
+    pageBackground.light ? `bg-[${pageBackground.light}]` : "bg-[#F9F7F7]",
     pageBackground.dark ? `dark:bg-[${pageBackground.light}]` : "dark:bg-black",
     pagePadding.top ? `pt-[${pagePadding.top}px]` : "pt-4",
     pagePadding.bottom ? `pb-[${pagePadding.bottom}px]` : "pb-4",
@@ -68,7 +68,7 @@ export const onFormStyle = (layout = {}) => {
   // Generate css style
   const style = {
     maxWidth: width !== "200" ? `${width}px` : "100%",
-    backgroundColor: background.light || "#F9F7F7",
+    backgroundColor: background.light || "white",
     margin: "auto",
     marginTop: margin.top ? `${margin.top}px` : "auto",
     marginBottom: margin.bottom ? `${margin.bottom}px` : "auto",
@@ -177,7 +177,7 @@ export const onInputStyle = (inputField = {}) => {
   // Generate CSS style
   const style = {
     width: "100%",
-    backgroundColor: background.light || "#F9F7F7",
+    backgroundColor: background.light || "transparent",
     color: color.light || "",
     fontSize: fontSize ? `${fontSize}px` : "",
     fontWeight: fontWeight || "",
@@ -185,21 +185,21 @@ export const onInputStyle = (inputField = {}) => {
     marginBottom: margin.bottom ? `${margin.bottom}px` : "auto",
     marginLeft: margin.left ? `${margin.left}px` : "auto",
     marginRight: margin.right ? `${margin.right}px` : "auto",
-    paddingTop: padding.top ? `${padding.top}px` : "",
-    paddingBottom: padding.bottom ? `${padding.bottom}px` : "",
-    paddingLeft: padding.left ? `${padding.left}px` : "",
-    paddingRight: padding.right ? `${padding.right}px` : "",
+    paddingTop: padding.top ? `${padding.top}px` : "10px",
+    paddingBottom: padding.bottom ? `${padding.bottom}px` : "10px",
+    paddingLeft: padding.left ? `${padding.left}px` : "10px",
+    paddingRight: padding.right ? `${padding.right}px` : "10px",
     border: border.thickness
       ? `${border.thickness}px ${border.style || "solid"} ${
           border.color || "black"
         }`
-      : "none",
+      : "1px solid black",
     borderRadius: border.radius ? `${border.radius}px` : "",
   };
 
   // Generate Tailwind classes
   const className = [
-    background.light ? `bg-[${background.light}]` : "bg-[#F9F7F7]",
+    background.light ? `bg-[${background.light}]` : "bg-transparent",
     color.light ? `text-[${color.light}]` : "",
     fontSize ? `text-[${fontSize}px]` : "",
     fontWeight ? `font-[${fontWeight}]` : "",
@@ -231,90 +231,130 @@ export const onFormCodeGenerator = (form = {}) => {
   const inputStyle = onInputStyle(settings?.inputField);
 
   const previewCode = `
-    <div style={${JSON.stringify(pageStyle?.style || {})}} className="${
+  <div style={${JSON.stringify(pageStyle?.style || {})}} className="${
     pageStyle?.className
   }">
-      <form style={${JSON.stringify(formStyle?.style || {})}} className="${
+    <form style={${JSON.stringify(formStyle?.style || {})}} className="${
     formStyle?.className
   }">
+      ${elements
+        .map(
+          (field) => `
+      <div key="${field.id}" className="flex flex-col">
+        <label style={${JSON.stringify(labelStyle?.style || {})}} className="${
+            labelStyle?.className
+          }">
+          ${field.label}${
+            field.isRequired
+              ? `<span style={${JSON.stringify(
+                  labelStyle?.requiredStyle || {}
+                )}} className="text-[${
+                  settings?.label?.requiredColor?.light || "red"
+                }]"> *</span>`
+              : ""
+          }
+        </label>
+        ${
+          field.type === "select"
+            ? `<select
+                name="${field.name}"
+                ${field.isRequired ? "required" : ""}
+                ${field.isReadOnly ? "readOnly" : ""}
+                placeholder="${field.placeholder}"
+                style={${JSON.stringify(inputStyle?.style || {})}}
+                className="${
+                  inputStyle?.className
+                } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              >
+                ${field.options
+                  .map(
+                    (option) => `
+                <option value="${option?.value}">${option?.label}</option>
+                `
+                  )
+                  .join("")}
+              </select>`
+            : `<input
+                type="${field.type}"
+                name="${field.name}"
+                placeholder="${field.placeholder}"
+                ${field.isRequired ? "required" : ""}
+                ${field.isReadOnly ? "readOnly" : ""}
+                style={${JSON.stringify(inputStyle?.style || {})}}
+                className="${
+                  inputStyle?.className
+                } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />`
+        }
+      </div>
+      `
+        )
+        .join("")}
+    </form>
+  </div>
+`;
+
+  const reactCode = `import React from "react";
+
+const Form = () => {
+  return (
+    <div className="${pageStyle?.className || "p-4 bg-gray-100"}">
+      <form className="${formStyle?.className || "space-y-4"}">
         ${elements
           .map(
             (field) => `
-        <div key="${field.id}" className="flex flex-col">
-          <label style={${JSON.stringify(
-            labelStyle?.style || {}
-          )}} className="${labelStyle?.className}">
-            ${field.label}${
-              field.isRequired
-                ? `<span style={${JSON.stringify(
-                    labelStyle?.requiredStyle || {}
-                  )}} className="text-[${
-                    settings?.label?.requiredColor?.light || "red"
-                  }]"> *</span>`
-                : ""
-            }
-          </label>
-          <input
-            type="${field.type}"
-            name="${field.name}"
-            placeholder="${field.placeholder}"
-            ${field.isRequired ? "required" : ""}
-            ${field.isReadOnly ? "readOnly" : ""}
-            style={${JSON.stringify(inputStyle?.style || {})}}
-            className="${
-              inputStyle?.className
-            } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-        </div>
-        `
-          )
-          .join("")}
-      </form>
-    </div>
-  `;
-
-  const reactCode = ` import React from "react";
-
-  const Form = () => {
-    return (
-      <div className="${pageStyle?.className || "p-4 bg-gray-100"}">
-        <form className="${formStyle?.className || "space-y-4"}">
-          ${elements
-            .map(
-              (field) => `
           <div key="${field.id}" className="flex flex-col space-y-1">
             <label className="${
               labelStyle?.className || "font-medium text-gray-700"
             }">
               ${field.label}${
-                field.isRequired
-                  ? `<span className="text-[${
-                      settings?.label?.requiredColor?.light || "red"
-                    }]"> *</span>`
-                  : ""
-              }
+              field.isRequired
+                ? `<span className="text-[${
+                    settings?.label?.requiredColor?.light || "red"
+                  }]"> *</span>`
+                : ""
+            }
             </label>
-            <input
-              type="${field.type}"
-              name="${field.name}"
-              placeholder="${field.placeholder}"
-              className="${
-                inputStyle?.className ||
-                "border rounded p-2 focus:ring focus:ring-blue-400"
-              }"
-              ${field.isRequired ? "required" : ""}
-              ${field.isReadOnly ? "readOnly" : ""}
-            />
+            ${
+              field.type === "select"
+                ? `<select
+                    name="${field.name}"
+                    className="${
+                      inputStyle?.className ||
+                      "border rounded p-2 focus:ring focus:ring-blue-400"
+                    }"
+                    ${field.isRequired ? "required" : ""}
+                  >
+                    ${field.options
+                      ?.map(
+                        (option) => `
+                    <option value="${option?.value}">${option?.label}</option>
+                    `
+                      )
+                      .join("")}
+                  </select>`
+                : `<input
+                    type="${field.type}"
+                    name="${field.name}"
+                    placeholder="${field.placeholder}"
+                    className="${
+                      inputStyle?.className ||
+                      "border rounded p-2 focus:ring focus:ring-blue-400"
+                    }"
+                    ${field.isRequired ? "required" : ""}
+                    ${field.isReadOnly ? "readOnly" : ""}
+                  />`
+            }
           </div>
           `
-            )
-            .join("")}
-        </form>
-      </div>
-    );
-  };
+          )
+          .join("")}
+      </form>
+    </div>
+  );
+};
 
-  export default Form;
+export default Form;
 `;
 
   return { previewCode, reactCode };

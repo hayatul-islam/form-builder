@@ -1,9 +1,12 @@
 import Header from "../components/common/Header";
+import BuilderHeader from "../components/form-builder/BuilderHeader";
 import PreviewHeader from "../components/preview/PreviewHeader";
 
 const PageLayout = ({ children, type }) => {
   let header = <Header />;
-  if (type === "preview") {
+  if (type === "builder") {
+    header = <BuilderHeader />;
+  } else if (type === "preview") {
     header = <PreviewHeader />;
   } else {
     header = <Header />;
@@ -11,7 +14,7 @@ const PageLayout = ({ children, type }) => {
 
   return (
     <>
-      {header}
+      <div className="sticky top-0 z-50 bg-white">{header}</div>
       {children}
     </>
   );

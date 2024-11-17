@@ -4,13 +4,32 @@ import PageLayout from "../../layout/PageLayout";
 import { onFormCodeGenerator } from "../../utils";
 
 const Preview = () => {
-  const { selectForm } = useBuilder();
+  const { selectForm, previewMode } = useBuilder();
 
   const code = onFormCodeGenerator(selectForm);
 
+  // Set container styles dynamically based on the selected preview mode
+  const getPreviewStyles = () => {
+    switch (previewMode) {
+      case "mobile":
+        return "w-[375px] h-[667px]";
+      case "tablet":
+        return "w-[768px] h-[1024px]";
+      case "desktop":
+        return "w-full h-auto";
+      default:
+        return "w-full h-auto";
+    }
+  };
+
   return (
     <PageLayout type="preview">
-      <JSXParser components={{}} jsx={code?.previewCode} />
+      <div
+        className={`container mx-auto bg-white overflow-hidden ${getPreviewStyles()}`}
+      >
+        {/* Render the generated form */}
+        <JSXParser components={{}} jsx={code?.previewCode || ""} />
+      </div>
     </PageLayout>
   );
 };
