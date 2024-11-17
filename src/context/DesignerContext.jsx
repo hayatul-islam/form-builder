@@ -7,10 +7,9 @@ export default function DesignerContextProvider({ children }) {
   const [forms, setForms] = useState([]);
 
   const initialForm = onGetLocalStorage("form") || {};
-
   const [selectForm, setSelectForm] = useState(initialForm);
   const [selectedElement, setSelectedElement] = useState();
-
+  const [previewMode, setPreviewMode] = useState("desktop");
   const elements = selectForm?.elements || [];
   const settings = selectForm?.settings || {};
 
@@ -96,6 +95,11 @@ export default function DesignerContextProvider({ children }) {
     }));
   };
 
+  // preview mode (desktop, tablet, mobile) functionality
+  const onPreviewMode = (mode) => {
+    setPreviewMode(mode);
+  };
+
   // When the selected form data changes, store the updated form data in localStorage
   useEffect(() => {
     selectForm?.id && onSetLocalStorage("form", selectForm);
@@ -120,6 +124,9 @@ export default function DesignerContextProvider({ children }) {
 
         selectedElement,
         setSelectedElement,
+
+        previewMode,
+        onPreviewMode,
       }}
     >
       {children}

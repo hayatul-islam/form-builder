@@ -273,8 +273,7 @@ export const onFormCodeGenerator = (form = {}) => {
     </div>
   `;
 
-  const reactCode = `
-  import React from "react";
+  const reactCode = ` import React from "react";
 
   const Form = () => {
     return (
@@ -299,12 +298,12 @@ export const onFormCodeGenerator = (form = {}) => {
               type="${field.type}"
               name="${field.name}"
               placeholder="${field.placeholder}"
-              ${field.isRequired ? "required" : ""}
-              ${field.isReadOnly ? "readOnly" : ""}
               className="${
                 inputStyle?.className ||
                 "border rounded p-2 focus:ring focus:ring-blue-400"
               }"
+              ${field.isRequired ? "required" : ""}
+              ${field.isReadOnly ? "readOnly" : ""}
             />
           </div>
           `

@@ -9,7 +9,7 @@ const Preview = () => {
   const code = onFormCodeGenerator(selectForm);
 
   return (
-    <PageLayout>
+    <PageLayout type="preview">
       <JSXParser components={{}} jsx={code?.previewCode} />
     </PageLayout>
   );
