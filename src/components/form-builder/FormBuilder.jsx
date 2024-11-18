@@ -105,7 +105,7 @@ function FormBuilder() {
       onClick={() => {
         if (selectedElement) setSelectedElement(null);
       }}
-      className="w-full mx-auto"
+      className="w-full mx-auto bg-white/50"
       style={pageStyle?.style}
     >
       <div
@@ -133,10 +133,7 @@ function FormBuilder() {
         )}
 
         {elements?.length > 0 && (
-          <div
-            style={formStyle?.style}
-            className="w-full p-6 bg-gray rounded-lg "
-          >
+          <div style={formStyle?.style} className={formStyle?.className}>
             {elements?.map((element) => (
               <ElementWrapper key={element?.id} element={element} />
             ))}

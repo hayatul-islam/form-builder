@@ -12,9 +12,9 @@ const Preview = () => {
   const getPreviewStyles = () => {
     switch (previewMode) {
       case "mobile":
-        return "w-[375px] h-[667px]";
+        return "w-[375px] ";
       case "tablet":
-        return "w-[768px] h-[1024px]";
+        return "w-[768px] ";
       case "desktop":
         return "w-full h-auto";
       default:
@@ -25,9 +25,8 @@ const Preview = () => {
   return (
     <PageLayout type="preview">
       <div
-        className={`container mx-auto bg-white overflow-hidden ${getPreviewStyles()}`}
+        className={` bg-white overflow-hidden mx-auto ${getPreviewStyles()}`}
       >
-        {/* Render the generated form */}
         <JSXParser components={{}} jsx={code?.previewCode || ""} />
       </div>
     </PageLayout>

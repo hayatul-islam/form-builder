@@ -1,5 +1,6 @@
+import CheckboxOptions from "../ui/CheckboxOptions";
 import InputField from "../ui/InputField";
-import RadioButtonGroup from "../ui/RadioButtonGroup";
+import RadioOptions from "../ui/RadioOptions";
 import SelectOptions from "../ui/SelectOption";
 
 const SingleElement = ({ element }) => {
@@ -10,7 +11,11 @@ const SingleElement = ({ element }) => {
       break;
 
     case "radio":
-      filed = <RadioButtonGroup {...element} />;
+      filed = <RadioOptions {...element} />;
+      break;
+
+    case "checkbox":
+      filed = <CheckboxOptions {...element} />;
       break;
 
     default:

@@ -222,7 +222,148 @@ export const onInputStyle = (inputField = {}) => {
   return { style, className };
 };
 
-export const onFormCodeGenerator = (form = {}) => {
+export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
+  // Helper functions for generating styles and classes
+  const pageStyle = onPageStyle(settings?.layout);
+  const formStyle = onFormStyle(settings?.layout);
+  const labelStyle = onLabelStyle(settings?.label);
+  const inputStyle = onInputStyle(settings?.inputField);
+
+  // Helper for required asterisk
+  const requiredAsterisk = (required, color) =>
+    required
+      ? `<span style={${JSON.stringify(
+          labelStyle?.requiredStyle || {}
+        )}} className="text-[${color || "red"}]"> *</span>`
+      : "";
+
+  // Field generators
+  const generateSelectField = (field, isPreview) =>
+    `<select
+      name="${field.name}"
+      ${field.isRequired ? "required" : ""}
+      ${field.isReadOnly ? "readOnly" : ""}
+      ${isPreview ? `style={${JSON.stringify(inputStyle?.style || {})}}` : ""}
+      className="${
+        inputStyle?.className || ""
+      } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+    >
+      ${field.options
+        ?.map(
+          (option) =>
+            `<option value="${option?.value}">${option?.label}</option>`
+        )
+        .join("")}
+    </select>`;
+
+  const generateRadioField = (field) =>
+    `<div>
+      ${field.options
+        ?.map(
+          (option) => `
+      <label className="flex items-center gap-2">
+        <input
+          type="radio"
+          name="${field.name}"
+          value="${option?.value}"
+          className="focus:ring focus:ring-blue-400"
+        />
+        ${option?.label}
+      </label>`
+        )
+        .join("")}
+    </div>`;
+
+  const generateCheckboxField = (field) =>
+    `<div>
+      ${field.options
+        ?.map(
+          (option) => `
+      <label className="flex items-center gap-2">
+        <input
+          type="checkbox"
+          name="${field.name}"
+          value="${option?.value}"
+          className="focus:ring focus:ring-blue-400"
+        />
+        ${option?.label}
+      </label>`
+        )
+        .join("")}
+    </div>`;
+
+  const generateInputField = (field, isPreview) =>
+    `<input
+      type="${field.type}"
+      name="${field.name}"
+      placeholder="${field.placeholder || ""}"
+      ${field.isRequired ? "required" : ""}
+      ${field.isReadOnly ? "readOnly" : ""}
+      ${isPreview ? `style={${JSON.stringify(inputStyle?.style || {})}}` : ""}
+      className="${
+        inputStyle?.className || ""
+      } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+    />`;
+
+  // Field mapping
+  const mapFieldsToHTML = (field, isPreview) => {
+    const fieldHTML =
+      field.type === "select"
+        ? generateSelectField(field, isPreview)
+        : field.type === "radio"
+        ? generateRadioField(field)
+        : field.type === "checkbox"
+        ? generateCheckboxField(field)
+        : generateInputField(field, isPreview);
+
+    return `
+      <div key="${field.id}" className="flex flex-col">
+        <label ${
+          isPreview ? `style={${JSON.stringify(labelStyle?.style || {})}}` : ""
+        } className="${labelStyle?.className || ""}">
+          ${field.label}${requiredAsterisk(
+      field.isRequired,
+      settings?.label?.requiredColor?.light
+    )}
+        </label>
+        ${fieldHTML}
+      </div>`;
+  };
+
+  // Generate Preview Code (uses styles)
+  const previewCode = `
+    <div style={${JSON.stringify(pageStyle?.style || {})}} className="${
+    pageStyle?.className || ""
+  }">
+      <form style={${JSON.stringify(formStyle?.style || {})}} className="${
+    formStyle?.className || ""
+  }">
+        ${elements.map((field) => mapFieldsToHTML(field, true)).join("")}
+      </form>
+    </div>
+  `;
+
+  // Generate React Code (only uses className)
+  const reactCode = `
+    import React from "react";
+
+    const Form = () => {
+      return (
+        <div className="${pageStyle?.className || "p-4 bg-gray-100"}">
+          <form className="${formStyle?.className || "space-y-4"}">
+            ${elements.map((field) => mapFieldsToHTML(field, false)).join("")}
+          </form>
+        </div>
+      );
+    };
+
+    export default Form;
+  `;
+
+  return { previewCode, reactCode };
+};
+
+export const onFormCodeGeneratorTest = (form = {}) => {
   const { elements, settings } = form;
 
   const pageStyle = onPageStyle(settings?.layout);
@@ -275,13 +416,31 @@ export const onFormCodeGenerator = (form = {}) => {
                   .join("")}
               </select>`
             : field.type === "radio"
-            ? `<div className="flex flex-wrap gap-4">
+            ? `<div className="">
                 ${field.options
                   ?.map(
                     (option) => `
                 <label className="flex items-center gap-2">
                   <input
                     type="radio"
+                    name="${field.name}"
+                    value="${option?.value}"
+                    className="focus:ring focus:ring-blue-400"
+                  />
+                  ${option?.label}
+                </label>
+                `
+                  )
+                  .join("")}
+              </div>`
+            : field.type === "checkbox"
+            ? `<div className="">
+                ${field.options
+                  ?.map(
+                    (option) => `
+                <label className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
                     name="${field.name}"
                     value="${option?.value}"
                     className="focus:ring focus:ring-blue-400"
@@ -356,9 +515,27 @@ const Form = () => {
                     ${field.options
                       ?.map(
                         (option) => `
-                    <label className="flex items-center gap-2">
+                    <label className="grid items-center gap-2">
                       <input
                         type="radio"
+                        name="${field.name}"
+                        value="${option?.value}"
+                        className="focus:ring focus:ring-blue-400"
+                      />
+                      ${option?.label}
+                    </label>
+                    `
+                      )
+                      .join("")}
+                  </div>`
+                : field.type === "checkbox"
+                ? `<div className="flex flex-wrap gap-4">
+                    ${field.options
+                      ?.map(
+                        (option) => `
+                    <label className="grid items-center gap-2">
+                      <input
+                        type="checkbox"
                         name="${field.name}"
                         value="${option?.value}"
                         className="focus:ring focus:ring-blue-400"

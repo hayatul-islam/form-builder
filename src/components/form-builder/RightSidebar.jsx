@@ -6,7 +6,7 @@ const RightSidebar = () => {
   const { selectedElement } = useBuilder();
 
   return (
-    <div className="bg-gray max-w-[300px] w-full rounded-lg space-y-3 p-4">
+    <div className="bg-gray max-w-[300px] w-full space-y-3 p-4 max-h-screen overflow-y-auto ">
       <div className="flex justify-center">
         <h2 className="font-medium text-[16px]">Settings</h2>
       </div>

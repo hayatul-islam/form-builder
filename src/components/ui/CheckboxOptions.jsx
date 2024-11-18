@@ -1,7 +1,7 @@
 import useBuilder from "../../hooks/useBuilder";
 import { onInputStyle, onLabelStyle } from "../../utils";
 
-const RadioButtonGroup = ({
+const CheckboxOptions = ({
   name,
   value = "",
   label,
@@ -36,7 +36,7 @@ const RadioButtonGroup = ({
         {options.map((option, index) => (
           <label key={index} className="flex items-center gap-2 cursor-pointer">
             <input
-              type="radio"
+              type="checkbox"
               name={name}
               value={option?.value}
               checked={value === option?.value}
@@ -56,4 +56,4 @@ const RadioButtonGroup = ({
   );
 };
 
-export default RadioButtonGroup;
+export default CheckboxOptions;

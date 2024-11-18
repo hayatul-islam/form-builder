@@ -64,11 +64,11 @@ const ElementWrapper = ({ element }) => {
         className={`absolute bottom-0 w-full h-[120px] rounded-b-md `}
       ></div>
 
-      {mouseIsOver && (
+      {/* {mouseIsOver && (
         <div className="absolute h-full w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex justify-center items-center opacity-60">
           <p>Click for properties or drag to move</p>
         </div>
-      )}
+      )} */}
 
       {isSelected && (
         <>

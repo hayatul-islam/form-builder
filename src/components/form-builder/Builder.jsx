@@ -41,7 +41,7 @@ const Builder = () => {
     <PageLayout type="builder">
       <DndContext sensors={sensors}>
         <div className="space-y-6">
-          <div className="px-6 flex w-full h-full gap-6">
+          <div className="flex w-full h-full   ">
             <DesignerSidebar />
             <FormBuilder />
             <RightSidebar />
