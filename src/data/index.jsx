@@ -16,7 +16,7 @@ import {
 export const btnElements = [
   {
     name: "text",
-    label: "Text Field",
+    label: "Short Field",
     icon: <FaTextWidth />,
     type: "text",
     placeholder: "Enter text here",

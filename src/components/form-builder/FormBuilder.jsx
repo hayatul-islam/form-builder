@@ -110,7 +110,7 @@ function FormBuilder() {
     >
       <div
         ref={droppable.setNodeRef}
-        className={` ${droppable.isOver && "ring ring-primary/20"}`}
+        // className={` ${droppable.isOver && "ring ring-primary/20"}`}
       >
         {!droppable.isOver && elements?.length === 0 && (
           <div className="p-8 w-full">

@@ -34,7 +34,7 @@ export const onPageStyle = (layout = {}) => {
 
   // Generate CSS style
   const style = {
-    backgroundColor: pageBackground?.light ?? "#F9F7F7",
+    background: pageBackground?.light ?? "#F9F7F7",
     paddingTop: pagePadding?.top ? `${pagePadding.top}px` : "16px",
     paddingBottom: pagePadding?.bottom ? `${pagePadding.bottom}px` : "16px",
     paddingLeft: pagePadding?.left ? `${pagePadding.left}px` : "16px",
@@ -83,7 +83,7 @@ export const onFormStyle = (layout = {}) => {
           border.color || "black"
         }`
       : "none",
-    borderRadius: border.radius ? `${border.radius}px` : "",
+    borderRadius: border.radius ? `${border.radius}px` : "8px",
   };
 
   // Generate Tailwind classes
@@ -102,7 +102,7 @@ export const onFormStyle = (layout = {}) => {
     border.thickness ? `border-[${border.thickness}px]` : "",
     border.style ? `border-${border.style}` : "border-none",
     border.color ? `border-[${border.color}]` : "",
-    border.radius ? `rounded-[${border.radius}px]` : "",
+    border.radius ? `rounded-[${border.radius}px]` : "8px",
     "space-y-3",
   ]
     .filter(Boolean)
@@ -125,13 +125,20 @@ export const onLabelStyle = (label = {}) => {
   const style = {
     color: color.light || "",
     fontSize: fontSize ? `${fontSize}px` : "",
-    fontWeight: fontWeight || "",
+    fontWeight:
+      fontWeight === "normal"
+        ? "400"
+        : fontWeight === "medium"
+        ? "500"
+        : fontWeight === "bold"
+        ? "700"
+        : "500",
     marginTop: margin.top ? `${margin.top}px` : "",
     marginBottom: margin.bottom ? `${margin.bottom}px` : "",
     marginLeft: margin.left ? `${margin.left}px` : "",
     marginRight: margin.right ? `${margin.right}px` : "",
     paddingTop: padding.top ? `${padding.top}px` : "",
-    paddingBottom: padding.bottom ? `${padding.bottom}px` : "",
+    paddingBottom: padding.bottom ? `${padding.bottom}px` : "6px",
     paddingLeft: padding.left ? `${padding.left}px` : "",
     paddingRight: padding.right ? `${padding.right}px` : "",
   };
@@ -147,13 +154,13 @@ export const onLabelStyle = (label = {}) => {
   // Generate Tailwind classes
   const className = [
     fontSize ? `text-[${fontSize}px]` : "",
-    fontWeight ? `font-[${fontWeight}]` : "",
+    fontWeight ? `font-[${fontWeight}]` : "font-medium",
     margin.top ? `mt-[${margin.top}px]` : "",
     margin.bottom ? `mb-[${margin.bottom}px]` : "",
     margin.left ? `ml-[${margin.left}px]` : "",
     margin.right ? `mr-[${margin.right}px]` : "",
     padding.top ? `pt-[${padding.top}px]` : "",
-    padding.bottom ? `pb-[${padding.bottom}px]` : "",
+    padding.bottom ? `pb-[${padding.bottom}px]` : "pb-1.5",
     padding.left ? `pl-[${padding.left}px]` : "",
     padding.right ? `pr-[${padding.right}px]` : "",
   ]
@@ -194,7 +201,7 @@ export const onInputStyle = (inputField = {}) => {
           border.color || "black"
         }`
       : "1px solid black",
-    borderRadius: border.radius ? `${border.radius}px` : "",
+    borderRadius: border.radius ? `${border.radius}px` : "6px",
   };
 
   // Generate Tailwind classes
@@ -214,7 +221,7 @@ export const onInputStyle = (inputField = {}) => {
     border.thickness ? `border-[${border.thickness}px]` : "",
     border.style ? `border-${border.style}` : "",
     border.color ? `border-[${border.color}]` : "",
-    border.radius ? `rounded-[${border.radius}px]` : "",
+    border.radius ? `rounded-[${border.radius}px]` : "6px",
   ]
     .filter(Boolean)
     .join(" ");

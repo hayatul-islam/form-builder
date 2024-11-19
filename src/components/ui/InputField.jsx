@@ -18,9 +18,9 @@ const InputField = ({
   const inputStyle = onInputStyle(settings?.inputField);
 
   return (
-    <div className="space-y-1">
+    <div>
       {label && (
-        <label style={labelStyle?.style}>
+        <div style={labelStyle?.style}>
           {label}
           {isRequired && (
             <span style={labelStyle?.requiredStyle} className="text-red-500">
@@ -28,7 +28,7 @@ const InputField = ({
               *
             </span>
           )}
-        </label>
+        </div>
       )}
       <input
         type={type}
