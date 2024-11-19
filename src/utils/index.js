@@ -312,15 +312,29 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
       } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
     />`;
 
+  const generateTextarea = (field, isPreview) =>
+    `<textarea
+        rows={3}
+        placeholder="${field.placeholder || ""}"
+        ${field.isRequired ? "required" : ""}
+        ${field.isReadOnly ? "readOnly" : ""}
+        ${isPreview ? `style={${JSON.stringify(inputStyle?.style || {})}}` : ""}
+        className="${
+          inputStyle?.className || ""
+        } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />`;
+
   // Field mapping
   const mapFieldsToHTML = (field, isPreview) => {
     const fieldHTML =
       field.type === "select"
         ? generateSelectField(field, isPreview)
         : field.type === "radio"
-        ? generateRadioField(field)
+        ? generateRadioField(field, isPreview)
         : field.type === "checkbox"
-        ? generateCheckboxField(field)
+        ? generateCheckboxField(field, isPreview)
+        : field.type === "textarea"
+        ? generateTextarea(field, isPreview)
         : generateInputField(field, isPreview);
 
     return `

@@ -2,10 +2,14 @@ import CheckboxOptions from "../ui/CheckboxOptions";
 import InputField from "../ui/InputField";
 import RadioOptions from "../ui/RadioOptions";
 import SelectOptions from "../ui/SelectOption";
+import TextareaField from "../ui/TextareaField";
 
 const SingleElement = ({ element }) => {
   let filed;
   switch (element?.type) {
+    case "textarea":
+      filed = <TextareaField {...element} />;
+      break;
     case "select":
       filed = <SelectOptions {...element} />;
       break;

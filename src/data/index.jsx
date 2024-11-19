@@ -9,18 +9,37 @@ import {
   FaHashtag,
   FaLink,
   FaLock,
-  FaPhone,
   FaTextWidth,
 } from "react-icons/fa";
+import { IoText } from "react-icons/io5";
 
 export const btnElements = [
   {
     name: "text",
-    label: "Short Field",
+    label: "Text Field",
     icon: <FaTextWidth />,
     type: "text",
     placeholder: "Enter text here",
     isRequired: false,
+    isReadOnly: false,
+  },
+  {
+    name: "textarea",
+    label: "Textarea",
+    icon: <IoText />,
+    type: "textarea",
+    placeholder: "Enter text here",
+    isRequired: false,
+    isReadOnly: false,
+  },
+
+  {
+    name: "email",
+    label: "Email",
+    icon: <FaAt />,
+    type: "email",
+    placeholder: "Enter your email",
+    isRequired: true,
     isReadOnly: false,
   },
   {
@@ -33,21 +52,53 @@ export const btnElements = [
     isReadOnly: false,
   },
   {
-    name: "email",
-    label: "Email",
-    icon: <FaAt />,
-    type: "email",
-    placeholder: "Enter your email",
-    isRequired: true,
-    isReadOnly: false,
-  },
-  {
     name: "password",
     label: "Password",
     icon: <FaLock />,
     type: "password",
     placeholder: "Enter your password",
     isRequired: true,
+    isReadOnly: false,
+  },
+  {
+    name: "url",
+    label: "URL",
+    icon: <FaLink />,
+    type: "url",
+    placeholder: "Enter a URL",
+    isRequired: false,
+    isReadOnly: false,
+  },
+  {
+    name: "select",
+    label: "Select",
+    icon: <FaCaretSquareDown />,
+    type: "select",
+    placeholder: "Select an option",
+    isRequired: false,
+    isReadOnly: false,
+    options: [
+      {
+        label: "Option 1",
+        value: "1",
+      },
+      {
+        label: "Option 2",
+        value: "2",
+      },
+      {
+        label: "Option 3",
+        value: "3",
+      },
+    ],
+  },
+  {
+    name: "file",
+    label: "File",
+    icon: <FaFileUpload />,
+    type: "file",
+    placeholder: "",
+    isRequired: false,
     isReadOnly: false,
   },
   {
@@ -65,24 +116,6 @@ export const btnElements = [
     icon: <FaClock />,
     type: "time",
     placeholder: "Select a time",
-    isRequired: false,
-    isReadOnly: false,
-  },
-  {
-    name: "url",
-    label: "URL",
-    icon: <FaLink />,
-    type: "url",
-    placeholder: "Enter a URL",
-    isRequired: false,
-    isReadOnly: false,
-  },
-  {
-    name: "phone",
-    label: "Phone",
-    icon: <FaPhone />,
-    type: "number",
-    placeholder: "Enter phone number",
     isRequired: false,
     isReadOnly: false,
   },
@@ -131,38 +164,6 @@ export const btnElements = [
         value: "3",
       },
     ],
-  },
-  {
-    name: "select",
-    label: "Select",
-    icon: <FaCaretSquareDown />,
-    type: "select",
-    placeholder: "Select an option",
-    isRequired: false,
-    isReadOnly: false,
-    options: [
-      {
-        label: "Option 1",
-        value: "1",
-      },
-      {
-        label: "Option 2",
-        value: "2",
-      },
-      {
-        label: "Option 3",
-        value: "3",
-      },
-    ],
-  },
-  {
-    name: "fileField",
-    label: "File",
-    icon: <FaFileUpload />,
-    type: "file",
-    placeholder: "",
-    isRequired: false,
-    isReadOnly: false,
   },
 ];
 
