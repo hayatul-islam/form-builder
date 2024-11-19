@@ -12,6 +12,7 @@ import {
   FaTextWidth,
 } from "react-icons/fa";
 import { IoText } from "react-icons/io5";
+import { RxButton } from "react-icons/rx";
 
 export const btnElements = [
   {
@@ -164,6 +165,15 @@ export const btnElements = [
         value: "3",
       },
     ],
+  },
+  {
+    name: "button",
+    label: "Submit",
+    icon: <RxButton />,
+    type: "submit",
+    placeholder: "",
+    isRequired: false,
+    isReadOnly: false,
   },
 ];
 
