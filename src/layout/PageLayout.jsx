@@ -14,7 +14,7 @@ const PageLayout = ({ children, type }) => {
 
   return (
     <>
-      <div className="sticky top-0 z-50 bg-white">{header}</div>
+      <div className="h-[70px] sticky top-0 z-50 bg-white">{header}</div>
       {children}
     </>
   );

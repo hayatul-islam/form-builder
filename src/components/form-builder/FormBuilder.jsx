@@ -105,12 +105,12 @@ function FormBuilder() {
       onClick={() => {
         if (selectedElement) setSelectedElement(null);
       }}
-      className="w-full mx-auto bg-white/50"
+      className="h-[calc(100vh-70px)] overflow-y-auto no-scrollbar w-full mx-auto bg-[#f3f3fe] "
       style={pageStyle?.style}
     >
       <div
         ref={droppable.setNodeRef}
-        className={`h-auto  ${droppable.isOver && "ring ring-primary/20"}`}
+        className={` ${droppable.isOver && "ring ring-primary/20"}`}
       >
         {!droppable.isOver && elements?.length === 0 && (
           <div className="p-8 w-full">
