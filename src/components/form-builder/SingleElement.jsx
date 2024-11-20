@@ -2,6 +2,7 @@ import CheckboxOptions from "../ui/CheckboxOptions";
 import InputField from "../ui/InputField";
 import RadioOptions from "../ui/RadioOptions";
 import SelectOptions from "../ui/SelectOption";
+import SubmitButton from "../ui/SubmitButton";
 import TextareaField from "../ui/TextareaField";
 
 const SingleElement = ({ element }) => {
@@ -10,6 +11,7 @@ const SingleElement = ({ element }) => {
     case "textarea":
       filed = <TextareaField {...element} />;
       break;
+
     case "select":
       filed = <SelectOptions {...element} />;
       break;
@@ -20,6 +22,10 @@ const SingleElement = ({ element }) => {
 
     case "checkbox":
       filed = <CheckboxOptions {...element} />;
+      break;
+
+    case "submit":
+      filed = <SubmitButton {...element} />;
       break;
 
     default:

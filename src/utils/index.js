@@ -324,6 +324,14 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
         } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
       />`;
 
+  const generateButton = (field) =>
+    `<button
+      type="submit"
+      className="block w-[150px] px-6 py-3 mx-auto bg-primary text-white rounded-md"
+    >
+      Submit
+    </button>`;
+
   // Field mapping
   const mapFieldsToHTML = (field, isPreview) => {
     const fieldHTML =
@@ -335,18 +343,29 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
         ? generateCheckboxField(field, isPreview)
         : field.type === "textarea"
         ? generateTextarea(field, isPreview)
+        : field.type === "submit"
+        ? generateButton(field, isPreview)
         : generateInputField(field, isPreview);
 
-    return `
-      <div key="${field.id}" className="flex flex-col">
-        <label ${
-          isPreview ? `style={${JSON.stringify(labelStyle?.style || {})}}` : ""
-        } className="${labelStyle?.className || ""}">
+    // Only render the label if the field type is not "submit"
+    const labelHTML =
+      field.type !== "submit"
+        ? `<label ${
+            isPreview
+              ? `style='${JSON.stringify(labelStyle?.style || {})}'`
+              : ""
+          } 
+          class="${labelStyle?.className || ""}">
           ${field.label}${requiredAsterisk(
-      field.isRequired,
-      settings?.label?.requiredColor?.light
-    )}
-        </label>
+            field.isRequired,
+            settings?.label?.requiredColor?.light
+          )}
+        </label>`
+        : "";
+
+    return `
+      <div>
+        ${labelHTML}
         ${fieldHTML}
       </div>`;
   };
