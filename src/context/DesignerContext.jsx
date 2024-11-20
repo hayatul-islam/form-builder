@@ -16,19 +16,8 @@ export default function DesignerContextProvider({ children }) {
   // form functionality
   const onAddForm = (newForm) => {
     setForms((prev) => [...prev, newForm]);
-  };
-
-  const onSelectForm = (id) => {
-    const form = forms?.find((form) => form?.id === id);
-    if (form?.id) {
-      onSetLocalStorage("form", form);
-      setSelectForm(form || {});
-      // setElements(form?.elements || []);
-    } else {
-      const form = onGetLocalStorage("form");
-      setSelectForm(form || {});
-      // setElements(form?.elements || []);
-    }
+    setSelectForm(newForm);
+    onSetLocalStorage("form", newForm);
   };
 
   // settings functionality
@@ -111,7 +100,6 @@ export default function DesignerContextProvider({ children }) {
         forms,
         onAddForm,
         selectForm,
-        onSelectForm,
 
         settings,
         onUpdateSettings,
