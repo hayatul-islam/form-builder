@@ -21,7 +21,7 @@ const CreateFormModal = ({ demo, onClose }) => {
     };
 
     onAddForm(newForm);
-    navigate(`/builder/${newForm?.id}`);
+    navigate(`/builder`);
     onClose();
   };
 

@@ -11,8 +11,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/builder" element={<Builder />} />
-          <Route path="/builder/:id" element={<FormBuilder />} />
+          <Route path="/templates" element={<Builder />} />
+          <Route path="/builder" element={<FormBuilder />} />
           <Route path="/preview" element={<Preview />} />
           <Route path="/code" element={<Code />} />
         </Routes>

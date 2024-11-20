@@ -48,9 +48,9 @@ const Options = ({ name, label, onChange, options }) => {
       ))}
       <button
         onClick={handleAddNewOption}
-        className="w-full border px-4 py-1 rounded border-black/20 text-sm flex justify-center items-center gap-1"
+        className="w-full bg-primary/10 text-primary font-medium px-4 py-2 rounded text-sm flex justify-center items-center gap-1"
       >
-        <IoAddSharp />
+        <IoAddSharp className="font-bold" />
         <span> Add</span>
       </button>
     </div>
