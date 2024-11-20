@@ -3,6 +3,7 @@ import { MdOutlineColorLens } from "react-icons/md";
 import { RiSettingsLine } from "react-icons/ri";
 import useBuilder from "../../hooks/useBuilder";
 import Input from "../ui/Input";
+import Options from "../ui/Options";
 import ToggleButton from "../ui/ToggleButton";
 
 const Properties = () => {
@@ -18,6 +19,11 @@ const Properties = () => {
     setSelectedElement(newElement);
     onUpdateElement(selectedElement.id, newElement);
   };
+
+  let isPlaceholder = true;
+  if (selectedElement?.type === "select") {
+    isPlaceholder = false;
+  }
 
   return (
     <div className="rounded-lg space-y-4">
@@ -53,13 +59,16 @@ const Properties = () => {
             type="text"
             onChange={onChange}
           />
-          <Input
-            name="placeholder"
-            label="Placeholder"
-            value={selectedElement?.placeholder || ""}
-            type="text"
-            onChange={onChange}
-          />
+          {isPlaceholder && (
+            <Input
+              name="placeholder"
+              label="Placeholder"
+              value={selectedElement?.placeholder || ""}
+              type="text"
+              onChange={onChange}
+            />
+          )}
+
           <ToggleButton
             name="isRequired"
             label="Required"
@@ -72,6 +81,15 @@ const Properties = () => {
             value={selectedElement?.isReadOnly || false}
             onChange={onChange}
           />
+
+          {selectedElement?.options && (
+            <Options
+              name="options"
+              label="Options"
+              onChange={onChange}
+              options={selectedElement?.options}
+            />
+          )}
         </>
       )}
 
