@@ -15,7 +15,7 @@ const BorderStyle = ({ label, name, value, onChange, subKey }) => {
 
   return (
     <div className="space-y-2">
-      <h3 className="font-medium">{label}</h3>
+      <h3>{label}</h3>
       <div className="flex justify-between items-center gap-3">
         <ColorPicker
           label="Light"
@@ -32,30 +32,32 @@ const BorderStyle = ({ label, name, value, onChange, subKey }) => {
           onChange={handleBorderChange}
         />
       </div>
-      <Input
-        label="Thickness"
-        name="thickness"
-        value={value?.thickness || ""}
-        type="number"
-        placeholder="0px"
-        onChange={handleBorderChange}
-      />
-      <Select
-        label="Style"
-        name="style"
-        value={value?.style || ""}
-        options={borderStyle}
-        placeholder="0px"
-        onChange={handleBorderChange}
-      />
-      <Input
-        label="Radius"
-        name="radius"
-        value={value?.radius || ""}
-        type="number"
-        placeholder="0px"
-        onChange={handleBorderChange}
-      />
+      <div className="grid grid-cols-2 gap-3">
+        <Input
+          label="Thickness"
+          name="thickness"
+          value={value?.thickness || ""}
+          type="number"
+          placeholder="0px"
+          onChange={handleBorderChange}
+        />
+        <Select
+          label="Style"
+          name="style"
+          value={value?.style || ""}
+          options={borderStyle}
+          placeholder="0px"
+          onChange={handleBorderChange}
+        />
+        <Input
+          label="Radius"
+          name="radius"
+          value={value?.radius || ""}
+          type="number"
+          placeholder="0px"
+          onChange={handleBorderChange}
+        />
+      </div>
     </div>
   );
 };
