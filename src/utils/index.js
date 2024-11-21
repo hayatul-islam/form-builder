@@ -229,6 +229,23 @@ export const onInputStyle = (inputField = {}) => {
   return { style, className };
 };
 
+export const onElementStyle = (type, settings) => {
+  if (type === "checkbox" || type === "radio") {
+    const numberOfColumns = settings?.numberOfColumns || 1;
+
+    const style = {
+      display: "grid",
+      gridTemplateColumns: `repeat(${numberOfColumns}, 1fr)`,
+      gap: "8px",
+    };
+    const className = `grid grid-cols-${numberOfColumns} gap-2`;
+    return { style, className };
+  }
+
+  // Default return for unsupported types
+  return { style: {}, className: "" };
+};
+
 export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
   // Helper functions for generating styles and classes
   const pageStyle = onPageStyle(settings?.layout);
@@ -263,8 +280,13 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
         .join("")}
     </select>`;
 
-  const generateRadioField = (field) =>
-    `<div>
+  const generateRadioField = (field, isPreview) => {
+    const elementStyle = onElementStyle(field?.type, field?.settings);
+
+    return `<div ${
+      isPreview ? `style={${JSON.stringify(elementStyle?.style || {})}}` : ""
+    }
+      className="${elementStyle?.className || ""}">
       ${field.options
         ?.map(
           (option) => `
@@ -280,9 +302,15 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
         )
         .join("")}
     </div>`;
+  };
 
-  const generateCheckboxField = (field) =>
-    `<div>
+  const generateCheckboxField = (field, isPreview) => {
+    const elementStyle = onElementStyle(field?.type, field?.settings);
+
+    return `<div ${
+      isPreview ? `style={${JSON.stringify(elementStyle?.style || {})}}` : ""
+    }
+      className="${elementStyle?.className || ""}">
       ${field.options
         ?.map(
           (option) => `
@@ -298,6 +326,7 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
         )
         .join("")}
     </div>`;
+  };
 
   const generateInputField = (field, isPreview) =>
     `<input

@@ -1,5 +1,5 @@
-import { useState } from "react";
 import useBuilder from "../../hooks/useBuilder";
+import { onInputValueChange } from "../../utils";
 import Input from "../ui/Input";
 import Options from "../ui/Options";
 import Select from "../ui/Select";
@@ -7,22 +7,18 @@ import ToggleButton from "../ui/ToggleButton";
 
 const Properties = () => {
   const { selectedElement, setSelectedElement, onUpdateElement } = useBuilder();
-  const [type, setType] = useState("property");
 
-  const onChange = (key, value) => {
-    const newElement = {
-      ...selectedElement,
-      [key]: value,
-    };
-
-    setSelectedElement(newElement);
-    onUpdateElement(selectedElement.id, newElement);
+  const onChange = (key, value, subKey) => {
+    const values = onInputValueChange(selectedElement, key, value, subKey);
+    setSelectedElement(values);
+    onUpdateElement(selectedElement.id, values);
   };
 
-  let isPlaceholder = true;
-  if (selectedElement?.type === "select") {
-    isPlaceholder = false;
-  }
+  const type = selectedElement?.type;
+  const isPlaceholder = type !== "select";
+  const isOptions =
+    type === "checkbox" || type === "radio" || type === "select";
+  const isNumberOfOptions = type === "checkbox" || type === "radio";
 
   return (
     <div className="rounded-lg space-y-4">
@@ -83,7 +79,7 @@ const Properties = () => {
         onChange={onChange}
       />
 
-      {selectedElement?.options && (
+      {isOptions && (
         <Options
           name="options"
           label="Options"
@@ -92,23 +88,20 @@ const Properties = () => {
         />
       )}
 
-      <Select
-        label="No of columns"
-        name="numberOfColumns"
-        value={selectedElement?.numberOfColumns || ""}
-        options={[
-          { label: "1", value: "1" },
-          { label: "2", value: "2" },
-          { label: "3", value: "3" },
-          { label: "4", value: "4" },
-        ]}
-        onChange={onChange}
-      />
-
-      {type === "design" && (
-        <>
-          <div>ddd</div>
-        </>
+      {isNumberOfOptions && (
+        <Select
+          label="No of columns"
+          name="settings"
+          subKey="numberOfColumns"
+          value={selectedElement?.settings?.numberOfColumns || ""}
+          options={[
+            { label: "1", value: "1" },
+            { label: "2", value: "2" },
+            { label: "3", value: "3" },
+            { label: "4", value: "4" },
+          ]}
+          onChange={onChange}
+        />
       )}
     </div>
   );

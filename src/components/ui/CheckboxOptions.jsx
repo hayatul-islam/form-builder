@@ -1,5 +1,5 @@
 import useBuilder from "../../hooks/useBuilder";
-import { onInputStyle, onLabelStyle } from "../../utils";
+import { onElementStyle, onInputStyle, onLabelStyle } from "../../utils";
 
 const CheckboxOptions = ({
   name,
@@ -9,11 +9,13 @@ const CheckboxOptions = ({
   isDisabled = false,
   isRequired = false,
   options = [],
+  settings: elementSettings = {},
+  type,
 }) => {
   const { settings } = useBuilder();
 
   const labelStyle = onLabelStyle(settings?.label);
-  const inputStyle = onInputStyle(settings?.inputField);
+  const elementStyle = onElementStyle(type, elementSettings);
 
   return (
     <div className={`space-y-3 ${className}`}>
@@ -32,7 +34,7 @@ const CheckboxOptions = ({
         </label>
       )}
 
-      <div className="space-y-2">
+      <div style={elementStyle?.style} className={elementStyle?.className}>
         {options.map((option, index) => (
           <label key={index} className="flex items-center gap-2 cursor-pointer">
             <input
