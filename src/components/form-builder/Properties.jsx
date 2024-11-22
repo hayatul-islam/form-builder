@@ -1,6 +1,9 @@
+import { buttonStyle, fontWeightStyle } from "../../data";
 import useBuilder from "../../hooks/useBuilder";
 import { onInputValueChange } from "../../utils";
+import ColorPicker from "../ui/ColorPicker";
 import Input from "../ui/Input";
+import MarginPaddingStyle from "../ui/MarginPaddingStyle";
 import Options from "../ui/Options";
 import Select from "../ui/Select";
 import ToggleButton from "../ui/ToggleButton";
@@ -14,11 +17,33 @@ const Properties = () => {
     onUpdateElement(selectedElement.id, values);
   };
 
+  const handleBtn = (btn) => {
+    const btnSettings = selectedElement?.settings;
+    const newSettings = {
+      ...btnSettings,
+      background: btn?.background,
+      color: btn?.color,
+    };
+
+    onChange("settings", newSettings);
+  };
+
+  console.log(selectedElement);
+
   const type = selectedElement?.type;
-  const isPlaceholder = type !== "select";
+  const isRequired = type !== "submit";
+  const isReadOnly = type !== "submit";
+  const isPlaceholder =
+    type === "text" ||
+    type === "textarea" ||
+    type === "email" ||
+    type === "password" ||
+    type === "url" ||
+    type === "number";
   const isOptions =
     type === "checkbox" || type === "radio" || type === "select";
   const isNumberOfOptions = type === "checkbox" || type === "radio";
+  const isButton = type === "submit";
 
   return (
     <div className="rounded-lg space-y-4">
@@ -66,18 +91,23 @@ const Properties = () => {
         />
       )}
 
-      <ToggleButton
-        name="isRequired"
-        label="Required"
-        value={selectedElement?.isRequired || false}
-        onChange={onChange}
-      />
-      <ToggleButton
-        name="isReadOnly"
-        label="Read Only"
-        value={selectedElement?.isReadOnly || false}
-        onChange={onChange}
-      />
+      {isRequired && (
+        <ToggleButton
+          name="isRequired"
+          label="Required"
+          value={selectedElement?.isRequired || false}
+          onChange={onChange}
+        />
+      )}
+
+      {isReadOnly && (
+        <ToggleButton
+          name="isReadOnly"
+          label="Read Only"
+          value={selectedElement?.isReadOnly || false}
+          onChange={onChange}
+        />
+      )}
 
       {isOptions && (
         <Options
@@ -102,6 +132,82 @@ const Properties = () => {
           ]}
           onChange={onChange}
         />
+      )}
+
+      {isButton && (
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <Input
+              name="setting"
+              label="Font Size"
+              subKey="fontSize"
+              value={selectedElement?.setting?.fontSize || ""}
+              onChange={onChange}
+              placeholder="16px"
+              type="number"
+            />
+
+            <Select
+              label="Font Weight"
+              name="settings"
+              subKey="fontWeight"
+              value={selectedElement?.settings?.fontWeight || ""}
+              options={fontWeightStyle}
+              onChange={onChange}
+            />
+
+            <Input
+              name="setting"
+              label="Radius"
+              subKey="borderRadius"
+              value={selectedElement?.setting?.borderRadius || ""}
+              onChange={onChange}
+              placeholder="5px"
+              type="number"
+            />
+
+            <ColorPicker
+              label="Custom Color"
+              name="settings"
+              subKey="color"
+              value={selectedElement?.settings?.color || ""}
+              type="color"
+              onChange={onChange}
+            />
+            <ColorPicker
+              label="Custom Background"
+              name="settings"
+              subKey="background"
+              value={selectedElement?.settings?.background || ""}
+              type="color"
+              onChange={onChange}
+            />
+            <MarginPaddingStyle
+              label="Padding"
+              name="settings"
+              subKey="padding"
+              value={selectedElement?.settings?.padding}
+              onChange={onChange}
+              type="horizontalAndVertical"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <h2 className="text-[16px] font-medium">Button Style</h2>
+            <div className="grid grid-cols-2 gap-2">
+              {buttonStyle?.map((btn, i) => (
+                <button
+                  key={i}
+                  onClick={() => handleBtn(btn)}
+                  style={{ background: btn?.background, color: btn?.color }}
+                  className={`px-6 py-3 rounded-md`}
+                >
+                  Submit
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

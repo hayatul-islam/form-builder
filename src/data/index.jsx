@@ -327,6 +327,20 @@ export const fontWeightStyle = [
   },
 ];
 
+export const buttonStyle = [
+  { background: "#28a745", color: "#ffffff" },
+  { background: "#007bff", color: "#ffffff" },
+  { background: "#ffc107", color: "#ffffff" },
+  { background: "#fd7e14", color: "#ffffff" },
+  { background: "#dc3545", color: "#ffffff" },
+  { background: "#6f42c1", color: "#ffffff" },
+  { background: "#20c997", color: "#ffffff" },
+  { background: "#17a2b8", color: "#ffffff" },
+  { background: "#28a745", color: "#ffffff" },
+  { background: "#6610f2", color: "#ffffff" },
+  { background: "#001f3f", color: "#ffffff" },
+  { background: "#F3F3FE", color: "#000000" },
+];
 const settings = {
   layout: {
     width: "",
