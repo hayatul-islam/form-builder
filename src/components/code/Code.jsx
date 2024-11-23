@@ -20,7 +20,7 @@ const Code = () => {
   };
 
   return (
-    <PageLayout>
+    <PageLayout type="builder">
       <div className="relative bg-[#1E1E1E] text-white rounded-lg shadow-lg border border-[#3C3C3C] max-w-4xl mx-auto my-8 overflow-hidden">
         <button
           onClick={handleCopy}

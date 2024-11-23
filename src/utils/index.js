@@ -163,6 +163,7 @@ export const onLabelStyle = (label = {}) => {
     padding.bottom ? `pb-[${padding.bottom}px]` : "pb-1.5",
     padding.left ? `pl-[${padding.left}px]` : "",
     padding.right ? `pr-[${padding.right}px]` : "",
+    "block",
   ]
     .filter(Boolean)
     .join(" ");
@@ -196,12 +197,26 @@ export const onInputStyle = (inputField = {}) => {
     paddingBottom: padding.bottom ? `${padding.bottom}px` : "10px",
     paddingLeft: padding.left ? `${padding.left}px` : "10px",
     paddingRight: padding.right ? `${padding.right}px` : "10px",
-    border: border.thickness
-      ? `${border.thickness}px ${border.style || "solid"} ${
-          border.color || "black"
-        }`
-      : "1px solid black",
-    borderRadius: border.radius ? `${border.radius}px` : "6px",
+    borderTop:
+      border.radius !== "bottom" &&
+      `${border.thickness || 1}px ${border.style || "solid"} ${
+        border.color || "black"
+      }`,
+    borderLeft:
+      border.radius !== "bottom" &&
+      `${border.thickness || 1}px ${border.style || "solid"} ${
+        border.color || "black"
+      }`,
+    borderRight:
+      border.radius !== "bottom" &&
+      `${border.thickness || 1}px ${border.style || "solid"} ${
+        border.color || "black"
+      }`,
+    borderBottom: `${border.thickness || 1}px ${border.style || "solid"} ${
+      border.color || "black"
+    }`,
+    borderRadius:
+      border.radius && border.radius !== "bottom" ? `${border.radius}px` : "",
   };
 
   // Generate Tailwind classes
@@ -218,10 +233,16 @@ export const onInputStyle = (inputField = {}) => {
     padding.bottom ? `pb-[${padding.bottom}px]` : "",
     padding.left ? `pl-[${padding.left}px]` : "",
     padding.right ? `pr-[${padding.right}px]` : "",
+    border.radius === "bottom" ? "border-b" : "border",
     border.thickness ? `border-[${border.thickness}px]` : "",
     border.style ? `border-${border.style}` : "",
     border.color ? `border-[${border.color}]` : "",
-    border.radius ? `rounded-[${border.radius}px]` : "6px",
+    border.radius && border.radius !== "bottom"
+      ? `rounded-[${border.radius}px]`
+      : border.radius === "bottom"
+      ? ""
+      : "rounded",
+    "w-full p-2 focus:outline-none",
   ]
     .filter(Boolean)
     .join(" ");
@@ -310,6 +331,168 @@ export const onButtonStyle = (settings = {}) => {
 };
 
 export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
+  // Helper functions for generating styles and classes
+  const pageStyle = onPageStyle(settings?.layout);
+  const formStyle = onFormStyle(settings?.layout);
+  const labelStyle = onLabelStyle(settings?.label);
+  const inputStyle = onInputStyle(settings?.inputField);
+
+  // Helper for required asterisk
+  const requiredAsterisk = (required, color) =>
+    required ? `<span className="text-[${color || "red"}]"> *</span>` : "";
+
+  // Field generators
+  const generateSelectField = (field) =>
+    `<select
+      name="${field.name}"
+      className="${
+        inputStyle?.className || ""
+      } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      ${field.isRequired ? "required" : ""}
+      ${field.isReadOnly ? "readOnly" : ""}
+    >
+      ${field.options
+        ?.map(
+          (option) =>
+            `<option value="${option?.value}">${option?.label}</option>`
+        )
+        .join("")}
+    </select>`;
+
+  const generateRadioField = (field) => {
+    const elementStyle = onElementStyle(field?.type, field?.settings);
+
+    return `<div className="${elementStyle?.className || ""}">
+      ${field.options
+        ?.map(
+          (option) => `
+      <label className="flex items-center gap-2">
+        <input
+          type="radio"
+          name="${field.name}"
+          value="${option?.value}"
+          className="focus:ring focus:ring-blue-400"
+        />
+        ${option?.label}
+      </label>`
+        )
+        .join("")}
+    </div>`;
+  };
+
+  const generateCheckboxField = (field) => {
+    const elementStyle = onElementStyle(field?.type, field?.settings);
+
+    return `<div className="${elementStyle?.className || ""}">
+      ${field.options
+        ?.map(
+          (option) => `
+      <label className="flex items-center gap-2">
+        <input
+          type="checkbox"
+          name="${field.name}"
+          value="${option?.value}"
+          className="focus:ring focus:ring-blue-400"
+        />
+        ${option?.label}
+      </label>`
+        )
+        .join("")}
+    </div>`;
+  };
+
+  const generateInputField = (field) =>
+    `<input
+      type="${field.type}"
+      name="${field.name}"
+      placeholder="${field.placeholder || ""}"
+      ${field.isRequired ? "required" : ""}
+      ${field.isReadOnly ? "readOnly" : ""}
+      className="${inputStyle?.className || ""}"
+    />`;
+
+  const generateTextarea = (field) =>
+    `<textarea
+        rows={3}
+        placeholder="${field.placeholder || ""}"
+        ${field.isRequired ? "required" : ""}
+        ${field.isReadOnly ? "readOnly" : ""}
+        className="${
+          inputStyle?.className || ""
+        } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />`;
+
+  const generateButton = (field) => {
+    const buttonStyle = onButtonStyle(field?.settings);
+
+    const { className, alignmentClassName } = buttonStyle || {};
+
+    return `<div className="${alignmentClassName}">
+            <button
+              type="submit"
+              className="${className || ""}"
+            >
+              ${field?.label}
+            </button>
+          </div>`;
+  };
+
+  // Field mapping
+  const mapFieldsToHTML = (field) => {
+    const fieldHTML =
+      field.type === "select"
+        ? generateSelectField(field)
+        : field.type === "radio"
+        ? generateRadioField(field)
+        : field.type === "checkbox"
+        ? generateCheckboxField(field)
+        : field.type === "textarea"
+        ? generateTextarea(field)
+        : field.type === "submit"
+        ? generateButton(field)
+        : generateInputField(field);
+
+    // Only render the label if the field type is not "submit"
+    const labelHTML =
+      field.type !== "submit" &&
+      `<label class="${labelStyle?.className || ""}">
+          ${field.label}${requiredAsterisk(
+        field.isRequired,
+        settings?.label?.requiredColor?.light
+      )}
+        </label>`;
+
+    return `
+    <div>
+        ${labelHTML}
+        ${fieldHTML}
+      </div>`;
+  };
+
+  // Generate React Code (only uses className)
+  const reactCode = `
+    import React from "react";
+
+    const Form = () => {
+      return (
+        <div className="${pageStyle?.className || ""}">
+          <form className="${formStyle?.className || ""}">
+            ${elements.map((field) => mapFieldsToHTML(field, false)).join("")}
+          </form>
+        </div>
+      );
+    };
+
+    export default Form;
+  `;
+
+  return { reactCode };
+};
+
+export const onFormCodeGeneratorOld = ({
+  elements = [],
+  settings = {},
+} = {}) => {
   // Helper functions for generating styles and classes
   const pageStyle = onPageStyle(settings?.layout);
   const formStyle = onFormStyle(settings?.layout);

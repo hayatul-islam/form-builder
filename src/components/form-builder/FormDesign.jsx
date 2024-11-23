@@ -2,6 +2,7 @@ import { fontWeightStyle } from "../../data";
 import useBuilder from "../../hooks/useBuilder";
 import { onInputValueChange } from "../../utils";
 import Accordion from "../ui/Accordion";
+import BorderRadiusStyle from "../ui/BorderRadiusStyle";
 import BorderStyle from "../ui/BorderStyle";
 import DualColorPicker from "../ui/DualColorPicker";
 import Input from "../ui/Input";
@@ -15,6 +16,8 @@ const FormDesign = () => {
     const updateSettings = onInputValueChange(settings, key, value, subKey);
     onUpdateSettings(updateSettings);
   };
+
+  console.log(settings);
 
   return (
     <div className="space-y-4">
@@ -133,6 +136,13 @@ const FormDesign = () => {
       {/* input  */}
       <Accordion title="Input">
         <div className="space-y-3">
+          <BorderRadiusStyle
+            label="Border Radius"
+            name="inputField"
+            value={settings?.inputField?.border || ""}
+            onChange={onChange}
+            subKey="border"
+          />
           <Input
             label="Font Size"
             name="inputField"

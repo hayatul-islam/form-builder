@@ -1,14 +1,11 @@
 // import JSXParser from "react-jsx-parser";
 import useBuilder from "../../hooks/useBuilder";
 import PageLayout from "../../layout/PageLayout";
-import { onFormCodeGenerator, onFormStyle, onPageStyle } from "../../utils";
+import { onFormStyle, onPageStyle } from "../../utils";
 import SingleElement from "../form-builder/SingleElement";
 
 const Preview = () => {
-  const { selectForm, previewMode, elements, settings } = useBuilder();
-
-  const code = onFormCodeGenerator(selectForm);
-
+  const { previewMode, elements, settings } = useBuilder();
   // Set container styles dynamically based on the selected preview mode
   const getPreviewStyles = () => {
     switch (previewMode) {
@@ -35,12 +32,6 @@ const Preview = () => {
           ))}
         </form>
       </div>
-
-      {/* <div
-        className={` bg-white overflow-hidden mx-auto ${getPreviewStyles()}`}
-      >
-        <JSXParser components={{}} jsx={code?.previewCode || ""} />
-      </div> */}
     </PageLayout>
   );
 };
