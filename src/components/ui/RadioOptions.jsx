@@ -40,8 +40,8 @@ const RadioOptions = ({
             <input
               type="radio"
               name={name}
-              value={option?.value}
-              checked={value === option?.value}
+              // value={option?.value}
+              // checked={value === option?.value}
               disabled={isDisabled}
               className="accent-blue-600 w-4 h-4 cursor-pointer"
             />

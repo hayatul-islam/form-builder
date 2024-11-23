@@ -1,10 +1,11 @@
-import JSXParser from "react-jsx-parser";
+// import JSXParser from "react-jsx-parser";
 import useBuilder from "../../hooks/useBuilder";
 import PageLayout from "../../layout/PageLayout";
-import { onFormCodeGenerator } from "../../utils";
+import { onFormCodeGenerator, onFormStyle, onPageStyle } from "../../utils";
+import SingleElement from "../form-builder/SingleElement";
 
 const Preview = () => {
-  const { selectForm, previewMode } = useBuilder();
+  const { selectForm, previewMode, elements, settings } = useBuilder();
 
   const code = onFormCodeGenerator(selectForm);
 
@@ -22,13 +23,24 @@ const Preview = () => {
     }
   };
 
+  const pageStyle = onPageStyle(settings?.layout);
+  const formStyle = onFormStyle(settings?.layout);
+
   return (
     <PageLayout type="preview">
-      <div
+      <div style={pageStyle?.style} className={pageStyle?.className}>
+        <form style={formStyle?.style} className={formStyle?.className}>
+          {elements?.map((element) => (
+            <SingleElement key={element?.id} element={element} />
+          ))}
+        </form>
+      </div>
+
+      {/* <div
         className={` bg-white overflow-hidden mx-auto ${getPreviewStyles()}`}
       >
         <JSXParser components={{}} jsx={code?.previewCode || ""} />
-      </div>
+      </div> */}
     </PageLayout>
   );
 };

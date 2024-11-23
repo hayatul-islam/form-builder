@@ -35,7 +35,7 @@ const SelectOptions = ({
       <select
         name={name}
         id={name}
-        value={value || ""}
+        // value={value || ""}
         style={inputStyle?.style}
         className={`${className}  rounded border  w-full bg-transparent px-4 text-[14px] focus:outline-blue-400`}
       >

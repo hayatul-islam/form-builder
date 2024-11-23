@@ -16,6 +16,7 @@ const SubmitButton = ({
       <button
         type="submit"
         style={buttonStyle?.style}
+        className={buttonStyle?.className}
         // className={`block w-[150px] px-6 py-3 mx-auto bg-primary text-white rounded-md`}
       >
         {label}

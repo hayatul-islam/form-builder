@@ -1,5 +1,5 @@
 import useBuilder from "../../hooks/useBuilder";
-import { onElementStyle, onInputStyle, onLabelStyle } from "../../utils";
+import { onElementStyle, onLabelStyle } from "../../utils";
 
 const CheckboxOptions = ({
   name,
@@ -40,8 +40,8 @@ const CheckboxOptions = ({
             <input
               type="checkbox"
               name={name}
-              value={option?.value}
-              checked={value === option?.value}
+              // value={option?.value}
+              // checked={value === option?.value}
               disabled={isDisabled}
               className="accent-blue-600 w-4 h-4 cursor-pointer"
             />
