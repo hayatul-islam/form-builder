@@ -34,7 +34,7 @@ export const onPageStyle = (layout = {}) => {
 
   // Generate CSS style
   const style = {
-    background: pageBackground?.light ?? "#F9F7F7",
+    background: pageBackground?.light ?? "",
     paddingTop: pagePadding?.top ? `${pagePadding.top}px` : "16px",
     paddingBottom: pagePadding?.bottom ? `${pagePadding.bottom}px` : "16px",
     paddingLeft: pagePadding?.left ? `${pagePadding.left}px` : "16px",
@@ -43,7 +43,7 @@ export const onPageStyle = (layout = {}) => {
 
   // Generate Tailwind classes
   const className = [
-    pageBackground.light ? `bg-[${pageBackground.light}]` : "bg-[#F9F7F7]",
+    pageBackground.light ? `bg-[${pageBackground.light}]` : "",
     pageBackground.dark ? `dark:bg-[${pageBackground.light}]` : "dark:bg-black",
     pagePadding.top ? `pt-[${pagePadding.top}px]` : "pt-4",
     pagePadding.bottom ? `pb-[${pagePadding.bottom}px]` : "pb-4",
@@ -83,7 +83,7 @@ export const onFormStyle = (layout = {}) => {
           border.color || "black"
         }`
       : "none",
-    borderRadius: border.radius ? `${border.radius}px` : "8px",
+    borderRadius: border.radius ? `${border.radius}px` : "",
   };
 
   // Generate Tailwind classes
@@ -155,6 +155,7 @@ export const onLabelStyle = (label = {}) => {
   const className = [
     fontSize ? `text-[${fontSize}px]` : "",
     fontWeight ? `font-[${fontWeight}]` : "font-medium",
+    color?.light ? `text-[${color?.light}]` : "text-black",
     margin.top ? `mt-[${margin.top}px]` : "",
     margin.bottom ? `mb-[${margin.bottom}px]` : "",
     margin.left ? `ml-[${margin.left}px]` : "",
@@ -184,37 +185,42 @@ export const onInputStyle = (inputField = {}) => {
 
   // Generate CSS style
   const style = {
-    width: "100%",
     backgroundColor: background.light || "transparent",
     color: color.light || "",
     fontSize: fontSize ? `${fontSize}px` : "",
-    fontWeight: fontWeight || "",
+    fontWeight:
+      fontWeight === "bold" ? "600" : fontWeight === "medium" ? "500" : "400",
     marginTop: margin.top ? `${margin.top}px` : "auto",
     marginBottom: margin.bottom ? `${margin.bottom}px` : "auto",
     marginLeft: margin.left ? `${margin.left}px` : "auto",
     marginRight: margin.right ? `${margin.right}px` : "auto",
-    paddingTop: padding.top ? `${padding.top}px` : "10px",
-    paddingBottom: padding.bottom ? `${padding.bottom}px` : "10px",
-    paddingLeft: padding.left ? `${padding.left}px` : "10px",
-    paddingRight: padding.right ? `${padding.right}px` : "10px",
+
+    padding:
+      padding.vertical || padding?.horizontal
+        ? `${padding.horizontal || 12}px ${padding.vertical || 8}px`
+        : "10px",
     borderTop:
-      border.radius !== "bottom" &&
-      `${border.thickness || 1}px ${border.style || "solid"} ${
-        border.color || "black"
-      }`,
+      border.radius !== "bottom"
+        ? `${border.thickness || 1}px ${border.style || "solid"} ${
+            border.color || "black"
+          }`
+        : "none",
     borderLeft:
-      border.radius !== "bottom" &&
-      `${border.thickness || 1}px ${border.style || "solid"} ${
-        border.color || "black"
-      }`,
+      border.radius !== "bottom"
+        ? `${border.thickness || 1}px ${border.style || "solid"} ${
+            border.color || "black"
+          }`
+        : "none",
     borderRight:
-      border.radius !== "bottom" &&
-      `${border.thickness || 1}px ${border.style || "solid"} ${
-        border.color || "black"
-      }`,
+      border.radius !== "bottom"
+        ? `${border.thickness || 1}px ${border.style || "solid"} ${
+            border.color || "black"
+          }`
+        : "none",
     borderBottom: `${border.thickness || 1}px ${border.style || "solid"} ${
       border.color || "black"
     }`,
+
     borderRadius:
       border.radius && border.radius !== "bottom" ? `${border.radius}px` : "",
   };
@@ -224,17 +230,17 @@ export const onInputStyle = (inputField = {}) => {
     background.light ? `bg-[${background.light}]` : "bg-transparent",
     color.light ? `text-[${color.light}]` : "",
     fontSize ? `text-[${fontSize}px]` : "",
-    fontWeight ? `font-[${fontWeight}]` : "",
+    fontWeight ? `font-${fontWeight}` : "",
     margin.top ? `mt-[${margin.top}px]` : "",
     margin.bottom ? `mb-[${margin.bottom}px]` : "",
     margin.left ? `ml-[${margin.left}px]` : "",
     margin.right ? `mr-[${margin.right}px]` : "",
-    padding.top ? `pt-[${padding.top}px]` : "",
-    padding.bottom ? `pb-[${padding.bottom}px]` : "",
-    padding.left ? `pl-[${padding.left}px]` : "",
-    padding.right ? `pr-[${padding.right}px]` : "",
-    border.radius === "bottom" ? "border-b" : "border",
-    border.thickness ? `border-[${border.thickness}px]` : "",
+    padding?.vertical ? `px-[${padding.vertical}px]` : "px-3",
+    padding?.horizontal ? `py-[${padding.horizontal}px]` : "py-2",
+
+    border.radius === "bottom"
+      ? `border-b-[${border.thickness || 1}px]`
+      : `border-[${border.thickness || 1}px]`,
     border.style ? `border-${border.style}` : "",
     border.color ? `border-[${border.color}]` : "",
     border.radius && border.radius !== "bottom"
@@ -242,7 +248,7 @@ export const onInputStyle = (inputField = {}) => {
       : border.radius === "bottom"
       ? ""
       : "rounded",
-    "w-full p-2 focus:outline-none",
+    "w-full p-2 focus:outline-none focus:border-blue-400",
   ]
     .filter(Boolean)
     .join(" ");
@@ -417,9 +423,7 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
         placeholder="${field.placeholder || ""}"
         ${field.isRequired ? "required" : ""}
         ${field.isReadOnly ? "readOnly" : ""}
-        className="${
-          inputStyle?.className || ""
-        } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="${inputStyle?.className || ""}"
       />`;
 
   const generateButton = (field) => {
@@ -455,7 +459,7 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
     // Only render the label if the field type is not "submit"
     const labelHTML =
       field.type !== "submit" &&
-      `<label class="${labelStyle?.className || ""}">
+      `<label className="${labelStyle?.className || ""}">
           ${field.label}${requiredAsterisk(
         field.isRequired,
         settings?.label?.requiredColor?.light

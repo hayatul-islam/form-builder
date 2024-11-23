@@ -38,7 +38,7 @@ const TextareaField = ({
         disabled={isDisabled}
         readOnly={isReadOnly}
         style={inputStyle?.style}
-        className={`${className}`}
+        className={inputStyle?.className}
         rows={3}
       />
     </div>

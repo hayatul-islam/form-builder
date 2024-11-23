@@ -4,10 +4,8 @@ import { onInputStyle, onLabelStyle } from "../../utils";
 const InputField = ({
   name,
   type = "text",
-  value = "",
   label,
   placeholder,
-  className = "",
   isDisabled = false,
   isRequired = false,
   isReadOnly = false,
@@ -20,10 +18,13 @@ const InputField = ({
   return (
     <div>
       {label && (
-        <div style={labelStyle?.style}>
+        <div style={labelStyle?.style} className={labelStyle?.className}>
           {label}
           {isRequired && (
-            <span style={labelStyle?.requiredStyle} className="text-red-500">
+            <span
+              style={labelStyle?.requiredStyle}
+              className={labelStyle?.requiredClassName}
+            >
               {" "}
               *
             </span>
@@ -39,7 +40,7 @@ const InputField = ({
         disabled={isDisabled}
         readOnly={isReadOnly}
         style={inputStyle?.style}
-        className={`${className}`}
+        className={`${inputStyle?.className}`}
       />
     </div>
   );

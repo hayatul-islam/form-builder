@@ -25,12 +25,14 @@ const Preview = () => {
 
   return (
     <PageLayout type="preview">
-      <div style={pageStyle?.style} className={pageStyle?.className}>
-        <form style={formStyle?.style} className={formStyle?.className}>
-          {elements?.map((element) => (
-            <SingleElement key={element?.id} element={element} />
-          ))}
-        </form>
+      <div style={pageStyle?.style} className={`${pageStyle?.className}`}>
+        <div className="container">
+          <form style={formStyle?.style} className={formStyle?.className}>
+            {elements?.map((element) => (
+              <SingleElement key={element?.id} element={element} />
+            ))}
+          </form>
+        </div>
       </div>
     </PageLayout>
   );

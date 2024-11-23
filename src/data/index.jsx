@@ -220,7 +220,7 @@ export const demo = [
           dark: "",
         },
         pageBackground: {
-          light: "",
+          light: "#f3f3fe",
           dark: "",
         },
         margin: {

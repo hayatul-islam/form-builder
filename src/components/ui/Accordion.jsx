@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
-const Accordion = ({ title, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Accordion = ({ title, children, value = false }) => {
+  const [isOpen, setIsOpen] = useState(value);
 
   return (
     <div className="space-y-3 border-b border-black/10 pb-2">

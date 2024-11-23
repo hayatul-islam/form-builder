@@ -21,6 +21,34 @@ const FormDesign = () => {
 
   return (
     <div className="space-y-4">
+      {/* Quick setup  */}
+      <Accordion title="Quick Setup" value={true}>
+        <div className="space-y-3">
+          <DualColorPicker
+            label="Text Color"
+            name="label"
+            value={settings?.label?.color || {}}
+            onChange={onChange}
+            subKey="color"
+          />
+          <DualColorPicker
+            label="Form Background"
+            name="layout"
+            value={settings?.layout?.background || {}}
+            onChange={onChange}
+            subKey="background"
+          />
+
+          <BorderRadiusStyle
+            label="Border Radius"
+            name="inputField"
+            value={settings?.inputField?.border || ""}
+            onChange={onChange}
+            subKey="border"
+          />
+        </div>
+      </Accordion>
+
       {/* layout  */}
       <Accordion title="Layout">
         <div className="space-y-3">
@@ -136,13 +164,6 @@ const FormDesign = () => {
       {/* input  */}
       <Accordion title="Input">
         <div className="space-y-3">
-          <BorderRadiusStyle
-            label="Border Radius"
-            name="inputField"
-            value={settings?.inputField?.border || ""}
-            onChange={onChange}
-            subKey="border"
-          />
           <Input
             label="Font Size"
             name="inputField"
@@ -167,10 +188,18 @@ const FormDesign = () => {
             onChange={onChange}
             subKey="background"
           />
+
           <BorderStyle
             label="Border"
             name="inputField"
             value={settings?.inputField?.border || {}}
+            onChange={onChange}
+            subKey="border"
+          />
+          <BorderRadiusStyle
+            label="Border Radius"
+            name="inputField"
+            value={settings?.inputField?.border || ""}
             onChange={onChange}
             subKey="border"
           />
@@ -180,6 +209,7 @@ const FormDesign = () => {
             value={settings?.inputField?.padding || {}}
             onChange={onChange}
             subKey="padding"
+            type="horizontalAndVertical"
           />
           <MarginPaddingStyle
             label="Margin"

@@ -105,7 +105,7 @@ function FormBuilder() {
       onClick={() => {
         if (selectedElement) setSelectedElement(null);
       }}
-      className="h-[calc(100vh-70px)] overflow-y-auto no-scrollbar w-full mx-auto bg-[#f3f3fe] "
+      className="h-[calc(100vh-70px)] overflow-y-auto no-scrollbar w-full mx-auto "
       style={pageStyle?.style}
     >
       <div
