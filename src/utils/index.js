@@ -246,6 +246,69 @@ export const onElementStyle = (type, settings) => {
   return { style: {}, className: "" };
 };
 
+export const onButtonStyle = (settings = {}) => {
+  const {
+    background,
+    padding = {},
+    color,
+    fontSize,
+    fontWeight,
+    alignment,
+    width,
+    radius,
+  } = settings;
+
+  const alignmentStyle = alignment
+    ? {
+        display: "flex",
+        justifyContent:
+          alignment === "left"
+            ? "flex-start"
+            : alignment === "right"
+            ? "flex-end"
+            : "center",
+      }
+    : {};
+
+  const alignmentClassName = alignment
+    ? alignment === "left"
+      ? "justify-start"
+      : alignment === "right"
+      ? "justify-end"
+      : "justify-center"
+    : "";
+
+  // Generate CSS style
+  const style = {
+    width: alignment === "full" ? "100%" : width ? `${width}px` : "auto",
+    background: background || "transparent",
+    color: color || "inherit",
+    fontSize: fontSize ? `${fontSize}px` : "16px",
+    fontWeight: fontWeight || "normal",
+    padding: `${padding?.vertical || 0}px ${padding?.horizontal || 0}px`,
+    borderRadius: radius ? `${radius}px` : "6px",
+    textAlign: "center",
+  };
+
+  // Generate Tailwind classes
+  const className = [
+    background ? `bg-[${background}]` : "bg-transparent",
+    color ? `text-[${color}]` : "",
+    fontSize ? `text-[${fontSize}px]` : "",
+    fontWeight ? `font-[${fontWeight}]` : "",
+    radius ? `rounded-[${radius}px]` : "rounded-[6px]",
+    padding?.vertical || padding?.horizontal
+      ? `px-[${padding.vertical || 0}px] py-[${padding.horizontal || 0}px]`
+      : "",
+    width ? `w-[${width}px]` : "",
+    "text-center",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return { style, className, alignmentStyle, alignmentClassName };
+};
+
 export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
   // Helper functions for generating styles and classes
   const pageStyle = onPageStyle(settings?.layout);
@@ -353,13 +416,28 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
         } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
       />`;
 
-  const generateButton = (field) =>
-    `<button
-      type="submit"
-      className="block w-[150px] px-6 py-3 mx-auto bg-primary text-white rounded-md"
-    >
-      Submit
-    </button>`;
+  const generateButton = (field, isPreview) => {
+    const buttonStyle = onButtonStyle(field?.settings);
+
+    const { style, className, alignmentStyle, alignmentClassName } =
+      buttonStyle || {};
+
+    return `
+          <div ${
+            isPreview ? `style={${JSON.stringify(alignmentStyle || {})}}` : ""
+          }
+            className="${alignmentClassName}"
+          >
+            <button
+              type="submit"
+             ${isPreview ? `style={${JSON.stringify(style || {})}}` : ""}
+              className="${className || ""}"
+            >
+              Submit
+            </button>
+          </div>
+        `;
+  };
 
   // Field mapping
   const mapFieldsToHTML = (field, isPreview) => {
@@ -428,216 +506,6 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
 
     export default Form;
   `;
-
-  return { previewCode, reactCode };
-};
-
-export const onFormCodeGeneratorTest = (form = {}) => {
-  const { elements, settings } = form;
-
-  const pageStyle = onPageStyle(settings?.layout);
-  const formStyle = onFormStyle(settings?.layout);
-  const labelStyle = onLabelStyle(settings?.label);
-  const inputStyle = onInputStyle(settings?.inputField);
-
-  const previewCode = `
-  <div style={${JSON.stringify(pageStyle?.style || {})}} className="${
-    pageStyle?.className
-  }">
-    <form style={${JSON.stringify(formStyle?.style || {})}} className="${
-    formStyle?.className
-  }">
-      ${elements
-        .map(
-          (field) => `
-      <div key="${field.id}" className="flex flex-col">
-        <label style={${JSON.stringify(labelStyle?.style || {})}} className="${
-            labelStyle?.className
-          }">
-          ${field.label}${
-            field.isRequired
-              ? `<span style={${JSON.stringify(
-                  labelStyle?.requiredStyle || {}
-                )}} className="text-[${
-                  settings?.label?.requiredColor?.light || "red"
-                }]"> *</span>`
-              : ""
-          }
-        </label>
-        ${
-          field.type === "select"
-            ? `<select
-                name="${field.name}"
-                ${field.isRequired ? "required" : ""}
-                ${field.isReadOnly ? "readOnly" : ""}
-                placeholder="${field.placeholder}"
-                style={${JSON.stringify(inputStyle?.style || {})}}
-                className="${
-                  inputStyle?.className
-                } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              >
-                ${field.options
-                  .map(
-                    (option) => `
-                <option value="${option?.value}">${option?.label}</option>
-                `
-                  )
-                  .join("")}
-              </select>`
-            : field.type === "radio"
-            ? `<div className="">
-                ${field.options
-                  ?.map(
-                    (option) => `
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="${field.name}"
-                    value="${option?.value}"
-                    className="focus:ring focus:ring-blue-400"
-                  />
-                  ${option?.label}
-                </label>
-                `
-                  )
-                  .join("")}
-              </div>`
-            : field.type === "checkbox"
-            ? `<div className="">
-                ${field.options
-                  ?.map(
-                    (option) => `
-                <label className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    name="${field.name}"
-                    value="${option?.value}"
-                    className="focus:ring focus:ring-blue-400"
-                  />
-                  ${option?.label}
-                </label>
-                `
-                  )
-                  .join("")}
-              </div>`
-            : `<input
-                type="${field.type}"
-                name="${field.name}"
-                placeholder="${field.placeholder}"
-                ${field.isRequired ? "required" : ""}
-                ${field.isReadOnly ? "readOnly" : ""}
-                style={${JSON.stringify(inputStyle?.style || {})}}
-                className="${
-                  inputStyle?.className
-                } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              />`
-        }
-      </div>
-      `
-        )
-        .join("")}
-    </form>
-  </div>
-`;
-
-  const reactCode = `import React from "react";
-
-const Form = () => {
-  return (
-    <div className="${pageStyle?.className || "p-4 bg-gray-100"}">
-      <form className="${formStyle?.className || "space-y-4"}">
-        ${elements
-          .map(
-            (field) => `
-          <div key="${field.id}" className="flex flex-col space-y-1">
-            <label className="${
-              labelStyle?.className || "font-medium text-gray-700"
-            }">
-              ${field.label}${
-              field.isRequired
-                ? `<span className="text-[${
-                    settings?.label?.requiredColor?.light || "red"
-                  }]"> *</span>`
-                : ""
-            }
-            </label>
-            ${
-              field.type === "select"
-                ? `<select
-                    name="${field.name}"
-                    className="${
-                      inputStyle?.className ||
-                      "border rounded p-2 focus:ring focus:ring-blue-400"
-                    }"
-                    ${field.isRequired ? "required" : ""}
-                  >
-                    ${field.options
-                      ?.map(
-                        (option) => `
-                    <option value="${option?.value}">${option?.label}</option>
-                    `
-                      )
-                      .join("")}
-                  </select>`
-                : field.type === "radio"
-                ? `<div className="flex flex-wrap gap-4">
-                    ${field.options
-                      ?.map(
-                        (option) => `
-                    <label className="grid items-center gap-2">
-                      <input
-                        type="radio"
-                        name="${field.name}"
-                        value="${option?.value}"
-                        className="focus:ring focus:ring-blue-400"
-                      />
-                      ${option?.label}
-                    </label>
-                    `
-                      )
-                      .join("")}
-                  </div>`
-                : field.type === "checkbox"
-                ? `<div className="flex flex-wrap gap-4">
-                    ${field.options
-                      ?.map(
-                        (option) => `
-                    <label className="grid items-center gap-2">
-                      <input
-                        type="checkbox"
-                        name="${field.name}"
-                        value="${option?.value}"
-                        className="focus:ring focus:ring-blue-400"
-                      />
-                      ${option?.label}
-                    </label>
-                    `
-                      )
-                      .join("")}
-                  </div>`
-                : `<input
-                    type="${field.type}"
-                    name="${field.name}"
-                    placeholder="${field.placeholder}"
-                    className="${
-                      inputStyle?.className ||
-                      "border rounded p-2 focus:ring focus:ring-blue-400"
-                    }"
-                    ${field.isRequired ? "required" : ""}
-                    ${field.isReadOnly ? "readOnly" : ""}
-                  />`
-            }
-          </div>
-          `
-          )
-          .join("")}
-      </form>
-    </div>
-  );
-};
-
-export default Form;
-`;
 
   return { previewCode, reactCode };
 };

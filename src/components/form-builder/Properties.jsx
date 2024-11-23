@@ -1,6 +1,7 @@
 import { buttonStyle, fontWeightStyle } from "../../data";
 import useBuilder from "../../hooks/useBuilder";
 import { onInputValueChange } from "../../utils";
+import Alignment from "../ui/Alignment";
 import ColorPicker from "../ui/ColorPicker";
 import Input from "../ui/Input";
 import MarginPaddingStyle from "../ui/MarginPaddingStyle";
@@ -27,8 +28,6 @@ const Properties = () => {
 
     onChange("settings", newSettings);
   };
-
-  console.log(selectedElement);
 
   const type = selectedElement?.type;
   const isRequired = type !== "submit";
@@ -138,10 +137,19 @@ const Properties = () => {
         <div className="space-y-4">
           <div className="space-y-2">
             <Input
-              name="setting"
+              name="settings"
+              label="Width"
+              subKey="width"
+              value={selectedElement?.settings?.width || ""}
+              onChange={onChange}
+              placeholder="150px"
+              type="number"
+            />
+            <Input
+              name="settings"
               label="Font Size"
               subKey="fontSize"
-              value={selectedElement?.setting?.fontSize || ""}
+              value={selectedElement?.settings?.fontSize || ""}
               onChange={onChange}
               placeholder="16px"
               type="number"
@@ -157,10 +165,10 @@ const Properties = () => {
             />
 
             <Input
-              name="setting"
+              name="settings"
               label="Radius"
-              subKey="borderRadius"
-              value={selectedElement?.setting?.borderRadius || ""}
+              subKey="radius"
+              value={selectedElement?.settings?.radius || ""}
               onChange={onChange}
               placeholder="5px"
               type="number"
@@ -189,6 +197,13 @@ const Properties = () => {
               value={selectedElement?.settings?.padding}
               onChange={onChange}
               type="horizontalAndVertical"
+            />
+            <Alignment
+              label="Alignment"
+              name="settings"
+              subKey="alignment"
+              value={selectedElement?.settings?.alignment}
+              onChange={onChange}
             />
           </div>
 

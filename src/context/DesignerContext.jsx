@@ -6,7 +6,10 @@ export const DesignerContext = createContext(null);
 export default function DesignerContextProvider({ children }) {
   const [forms, setForms] = useState([]);
 
-  const initialForm = onGetLocalStorage("form") || {};
+  const initialForm = onGetLocalStorage("form") || {
+    elements: [],
+    settings: {},
+  };
   const [selectForm, setSelectForm] = useState(initialForm);
   const [selectedElement, setSelectedElement] = useState();
   const [previewMode, setPreviewMode] = useState("desktop");
@@ -92,6 +95,7 @@ export default function DesignerContextProvider({ children }) {
   // When the selected form data changes, store the updated form data in localStorage
   useEffect(() => {
     selectForm?.id && onSetLocalStorage("form", selectForm);
+    // onSetLocalStorage("form", selectForm);
   }, [selectForm]);
 
   return (

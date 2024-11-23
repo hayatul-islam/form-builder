@@ -172,8 +172,18 @@ export const btnElements = [
     icon: <RxButton />,
     type: "submit",
     placeholder: "",
-    isRequired: false,
-    isReadOnly: false,
+    settings: {
+      background: "#00ADB5",
+      color: "#ffffff",
+      width: 150,
+      padding: {
+        horizontal: 12,
+        vertical: 20,
+      },
+      radius: 6,
+      alignment: "center",
+      fontSize: 16,
+    },
   },
 ];
 
