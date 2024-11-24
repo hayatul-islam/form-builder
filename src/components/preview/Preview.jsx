@@ -6,15 +6,15 @@ import SingleElement from "../form-builder/SingleElement";
 
 const Preview = () => {
   const { previewMode, elements, settings } = useBuilder();
-  // Set container styles dynamically based on the selected preview mode
+
   const getPreviewStyles = () => {
     switch (previewMode) {
       case "mobile":
-        return "w-[375px] ";
+        return "w-[375px] h-[500px] overflow-y-scroll";
       case "tablet":
-        return "w-[768px] ";
+        return "w-[768px] h-[500px] overflow-y-scroll";
       case "desktop":
-        return "w-full h-auto";
+        return "w-full h-auto mx-auto";
       default:
         return "w-full h-auto";
     }
@@ -25,20 +25,39 @@ const Preview = () => {
 
   return (
     <PageLayout type="preview">
-      <div style={pageStyle?.style} className={`${pageStyle?.className}`}>
-        <div className="container">
+      <PreviewLayout previewMode={previewMode}>
+        <div
+          style={pageStyle?.style}
+          className={`${getPreviewStyles()} ${pageStyle?.className}`}
+        >
           <form style={formStyle?.style} className={formStyle?.className}>
             {elements?.map((element) => (
               <SingleElement key={element?.id} element={element} />
             ))}
           </form>
         </div>
-      </div>
+      </PreviewLayout>
     </PageLayout>
   );
 };
 
 export default Preview;
+
+const PreviewLayout = ({ children, previewMode }) => {
+  return (
+    <>
+      {previewMode === "desktop" ? (
+        children
+      ) : (
+        <div className=" flex justify-center">
+          <div className={`inline-block shadow-lg p-5 bg-black rounded-[24px]`}>
+            {children}
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 // import { useEffect, useState } from "react";
 // import JSXParser from "react-jsx-parser";
