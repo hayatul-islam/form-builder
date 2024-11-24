@@ -8,13 +8,19 @@ const PageLayout = ({ children, type }) => {
     header = <BuilderHeader />;
   } else if (type === "preview") {
     header = <PreviewHeader />;
+  } else if (type === "home") {
+    header = <Header />;
   } else {
     header = <Header />;
   }
 
   return (
     <>
-      <div className="h-[70px] sticky top-0 z-50 bg-white">{header}</div>
+      {type === "home" ? (
+        <div className="h-[70px] absolute top-0 w-full z-50">{header}</div>
+      ) : (
+        <div className="h-[70px] sticky top-0 z-50 bg-white">{header}</div>
+      )}
       {children}
     </>
   );
