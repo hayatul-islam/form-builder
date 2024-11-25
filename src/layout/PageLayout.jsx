@@ -18,6 +18,10 @@ const PageLayout = ({ children, type }) => {
     <>
       {type === "home" ? (
         <div className="h-[70px] absolute top-0 w-full z-50">{header}</div>
+      ) : type === "preview" ? (
+        <div className="h-[50px] sticky top-0 z-50 bg-white flex justify-center items-center">
+          {header}
+        </div>
       ) : (
         <div className="h-[70px] sticky top-0 z-50 bg-white">{header}</div>
       )}

@@ -17,13 +17,25 @@ const PreviewHeader = () => {
       <div className="flex items-center gap-3">
         <button
           onClick={() => onPreviewMode("desktop")}
-          className={`flex items-center gap-2 py-2 font-medium text-black/60  px-2 text-[14px] border-b-2  ${
-            previewMode === "desktop" ? " border-primary" : "border-white "
+          className={`flex items-center justify-center gap-2 py-2 font-medium text-black/60 px-2 text-[10px] rounded-lg w-[35px] h-[35px] ${
+            previewMode === "desktop"
+              ? " bg-primary/80 text-white"
+              : "border-white "
           } `}
         >
-          <AiOutlineDesktop size={24} />
-          <span>Desktop</span>
+          <AiOutlineDesktop size={20} />
         </button>
+        <button
+          onClick={() => onPreviewMode("desktop")}
+          className={`flex items-center justify-center text-black/60 rounded-lg w-[35px] h-[35px] ${
+            previewMode === "tablet"
+              ? " bg-primary/80 text-white"
+              : "border-white "
+          } `}
+        >
+          <MdTabletMac size={20} />
+        </button>
+
         <button
           onClick={() => onPreviewMode("tablet")}
           className={`flex items-center gap-2 py-2 font-medium text-black/60  px-2 text-[14px] border-b-2  ${
@@ -31,7 +43,6 @@ const PreviewHeader = () => {
           } `}
         >
           <MdTabletMac size={20} />
-          <span>Tablet</span>
         </button>
         <button
           onClick={() => onPreviewMode("mobile")}
@@ -40,7 +51,6 @@ const PreviewHeader = () => {
           } `}
         >
           <FaMobileAlt size={20} />
-          <span>Mobile</span>
         </button>
       </div>
       <div>d</div>
