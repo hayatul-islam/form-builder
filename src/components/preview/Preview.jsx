@@ -16,7 +16,7 @@ const Preview = () => {
       case "mobile":
         return "w-[360px] h-[600px] overflow-y-auto";
       case "tablet":
-        return "w-[768px] h-[600px] overflow-y-auto";
+        return "w-[750px] h-[650px] overflow-y-auto";
       case "desktop":
         return "w-full h-auto mx-auto";
       default:
@@ -32,7 +32,9 @@ const Preview = () => {
       <PreviewLayout previewMode={previewMode}>
         <div
           style={pageStyle?.style}
-          className={`${getPreviewStyles()} ${pageStyle?.className}  `}
+          className={`${getPreviewStyles()} ${
+            pageStyle?.className
+          } h-[calc(100vh-50px)]`}
         >
           <form style={formStyle?.style} className={formStyle?.className}>
             {elements?.map((element) => (
@@ -82,10 +84,10 @@ const PreviewLayout = ({ children, previewMode }) => {
           <div
             className={`${
               previewMode === "tablet" ? "border-[20px]" : "border-8"
-            } inline-block shadow-lg border-black rounded-[24px] `}
+            } inline-block  border-black rounded-[24px] `}
           >
             <div
-              className={`flex justify-between bg-black text-white items-center gap-2
+              className={`flex justify-between border border-black bg-black text-white items-center gap-2
             px-2 ${previewMode === "tablet" ? "pb-2" : "pb-1"}`}
             >
               <span className="text-sm flex-1">{currentTime}</span>
@@ -98,7 +100,7 @@ const PreviewLayout = ({ children, previewMode }) => {
             </div>
             {children}
             <div
-              className={`flex justify-center bg-black ${
+              className={`flex justify-center border border-black bg-black ${
                 previewMode === "tablet" ? "pt-4" : "pt-2"
               }`}
             >

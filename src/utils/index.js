@@ -49,6 +49,7 @@ export const onPageStyle = (layout = {}) => {
     pagePadding.bottom ? `pb-[${pagePadding.bottom}px]` : "pb-4",
     pagePadding.left ? `pl-[${pagePadding.left}px]` : "pl-4",
     pagePadding.right ? `pr-[${pagePadding.right}px]` : "pr-4",
+    "h-screen",
   ]
     .filter(Boolean)
     .join(" ");
