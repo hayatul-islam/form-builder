@@ -1,4 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
 import Code from "./components/code/Code";
 import FormBuilder from "./components/form-builder/Builder";
 import Preview from "./components/preview/Preview";

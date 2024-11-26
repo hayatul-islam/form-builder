@@ -1,6 +1,4 @@
-import React from "react";
-
-const HomePage = () => {
+const HeroSection = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#fffc] to-[#eee] text-gray-800 flex items-center justify-center">
       <div className="text-center max-w-3xl px-6">
@@ -23,4 +21,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HeroSection;
