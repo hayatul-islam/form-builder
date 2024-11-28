@@ -1,11 +1,14 @@
+import Footer from "../components/common/Footer";
 import Header from "../components/common/Header";
 import BuilderHeader from "../components/form-builder/BuilderHeader";
 import PreviewHeader from "../components/preview/PreviewHeader";
 
 const PageLayout = ({ children, type }) => {
   let header = <Header />;
+  let isFooter = true;
   if (type === "builder") {
     header = <BuilderHeader />;
+    isFooter = false;
   } else if (type === "preview") {
     header = <PreviewHeader />;
   } else if (type === "home") {
@@ -26,6 +29,7 @@ const PageLayout = ({ children, type }) => {
         <div className="h-[70px] sticky top-0 z-50 bg-white">{header}</div>
       )}
       {children}
+      {isFooter && <Footer />}
     </>
   );
 };

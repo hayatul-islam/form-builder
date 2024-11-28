@@ -296,10 +296,639 @@ export const demo = [
   },
   {
     id: 2,
-    name: "Register Form",
+    name: "Demo 1",
     image: "",
-    elements: [],
-    settings: {},
+    elements: [
+      {
+        id: "5b5f372e-1a05-4890-8ca5-27b05d9d44b9",
+        name: "emailField",
+        label: "Email",
+        type: "email",
+        placeholder: "Enter your email",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "9c57340e-f5a5-41b4-8bb7-f0c87636615f",
+        name: "passwordField",
+        label: "Password",
+        type: "password",
+        placeholder: "Enter your password",
+        isRequired: true,
+        isReadOnly: false,
+      },
+    ],
+    settings: {
+      layout: {
+        width: "768",
+        background: {
+          light: "",
+          dark: "",
+        },
+        pageBackground: {
+          light: "#f3f3fe",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+      label: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+      },
+      inputField: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        background: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+    },
+  },
+  {
+    id: 3,
+    name: "Demo 2",
+    image: "",
+    elements: [
+      {
+        id: "5b5f372e-1a05-4890-8ca5-27b05d9d44b9",
+        name: "emailField",
+        label: "Email",
+        type: "email",
+        placeholder: "Enter your email",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "9c57340e-f5a5-41b4-8bb7-f0c87636615f",
+        name: "passwordField",
+        label: "Password",
+        type: "password",
+        placeholder: "Enter your password",
+        isRequired: true,
+        isReadOnly: false,
+      },
+    ],
+    settings: {
+      layout: {
+        width: "768",
+        background: {
+          light: "",
+          dark: "",
+        },
+        pageBackground: {
+          light: "#f3f3fe",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+      label: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+      },
+      inputField: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        background: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+    },
+  },
+  {
+    id: 4,
+    name: "Demo 3",
+    image: "",
+    elements: [
+      {
+        id: "5b5f372e-1a05-4890-8ca5-27b05d9d44b9",
+        name: "emailField",
+        label: "Email",
+        type: "email",
+        placeholder: "Enter your email",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "9c57340e-f5a5-41b4-8bb7-f0c87636615f",
+        name: "passwordField",
+        label: "Password",
+        type: "password",
+        placeholder: "Enter your password",
+        isRequired: true,
+        isReadOnly: false,
+      },
+    ],
+    settings: {
+      layout: {
+        width: "768",
+        background: {
+          light: "",
+          dark: "",
+        },
+        pageBackground: {
+          light: "#f3f3fe",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+      label: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+      },
+      inputField: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        background: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+    },
+  },
+  {
+    id: 5,
+    name: "Demo 4",
+    image: "",
+    elements: [
+      {
+        id: "5b5f372e-1a05-4890-8ca5-27b05d9d44b9",
+        name: "emailField",
+        label: "Email",
+        type: "email",
+        placeholder: "Enter your email",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "9c57340e-f5a5-41b4-8bb7-f0c87636615f",
+        name: "passwordField",
+        label: "Password",
+        type: "password",
+        placeholder: "Enter your password",
+        isRequired: true,
+        isReadOnly: false,
+      },
+    ],
+    settings: {
+      layout: {
+        width: "768",
+        background: {
+          light: "",
+          dark: "",
+        },
+        pageBackground: {
+          light: "#f3f3fe",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+      label: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+      },
+      inputField: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        background: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+    },
+  },
+  {
+    id: 6,
+    name: "Demo 5",
+    image: "",
+    elements: [
+      {
+        id: "5b5f372e-1a05-4890-8ca5-27b05d9d44b9",
+        name: "emailField",
+        label: "Email",
+        type: "email",
+        placeholder: "Enter your email",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "9c57340e-f5a5-41b4-8bb7-f0c87636615f",
+        name: "passwordField",
+        label: "Password",
+        type: "password",
+        placeholder: "Enter your password",
+        isRequired: true,
+        isReadOnly: false,
+      },
+    ],
+    settings: {
+      layout: {
+        width: "768",
+        background: {
+          light: "",
+          dark: "",
+        },
+        pageBackground: {
+          light: "#f3f3fe",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+      label: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+      },
+      inputField: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        background: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+    },
+  },
+  {
+    id: 7,
+    name: "Demo 6",
+    image: "",
+    elements: [
+      {
+        id: "5b5f372e-1a05-4890-8ca5-27b05d9d44b9",
+        name: "emailField",
+        label: "Email",
+        type: "email",
+        placeholder: "Enter your email",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "9c57340e-f5a5-41b4-8bb7-f0c87636615f",
+        name: "passwordField",
+        label: "Password",
+        type: "password",
+        placeholder: "Enter your password",
+        isRequired: true,
+        isReadOnly: false,
+      },
+    ],
+    settings: {
+      layout: {
+        width: "768",
+        background: {
+          light: "",
+          dark: "",
+        },
+        pageBackground: {
+          light: "#f3f3fe",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+      label: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+      },
+      inputField: {
+        fontSize: "",
+        fontWeight: "",
+        color: {
+          light: "",
+          dark: "",
+        },
+        background: {
+          light: "",
+          dark: "",
+        },
+        margin: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        padding: {
+          top: "",
+          bottom: "",
+          left: "",
+          right: "",
+        },
+        border: {
+          color: "",
+          darkColor: "",
+          style: "",
+          thickness: "",
+        },
+      },
+    },
   },
 ];
 

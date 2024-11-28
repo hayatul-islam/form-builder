@@ -1,12 +1,15 @@
 import { FaCode, FaRegEye } from "react-icons/fa6";
 
+import { Link } from "react-router-dom";
 import Button from "../ui/Button";
 
 const BuilderHeader = () => {
   return (
     <div className=" flex justify-between items-center px-6 py-4 border-b border-black/10">
       <div>
-        <h2 className="text-[24px] font-medium text-primary">Easy Form</h2>
+        <Link to="/" className="text-[24px] font-medium text-primary">
+          Form Builder
+        </Link>
       </div>
       <div className="flex items-center gap-3">
         <Button

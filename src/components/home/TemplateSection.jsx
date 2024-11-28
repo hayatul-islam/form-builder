@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Autoplay, FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,9 +12,12 @@ const TemplateSection = () => {
         <p className="text-[20px]">
           Lorem ipsum dolor sit amet consectetur adipisic
         </p>
-        <button className="px-4 py-2 bg-black text-white rounded">
+        <Link
+          to="/templates"
+          className="px-4 py-2 border border-black text-black rounded inline-block"
+        >
           Discover Templates
-        </button>
+        </Link>
       </div>
       <Swiper
         slidesPerView={3}

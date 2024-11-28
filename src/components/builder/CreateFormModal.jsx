@@ -39,7 +39,11 @@ const CreateFormModal = ({ demo, onClose }) => {
       </div>
 
       <div className="flex justify-end items-center gap-4 pt-6">
-        <Button type="button" onClick={onClose} className="!bg-gray text-black">
+        <Button
+          type="button"
+          onClick={onClose}
+          className="!bg-gray !text-black"
+        >
           Cancel
         </Button>
         <Button type="submit" className="px-6">
