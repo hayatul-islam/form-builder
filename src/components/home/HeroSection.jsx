@@ -1,3 +1,4 @@
+import { FaRegHandPointRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
@@ -16,9 +17,10 @@ const HeroSection = () => {
         <div className="mt-6 flex justify-center gap-4">
           <Link
             to="/templates"
-            className="px-10 py-4 bg-primary text-white rounded font-semibold hover:bg-primary/80 transition"
+            className="w-[220px] h-[60px] flex justify-center items-center gap-2 border border-black  rounded-full font-semibold hover:bg-primary/80 hover:text-white hover:border-primary transition text-[18px]"
           >
-            Create a form
+            <FaRegHandPointRight size={20} />
+            <span className="mt-1.5">Get Started</span>
           </Link>
         </div>
       </div>
