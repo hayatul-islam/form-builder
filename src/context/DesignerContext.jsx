@@ -25,6 +25,17 @@ export default function DesignerContextProvider({ children }) {
     onSetLocalStorage("form", newForm);
   };
 
+  const onGetForm = (id) => {
+    const getForm = forms?.find((form) => form?.id === id);
+    setSelectForm(getForm);
+  };
+
+  const onDeleteForm = (id) => {
+    const newForms = forms?.filter((form) => form?.id !== id);
+    setForms(newForms);
+    onSetLocalStorage("forms", newForms);
+  };
+
   // settings functionality
   const onUpdateSettings = (settings) => {
     setSelectForm((prev) => ({
@@ -96,15 +107,24 @@ export default function DesignerContextProvider({ children }) {
 
   // When the selected form data changes, store the updated form data in localStorage
   useEffect(() => {
-    selectForm?.id && onSetLocalStorage("form", selectForm);
-    // onSetLocalStorage("form", selectForm);
-  }, [selectForm]);
+    if (selectForm?.id) {
+      const updatedForms = forms?.map((form) =>
+        form.id === selectForm.id ? { ...form, ...selectForm } : form
+      );
+
+      setForms(updatedForms);
+      onSetLocalStorage("forms", updatedForms);
+      onSetLocalStorage("form", selectForm);
+    }
+  }, [selectForm, forms]);
 
   return (
     <DesignerContext.Provider
       value={{
         forms,
         onAddForm,
+        onGetForm,
+        onDeleteForm,
         selectForm,
 
         settings,
