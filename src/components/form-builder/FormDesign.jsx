@@ -17,8 +17,6 @@ const FormDesign = () => {
     onUpdateSettings(updateSettings);
   };
 
-  console.log(settings);
-
   return (
     <div className="space-y-4">
       {/* Quick setup  */}

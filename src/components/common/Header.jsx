@@ -20,7 +20,7 @@ const Header = () => {
         </Button>
 
         <Button
-          link="/builder"
+          link="/forms"
           className="!px-3 !py-1 !pt-2 w-auto text-white flex justify-center items-center"
         >
           Create Form

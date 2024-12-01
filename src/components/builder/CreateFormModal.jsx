@@ -18,6 +18,7 @@ const CreateFormModal = ({ demo, onClose }) => {
       id: uuidv4(),
       name: inputValue,
       elements: demo?.elements || [],
+      createdAt: new Date(),
     };
 
     onAddForm(newForm);

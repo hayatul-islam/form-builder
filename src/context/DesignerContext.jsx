@@ -4,12 +4,12 @@ import { onGetLocalStorage, onSetLocalStorage } from "../utils";
 export const DesignerContext = createContext(null);
 
 export default function DesignerContextProvider({ children }) {
-  const [forms, setForms] = useState([]);
-
+  const initialForms = onGetLocalStorage("forms") || [];
   const initialForm = onGetLocalStorage("form") || {
     elements: [],
     settings: {},
   };
+  const [forms, setForms] = useState(initialForms);
   const [selectForm, setSelectForm] = useState(initialForm);
   const [selectedElement, setSelectedElement] = useState();
   const [previewMode, setPreviewMode] = useState("desktop");
@@ -18,8 +18,10 @@ export default function DesignerContextProvider({ children }) {
 
   // form functionality
   const onAddForm = (newForm) => {
-    setForms((prev) => [...prev, newForm]);
+    const newForms = [...forms, newForm];
+    setForms(newForms);
     setSelectForm(newForm);
+    onSetLocalStorage("forms", newForms);
     onSetLocalStorage("form", newForm);
   };
 

@@ -28,18 +28,20 @@ const Builder = () => {
   const sensors = useSensors(mouseSensors, touchSensor);
 
   return (
-    <PageLayout type="builder">
-      <DndContext sensors={sensors}>
-        <div className="space-y-6">
-          <div className="flex w-full h-full   ">
-            <DesignerSidebar />
-            <FormBuilder />
-            <RightSidebar />
+    <>
+      <PageLayout type="builder">
+        <DndContext sensors={sensors}>
+          <div className="space-y-6">
+            <div className="flex w-full h-full   ">
+              <DesignerSidebar />
+              <FormBuilder />
+              <RightSidebar />
+            </div>
+            <DragOverlayWrapper />
           </div>
-          <DragOverlayWrapper />
-        </div>
-      </DndContext>
-    </PageLayout>
+        </DndContext>
+      </PageLayout>
+    </>
   );
 };
 

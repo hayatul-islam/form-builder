@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { AiOutlinePlus } from "react-icons/ai";
 import { demo } from "../../data";
 import Modal from "../ui/Modal";
 import CreateFormModal from "./CreateFormModal";
@@ -23,9 +22,17 @@ const Forms = () => {
       <div className="space-y-2">
         <button
           onClick={() => onOpenModal({})}
-          className="h-[250px] w-full rounded-xl bg-gray flex justify-center items-center text-primary"
+          className="h-[250px] w-full rounded-xl bg-gray flex justify-center items-center text-black/50"
         >
-          <AiOutlinePlus className="text-[48px]" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            width="80"
+            height="80"
+          >
+            <path d="M13 5a1 1 0 1 0-2 0v6H5a1 1 0 1 0 0 2h6v6a1 1 0 1 0 2 0v-6h6a1 1 0 1 0 0-2h-6V5Z"></path>
+          </svg>
         </button>
         <h3 className="font-medium text-[18px] text-center">
           Start form scratch
