@@ -1,3 +1,4 @@
+import { MdOutlineDarkMode } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Button from "../ui/Button";
 
@@ -10,16 +11,19 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className="flex items-center gap-3">
-        <Link to="/templates" className="hover:text-primary">
+      <div className="flex items-center gap-4">
+        {/* <Link to="/templates" className="hover:text-primary">
           Templates
-        </Link>
-        {/* <Button className="bg-transparent border !text-black w-8 h-8 !p-0 flex justify-center items-center">
-          <MdDarkMode className="text-[12px]" />
-        </Button> */}
+        </Link> */}
+        <Button className="bg-transparent border !text-black w-9 h-9 !p-0 flex justify-center items-center">
+          <MdOutlineDarkMode className="text-[20px]" />
+        </Button>
 
-        <Button className="h-8 !p-0 !pt-1 w-[70px] text-white flex justify-center items-center">
-          Signin
+        <Button
+          link="/builder"
+          className="!px-3 !py-1 !pt-2 w-auto text-white flex justify-center items-center"
+        >
+          Create Form
         </Button>
       </div>
     </div>
