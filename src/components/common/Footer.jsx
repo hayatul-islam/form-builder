@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-black text-white">
+    <div className="bg-gray text-black">
       <div className="container py-12 text-center space-y-4 flex justify-between items-center">
         <div className="text-[14px] ">
           <span className="opacity-70"> Created by</span>{" "}
@@ -19,10 +19,18 @@ const Footer = () => {
           </Link>
         </div>
         <div className="flex justify-center text-[24px] space-x-3">
-          <Link target="_blank" to="https://github.com/hayatul-islam">
+          <Link
+            className="hover:text-primary transform delay-100 duration-200"
+            target="_blank"
+            to="https://github.com/hayatul-islam"
+          >
             <PiGithubLogo />
           </Link>
-          <Link target="_blank" to="https://www.linkedin.com/in/hayatul-islam">
+          <Link
+            className="hover:text-primary transform delay-100 duration-200"
+            target="_blank"
+            to="https://www.linkedin.com/in/hayatul-islam"
+          >
             <CiLinkedin />
           </Link>
         </div>
