@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import CreateFormModal from "../builder/CreateFormModal";
+import CreateFormModal from "../common/CreateFormModal";
 import Modal from "../ui/Modal";
 
 const FormBuilding = () => {

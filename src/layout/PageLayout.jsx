@@ -25,8 +25,10 @@ const PageLayout = ({ children, type }) => {
         <div className="h-[50px] sticky top-0 z-50 bg-primary flex justify-center items-center">
           {header}
         </div>
-      ) : (
+      ) : type === "builder" ? (
         <div className="h-[70px] sticky top-0 z-50 bg-white">{header}</div>
+      ) : (
+        <div className="bg-white">{header}</div>
       )}
       {children}
       {isFooter && <Footer />}

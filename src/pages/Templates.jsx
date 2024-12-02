@@ -1,15 +1,17 @@
-import Forms from "../components/builder/Forms";
+import Demos from "../components/Templates/Demos";
+import TemplateHero from "../components/Templates/TemplateHero";
 import { BuilderProvider } from "../context/BuilderContext";
 import PageLayout from "../layout/PageLayout";
 
-const Builder = () => {
+const Templates = () => {
   return (
     <BuilderProvider>
       <PageLayout>
-        <Forms />
+        <TemplateHero />
+        <Demos />
       </PageLayout>
     </BuilderProvider>
   );
 };
 
-export default Builder;
+export default Templates;

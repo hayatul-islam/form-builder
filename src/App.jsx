@@ -5,10 +5,10 @@ import "swiper/css/pagination";
 import Code from "./components/code/Code";
 import FormBuilder from "./components/form-builder/Builder";
 import Preview from "./components/preview/Preview";
-import Builder from "./pages/Builder";
 import EditBuilder from "./pages/EditBuilder";
 import Forms from "./pages/Forms";
 import Home from "./pages/Home";
+import Templates from "./pages/Templates";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/forms" element={<Forms />} />
-          <Route path="/templates" element={<Builder />} />
+          <Route path="/templates" element={<Templates />} />
           <Route path="/builder" element={<FormBuilder />} />
           <Route path="/builder/:id" element={<EditBuilder />} />
           <Route path="/preview" element={<Preview />} />

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { demo } from "../../data";
+import CreateFormModal from "../common/CreateFormModal";
 import Modal from "../ui/Modal";
-import CreateFormModal from "./CreateFormModal";
 
-const Forms = () => {
+const Demos = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectDemo, setSelectDemo] = useState({});
 
@@ -18,7 +18,7 @@ const Forms = () => {
   };
 
   return (
-    <div className="container grid grid-cols-4 gap-5 py-6">
+    <div className="container grid grid-cols-4 gap-5 py-6 mb-20">
       <div className="space-y-2">
         <button
           onClick={() => onOpenModal({})}
@@ -59,4 +59,4 @@ const Forms = () => {
   );
 };
 
-export default Forms;
+export default Demos;
