@@ -64,10 +64,13 @@ export const onFormStyle = (layout = {}) => {
     margin = {},
     padding = {},
     border = {},
+    gap,
   } = layout;
 
   // Generate css style
   const style = {
+    display: "grid",
+    gap: gap ? `${gap}px` : "12px",
     maxWidth: width !== "200" ? `${width}px` : "100%",
     backgroundColor: background.light || "white",
     margin: "auto",
@@ -104,7 +107,7 @@ export const onFormStyle = (layout = {}) => {
     border.style ? `border-${border.style}` : "border-none",
     border.color ? `border-[${border.color}]` : "",
     border.radius ? `rounded-[${border.radius}px]` : "8px",
-    "space-y-3",
+    gap ? `space-y-[${gap}px]` : "space-y-3",
   ]
     .filter(Boolean)
     .join(" ");

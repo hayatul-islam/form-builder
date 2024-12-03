@@ -100,7 +100,7 @@ const ElementWrapper = ({ element }) => {
       {bottomHalf?.isOver && <DroppableElement />}
 
       <div
-        className={`p-3 pb-5 rounded-md ${
+        className={`p-3  rounded-md ${
           (mouseIsOver || isSelected) && " bg-gray group-hover:blur-6"
         }`}
       >

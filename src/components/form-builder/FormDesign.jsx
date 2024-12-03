@@ -68,6 +68,15 @@ const FormDesign = () => {
               onChange={onChange}
               subKey="background"
             />
+            <Input
+              label="Gap"
+              name="layout"
+              subKey="gap"
+              value={settings?.layout?.gap || ""}
+              type="number"
+              placeholder="0px"
+              onChange={onChange}
+            />
             <BorderStyle
               label="Border"
               name="layout"
