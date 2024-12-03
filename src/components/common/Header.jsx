@@ -4,7 +4,7 @@ import Button from "../ui/Button";
 
 const Header = () => {
   return (
-    <div className="container flex justify-between items-center px-6 py-4 ">
+    <div className="container flex justify-between items-center px-6 py-5 ">
       <div>
         <Link to="/" className="text-[24px] font-medium text-primary">
           Form Builder

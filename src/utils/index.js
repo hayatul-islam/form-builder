@@ -337,6 +337,46 @@ export const onButtonStyle = (settings = {}) => {
   return { style, className, alignmentStyle, alignmentClassName };
 };
 
+export const onHeadlineStyle = (settings = {}) => {
+  const {
+    background,
+    padding = {},
+    color,
+    fontSize,
+    fontWeight,
+    alignment,
+    radius,
+  } = settings;
+
+  // Generate CSS style
+  const style = {
+    background: background || "transparent",
+    color: color || "inherit",
+    fontSize: fontSize ? `${fontSize}px` : "16px",
+    fontWeight: fontWeight || "normal",
+    padding: `${padding?.vertical || 0}px ${padding?.horizontal || 0}px`,
+    borderRadius: radius ? `${radius}px` : "6px",
+    textAlign: alignment || "center",
+  };
+
+  // Generate Tailwind classes
+  const className = [
+    background ? `bg-[${background}]` : "bg-transparent",
+    color ? `text-[${color}]` : "",
+    fontSize ? `text-[${fontSize}px]` : "",
+    fontWeight ? `font-[${fontWeight}]` : "",
+    radius ? `rounded-[${radius}px]` : "rounded-[6px]",
+    alignment ? `text-[${alignment}]` : "text-center",
+    padding?.vertical || padding?.horizontal
+      ? `px-[${padding.vertical || 0}px] py-[${padding.horizontal || 0}px]`
+      : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return { style, className };
+};
+
 export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
   // Helper functions for generating styles and classes
   const pageStyle = onPageStyle(settings?.layout);
@@ -442,6 +482,14 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
           </div>`;
   };
 
+  const generateHeadline = (field) => {
+    const headlineStyle = onHeadlineStyle(field?.settings);
+
+    return `<h2 className="${headlineStyle?.className || ""}">
+              ${field?.label}
+            </h2>`;
+  };
+
   // Field mapping
   const mapFieldsToHTML = (field) => {
     const fieldHTML =
@@ -455,6 +503,8 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
         ? generateTextarea(field)
         : field.type === "submit"
         ? generateButton(field)
+        : field.type === "title"
+        ? generateHeadline(field)
         : generateInputField(field);
 
     // Only render the label if the field type is not "submit"

@@ -11,10 +11,28 @@ import {
   FaLock,
   FaTextWidth,
 } from "react-icons/fa";
+import { FaHeading } from "react-icons/fa6";
 import { IoText } from "react-icons/io5";
 import { RxButton } from "react-icons/rx";
 
 export const btnElements = [
+  {
+    name: "headline",
+    label: "Headline",
+    icon: <FaHeading />,
+    type: "title",
+    settings: {
+      color: "",
+      background: "",
+      padding: {
+        horizontal: 10,
+        vertical: 16,
+      },
+      alignment: "center",
+      fontSize: 24,
+      radius: "",
+    },
+  },
   {
     name: "text",
     label: "Text Field",

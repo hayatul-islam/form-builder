@@ -1,4 +1,5 @@
 import CheckboxOptions from "../ui/CheckboxOptions";
+import HeadLine from "../ui/Headline";
 import InputField from "../ui/InputField";
 import RadioOptions from "../ui/RadioOptions";
 import SelectOptions from "../ui/SelectOption";
@@ -8,6 +9,10 @@ import TextareaField from "../ui/TextareaField";
 const SingleElement = ({ element }) => {
   let filed;
   switch (element?.type) {
+    case "title":
+      filed = <HeadLine {...element} />;
+      break;
+
     case "textarea":
       filed = <TextareaField {...element} />;
       break;

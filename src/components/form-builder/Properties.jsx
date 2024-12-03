@@ -30,8 +30,8 @@ const Properties = () => {
   };
 
   const type = selectedElement?.type;
-  const isRequired = type !== "submit";
-  const isReadOnly = type !== "submit";
+  const isRequired = type !== "submit" && type !== "title";
+  const isReadOnly = type !== "submit" && type !== "title";
   const isPlaceholder =
     type === "text" ||
     type === "textarea" ||
@@ -43,6 +43,7 @@ const Properties = () => {
     type === "checkbox" || type === "radio" || type === "select";
   const isNumberOfOptions = type === "checkbox" || type === "radio";
   const isButton = type === "submit";
+  const isHeadline = type === "title";
 
   return (
     <div className="rounded-lg space-y-4">
@@ -221,6 +222,74 @@ const Properties = () => {
                 </button>
               ))}
             </div>
+          </div>
+        </div>
+      )}
+
+      {isHeadline && (
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <Alignment
+              label="Alignment"
+              name="settings"
+              subKey="alignment"
+              columns={3}
+              value={selectedElement?.settings?.alignment}
+              onChange={onChange}
+            />
+            <Input
+              name="settings"
+              label="Font Size"
+              subKey="fontSize"
+              value={selectedElement?.settings?.fontSize || ""}
+              onChange={onChange}
+              placeholder="16px"
+              type="number"
+            />
+
+            <Select
+              label="Font Weight"
+              name="settings"
+              subKey="fontWeight"
+              value={selectedElement?.settings?.fontWeight || ""}
+              options={fontWeightStyle}
+              onChange={onChange}
+            />
+
+            <Input
+              name="settings"
+              label="Radius"
+              subKey="radius"
+              value={selectedElement?.settings?.radius || ""}
+              onChange={onChange}
+              placeholder="5px"
+              type="number"
+            />
+
+            <ColorPicker
+              label="Color"
+              name="settings"
+              subKey="color"
+              value={selectedElement?.settings?.color || ""}
+              type="color"
+              onChange={onChange}
+            />
+            <ColorPicker
+              label="Background"
+              name="settings"
+              subKey="background"
+              value={selectedElement?.settings?.background || ""}
+              type="color"
+              onChange={onChange}
+            />
+            <MarginPaddingStyle
+              label="Padding"
+              name="settings"
+              subKey="padding"
+              value={selectedElement?.settings?.padding}
+              onChange={onChange}
+              type="horizontalAndVertical"
+            />
           </div>
         </div>
       )}

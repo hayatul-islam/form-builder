@@ -116,7 +116,7 @@ export default function DesignerContextProvider({ children }) {
       onSetLocalStorage("forms", updatedForms);
       onSetLocalStorage("form", selectForm);
     }
-  }, [selectForm, forms]);
+  }, [selectForm]);
 
   return (
     <DesignerContext.Provider
