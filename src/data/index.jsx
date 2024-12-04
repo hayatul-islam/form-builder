@@ -196,7 +196,7 @@ export const btnElements = [
       width: 150,
       padding: {
         horizontal: 12,
-        vertical: 20,
+        vertical: 16,
       },
       radius: 6,
       alignment: "center",

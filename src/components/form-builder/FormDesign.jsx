@@ -90,6 +90,7 @@ const FormDesign = () => {
               value={settings?.layout?.margin || {}}
               onChange={onChange}
               subKey="margin"
+              type="horizontalAndVertical"
             />
             <MarginPaddingStyle
               label="Padding"
@@ -97,6 +98,7 @@ const FormDesign = () => {
               value={settings?.layout?.padding || {}}
               onChange={onChange}
               subKey="padding"
+              type="horizontalAndVertical"
             />
           </div>
         </div>
@@ -117,6 +119,7 @@ const FormDesign = () => {
               value={settings?.layout?.pagePadding || {}}
               onChange={onChange}
               subKey="pagePadding"
+              type="horizontalAndVertical"
             />
           </div>
         </div>

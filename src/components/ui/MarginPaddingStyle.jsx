@@ -23,17 +23,17 @@ const MarginPaddingStyle = ({
       {type === "horizontalAndVertical" ? (
         <div className="flex justify-between items-center gap-3">
           <Input
-            label="Vertical"
-            name="vertical"
-            value={value?.vertical || ""}
+            label="Horizontal"
+            name="horizontal"
+            value={value?.horizontal || ""}
             type="number"
             placeholder="0px"
             onChange={handleChange}
           />
           <Input
-            label="Horizontal"
-            name="horizontal"
-            value={value?.horizontal || ""}
+            label="Vertical"
+            name="vertical"
+            value={value?.vertical || ""}
             type="number"
             placeholder="0px"
             onChange={handleChange}

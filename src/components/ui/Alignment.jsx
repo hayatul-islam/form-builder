@@ -10,7 +10,9 @@ const Alignment = ({ label, name, value, subKey, onChange, columns = "4" }) => {
     <div className="space-y-1">
       <h3>{label}</h3>
       <div
-        className={`grid grid-cols-${columns} border border-black/20 rounded`}
+        className={`grid ${
+          columns === 3 ? "grid-cols-3" : "grid-cols-4 "
+        } border border-black/20 rounded`}
       >
         {columns === "4" && (
           <button

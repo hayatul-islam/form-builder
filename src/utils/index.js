@@ -35,20 +35,28 @@ export const onPageStyle = (layout = {}) => {
   // Generate CSS style
   const style = {
     background: pageBackground?.light ?? "",
-    paddingTop: pagePadding?.top ? `${pagePadding.top}px` : "16px",
-    paddingBottom: pagePadding?.bottom ? `${pagePadding.bottom}px` : "16px",
-    paddingLeft: pagePadding?.left ? `${pagePadding.left}px` : "16px",
-    paddingRight: pagePadding?.right ? `${pagePadding.right}px` : "16px",
+    padding:
+      pagePadding.vertical || pagePadding?.horizontal
+        ? `${pagePadding.horizontal || "20"}px ${
+            pagePadding.vertical || "20"
+          }px`
+        : "20px",
+    // paddingTop: pagePadding?.top ? `${pagePadding.top}px` : "16px",
+    // paddingBottom: pagePadding?.bottom ? `${pagePadding.bottom}px` : "16px",
+    // paddingLeft: pagePadding?.left ? `${pagePadding.left}px` : "16px",
+    // paddingRight: pagePadding?.right ? `${pagePadding.right}px` : "16px",
   };
 
   // Generate Tailwind classes
   const className = [
     pageBackground.light ? `bg-[${pageBackground.light}]` : "",
     pageBackground.dark ? `dark:bg-[${pageBackground.light}]` : "dark:bg-black",
-    pagePadding.top ? `pt-[${pagePadding.top}px]` : "pt-4",
-    pagePadding.bottom ? `pb-[${pagePadding.bottom}px]` : "pb-4",
-    pagePadding.left ? `pl-[${pagePadding.left}px]` : "pl-4",
-    pagePadding.right ? `pr-[${pagePadding.right}px]` : "pr-4",
+    pagePadding?.vertical ? `px-[${pagePadding.vertical}px]` : "px-5",
+    pagePadding?.horizontal ? `py-[${pagePadding.horizontal}px]` : "py-5",
+    // pagePadding.top ? `pt-[${pagePadding.top}px]` : "pt-4",
+    // pagePadding.bottom ? `pb-[${pagePadding.bottom}px]` : "pb-4",
+    // pagePadding.left ? `pl-[${pagePadding.left}px]` : "pl-4",
+    // pagePadding.right ? `pr-[${pagePadding.right}px]` : "pr-4",
     "h-screen",
   ]
     .filter(Boolean)
@@ -74,14 +82,15 @@ export const onFormStyle = (layout = {}) => {
     maxWidth: width !== "200" ? `${width}px` : "100%",
     backgroundColor: background.light || "white",
     margin: "auto",
-    marginTop: margin.top ? `${margin.top}px` : "auto",
-    marginBottom: margin.bottom ? `${margin.bottom}px` : "auto",
-    marginLeft: margin.left ? `${margin.left}px` : "auto",
-    marginRight: margin.right ? `${margin.right}px` : "auto",
-    paddingTop: padding.top ? `${padding.top}px` : "",
-    paddingBottom: padding.bottom ? `${padding.bottom}px` : "",
-    paddingLeft: padding.left ? `${padding.left}px` : "",
-    paddingRight: padding.right ? `${padding.right}px` : "",
+    marginTop: margin?.vertical ? `${margin.vertical}px` : "auto",
+    marginBottom: margin?.vertical ? `${margin.vertical}px` : "auto",
+    marginLeft: margin?.horizontal > 0 ? `${margin.horizontal}px` : "auto",
+    marginRight: margin?.horizontal > 0 ? `${margin.horizontal}px` : "auto",
+
+    padding:
+      padding.vertical || padding?.horizontal
+        ? `${padding.horizontal || "16"}px ${padding.vertical || "16"}px`
+        : "",
     border: border.thickness
       ? `${border.thickness}px ${border.style || "solid"} ${
           border.color || "black"
@@ -99,10 +108,12 @@ export const onFormStyle = (layout = {}) => {
     margin.bottom ? `mb-[${margin.bottom}px]` : "",
     margin.left ? `ml-[${margin.left}px]` : "",
     margin.right ? `mr-[${margin.right}px]` : "",
-    padding.top ? `pt-[${padding.top}px]` : "pt-4",
-    padding.bottom ? `pb-[${padding.bottom}px]` : "pb-4",
-    padding.left ? `pl-[${padding.left}px]` : "pl-4",
-    padding.right ? `pr-[${padding.right}px]` : "pr-4",
+    padding?.vertical ? `px-[${padding.vertical}px]` : "px-4",
+    padding?.horizontal ? `py-[${padding.horizontal}px]` : "py-4",
+    // padding.top ? `pt-[${padding.top}px]` : "pt-4",
+    // padding.bottom ? `pb-[${padding.bottom}px]` : "pb-4",
+    // padding.left ? `pl-[${padding.left}px]` : "pl-4",
+    // padding.right ? `pr-[${padding.right}px]` : "pr-4",
     border.thickness ? `border-[${border.thickness}px]` : "",
     border.style ? `border-${border.style}` : "border-none",
     border.color ? `border-[${border.color}]` : "",
