@@ -14,6 +14,7 @@ import {
 import { FaHeading } from "react-icons/fa6";
 import { IoText } from "react-icons/io5";
 import { RxButton } from "react-icons/rx";
+import loginImg from "../assets/demos/login-page.png";
 
 export const btnElements = [
   {
@@ -207,107 +208,83 @@ export const btnElements = [
 
 export const demo = [
   {
-    id: 1,
+    id: "7b7af1cb-600a-41f4-8ca7-55df83d199d7",
     name: "Login Form",
-    image: "",
+    image: loginImg,
     elements: [
       {
-        id: "5b5f372e-1a05-4890-8ca5-27b05d9d44b9",
-        name: "emailField",
+        id: "18a2b82f-fb93-4b7c-947b-4ceec2c6438b",
+        name: "headline",
+        label: "Login",
+
+        type: "title",
+        settings: {
+          0: "d",
+          color: "#37b8a3",
+          fontSize: "24",
+        },
+      },
+      {
+        id: "9ec0e87f-aafb-4300-9797-ffffe9dd9c36",
+        name: "email",
         label: "Email",
+
         type: "email",
-        placeholder: "Enter your email",
+        placeholder: "Email",
         isRequired: true,
         isReadOnly: false,
       },
       {
-        id: "9c57340e-f5a5-41b4-8bb7-f0c87636615f",
-        name: "passwordField",
+        id: "47625468-37cf-48f1-9f54-5b54ad318a69",
+        name: "password",
         label: "Password",
+
         type: "password",
-        placeholder: "Enter your password",
+        placeholder: "********",
         isRequired: true,
         isReadOnly: false,
       },
+      {
+        id: "4dee839a-3d38-449a-82c6-064e7580ccec",
+        name: "button",
+        label: "SIGN IN",
+
+        type: "submit",
+        placeholder: "",
+        settings: {
+          background: "#37b8a3",
+          color: "#ffffff",
+          width: 150,
+          padding: {
+            horizontal: 12,
+            vertical: 16,
+          },
+          radius: 6,
+          alignment: "center",
+          fontSize: "18",
+        },
+      },
     ],
+    createdAt: "2024-12-04T05:49:56.017Z",
     settings: {
       layout: {
-        width: "768",
         background: {
-          light: "",
-          dark: "",
+          light: "#FFFFFF",
+        },
+        padding: {
+          horizontal: "32",
+          vertical: "28",
+        },
+        pagePadding: {
+          horizontal: "50",
+          vertical: "49",
         },
         pageBackground: {
-          light: "#f3f3fe",
-          dark: "",
+          light: "#dddeee",
         },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
+        width: "500",
         border: {
-          color: "",
-          darkColor: "",
-          style: "",
-          thickness: "",
-        },
-      },
-      label: {
-        fontSize: "",
-        fontWeight: "",
-        color: {
-          light: "",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-      },
-      inputField: {
-        fontSize: "",
-        fontWeight: "",
-        color: {
-          light: "",
-          dark: "",
-        },
-        background: {
-          light: "",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        border: {
-          color: "",
-          darkColor: "",
-          style: "",
-          thickness: "",
+          radius: "20",
         },
       },
     },

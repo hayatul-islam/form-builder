@@ -18,11 +18,11 @@ const Demos = () => {
   };
 
   return (
-    <div className="container grid grid-cols-4 gap-5 py-6 mb-20">
+    <div className="container grid grid-cols-3 gap-6 py-6 mb-20">
       <div className="space-y-2">
         <button
           onClick={() => onOpenModal({})}
-          className="h-[250px] w-full rounded-xl bg-gray flex justify-center items-center text-black/50"
+          className="h-[300px] w-full rounded-xl bg-gray flex justify-center items-center text-black/50"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -42,8 +42,10 @@ const Demos = () => {
         <div key={demo?.id} className="space-y-2">
           <button
             onClick={() => onOpenModal(demo)}
-            className="h-[250px] w-full rounded bg-gray flex justify-center items-center text-primary"
-          ></button>
+            className="h-[300px] w-full rounded bg-gray flex justify-center items-center text-primary"
+          >
+            <img src={demo?.image} className="w-full h-full rounded" alt="" />
+          </button>
           <h3 className="font-medium text-[18px] text-center capitalize">
             {demo?.name}
           </h3>

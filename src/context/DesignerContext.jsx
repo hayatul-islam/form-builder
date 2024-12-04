@@ -118,6 +118,8 @@ export default function DesignerContextProvider({ children }) {
     }
   }, [selectForm]);
 
+  console.log(selectForm);
+
   return (
     <DesignerContext.Provider
       value={{
