@@ -19,12 +19,12 @@ const Header = () => {
           <MdOutlineDarkMode className="text-[20px]" />
         </Button>
 
-        <Button
-          link="/forms"
-          className="!px-3 !py-1 !pt-2 w-auto text-white flex justify-center items-center"
+        <Link
+          to="/forms"
+          className="px-6 py-2.5 rounded-full bg-black text-[14px] text-white flex justify-center items-center"
         >
           Create Form
-        </Button>
+        </Link>
       </div>
     </div>
   );

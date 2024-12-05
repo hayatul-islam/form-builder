@@ -6,6 +6,11 @@ export default {
       colors: {
         primary: "#00ADB5",
         gray: "#F9F7F7",
+
+        black: {
+          DEFAULT: "#393737",
+          "black-100": "#888787",
+        },
       },
     },
   },
