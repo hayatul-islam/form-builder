@@ -3,7 +3,7 @@ import Header from "../components/common/Header";
 import BuilderHeader from "../components/form-builder/BuilderHeader";
 import PreviewHeader from "../components/preview/PreviewHeader";
 
-const PageLayout = ({ children, type }) => {
+const PageLayout = ({ children, type, className }) => {
   let header = <Header />;
   let isFooter = true;
   if (type === "builder") {
@@ -30,7 +30,8 @@ const PageLayout = ({ children, type }) => {
       ) : (
         <div className="bg-white">{header}</div>
       )}
-      {children}
+      <div className={className}>{children}</div>
+
       {isFooter && <Footer />}
     </>
   );
