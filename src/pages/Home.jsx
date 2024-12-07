@@ -1,3 +1,4 @@
+import GetStarted from "../components/home/GetStarted";
 import HeroSection from "../components/home/HeroSection";
 import TemplateSection from "../components/home/TemplateSection";
 import VideoSection from "../components/home/VideoSection";
@@ -9,6 +10,7 @@ const Home = () => {
       <HeroSection />
       <VideoSection />
       <TemplateSection />
+      <GetStarted />
     </PageLayout>
   );
 };

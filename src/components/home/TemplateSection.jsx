@@ -35,7 +35,7 @@ const TemplateSection = () => {
         </div>
       </div>
       <Swiper
-        slidesPerView={6}
+        slidesPerView={4}
         spaceBetween={30}
         freeMode={true}
         autoplay={{
@@ -71,8 +71,6 @@ const TemplateSection = () => {
                   alt=""
                 />
               </div>
-
-              <h3>Login form</h3>
             </div>
           </SwiperSlide>
         ))}
