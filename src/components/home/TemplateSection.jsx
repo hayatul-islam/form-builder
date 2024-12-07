@@ -4,13 +4,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const TemplateSection = () => {
   return (
-    <div className="py-12 space-y-20">
+    <div className="container py-12 space-y-20">
       <div className="text-center space-y-2 text-black max-w-[800px] mx-auto">
         <h2 className="text-[56px] font-medium text-center leading-none space-y-2">
           Start with a template
         </h2>
         <p className="text-gray-500 text-[20px]">
-          Create forms in moments, no coding skills necessary, completely
+          Start with one of our ready-made form templates for common use cases
+          or create your form from scratch
         </p>
 
         <div className="pt-4">
