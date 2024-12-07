@@ -4,21 +4,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const TemplateSection = () => {
   return (
-    <div className="py-12 space-y-12">
+    <div className="py-12 space-y-20">
       <div className="text-center space-y-2 text-black max-w-[800px] mx-auto">
         <h2 className="text-[56px] font-medium text-center leading-none space-y-2">
           Start with a template
         </h2>
-        <p>
-          Discover over 50 prebuilt Framer pages like landing pages, blogs, team
-          profiles, and contact forms. Crafted with Frameblox UI, these pages
-          are ready for quick customization and publishing.
+        <p className="text-gray-500 text-[20px]">
+          Create forms in moments, no coding skills necessary, completely
         </p>
 
         <div className="pt-4">
           <Link
             to="/templates"
-            className="px-4 py-2 border-2 rounded-full border-white text-black text-[14px] font-medium bg-gradient-to-r from-gray to-white"
+            className="px-4 py-2 border-2 rounded-lg border-gray-200 text-black text-[14px] font-medium bg-gradient-to-r from-gray to-white"
           >
             View all templates
           </Link>
@@ -37,7 +35,7 @@ const TemplateSection = () => {
         </div>
       </div>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={6}
         spaceBetween={30}
         freeMode={true}
         autoplay={{
@@ -65,12 +63,16 @@ const TemplateSection = () => {
       >
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((item) => (
           <SwiperSlide key={item}>
-            <div className="w-auto h-[400px] border rounded">
-              <img
-                className="rounded"
-                src="https://images.template.net/427831/Registration-Form-Template-edit-online.png"
-                alt=""
-              />
+            <div className="w-full  border rounded">
+              <div className="w-full h-[350px] overflow-hidden">
+                <img
+                  className="rounded w-full h-auto"
+                  src="https://images.template.net/427831/Registration-Form-Template-edit-online.png"
+                  alt=""
+                />
+              </div>
+
+              <h3>Login form</h3>
             </div>
           </SwiperSlide>
         ))}

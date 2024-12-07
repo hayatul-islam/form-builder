@@ -12,7 +12,7 @@ const HeroSection = () => {
           <span> Build forms faster </span>
           <span className="block"> with drag</span>
         </h1>
-        <p className="text-gray-500 text-[20px] text-black-100 max-w-[400px] mx-auto">
+        <p className="text-gray-500 text-[20px]  max-w-[400px] mx-auto">
           Create forms in moments, no coding skills necessary, completely{" "}
           <span className="text-primary">free to use!</span>
         </p>
