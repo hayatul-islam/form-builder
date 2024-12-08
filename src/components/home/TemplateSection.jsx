@@ -3,7 +3,7 @@ import Slider from "./Slider";
 
 const TemplateSection = () => {
   return (
-    <div className="container py-12 space-y-28">
+    <div className="container space-y-28">
       {/* Header Section */}
       <div className="text-center space-y-2 text-black max-w-[600px] mx-auto">
         <h2 className="text-[42px] font-medium leading-none">
