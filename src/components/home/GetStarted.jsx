@@ -21,7 +21,11 @@ const GetStarted = () => {
           <p className="text-gray-500 text-[20px]">
             Customize the style and content of your forms to match your brand
           </p>
-          <button className="px-4 py-2 mt-4 border-2 rounded-lg border-gray-200 text-black text-[14px] font-medium bg-gradient-to-r from-gray to-white ">
+
+          <button
+            className="px-4 py-2 mt-4 mx-auto rounded-lg bg-gradient-to-r from-gray-800 to-black text-[14px] text-white flex justify-center items-center hover:shadow-lg transition-all "
+            // className="px-4 py-2 mt-4 border-2 rounded-lg border-gray-200 text-black text-[14px] font-medium bg-gradient-to-r from-gray to-white "
+          >
             Get Started for free
           </button>
         </div>
