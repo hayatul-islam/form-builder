@@ -16,6 +16,40 @@ import { IoText } from "react-icons/io5";
 import { RxButton } from "react-icons/rx";
 import loginImg from "../assets/demos/login-page.png";
 
+export const features = [
+  {
+    title: "Drag-and-Drop",
+    description:
+      "Easily build forms by dragging and dropping fields like text, dropdowns, and checkboxes into place. No coding required.",
+    image: "https://cdn-icons-png.flaticon.com/128/6591/6591195.png",
+  },
+
+  {
+    title: "Customizable Settings",
+    description:
+      "Tailor field properties such as labels, placeholder text, validation rules, and default values to suit your needs.",
+    image: "https://cdn-icons-png.flaticon.com/128/17561/17561097.png",
+  },
+  {
+    title: "Code Generation",
+    description:
+      "Automatically generate code for your forms in HTML, React, or other frameworks, saving development time.",
+    image: "https://cdn-icons-png.flaticon.com/128/9476/9476927.png",
+  },
+  {
+    title: "Real-Time Preview",
+    description:
+      "Instantly see how your form will look and function while building it, ensuring a seamless design process.",
+    image: "https://cdn-icons-png.flaticon.com/128/1185/1185279.png",
+  },
+  {
+    title: "Beautiful Visual Layouts",
+    description:
+      "Design visually stunning forms with pre-built templates and customizable themes to match your branding.",
+    image: "https://cdn-icons-png.flaticon.com/128/648/648392.png",
+  },
+];
+
 export const btnElements = [
   {
     name: "headline",

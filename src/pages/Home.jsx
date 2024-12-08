@@ -1,3 +1,4 @@
+import Features from "../components/home/Features";
 import GetStarted from "../components/home/GetStarted";
 import HeroSection from "../components/home/HeroSection";
 import TemplateSection from "../components/home/TemplateSection";
@@ -9,6 +10,7 @@ const Home = () => {
     <PageLayout type="home" className="space-y-12">
       <HeroSection />
       <VideoSection />
+      <Features />
       <TemplateSection />
       <GetStarted />
     </PageLayout>
