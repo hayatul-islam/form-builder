@@ -42,5 +42,3 @@ input[type="number"]::-webkit-outer-spin-button {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
-
-/* -------------------------------------- */
