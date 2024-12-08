@@ -27,9 +27,32 @@ const Slider = () => {
 
   const [selectItems, setSelectItems] = useState(items);
 
+  const handleNext = () => {
+    setSelectItems((prevItems) => {
+      const [firstItem, ...restItems] = prevItems;
+      return [...restItems, firstItem];
+    });
+  };
+
+  const handlePrevious = () => {
+    setSelectItems((prevItems) => {
+      const newItems = [...prevItems];
+      const lastItem = newItems.pop();
+      return [lastItem, ...newItems];
+    });
+  };
+
+  const handleItem = (item) => {
+    setSelectItems((prevItems) => {
+      const filterItems = prevItems.filter((i) => i.id !== item?.id);
+      filterItems.splice(2, 0, item);
+      return filterItems;
+    });
+  };
+
   return (
     <div className="space-y-28">
-      <div className="flex items-center">
+      <div className="flex items-center justify-center">
         {selectItems?.map((item, index) => (
           <div
             key={item?.id}
@@ -41,21 +64,30 @@ const Slider = () => {
                 : "scale-100"
             }`}
           >
-            <img src={item?.img} alt="" />
+            <img className="h-[300px] w-[250px]" src={item?.img} alt="" />
           </div>
         ))}
       </div>
       <div className="flex justify-center items-center gap-5">
-        <button className="text-primary font-bold text-[20px]">
+        <button
+          onClick={handlePrevious}
+          className="text-primary font-bold text-[20px]"
+        >
           <FaArrowLeftLong />
         </button>
-        {selectItems?.map((item, index) => (
+        {items?.map((item) => (
           <button
             key={item?.id}
-            className={`w-[15px] h-[15px] rounded-full bg-primary `}
+            onClick={() => handleItem(item)}
+            className={`${
+              selectItems[2]?.id === item?.id ? "bg-primary" : "bg-gray-400"
+            }  w-[15px] h-[15px] rounded-full  `}
           ></button>
         ))}
-        <button className="text-primary font-bold text-[20px]">
+        <button
+          onClick={handleNext}
+          className="text-primary font-bold text-[20px]"
+        >
           <FaArrowRightLong />
         </button>
       </div>
