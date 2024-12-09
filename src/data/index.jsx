@@ -19,21 +19,27 @@ import loginImg from "../assets/demos/login-page.png";
 export const features = [
   {
     title: "Drag-and-Drop",
+    // description:
+    //   "Effortlessly create forms by simply dragging and dropping fields. No technical skills required.",
     description:
-      "Easily build forms by dragging and dropping fields like text, dropdowns, and checkboxes into place. No coding required.",
+      "Create custom forms without technical skills. Simply drag and drop fields.",
+    // description:
+    //   "Easily build forms by dragging and dropping fields like text, dropdowns, and checkboxes into place. No coding required.",
     image: "https://cdn-icons-png.flaticon.com/128/6591/6591195.png",
   },
 
   {
-    title: "Customizable Settings",
+    title: "Your forms, your way",
     description:
-      "Tailor field properties such as labels, placeholder text, validation rules, and default values to suit your needs.",
+      "Customize the colors, layout, and fields to match your unique style.",
     image: "https://cdn-icons-png.flaticon.com/128/17561/17561097.png",
   },
   {
     title: "Code Generation",
     description:
-      "Automatically generate code for your forms in HTML, React, or other frameworks, saving development time.",
+      "Save development time by automatically generating the code for your forms.",
+    // description:
+    //   "Automatically generate code for your forms, saving development time.",
     image: "https://cdn-icons-png.flaticon.com/128/9476/9476927.png",
   },
   {
