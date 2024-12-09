@@ -22,7 +22,7 @@ const HeroSectionTwo = () => {
           {/* Create beautiful forms and surveys without writing a single line of
           code—design, customize, and generate code! */}
           Create beautiful forms and surveys without writing a single line of
-          code, saving you valuable time.
+          code and saving your valuable time.
         </p>
         <div className=" flex justify-center gap-4">
           <button
