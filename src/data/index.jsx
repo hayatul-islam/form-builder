@@ -22,7 +22,7 @@ export const features = [
     // description:
     //   "Effortlessly create forms by simply dragging and dropping fields. No technical skills required.",
     description:
-      "Create custom forms without technical skills. Simply drag and drop fields.",
+      "Create custom forms without writing code. Simply drag and drop fields.",
     // description:
     //   "Easily build forms by dragging and dropping fields like text, dropdowns, and checkboxes into place. No coding required.",
     image: "https://cdn-icons-png.flaticon.com/128/6591/6591195.png",

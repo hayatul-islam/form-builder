@@ -15,16 +15,18 @@ const HeroSectionTwo = () => {
           {/* <span> Your Forms, Your Way</span> */}
           {/* <span> Power Up Your Forms</span> */}
           {/* <span>Create Forms, Your Way</span> */}
-          <span>Build Better Forms, Faster.</span>
+          <span>Build Better Forms, Faster</span>
           <span className="block">Drag, drop, done</span>
         </h1>
         <p className="text-gray-500 text-[20px] max-w-[550px] mx-auto">
-          Create beautiful forms and surveys without writing code. Receive
-          submissions straight into Notion. Easy.
+          {/* Create beautiful forms and surveys without writing a single line of
+          code—design, customize, and generate code! */}
+          Create beautiful forms and surveys without writing a single line of
+          code, saving you valuable time.
         </p>
         <div className=" flex justify-center gap-4">
           <button
-            className="px-4 py-2 rounded-lg bg-gradient-to-r to-[#1C28AA] from-[#3A86FF] text-[14px] text-white hover:shadow-lg transition-all "
+            className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#1C28AA] to-[#3A86FF] text-[14px] text-white hover:shadow-lg transition-all "
             // className="px-4 py-2 mt-4 border-2 rounded-lg border-gray-200 text-black text-[14px] font-medium bg-gradient-to-r from-gray to-white "
           >
             Creating form for free
