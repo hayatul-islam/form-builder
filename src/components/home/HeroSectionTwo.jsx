@@ -1,32 +1,37 @@
-import React from "react";
-import { FaRegHandPointRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { RiDragMove2Fill } from "react-icons/ri";
 
 const HeroSectionTwo = () => {
   return (
     <div className="container mt-32 bg-gradient-to-b  flex items-center justify-center ">
-      <div className="text-center max-w-4xl px-6 space-y-5 py-5">
-        <h1 className="text-[52px] leading-none space-y-1 text-black font-normal ">
-          <span> The best remote pair programming app on macOS </span>
-          {/* <span className="block">Easy to use</span> */}
+      <div className="text-center px-6 space-y-5 py-5">
+        <button className="px-4 py-2 border-2 rounded-full border-white text-black text-[14px] font-medium cursor-auto flex items-center gap-1 justify-center mx-auto bg-gradient-to-r from-[#F7F7F7] to-[#ffffff]">
+          <RiDragMove2Fill />
+          Welcome to Form Builder
+        </button>
+        <h1 className="text-[54px] leading-none space-y-2 text-black font-normal ">
+          {/* <span> Faster form building with </span>
+          <span className="block"> drag and drop</span> */}
+
+          {/* <span> Your Forms, Your Way</span> */}
+          {/* <span> Power Up Your Forms</span> */}
+          {/* <span>Create Forms, Your Way</span> */}
+          <span>Build Better Forms, Faster.</span>
+          <span className="block">Drag, drop, done</span>
         </h1>
-        {/* <p className="text-gray-500 text-[20px]  max-w-[400px] mx-auto">
-          Create forms in moments, no coding skills necessary, completely{" "}
-          <span className="text-primary">free to use!</span>
-        </p> */}
-        <p className="text-gray-500 text-[20px]  max-w-[700px] mx-auto">
-          Built from the ground up to deliver razor sharp screen sharing, crisp
-          audio, and seamless remote control, flow with your teammates and do
-          real work.
+        <p className="text-gray-500 text-[20px] max-w-[550px] mx-auto">
+          Create beautiful forms and surveys without writing code. Receive
+          submissions straight into Notion. Easy.
         </p>
-        <div className="pt-6 flex justify-center gap-4">
-          <Link
-            to="/templates"
-            className="w-[220px] h-[50px] flex justify-center items-center gap-2 bg-white rounded-full font-semibold border border-gray-200 transition text-[18px]"
+        <div className=" flex justify-center gap-4">
+          <button
+            className="px-4 py-2 rounded-lg bg-gradient-to-r to-[#1C28AA] from-[#3A86FF] text-[14px] text-white hover:shadow-lg transition-all "
+            // className="px-4 py-2 mt-4 border-2 rounded-lg border-gray-200 text-black text-[14px] font-medium bg-gradient-to-r from-gray to-white "
           >
-            <FaRegHandPointRight size={20} />
-            <span>Get Started for free</span>
-          </Link>
+            Creating form for free
+          </button>
+          <button className="px-4 py-2 border-2 rounded-lg border-gray-200 text-black text-[14px] font-medium bg-gradient-to-r from-gray to-white ">
+            Demo
+          </button>
         </div>
       </div>
     </div>
