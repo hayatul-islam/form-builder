@@ -9,6 +9,7 @@ const Home = () => {
   return (
     <PageLayout type="home" className="space-y-36">
       <HeroSection />
+      {/* <HeroSectionTwo /> */}
       <VideoSection />
       <Features />
       <TemplateSection />

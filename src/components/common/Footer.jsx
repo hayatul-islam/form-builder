@@ -6,17 +6,11 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-gray text-black">
-      <div className="container py-12 text-center space-y-4 flex justify-between items-center">
-        <div className="text-[14px] ">
-          <span className="opacity-70"> Created by</span>{" "}
-          <Link
-            target="_blank"
-            to="https://hayatul.vercel.app/"
-            className="text-primary font-bold"
-          >
-            Hayatul Islam
-          </Link>
+    <div className="text-black">
+      <div className="container py-12 border-t text-center space-y-4 flex justify-between items-center">
+        <div className="text-[16px] ">
+          <span className="text-gray-500">© 2024 Made by</span>{" "}
+          <span className="font-bold">Md. Hayatul Islam</span>
         </div>
         <div className="flex justify-center text-[24px] space-x-3">
           <Link
