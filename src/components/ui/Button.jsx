@@ -6,7 +6,7 @@ const Button = ({ children, className, onClick, link, type = "button" }) => {
       {link ? (
         <Link
           to={link}
-          className={`${className} px-4 py-2 bg-primary text-white rounded-md`}
+          className={`${className} px-4 py-2 rounded-lg bg-gradient-to-r from-[#1C28AA] to-[#3A86FF] text-[14px] text-white hover:shadow-lg transition-all`}
         >
           {children}
         </Link>
@@ -14,7 +14,7 @@ const Button = ({ children, className, onClick, link, type = "button" }) => {
         <button
           onClick={onClick}
           type={type}
-          className={`${className} px-4 py-2 bg-primary text-white rounded-md`}
+          className={`${className} px-4 py-2 rounded-lg bg-gradient-to-r from-[#1C28AA] to-[#3A86FF] text-[14px] text-white hover:shadow-lg transition-all`}
         >
           {children}
         </button>

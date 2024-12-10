@@ -1,6 +1,19 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "../ui/Button";
+import GetStartModal from "./GetStartModal";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className="container flex justify-between items-center px-6 py-5 ">
       <div>
@@ -17,13 +30,12 @@ const Header = () => {
           <MdOutlineDarkMode className="text-[20px]" />
         </Button> */}
 
-        <Link
-          to="/forms"
-          className="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#1C28AA] to-[#3A86FF] text-[14px] text-white flex justify-center items-center hover:shadow-lg transition-all"
-        >
+        <Button onClick={handleOpen} className="!px-6 !py-2.5 !rounded-full ">
           Create Form
-        </Link>
+        </Button>
       </div>
+
+      {isOpen && <GetStartModal handleClose={handleClose} />}
     </div>
   );
 };

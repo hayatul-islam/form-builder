@@ -7,22 +7,19 @@ const Modal = ({
   title,
   children,
   onClose,
-  isBack = true,
+  isClose = true,
   className,
 }) => {
   const [isMounted, setIsMounted] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
-    setIsVisible(true);
     return () => {
       setIsMounted(false);
     };
   }, []);
 
   const handleClose = () => {
-    setIsVisible(false);
     setTimeout(onClose, 500);
   };
 
@@ -51,13 +48,13 @@ const Modal = ({
       >
         <div className="flex items-center justify-between">
           {title && (
-            <h3 className="text-[18px] font-bold text-black dark:text-white">
+            <h3 className="text-[20px] font-bold text-black dark:text-white">
               {title}
             </h3>
           )}
-          {isBack && (
+          {isClose && (
             <button onClick={handleClose}>
-              <MdOutlineClose size={20} />
+              <MdOutlineClose size={24} />
             </button>
           )}
         </div>

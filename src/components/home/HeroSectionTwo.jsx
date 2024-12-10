@@ -1,6 +1,19 @@
+import { useState } from "react";
 import { RiDragMove2Fill } from "react-icons/ri";
+import GetStartModal from "../common/GetStartModal";
+import Button from "../ui/Button";
 
 const HeroSectionTwo = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className="container mt-32 bg-gradient-to-b  flex items-center justify-center ">
       <div className="text-center px-6 space-y-5 py-5">
@@ -25,17 +38,16 @@ const HeroSectionTwo = () => {
           code and saving your valuable time.
         </p>
         <div className=" flex justify-center gap-4">
-          <button
-            className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#1C28AA] to-[#3A86FF] text-[14px] text-white hover:shadow-lg transition-all "
-            // className="px-4 py-2 mt-4 border-2 rounded-lg border-gray-200 text-black text-[14px] font-medium bg-gradient-to-r from-gray to-white "
+          <Button onClick={handleOpen}>Creating form for free</Button>
+          <Button
+            link="/templates"
+            className="border border-gray-200 !text-black !bg-gradient-to-r !from-gray !to-white "
           >
-            Creating form for free
-          </button>
-          <button className="px-4 py-2 border-2 rounded-lg border-gray-200 text-black text-[14px] font-medium bg-gradient-to-r from-gray to-white ">
             Demo
-          </button>
+          </Button>
         </div>
       </div>
+      {isOpen && <GetStartModal handleClose={handleClose} />}
     </div>
   );
 };
