@@ -2,14 +2,17 @@ import React from "react";
 
 const TemplateHero = () => {
   return (
-    <div className="max-w-[700px] mx-auto py-12 text-center space-y-5">
-      <h2 className="text-[32px] font-medium">Form Templates</h2>
-      <p>
-        ​Are you exploring online forms for your business? Pick from a
-        collection of pre-built form templates that suit your business need.
-        Preview and select the form template for your case, and customize it to
-        fit your requirements.
-      </p>
+    <div className="container mt-32 bg-gradient-to-b  flex items-center justify-center ">
+      <div className="text-center px-6 space-y-5 py-5">
+        <h1 className="text-[54px] leading-none space-y-2 text-black font-normal ">
+          <span>Say Goodbye to Blank Forms </span>
+          <span className="block"> Start with Templates</span>
+        </h1>
+        <p className="text-gray-500 text-[20px] max-w-[550px] mx-auto">
+          Enjoy a seamless, hassle-free experience with fully customizable,
+          ready-to-use templates.
+        </p>
+      </div>
     </div>
   );
 };

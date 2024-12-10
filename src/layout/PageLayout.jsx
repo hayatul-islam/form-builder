@@ -11,7 +11,7 @@ const PageLayout = ({ children, type, className }) => {
     isFooter = false;
   } else if (type === "preview") {
     header = <PreviewHeader />;
-  } else if (type === "home") {
+  } else if (type === "main") {
     header = <Header />;
   } else {
     header = <Header />;
@@ -19,7 +19,7 @@ const PageLayout = ({ children, type, className }) => {
 
   return (
     <>
-      {type === "home" ? (
+      {type === "main" ? (
         <div className="h-[70px] absolute top-0 w-full z-50">{header}</div>
       ) : type === "preview" ? (
         <div className="h-[50px] sticky top-0 z-50 bg-primary flex justify-center items-center">
