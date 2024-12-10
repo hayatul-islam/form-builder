@@ -6,7 +6,7 @@ import PageLayout from "../layout/PageLayout";
 const Templates = () => {
   return (
     <BuilderProvider>
-      <PageLayout type="main" className="space-y-36">
+      <PageLayout type="main" className="space-y-24 py-24">
         <TemplateHero />
         <Demos />
       </PageLayout>

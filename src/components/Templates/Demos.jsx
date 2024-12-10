@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { HiTemplate } from "react-icons/hi";
 import { demo } from "../../data";
 import CreateFormModal from "../common/CreateFormModal";
 import Modal from "../ui/Modal";
@@ -18,11 +19,11 @@ const Demos = () => {
   };
 
   return (
-    <div className="container grid grid-cols-3 gap-6 py-6 mb-20">
+    <div className="container grid grid-cols-4 gap-8 py-6 mb-20">
       <div className="space-y-2">
         <button
           onClick={() => onOpenModal({})}
-          className="h-[300px] w-full rounded-xl bg-gray flex justify-center items-center text-black/50"
+          className="h-[300px] w-full rounded-3xl bg-primary/10 text-primary flex justify-center items-center text-black/50 hover:scale-105 duration-500 transform"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -34,21 +35,28 @@ const Demos = () => {
             <path d="M13 5a1 1 0 1 0-2 0v6H5a1 1 0 1 0 0 2h6v6a1 1 0 1 0 2 0v-6h6a1 1 0 1 0 0-2h-6V5Z"></path>
           </svg>
         </button>
-        <h3 className="font-medium text-[18px] text-center">
+        {/* <h3 className="font-medium text-[18px] text-center">
           Start form scratch
-        </h3>
+        </h3> */}
       </div>
       {demo?.map((demo) => (
-        <div key={demo?.id} className="space-y-2">
+        <div
+          key={demo?.id}
+          className="h-[300px] w-auto rounded-3xl bg-gray flex justify-center items-center relative group hover:scale-105 duration-500 transform"
+        >
+          <img
+            src={demo?.image}
+            className="w-full h-full rounded-3xl pointer-events-none group-hover:blur-sm transition duration-300"
+            alt=""
+          />
+
           <button
             onClick={() => onOpenModal(demo)}
-            className="h-[300px] w-full rounded bg-gray flex justify-center items-center text-primary"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#000] text-white py-2 px-4 rounded-full z-10 opacity-0 group-hover:opacity-100 transition duration-500 text-[12px] flex justify-center items-center gap-1"
           >
-            <img src={demo?.image} className="w-full h-full rounded" alt="" />
+            <HiTemplate />
+            <span> Use Template</span>
           </button>
-          <h3 className="font-medium text-[18px] text-center capitalize">
-            {demo?.name}
-          </h3>
         </div>
       ))}
 
