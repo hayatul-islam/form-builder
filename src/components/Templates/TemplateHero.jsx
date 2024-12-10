@@ -1,8 +1,6 @@
-import React from "react";
-
 const TemplateHero = () => {
   return (
-    <div className="container mt-32 bg-gradient-to-b  flex items-center justify-center ">
+    <div className="container mt-40 bg-gradient-to-b  flex items-center justify-center ">
       <div className="text-center px-6 space-y-5 py-5">
         <h1 className="text-[54px] leading-none space-y-2 text-black font-normal ">
           <span>Say Goodbye to Blank Forms </span>
