@@ -1,31 +1,9 @@
 import { useState } from "react";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import { demo } from "../../data";
 
 const Slider = () => {
-  const items = [
-    {
-      id: 1,
-      img: "https://cdn.marketing123.123formbuilder.com/wp-content/uploads/2024/07/bakery-order-form-carousel.webp",
-    },
-    {
-      id: 2,
-      img: "https://cdn.marketing123.123formbuilder.com/wp-content/uploads/2024/07/online-business-conference-carousel.webp",
-    },
-    {
-      id: 3,
-      img: "https://cdn.marketing123.123formbuilder.com/wp-content/uploads/2024/07/medical-prescription-form-carousel.webp",
-    },
-    {
-      id: 4,
-      img: "https://cdn.marketing123.123formbuilder.com/wp-content/uploads/2024/07/event-rsvp-form.webp",
-    },
-    {
-      id: 5,
-      img: "https://cdn.marketing123.123formbuilder.com/wp-content/uploads/2024/07/booking-form-carousel.webp",
-    },
-  ];
-
-  const [selectItems, setSelectItems] = useState(items);
+  const [selectItems, setSelectItems] = useState(demo?.slice(0, 5));
 
   const handleNext = () => {
     setSelectItems((prevItems) => {
@@ -64,7 +42,11 @@ const Slider = () => {
                 : "scale-100"
             }`}
           >
-            <img className="h-[300px] w-[250px]" src={item?.img} alt="" />
+            <img
+              className="h-[300px] w-[250px] rounded-3xl"
+              src={item?.image}
+              alt=""
+            />
           </div>
         ))}
       </div>
@@ -75,7 +57,7 @@ const Slider = () => {
         >
           <FaArrowLeftLong />
         </button>
-        {items?.map((item) => (
+        {demo?.slice(0, 5)?.map((item) => (
           <button
             key={item?.id}
             onClick={() => handleItem(item)}

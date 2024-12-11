@@ -14,6 +14,8 @@ import {
 import { FaHeading } from "react-icons/fa6";
 import { IoText } from "react-icons/io5";
 import { RxButton } from "react-icons/rx";
+import feedbackFormImg from "../assets/demos/feedback-form4.png";
+import informationRequestForm from "../assets/demos/information-request-form.png";
 import loginImg from "../assets/demos/login-page.png";
 import registerFormImg from "../assets/demos/register-form.png";
 
@@ -406,6 +408,330 @@ export const demo = [
         },
         padding: {
           vertical: "2",
+        },
+      },
+    },
+  },
+  {
+    id: "80f8851c-f5b1-404d-bef9-d7d07463988e",
+    name: "Information Request Form",
+    image: informationRequestForm,
+    elements: [
+      {
+        id: "57d4849e-8181-4fdf-8a07-7b19e17528aa",
+        name: "headline",
+        label: "Information Request",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "title",
+        settings: {
+          color: "",
+          background: "",
+          padding: {
+            horizontal: 10,
+            vertical: 16,
+          },
+          alignment: "left",
+          fontSize: 24,
+          radius: "",
+        },
+      },
+      {
+        id: "df0178b4-dda3-4b2b-9002-106719982b7a",
+        name: "text",
+        label: "Name",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "text",
+        placeholder: "",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "0947a0b6-adcd-4135-a820-e892898e7f4c",
+        name: "email",
+        label: "Email",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "email",
+        placeholder: "",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "561250a6-70e0-4c24-8635-5d5f76746245",
+        name: "number",
+        label: "Phone Number",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "number",
+        placeholder: "",
+        isRequired: false,
+        isReadOnly: false,
+      },
+      {
+        id: "6ab895fa-851a-4f45-9410-b8af6d907de9",
+        name: "textarea",
+        label: "Requesting Information Regarding",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "textarea",
+        placeholder: "",
+        isRequired: false,
+        isReadOnly: false,
+      },
+      {
+        id: "90dd3632-404a-4baa-8b5f-b3cff5b5fd20",
+        name: "textarea",
+        label: "Additional Instructions",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "textarea",
+        placeholder: "",
+        isRequired: false,
+        isReadOnly: false,
+      },
+      {
+        id: "cdab637c-1ea4-4f90-b78b-061df19d709c",
+        name: "button",
+        label: "Submit",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "submit",
+        placeholder: "",
+        settings: {
+          background: "#28a745",
+          color: "#ffffff",
+          width: 150,
+          padding: {
+            horizontal: 12,
+            vertical: 16,
+          },
+          radius: "0",
+          alignment: "center",
+          fontSize: 16,
+        },
+      },
+    ],
+    createdAt: "2024-12-11T06:43:37.199Z",
+    settings: {
+      layout: {
+        width: "700",
+        pageBackground: {
+          light: "#F3F3FE",
+        },
+        padding: {
+          horizontal: "20",
+          vertical: "32",
+        },
+        pagePadding: {
+          horizontal: "78",
+        },
+      },
+      inputField: {
+        border: {
+          color: "#ddd",
+          radius: "0",
+        },
+      },
+    },
+  },
+  {
+    id: "77cfdd8b-864e-46af-a547-5fd89ea9ccbb",
+    name: "Feedback Form",
+    image: feedbackFormImg,
+    elements: [
+      {
+        id: "19175f4e-da27-4589-a408-6e9c153a46cc",
+        name: "headline",
+        label: "Feedback Form",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "title",
+        settings: {
+          color: "",
+          background: "",
+          padding: {
+            horizontal: 10,
+            vertical: 16,
+          },
+          alignment: "center",
+          fontSize: "30",
+          radius: "",
+        },
+      },
+      {
+        id: "bbf56d74-61bf-45f3-82e2-c76f3b24b7d3",
+        name: "radio",
+        label: "Feedback Type",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "radio",
+        placeholder: "",
+        isRequired: true,
+        isReadOnly: false,
+        options: [
+          {
+            label: "Comments",
+            value: "1",
+          },
+          {
+            label: "Suggestions",
+            value: "2",
+          },
+          {
+            label: "Questions",
+            value: "3",
+          },
+        ],
+        settings: {
+          numberOfColumns: "3",
+        },
+      },
+      {
+        id: "538fbab7-36cd-476d-8306-eda601d2f9cb",
+        name: "textarea",
+        label: "Describe Your Feedback",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "textarea",
+        placeholder: "",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "d639f7b9-70e6-48b1-b7cc-51b9e74b4847",
+        name: "text",
+        label: "Name",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "text",
+        placeholder: "",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "1bc1ece7-e74d-4d7f-ba2a-6d6ae27b00df",
+        name: "email",
+        label: "Email",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "email",
+        placeholder: "",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "b3f69c6e-85f4-446c-bd60-ada2c15b30e6",
+        name: "button",
+        label: "Submit",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "submit",
+        placeholder: "",
+        settings: {
+          background: "#007bff",
+          color: "#ffffff",
+          width: 150,
+          padding: {
+            horizontal: 12,
+            vertical: 16,
+          },
+          radius: 6,
+          alignment: "right",
+          fontSize: 16,
+        },
+      },
+    ],
+    createdAt: "2024-12-11T07:56:16.053Z",
+    settings: {
+      layout: {
+        width: "600",
+        pageBackground: {
+          light: "#303170",
+        },
+        pagePadding: {
+          horizontal: "90",
+        },
+        border: {
+          radius: "9",
+        },
+        padding: {
+          vertical: "30",
+        },
+      },
+      inputField: {
+        border: {
+          radius: "10",
+        },
+        padding: {
+          horizontal: "16",
+          vertical: "16",
         },
       },
     },
