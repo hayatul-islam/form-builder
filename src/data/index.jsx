@@ -15,6 +15,7 @@ import { FaHeading } from "react-icons/fa6";
 import { IoText } from "react-icons/io5";
 import { RxButton } from "react-icons/rx";
 import loginImg from "../assets/demos/login-page.png";
+import registerFormImg from "../assets/demos/register-form.png";
 
 export const features = [
   {
@@ -180,6 +181,15 @@ export const btnElements = [
     isReadOnly: false,
   },
   {
+    name: "single check",
+    label: "Single Choice",
+    icon: <FaCheckSquare />,
+    type: "single-check",
+    placeholder: "",
+    isRequired: false,
+    isReadOnly: false,
+  },
+  {
     name: "checkbox",
     label: "Checkbox",
     icon: <FaCheckSquare />,
@@ -247,6 +257,159 @@ export const btnElements = [
 ];
 
 export const demo = [
+  {
+    id: "80097677-cc0c-49f4-83ed-cf12c2849dda",
+    name: "Register Form",
+    image: registerFormImg,
+    elements: [
+      {
+        id: "18a2b82f-fb93-4b7c-947b-4ceec2c6438b",
+        name: "headline",
+        label: "Register Form",
+        type: "title",
+        settings: {
+          0: "d",
+          color: "#37b8a3",
+          fontSize: "28",
+        },
+      },
+      {
+        id: "728a3000-14c2-4c62-97bb-114fdb826b39",
+        name: "text",
+        label: "Name",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "text",
+        placeholder: "Name",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "9ec0e87f-aafb-4300-9797-ffffe9dd9c36",
+        name: "email",
+        label: "Email",
+        type: "email",
+        placeholder: "Email",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "cf527164-2434-48b4-9f65-dc10087959d9",
+        name: "number",
+        label: "Phone",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "number",
+        placeholder: "Phone",
+        isRequired: false,
+        isReadOnly: false,
+      },
+      {
+        id: "47625468-37cf-48f1-9f54-5b54ad318a69",
+        name: "password",
+        label: "Password",
+        type: "password",
+        placeholder: "********",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "bbcc02ae-b917-468b-9ac7-505811766661",
+        name: "password",
+        label: "Confirm Password",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "password",
+        placeholder: "********",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "7e44e9ea-ced5-4fff-8365-71e1f2bd04b4",
+        name: "single check",
+        label: "I accept terms & conditions",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "single-check",
+        placeholder: "",
+        isRequired: false,
+        isReadOnly: false,
+      },
+      {
+        id: "4dee839a-3d38-449a-82c6-064e7580ccec",
+        name: "button",
+        label: "Create Account",
+        type: "submit",
+        placeholder: "",
+        settings: {
+          background: "#20c997",
+          color: "#ffffff",
+          width: "200",
+          padding: {
+            horizontal: 12,
+            vertical: 16,
+          },
+          radius: "30",
+          alignment: "center",
+          fontSize: "18",
+        },
+      },
+    ],
+    createdAt: "2024-12-11T05:55:51.843Z",
+    settings: {
+      layout: {
+        background: {
+          light: "#FFFFFF",
+        },
+        padding: {
+          horizontal: "32",
+          vertical: "28",
+        },
+        pagePadding: {
+          horizontal: "86",
+          vertical: "49",
+        },
+        pageBackground: {
+          light: "#A2ECDC",
+        },
+        width: "600",
+        border: {
+          radius: "20",
+        },
+        gap: "",
+      },
+      inputField: {
+        border: {
+          radius: "bottom",
+          color: "#a2ecdc",
+          thickness: "2",
+        },
+        padding: {
+          vertical: "2",
+        },
+      },
+    },
+  },
   {
     id: 2,
     name: "Demo 1",

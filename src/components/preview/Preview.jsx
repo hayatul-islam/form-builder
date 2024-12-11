@@ -32,9 +32,7 @@ const Preview = () => {
       <PreviewLayout previewMode={previewMode}>
         <div
           style={pageStyle?.style}
-          className={`${getPreviewStyles()} ${
-            pageStyle?.className
-          } h-[calc(100vh-50px)]`}
+          className={`${getPreviewStyles()} ${pageStyle?.className} `}
         >
           <form style={formStyle?.style} className={formStyle?.className}>
             {elements?.map((element) => (

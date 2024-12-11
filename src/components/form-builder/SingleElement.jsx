@@ -3,6 +3,7 @@ import HeadLine from "../ui/Headline";
 import InputField from "../ui/InputField";
 import RadioOptions from "../ui/RadioOptions";
 import SelectOptions from "../ui/SelectOption";
+import SingleCheckbox from "../ui/SingleCheckbox";
 import SubmitButton from "../ui/SubmitButton";
 import TextareaField from "../ui/TextareaField";
 
@@ -23,6 +24,10 @@ const SingleElement = ({ element }) => {
 
     case "radio":
       filed = <RadioOptions {...element} />;
+      break;
+
+    case "single-check":
+      filed = <SingleCheckbox {...element} />;
       break;
 
     case "checkbox":

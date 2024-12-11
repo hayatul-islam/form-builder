@@ -16,6 +16,8 @@ export default function DesignerContextProvider({ children }) {
   const elements = selectForm?.elements || [];
   const settings = selectForm?.settings || {};
 
+  console.log(selectForm);
+
   // form functionality
   const onAddForm = (newForm) => {
     const newForms = [...forms, newForm];

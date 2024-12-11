@@ -57,7 +57,7 @@ export const onPageStyle = (layout = {}) => {
     // pagePadding.bottom ? `pb-[${pagePadding.bottom}px]` : "pb-4",
     // pagePadding.left ? `pl-[${pagePadding.left}px]` : "pl-4",
     // pagePadding.right ? `pr-[${pagePadding.right}px]` : "pr-4",
-    "h-screen",
+    "min-h-screen",
   ]
     .filter(Boolean)
     .join(" ");
@@ -462,6 +462,19 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
     </div>`;
   };
 
+  const generateSingleCheckboxField = (field) => {
+    return `<label className="flex items-center gap-2">
+        <input
+          type="checkbox"
+          name="${field.name}"
+          className="focus:ring focus:ring-blue-400"
+        />
+        <span>
+          ${field?.label}
+        </span>
+      </label>`;
+  };
+
   const generateInputField = (field) =>
     `<input
       type="${field.type}"
@@ -513,6 +526,8 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
         ? generateRadioField(field)
         : field.type === "checkbox"
         ? generateCheckboxField(field)
+        : field.type === "single-check"
+        ? generateSingleCheckboxField(field)
         : field.type === "textarea"
         ? generateTextarea(field)
         : field.type === "submit"
