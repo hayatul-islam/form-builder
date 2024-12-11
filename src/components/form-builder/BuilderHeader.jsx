@@ -14,22 +14,18 @@ const BuilderHeader = () => {
       <div className="flex items-center gap-3">
         <Button
           link="/preview"
-          className="bg-transparent !text-black border w-8 h-8 !p-0 flex justify-center items-center"
+          className="border border-primary !text-primary  !bg-gradient-to-r !from-gray !to-white "
         >
-          <FaRegEye className="text-[12px]" />
+          <FaRegEye className="text-[10px" />
         </Button>
         <Button
           link="/code"
-          className="bg-transparent !text-black border w-8 h-8 !p-0 flex justify-center items-center"
+          className="border border-primary !text-primary !bg-gradient-to-r !from-gray !to-white "
         >
-          <FaCode className="text-[12px]" />
+          <FaCode className="text-[14px]" />
         </Button>
-        <Button className="bg-transparent !text-black border h-8 !p-0 w-[60px] flex justify-center items-center">
-          Save
-        </Button>
-        <Button className="h-8 !p-0 w-[70px] text-white flex justify-center items-center">
-          Publish
-        </Button>
+
+        <Button className="h-8 !p-0 w-[70px]">Save</Button>
       </div>
     </div>
   );
