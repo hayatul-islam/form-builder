@@ -9,12 +9,10 @@ const Accordion = ({ title, children, value = false }) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`flex justify-between items-center w-full  ${
-          isOpen && "bg-white/80 p-2 px-3 rounded "
-        }`}
+          isOpen && "bg-primary text-white p-2 px-3 rounded "
+        } text-black`}
       >
-        <h2 className="text-[16px] font-medium uppercase text-black/60">
-          {title}
-        </h2>
+        <h4 className="text-[16px] font-medium uppercase ">{title}</h4>
         {isOpen ? (
           <MdKeyboardArrowUp size={20} />
         ) : (

@@ -16,7 +16,9 @@ const BorderStyle = ({ label, name, value, onChange, subKey }) => {
   return (
     <div className="space-y-2">
       <h3>{label}</h3>
-      <div className="flex justify-between items-center gap-3">
+
+      {/* when dark mode available  */}
+      {/* <div className="flex justify-between items-center gap-3">
         <ColorPicker
           label="Light"
           name="color"
@@ -31,8 +33,17 @@ const BorderStyle = ({ label, name, value, onChange, subKey }) => {
           type="color"
           onChange={handleBorderChange}
         />
-      </div>
+      </div> */}
+
       <div className="grid grid-cols-2 gap-3">
+        <ColorPicker
+          label="Color"
+          name="color"
+          value={value?.color || ""}
+          type="color"
+          onChange={handleBorderChange}
+        />
+
         <Input
           label="Thickness"
           name="thickness"

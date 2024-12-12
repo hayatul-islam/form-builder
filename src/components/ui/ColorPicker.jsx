@@ -40,7 +40,7 @@ const ColorPicker = ({ name, subKey, label, value, onChange, className }) => {
           type="text"
           name={name}
           value={value}
-          onChange={(e) => onChange(name, e.target.value)}
+          onChange={(e) => onChange(name, e.target.value, subKey)}
           placeholder="#000000"
           className="w-full h-full border-none focus:outline-none"
           aria-label={`${label} color value`}

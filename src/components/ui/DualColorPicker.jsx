@@ -11,7 +11,17 @@ const DualColorPicker = ({ label, name, value, onChange, subKey }) => {
   };
 
   return (
-    <div className="space-y-2">
+    <>
+      <ColorPicker
+        label={label}
+        name="light"
+        value={value?.light || ""}
+        type="color"
+        onChange={handleColorChange}
+      />
+
+      {/* <div className="space-y-2">
+      
       <h3>{label}</h3>
       <div className="flex justify-between items-center gap-3">
         <ColorPicker
@@ -29,7 +39,8 @@ const DualColorPicker = ({ label, name, value, onChange, subKey }) => {
           onChange={handleColorChange}
         />
       </div>
-    </div>
+    </div> */}
+    </>
   );
 };
 

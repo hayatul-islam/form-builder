@@ -45,6 +45,8 @@ const Properties = () => {
   const isButton = type === "submit";
   const isHeadline = type === "title";
 
+  console.log(selectedElement);
+
   return (
     <div className="rounded-lg space-y-4">
       {/* <div className="border border-primary/50 w-[130px] p-0.5 mx-auto h-[35px] rounded-full flex items-center justify-between">
@@ -70,8 +72,8 @@ const Properties = () => {
         </button>
       </div> */}
 
-      <div className="text-center py-2 font-bold uppercase bg-primary/20 text-primary">
-        <h2>{selectedElement?.name}</h2>
+      <div className="text-center py-2 font-bold uppercase bg-primary text-white">
+        <h4>{selectedElement?.name}</h4>
       </div>
 
       <Input
@@ -271,7 +273,6 @@ const Properties = () => {
               name="settings"
               subKey="color"
               value={selectedElement?.settings?.color || ""}
-              type="color"
               onChange={onChange}
             />
             <ColorPicker
@@ -279,7 +280,6 @@ const Properties = () => {
               name="settings"
               subKey="background"
               value={selectedElement?.settings?.background || ""}
-              type="color"
               onChange={onChange}
             />
             <MarginPaddingStyle
