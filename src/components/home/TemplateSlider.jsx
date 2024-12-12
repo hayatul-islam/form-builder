@@ -1,9 +1,23 @@
 import { useState } from "react";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { demo } from "../../data";
+import CreateFormModal from "../common/CreateFormModal";
+import Modal from "../ui/Modal";
 
-const Slider = () => {
+const TemplateSlider = () => {
   const [selectItems, setSelectItems] = useState(demo?.slice(0, 5));
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectDemo, setSelectDemo] = useState({});
+
+  const onOpenModal = (demo) => {
+    setSelectDemo(demo || {});
+    setIsOpen(true);
+  };
+
+  const onClose = () => {
+    setIsOpen(false);
+    setSelectDemo({});
+  };
 
   const handleNext = () => {
     setSelectItems((prevItems) => {
@@ -34,9 +48,10 @@ const Slider = () => {
         {selectItems?.map((item, index) => (
           <div
             key={item?.id}
-            className={` ${
+            onClick={() => onOpenModal(item)}
+            className={`relative cursor-pointer duration-500 transform ${
               index === 2
-                ? "scale-150 z-30"
+                ? "scale-150 z-30 "
                 : index === 1 || index === 3
                 ? "scale-125 z-20"
                 : "scale-100"
@@ -50,6 +65,7 @@ const Slider = () => {
           </div>
         ))}
       </div>
+
       <div className="flex justify-center items-center gap-5">
         <button
           onClick={handlePrevious}
@@ -73,8 +89,14 @@ const Slider = () => {
           <FaArrowRightLong />
         </button>
       </div>
+
+      {isOpen && (
+        <Modal title={"Create Form"} onClose={onClose} width="600">
+          <CreateFormModal demo={selectDemo} />
+        </Modal>
+      )}
     </div>
   );
 };
 
-export default Slider;
+export default TemplateSlider;

@@ -43,7 +43,7 @@ const CreateFormModal = ({ demo, onClose }) => {
         <Button
           type="button"
           onClick={onClose}
-          className="!bg-gray !text-black"
+          className="border !text-black from-[#fff] to-[#fff]"
         >
           Cancel
         </Button>
