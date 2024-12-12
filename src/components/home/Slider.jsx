@@ -36,14 +36,14 @@ const Slider = () => {
             key={item?.id}
             className={` ${
               index === 2
-                ? "scale-150 bg-white z-30"
+                ? "scale-150 z-30"
                 : index === 1 || index === 3
                 ? "scale-125 z-20"
                 : "scale-100"
             }`}
           >
             <img
-              className="h-[300px] w-[250px] rounded-3xl"
+              className="h-[300px] w-[250px] rounded-2xl"
               src={item?.image}
               alt=""
             />

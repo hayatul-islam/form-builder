@@ -14,7 +14,9 @@ import {
 import { FaHeading } from "react-icons/fa6";
 import { IoText } from "react-icons/io5";
 import { RxButton } from "react-icons/rx";
-import feedbackFormImg from "../assets/demos/feedback-form4.png";
+import bookingFormImg from "../assets/demos/booking-form.png";
+import businessRegisterImg from "../assets/demos/business-register5.png";
+import feedbackFormImg from "../assets/demos/feedback-form.png";
 import informationRequestForm from "../assets/demos/information-request-form.png";
 import loginImg from "../assets/demos/login-page.png";
 import registerFormImg from "../assets/demos/register-form.png";
@@ -413,6 +415,244 @@ export const demo = [
     },
   },
   {
+    id: "65ada6c2-6ec1-4942-ae8b-20aae4660624",
+    name: "Booking Form",
+    image: bookingFormImg,
+    elements: [
+      {
+        id: "29ad86e1-bd80-4031-8d1a-63f0a54fc108",
+        name: "headline",
+        label: "Booking Form",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "title",
+        settings: {
+          color: "",
+          background: "",
+          padding: {
+            horizontal: 10,
+            vertical: 16,
+          },
+          alignment: "center",
+          fontSize: "28",
+          radius: "",
+        },
+      },
+      {
+        id: "74d27305-2d24-48ed-9c09-cbc0bc6deecf",
+        name: "text",
+        label: "Name",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "text",
+        placeholder: "Name",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "4c1ba51b-e9a6-499e-b57d-2f5afe5d8b61",
+        name: "email",
+        label: "Email",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "email",
+        placeholder: "Email",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "3a541a6a-ebaa-48b1-ba5f-dfec28189966",
+        name: "number",
+        label: "Phone Number",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "number",
+        placeholder: "Phone number",
+        isRequired: false,
+        isReadOnly: false,
+      },
+      {
+        id: "bac142cd-596f-48d1-b762-af94b291e19b",
+        name: "date",
+        label: "Arrival Date",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "date",
+        placeholder: "Select a date",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "c93ad1d5-155e-4df7-adbe-35acf356ef3b",
+        name: "select",
+        label: "Number of Nights",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "select",
+        placeholder: "Select an option",
+        isRequired: true,
+        isReadOnly: false,
+        options: [
+          {
+            label: "3",
+            value: "3",
+          },
+          {
+            value: "c8486a39-522f-43dd-9808-c0aa0a869c9c",
+            label: "4",
+          },
+          {
+            value: "6ac266fd-9f8b-4c58-b97a-c623cf86b166",
+            label: "5",
+          },
+          {
+            value: "7fccbbc2-bf80-4c5b-b531-242480763b45",
+            label: "6",
+          },
+          {
+            value: "1257b02e-64e7-41f1-ac9e-edf8fcf03695",
+            label: "7",
+          },
+          {
+            value: "60959a0d-c400-4f1f-827d-2c55e0898577",
+            label: "8",
+          },
+          {
+            value: "9ffea33f-a83e-45d2-8ddd-b812c3183975",
+            label: "9",
+          },
+          {
+            value: "35e1e440-fda3-44d1-b5ce-83dc9131269e",
+            label: "10+",
+          },
+        ],
+      },
+      {
+        id: "ec4b6d01-7a71-4123-b9be-694a20e5a99e",
+        name: "select",
+        label: "Number of Guests",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "select",
+        placeholder: "Select an option",
+        isRequired: true,
+        isReadOnly: false,
+        options: [
+          {
+            label: "1",
+            value: "1",
+          },
+          {
+            label: "2",
+            value: "2",
+          },
+          {
+            label: "3",
+            value: "3",
+          },
+          {
+            value: "929fa952-5bd0-42e9-b966-8e6fed6cc8d5",
+            label: "4",
+          },
+          {
+            value: "e13f63dc-af0f-40ff-8b21-3ffd6e991a15",
+            label: "5+",
+          },
+        ],
+      },
+      {
+        id: "7f9a191a-a88d-4715-a179-c9f73fbd1040",
+        name: "button",
+        label: "Book",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "submit",
+        placeholder: "",
+        settings: {
+          background: "#00ADB5",
+          color: "#ffffff",
+          width: 150,
+          padding: {
+            horizontal: 12,
+            vertical: 16,
+          },
+          radius: 6,
+          alignment: "full",
+          fontSize: 16,
+        },
+      },
+    ],
+    createdAt: "2024-12-12T05:59:34.114Z",
+    settings: {
+      layout: {
+        width: "756",
+        pageBackground: {
+          light: "#D0E9EE",
+        },
+        padding: {
+          horizontal: "40",
+          vertical: "48",
+        },
+        pagePadding: {
+          horizontal: "55",
+          vertical: "0",
+        },
+      },
+      inputField: {
+        background: {
+          light: "#f5fdff",
+        },
+        border: {
+          color: "#f5fdff",
+        },
+        padding: {
+          horizontal: "12",
+          vertical: "10",
+        },
+      },
+    },
+  },
+  {
     id: "80f8851c-f5b1-404d-bef9-d7d07463988e",
     name: "Information Request Form",
     image: informationRequestForm,
@@ -737,541 +977,205 @@ export const demo = [
     },
   },
   {
-    id: 2,
-    name: "Demo 1",
-    image:
-      "https://cdn.marketing123.123formbuilder.com/wp-content/uploads/2024/07/bakery-order-form-carousel.webp",
+    id: "f2554aca-348b-4719-b1d2-8c1e2c4ae5c2",
+    name: "Business Registration form",
+    image: businessRegisterImg,
     elements: [
       {
-        id: "5b5f372e-1a05-4890-8ca5-27b05d9d44b9",
-        name: "emailField",
-        label: "Email",
-        type: "email",
-        placeholder: "Enter your email",
+        id: "eb7a5681-2d4a-496c-bbfc-d4c014f1fca2",
+        name: "headline",
+        label: "Business Register",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "title",
+        settings: {
+          0: "0",
+          fontSize: "28",
+        },
+      },
+      {
+        id: "c454bc04-719f-49ae-a96d-11a5b80c7105",
+        name: "text",
+        label: "Business Owner",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "text",
+        placeholder: "",
         isRequired: true,
         isReadOnly: false,
       },
       {
-        id: "9c57340e-f5a5-41b4-8bb7-f0c87636615f",
-        name: "passwordField",
-        label: "Password",
-        type: "password",
-        placeholder: "Enter your password",
+        id: "6ba62d07-219d-49b9-8256-9de7de0548e7",
+        name: "text",
+        label: "Businesss Name",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "text",
+        placeholder: "",
         isRequired: true,
         isReadOnly: false,
       },
-    ],
-    settings: {
-      layout: {
-        width: "768",
-        background: {
-          light: "",
-          dark: "",
+      {
+        id: "55cbc68b-2296-4501-8e81-18bcb9818c3d",
+        name: "select",
+        label: "Type of Business",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
         },
-        pageBackground: {
-          light: "#f3f3fe",
-          dark: "",
+        type: "select",
+        placeholder: "Select an option",
+        isRequired: true,
+        isReadOnly: false,
+        options: [
+          {
+            label: "Shop/cafe",
+            value: "1",
+          },
+          {
+            label: "Store",
+            value: "2",
+          },
+          {
+            label: "Others",
+            value: "3",
+          },
+        ],
+      },
+      {
+        id: "6f4b2579-a86d-4938-a60f-ecbd83fdb8be",
+        name: "number",
+        label: "Contact Number",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
         },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
+        type: "number",
+        placeholder: "",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "a0555eea-1da1-487f-8308-64ba22d57eb2",
+        name: "email",
+        label: "Email",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
         },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
+        type: "email",
+        placeholder: "",
+        isRequired: true,
+        isReadOnly: false,
+      },
+      {
+        id: "a01ad370-69cb-4272-ac70-384fd066d7bf",
+        name: "textarea",
+        label: "Message",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
         },
-        border: {
-          color: "",
-          darkColor: "",
-          style: "",
-          thickness: "",
+        type: "textarea",
+        placeholder: "",
+        isRequired: false,
+        isReadOnly: false,
+      },
+      {
+        id: "11fd782e-2fb7-48ef-ab9e-afa939d755da",
+        name: "button",
+        label: "Submit",
+        icon: {
+          key: null,
+          ref: null,
+          props: {},
+          _owner: null,
+          _store: {},
+        },
+        type: "submit",
+        placeholder: "",
+        settings: {
+          background: "#001f3f",
+          color: "#ffffff",
+          width: 150,
+          padding: {
+            horizontal: 12,
+            vertical: 16,
+          },
+          radius: 6,
+          alignment: "center",
+          fontSize: 16,
         },
       },
-      label: {
-        fontSize: "",
-        fontWeight: "",
-        color: {
-          light: "",
-          dark: "",
+    ],
+    createdAt: "2024-12-12T05:11:23.173Z",
+    settings: {
+      layout: {
+        width: "750",
+        background: {
+          light: "#fff",
         },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
+        pagePadding: {
+          horizontal: "70",
         },
         padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
+          horizontal: "38",
+          vertical: "48",
+        },
+        border: {
+          radius: "13",
+          thickness: "1",
+          style: "none",
+          color: "#404040",
+        },
+        pageBackground: {
+          light: "#FEF7EC",
         },
       },
       inputField: {
-        fontSize: "",
-        fontWeight: "",
-        color: {
-          light: "",
-          dark: "",
-        },
-        background: {
-          light: "",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
+        border: {
+          color: "#d1d1d1",
+          radius: "10",
         },
         padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
+          vertical: "14",
+          horizontal: "16",
         },
-        border: {
-          color: "",
-          darkColor: "",
-          style: "",
-          thickness: "",
+      },
+      label: {
+        color: {
+          light: "#000000",
         },
       },
     },
   },
-  {
-    id: 3,
-    name: "Demo 2",
-    image:
-      "https://cdn.marketing123.123formbuilder.com/wp-content/uploads/2024/07/online-business-conference-carousel.webp",
-    elements: [
-      {
-        id: "5b5f372e-1a05-4890-8ca5-27b05d9d44b9",
-        name: "emailField",
-        label: "Email",
-        type: "email",
-        placeholder: "Enter your email",
-        isRequired: true,
-        isReadOnly: false,
-      },
-      {
-        id: "9c57340e-f5a5-41b4-8bb7-f0c87636615f",
-        name: "passwordField",
-        label: "Password",
-        type: "password",
-        placeholder: "Enter your password",
-        isRequired: true,
-        isReadOnly: false,
-      },
-    ],
-    settings: {
-      layout: {
-        width: "768",
-        background: {
-          light: "",
-          dark: "",
-        },
-        pageBackground: {
-          light: "#f3f3fe",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        border: {
-          color: "",
-          darkColor: "",
-          style: "",
-          thickness: "",
-        },
-      },
-      label: {
-        fontSize: "",
-        fontWeight: "",
-        color: {
-          light: "",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-      },
-      inputField: {
-        fontSize: "",
-        fontWeight: "",
-        color: {
-          light: "",
-          dark: "",
-        },
-        background: {
-          light: "",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        border: {
-          color: "",
-          darkColor: "",
-          style: "",
-          thickness: "",
-        },
-      },
-    },
-  },
-  {
-    id: 4,
-    name: "Demo 3",
-    image:
-      "https://cdn.marketing123.123formbuilder.com/wp-content/uploads/2024/07/medical-prescription-form-carousel.webp",
-    elements: [
-      {
-        id: "5b5f372e-1a05-4890-8ca5-27b05d9d44b9",
-        name: "emailField",
-        label: "Email",
-        type: "email",
-        placeholder: "Enter your email",
-        isRequired: true,
-        isReadOnly: false,
-      },
-      {
-        id: "9c57340e-f5a5-41b4-8bb7-f0c87636615f",
-        name: "passwordField",
-        label: "Password",
-        type: "password",
-        placeholder: "Enter your password",
-        isRequired: true,
-        isReadOnly: false,
-      },
-    ],
-    settings: {
-      layout: {
-        width: "768",
-        background: {
-          light: "",
-          dark: "",
-        },
-        pageBackground: {
-          light: "#f3f3fe",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        border: {
-          color: "",
-          darkColor: "",
-          style: "",
-          thickness: "",
-        },
-      },
-      label: {
-        fontSize: "",
-        fontWeight: "",
-        color: {
-          light: "",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-      },
-      inputField: {
-        fontSize: "",
-        fontWeight: "",
-        color: {
-          light: "",
-          dark: "",
-        },
-        background: {
-          light: "",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        border: {
-          color: "",
-          darkColor: "",
-          style: "",
-          thickness: "",
-        },
-      },
-    },
-  },
-  {
-    id: 5,
-    name: "Demo 4",
-    image:
-      "https://cdn.marketing123.123formbuilder.com/wp-content/uploads/2024/07/event-rsvp-form.webp",
-    elements: [
-      {
-        id: "5b5f372e-1a05-4890-8ca5-27b05d9d44b9",
-        name: "emailField",
-        label: "Email",
-        type: "email",
-        placeholder: "Enter your email",
-        isRequired: true,
-        isReadOnly: false,
-      },
-      {
-        id: "9c57340e-f5a5-41b4-8bb7-f0c87636615f",
-        name: "passwordField",
-        label: "Password",
-        type: "password",
-        placeholder: "Enter your password",
-        isRequired: true,
-        isReadOnly: false,
-      },
-    ],
-    settings: {
-      layout: {
-        width: "768",
-        background: {
-          light: "",
-          dark: "",
-        },
-        pageBackground: {
-          light: "#f3f3fe",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        border: {
-          color: "",
-          darkColor: "",
-          style: "",
-          thickness: "",
-        },
-      },
-      label: {
-        fontSize: "",
-        fontWeight: "",
-        color: {
-          light: "",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-      },
-      inputField: {
-        fontSize: "",
-        fontWeight: "",
-        color: {
-          light: "",
-          dark: "",
-        },
-        background: {
-          light: "",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        border: {
-          color: "",
-          darkColor: "",
-          style: "",
-          thickness: "",
-        },
-      },
-    },
-  },
-  {
-    id: 6,
-    name: "Demo 5",
-    image:
-      "https://cdn.marketing123.123formbuilder.com/wp-content/uploads/2024/07/booking-form-carousel.webp",
-    elements: [
-      {
-        id: "5b5f372e-1a05-4890-8ca5-27b05d9d44b9",
-        name: "emailField",
-        label: "Email",
-        type: "email",
-        placeholder: "Enter your email",
-        isRequired: true,
-        isReadOnly: false,
-      },
-      {
-        id: "9c57340e-f5a5-41b4-8bb7-f0c87636615f",
-        name: "passwordField",
-        label: "Password",
-        type: "password",
-        placeholder: "Enter your password",
-        isRequired: true,
-        isReadOnly: false,
-      },
-    ],
-    settings: {
-      layout: {
-        width: "768",
-        background: {
-          light: "",
-          dark: "",
-        },
-        pageBackground: {
-          light: "#f3f3fe",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        border: {
-          color: "",
-          darkColor: "",
-          style: "",
-          thickness: "",
-        },
-      },
-      label: {
-        fontSize: "",
-        fontWeight: "",
-        color: {
-          light: "",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-      },
-      inputField: {
-        fontSize: "",
-        fontWeight: "",
-        color: {
-          light: "",
-          dark: "",
-        },
-        background: {
-          light: "",
-          dark: "",
-        },
-        margin: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        padding: {
-          top: "",
-          bottom: "",
-          left: "",
-          right: "",
-        },
-        border: {
-          color: "",
-          darkColor: "",
-          style: "",
-          thickness: "",
-        },
-      },
-    },
-  },
-
   {
     id: "7b7af1cb-600a-41f4-8ca7-55df83d199d7",
     name: "Login Form",
