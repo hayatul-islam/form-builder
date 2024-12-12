@@ -1,15 +1,22 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../ui/Button";
+import GetStartModal from "./GetStartModal";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className="container flex justify-between items-center px-6 py-5 ">
-      <div>
-        <Link to="/" className="text-[24px] font-medium text-primary">
-          Form Builder
-        </Link>
-      </div>
-
+      <HeaderBrand />
       <div className="flex items-center gap-4">
         {/* <Link to="/templates" className="hover:text-primary">
           Templates
@@ -18,10 +25,23 @@ const Header = () => {
           <MdOutlineDarkMode className="text-[20px]" />
         </Button> */}
 
-        <Button className="!px-6 !py-2.5 !rounded-full ">Sign up</Button>
+        <Button onClick={handleOpen} className="!px-6 !py-2.5 !rounded-full ">
+          Create Form
+        </Button>
       </div>
+
+      {isOpen && <GetStartModal handleClose={handleClose} />}
     </div>
   );
 };
 
 export default Header;
+
+export const HeaderBrand = () => (
+  <Link
+    to="/"
+    className="bg-gradient-to-r text-transparent bg-clip-text text-[24px] font-bold  from-[#1C28AA] to-[#3A86FF]"
+  >
+    Form Builder
+  </Link>
+);

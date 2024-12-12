@@ -1,20 +1,15 @@
 import { AiOutlineDesktop } from "react-icons/ai";
 import { FaMobileAlt } from "react-icons/fa";
-import { IoArrowBackOutline } from "react-icons/io5";
 import { MdTabletMac } from "react-icons/md";
-import { Link } from "react-router-dom";
 import useBuilder from "../../hooks/useBuilder";
+import { HeaderBrand } from "../common/Header";
 
 const PreviewHeader = () => {
   const { previewMode, onPreviewMode } = useBuilder();
 
   return (
     <div className="container flex justify-between items-center py-[0.5px]">
-      <div>
-        <Link to="/builder" className="text-white">
-          <IoArrowBackOutline size={24} />
-        </Link>
-      </div>
+      <HeaderBrand />
       <div className="flex items-center gap-3">
         <button
           onClick={() => onPreviewMode("desktop")}
