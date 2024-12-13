@@ -49,9 +49,9 @@ const TemplateSlider = () => {
           <div
             key={item?.id}
             onClick={() => onOpenModal(item)}
-            className={`relative cursor-pointer duration-500 transform ${
+            className={`relative cursor-pointer ${
               index === 2
-                ? "scale-150 z-30 "
+                ? "scale-150 z-30"
                 : index === 1 || index === 3
                 ? "scale-125 z-20"
                 : "scale-100"

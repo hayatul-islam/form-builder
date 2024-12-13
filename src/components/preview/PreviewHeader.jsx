@@ -1,15 +1,24 @@
 import { AiOutlineDesktop } from "react-icons/ai";
 import { FaMobileAlt } from "react-icons/fa";
-import { MdTabletMac } from "react-icons/md";
+import { MdKeyboardBackspace, MdTabletMac } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import useBuilder from "../../hooks/useBuilder";
-import { HeaderBrand } from "../common/Header";
 
 const PreviewHeader = () => {
   const { previewMode, onPreviewMode } = useBuilder();
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   return (
     <div className="container flex justify-between items-center py-[0.5px]">
-      <HeaderBrand />
+      {/* <HeaderBrand /> */}
+      <button onClick={goBack} className="text-[28px] font-bold text-black">
+        <MdKeyboardBackspace />
+      </button>
+
       <div className="flex items-center gap-3">
         <button
           onClick={() => onPreviewMode("desktop")}
@@ -37,7 +46,7 @@ const PreviewHeader = () => {
           <FaMobileAlt size={20} />
         </button>
       </div>
-      <div>d</div>
+      <div></div>
     </div>
   );
 };
