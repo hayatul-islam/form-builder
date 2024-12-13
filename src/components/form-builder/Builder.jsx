@@ -5,17 +5,15 @@ import {
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
-import { useState } from "react";
-import PageLayout from "../../layout/PageLayout";
+import useBuilder from "../../hooks/useBuilder";
+import DashboardLayout from "../../layout/DashboardLayout";
 import DragOverlayWrapper from "../ui/DragOverlayWrapper";
 import FormBuilder from "./FormBuilder";
 import LeftSidebar from "./LeftSidebar";
 import RightSidebar from "./RightSidebar";
 
 const Builder = () => {
-  const [isElement, setIsElement] = useState(false);
-  const [isDesign, setIsDesign] = useState(false);
-
+  const { leftSidebarTool, selectedElement } = useBuilder();
   const mouseSensors = useSensor(MouseSensor, {
     activationConstraint: {
       distance: 10,
@@ -31,43 +29,25 @@ const Builder = () => {
 
   const sensors = useSensors(mouseSensors, touchSensor);
 
-  const handleToggleElement = (value) => {
-    setIsElement(value);
-  };
-  const handleToggleDesign = (value) => {
-    setIsDesign(value);
-  };
-
   return (
-    <PageLayout type="builder">
+    <DashboardLayout>
       <DndContext sensors={sensors}>
         <div className="w-full h-full relative">
-          <div className="absolute top-0 left-0 w-full">
-            {isElement ? (
-              <LeftSidebar onToggleElement={handleToggleElement} />
-            ) : (
-              <div className="px-6 py-3">
-                <button onClick={() => handleToggleElement(true)}>
-                  Add Fields
-                  {/* <RiInputField size={40} /> */}
-                </button>
-              </div>
-            )}
-          </div>
+          {leftSidebarTool && (
+            <div className="absolute top-0 left-0 w-full">
+              <LeftSidebar />
+            </div>
+          )}
           <FormBuilder />
-          <div className="absolute top-0 right-0 w-auto">
-            {isDesign ? (
-              <RightSidebar onToggleDesign={handleToggleDesign} />
-            ) : (
-              <div className="px-6 py-3">
-                <button onClick={() => handleToggleDesign(true)}>Design</button>
-              </div>
-            )}
-          </div>
+          {selectedElement?.id && (
+            <div className="absolute top-0 right-0 w-auto">
+              <RightSidebar />
+            </div>
+          )}
         </div>
         <DragOverlayWrapper />
       </DndContext>
-    </PageLayout>
+    </DashboardLayout>
   );
 };
 

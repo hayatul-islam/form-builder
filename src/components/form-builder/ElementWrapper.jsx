@@ -7,7 +7,7 @@ import DroppableElement from "../ui/DroppableElement";
 import SingleElement from "./SingleElement";
 
 const ElementWrapper = ({ element }) => {
-  const { onRemoveElement, selectedElement, setSelectedElement } = useBuilder();
+  const { onRemoveElement, selectedElement, onSelectedElement } = useBuilder();
 
   const [mouseIsOver, setMouseIsOver] = useState(false);
 
@@ -49,7 +49,7 @@ const ElementWrapper = ({ element }) => {
       {...draggable.attributes}
       onClick={(e) => {
         e.stopPropagation();
-        setSelectedElement(element);
+        onSelectedElement(element);
       }}
       onMouseEnter={() => setMouseIsOver(true)}
       onMouseLeave={() => setMouseIsOver(false)}

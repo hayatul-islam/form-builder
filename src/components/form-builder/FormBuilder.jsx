@@ -12,7 +12,7 @@ function FormBuilder() {
     elements,
     onAddElement,
     selectedElement,
-    setSelectedElement,
+    onSelectedElement,
     onRenderElement,
     settings,
   } = useBuilder();
@@ -103,7 +103,7 @@ function FormBuilder() {
   return (
     <div
       onClick={() => {
-        if (selectedElement) setSelectedElement(null);
+        if (selectedElement) onSelectedElement(null);
       }}
       className="h-[calc(100vh-70px)] overflow-y-auto no-scrollbar w-full mx-auto "
       style={pageStyle?.style}

@@ -18,7 +18,7 @@ const FormDesign = () => {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 p-4">
       {/* Quick setup  */}
       <Accordion title="Quick Setup" value={true}>
         <div className="space-y-3">

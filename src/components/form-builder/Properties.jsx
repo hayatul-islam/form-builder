@@ -10,11 +10,11 @@ import Select from "../ui/Select";
 import ToggleButton from "../ui/ToggleButton";
 
 const Properties = () => {
-  const { selectedElement, setSelectedElement, onUpdateElement } = useBuilder();
+  const { selectedElement, onSelectedElement, onUpdateElement } = useBuilder();
 
   const onChange = (key, value, subKey) => {
     const values = onInputValueChange(selectedElement, key, value, subKey);
-    setSelectedElement(values);
+    onSelectedElement(values);
     onUpdateElement(selectedElement.id, values);
   };
 
@@ -45,10 +45,8 @@ const Properties = () => {
   const isButton = type === "submit";
   const isHeadline = type === "title";
 
-  console.log(selectedElement);
-
   return (
-    <div className="rounded-lg space-y-4">
+    <div className="rounded-lg space-y-4 p-4">
       {/* <div className="border border-primary/50 w-[130px] p-0.5 mx-auto h-[35px] rounded-full flex items-center justify-between">
         <button
           onClick={() => setType("property")}
@@ -71,10 +69,6 @@ const Properties = () => {
           <MdOutlineColorLens />
         </button>
       </div> */}
-
-      <div className="text-center py-2 font-bold uppercase bg-primary text-white">
-        <h4>{selectedElement?.name}</h4>
-      </div>
 
       <Input
         name="label"

@@ -13,10 +13,9 @@ export default function DesignerContextProvider({ children }) {
   const [selectForm, setSelectForm] = useState(initialForm);
   const [selectedElement, setSelectedElement] = useState();
   const [previewMode, setPreviewMode] = useState("desktop");
+  const [leftSidebarTool, setLeftSidebarTool] = useState("fields");
   const elements = selectForm?.elements || [];
   const settings = selectForm?.settings || {};
-
-  console.log(selectForm);
 
   // form functionality
   const onAddForm = (newForm) => {
@@ -102,6 +101,19 @@ export default function DesignerContextProvider({ children }) {
     }));
   };
 
+  const onSelectedElement = (element) => {
+    setSelectedElement(element);
+  };
+
+  // -------------------------------------------------------------------
+  //    others functionality
+  // -------------------------------------------------------------------
+
+  // left sidebar toggle
+  const onLeftSidebarTool = (tool) => {
+    setLeftSidebarTool(tool);
+  };
+
   // preview mode (desktop, tablet, mobile) functionality
   const onPreviewMode = (mode) => {
     setPreviewMode(mode);
@@ -139,8 +151,10 @@ export default function DesignerContextProvider({ children }) {
         onRenderElement,
 
         selectedElement,
-        setSelectedElement,
+        onSelectedElement,
 
+        leftSidebarTool,
+        onLeftSidebarTool,
         previewMode,
         onPreviewMode,
       }}
