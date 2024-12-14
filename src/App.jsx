@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import Code from "./components/code/Code";
 import Preview from "./components/preview/Preview";
 import EditBuilder from "./pages/EditBuilder";
 import FormBuilder from "./pages/FormBuilder";
@@ -21,7 +20,6 @@ function App() {
           <Route path="/builder" element={<FormBuilder />} />
           <Route path="/builder/:id" element={<EditBuilder />} />
           <Route path="/preview" element={<Preview />} />
-          <Route path="/code" element={<Code />} />
         </Routes>
       </BrowserRouter>
     </div>

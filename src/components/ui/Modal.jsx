@@ -14,7 +14,13 @@ const Modal = ({
 
   useEffect(() => {
     setIsMounted(true);
+
+    // Disable body scroll
+    document.body.style.overflow = "hidden";
+
     return () => {
+      // Enable body scroll
+      document.body.style.overflow = "";
       setIsMounted(false);
     };
   }, []);
@@ -43,27 +49,31 @@ const Modal = ({
           left: "50%",
           top: "50%",
           transform: "translate(-50%, -50%)",
+          maxHeight: "95vh",
+          overflowY: "auto",
         }}
-        className={`${className} z-10 w-full space-y-4 rounded-xl bg-white p-5 dark:bg-dark`}
+        className={`${className} z-10 w-full space-y-4 rounded-xl`}
       >
-        <div className="flex items-center justify-between">
-          {title && (
-            <h3 className="text-[20px] font-bold text-black dark:text-white">
-              {title}
-            </h3>
-          )}
-          {isClose && (
-            <button onClick={handleClose}>
-              <MdOutlineClose size={24} />
-            </button>
-          )}
-        </div>
-        <div>
-          {React.Children.map(children, (child) =>
-            React.isValidElement(child)
-              ? React.cloneElement(child, { onClose: handleClose })
-              : child
-          )}
+        <div className="rounded-xl bg-white dark:bg-dark mr-1">
+          <div className="flex items-center justify-between sticky top-0 z-40 bg-white rounded-t-xl px-5 py-3">
+            {title && (
+              <h3 className="text-[20px] font-bold text-black dark:text-white">
+                {title}
+              </h3>
+            )}
+            {isClose && (
+              <button onClick={handleClose}>
+                <MdOutlineClose size={24} />
+              </button>
+            )}
+          </div>
+          <div className="px-5 pb-5">
+            {React.Children.map(children, (child) =>
+              React.isValidElement(child)
+                ? React.cloneElement(child, { onClose: handleClose })
+                : child
+            )}
+          </div>
         </div>
       </div>
     </div>

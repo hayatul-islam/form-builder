@@ -6,6 +6,7 @@ import useBuilder from "../../hooks/useBuilder";
 
 const PreviewHeader = () => {
   const { previewMode, onPreviewMode } = useBuilder();
+
   const navigate = useNavigate();
 
   const goBack = () => {
