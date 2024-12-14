@@ -39,7 +39,7 @@ const BuilderHeader = () => {
         </Button>
       </div>
       {isOpen && (
-        <Modal title="Form code" onClose={handleClose} width="1000">
+        <Modal title="Form code" onClose={handleClose} width="1100">
           <Code />
         </Modal>
       )}
