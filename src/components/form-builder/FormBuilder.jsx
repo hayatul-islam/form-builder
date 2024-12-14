@@ -111,12 +111,13 @@ function FormBuilder() {
       <div
         ref={droppable.setNodeRef}
         // className={` ${droppable.isOver && "ring ring-primary/20"}`}
+        style={{ width: `${settings?.layout?.width}px`, margin: "auto" }}
       >
         {!droppable.isOver && elements?.length === 0 && (
           <div className="p-8 w-full">
             <DroppableElement
               className={
-                "!h-[150px] bg-primary/10 flex justify-center items-center rounded-xl"
+                "!h-[200px] bg-primary/10 flex justify-center items-center rounded-xl"
               }
             >
               <div className="flex justify-center items-center gap-2 text-primary">
@@ -127,7 +128,7 @@ function FormBuilder() {
           </div>
         )}
         {droppable.isOver && elements.length === 0 && (
-          <div className="px-6 pt-6 w-full">
+          <div className="px-6 pt-6 w-full h-[300px]">
             <DroppableElement />
           </div>
         )}

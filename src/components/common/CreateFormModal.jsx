@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import { initialTemplate } from "../../data";
 import useBuilder from "../../hooks/useBuilder";
 import Button from "../ui/Button";
 
@@ -13,8 +14,10 @@ const CreateFormModal = ({ demo, onClose }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    const initialValues = demo?.id ? demo : initialTemplate;
+
     const newForm = {
-      ...demo,
+      ...initialValues,
       id: uuidv4(),
       name: inputValue,
       elements: demo?.elements || [],

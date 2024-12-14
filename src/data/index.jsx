@@ -260,6 +260,23 @@ export const btnElements = [
   },
 ];
 
+export const initialTemplate = {
+  name: "",
+  image: "",
+  elements: [],
+  settings: {
+    layout: {
+      background: {
+        light: "#FFFFFF",
+      },
+      pageBackground: {
+        light: "#dddddd",
+      },
+      width: "700",
+    },
+  },
+};
+
 export const demo = [
   {
     id: "80097677-cc0c-49f4-83ed-cf12c2849dda",
