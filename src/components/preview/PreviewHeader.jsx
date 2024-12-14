@@ -1,30 +1,36 @@
 import { AiOutlineDesktop } from "react-icons/ai";
 import { FaMobileAlt } from "react-icons/fa";
-import { MdKeyboardBackspace, MdTabletMac } from "react-icons/md";
+import { MdTabletMac } from "react-icons/md";
+import { TiArrowBackOutline } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
 import useBuilder from "../../hooks/useBuilder";
 
 const PreviewHeader = () => {
   const { previewMode, onPreviewMode } = useBuilder();
-
   const navigate = useNavigate();
 
   const goBack = () => {
-    navigate(-1);
+    navigate("/builder");
   };
 
   return (
-    <div className="container  flex justify-between items-center px-6 py-4 border-b border-black/10">
+    <div className="container flex justify-between items-center px-6 py-3">
       {/* <HeaderBrand /> */}
-      <button onClick={goBack} className="text-[28px] font-bold text-black">
-        <MdKeyboardBackspace />
+      <button
+        onClick={goBack}
+        className="flex items-center gap-1 text-[18px] font-medium text-primary"
+      >
+        <TiArrowBackOutline size={24} />
+        <span>Back</span>
       </button>
 
       <div className="flex items-center gap-3">
         <button
           onClick={() => onPreviewMode("desktop")}
           className={`flex items-center justify-center gap-2 py-2 font-medium text-black/60 px-2 text-[10px] rounded-lg w-[35px] h-[35px] ${
-            previewMode === "desktop" ? " bg-white text-primary" : ""
+            previewMode === "desktop"
+              ? "border border-primary text-primary"
+              : ""
           } `}
         >
           <AiOutlineDesktop size={20} />
@@ -32,7 +38,7 @@ const PreviewHeader = () => {
         <button
           onClick={() => onPreviewMode("tablet")}
           className={`flex items-center justify-center text-black/60 rounded-lg w-[35px] h-[35px] ${
-            previewMode === "tablet" ? " bg-white text-primary" : ""
+            previewMode === "tablet" ? "border border-primary text-primary" : ""
           } `}
         >
           <MdTabletMac size={20} />
@@ -41,7 +47,7 @@ const PreviewHeader = () => {
         <button
           onClick={() => onPreviewMode("mobile")}
           className={`flex items-center justify-center text-black/60 rounded-lg w-[35px] h-[35px] ${
-            previewMode === "mobile" ? " bg-white text-primary" : ""
+            previewMode === "mobile" ? "border border-primary text-primary" : ""
           } `}
         >
           <FaMobileAlt size={20} />
