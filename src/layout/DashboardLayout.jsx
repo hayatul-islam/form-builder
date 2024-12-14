@@ -1,14 +1,9 @@
 import BuilderHeader from "../components/form-builder/BuilderHeader";
 import SidebarMenu from "../components/form-builder/SidebarMenu";
 
-const DashboardLayout = ({ children, className, bgColor }) => {
+const DashboardLayout = ({ children, className }) => {
   return (
-    <div
-      style={{
-        background: "" || "",
-      }}
-      className={className}
-    >
+    <div className={`${className} max-w-[1800px] mx-auto`}>
       <BuilderHeader />
       <div className="grid grid-cols-[60px_auto]">
         <SidebarMenu />

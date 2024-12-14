@@ -13,7 +13,7 @@ import LeftSidebar from "./LeftSidebar";
 import RightSidebar from "./RightSidebar";
 
 const Builder = () => {
-  const { leftSidebarTool, selectedElement, settings } = useBuilder();
+  const { leftSidebarTool, selectedElement } = useBuilder();
   const mouseSensors = useSensor(MouseSensor, {
     activationConstraint: {
       distance: 10,
@@ -29,23 +29,25 @@ const Builder = () => {
 
   const sensors = useSensors(mouseSensors, touchSensor);
 
-  const pageBg = settings?.layout?.pageBackground?.light;
-
   return (
-    <DashboardLayout bgColor={pageBg}>
+    <DashboardLayout>
       <DndContext sensors={sensors}>
-        <div className="w-full h-full relative ">
-          {leftSidebarTool && (
-            <div className="absolute top-0 left-0 z-30">
-              <LeftSidebar />
-            </div>
-          )}
+        <div className="w-full h-full relative overflow-hidden ">
+          <div
+            className={`absolute top-0 left-0 h-full w-64 bg-white shadow-lg transition-transform duration-700 ${
+              leftSidebarTool ? "translate-x-0" : "-translate-x-[400px] "
+            }`}
+          >
+            <LeftSidebar />
+          </div>
           <FormBuilder />
-          {selectedElement?.id && (
-            <div className="absolute top-0 right-0 w-auto">
-              <RightSidebar />
-            </div>
-          )}
+          <div
+            className={`absolute top-0 right-0 h-full bg-white shadow-lg transition-transform duration-700 ${
+              selectedElement ? "translate-x-0" : "translate-x-full "
+            }`}
+          >
+            <RightSidebar />
+          </div>
         </div>
         <DragOverlayWrapper />
       </DndContext>

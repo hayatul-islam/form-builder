@@ -19,14 +19,15 @@ const BuilderHeader = () => {
 
   return (
     // <div className="max-w-[800px] mx-auto py-1 pl-[60px]">
-    <div className="flex justify-between items-center px-6 py-4 ">
+    <div className="h-[70px] flex justify-between items-center px-6 py-4 shadow-sm ">
       <HeaderBrand />
+
       <div className="flex items-center gap-3">
         <Button
           onClick={handleOpen}
           className="flex justify-center items-center gap-2 border border-primary !text-primary !bg-gradient-to-r !from-gray !to-white "
         >
-          <FaCode className="text-[14px]" />
+          <FaCode className="text-[18px]" />
           <span> Code</span>
         </Button>
 
@@ -34,7 +35,7 @@ const BuilderHeader = () => {
           link="/preview"
           className="flex justify-center items-center gap-2"
         >
-          <FaRegEye className="text-[10px" />
+          <FaRegEye className="text-[14px]" />
           <span>Preview</span>
         </Button>
       </div>
