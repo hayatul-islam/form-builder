@@ -13,7 +13,7 @@ const PreviewHeader = () => {
   };
 
   return (
-    <div className="container flex justify-between items-center py-[0.5px]">
+    <div className="container  flex justify-between items-center px-6 py-4 border-b border-black/10">
       {/* <HeaderBrand /> */}
       <button onClick={goBack} className="text-[28px] font-bold text-black">
         <MdKeyboardBackspace />
@@ -46,7 +46,6 @@ const PreviewHeader = () => {
           <FaMobileAlt size={20} />
         </button>
       </div>
-      <div></div>
     </div>
   );
 };

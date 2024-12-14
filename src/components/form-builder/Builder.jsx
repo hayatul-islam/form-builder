@@ -13,7 +13,7 @@ import LeftSidebar from "./LeftSidebar";
 import RightSidebar from "./RightSidebar";
 
 const Builder = () => {
-  const { leftSidebarTool, selectedElement } = useBuilder();
+  const { leftSidebarTool, selectedElement, settings } = useBuilder();
   const mouseSensors = useSensor(MouseSensor, {
     activationConstraint: {
       distance: 10,
@@ -29,10 +29,12 @@ const Builder = () => {
 
   const sensors = useSensors(mouseSensors, touchSensor);
 
+  const pageBg = settings?.layout?.pageBackground?.light;
+
   return (
-    <DashboardLayout>
+    <DashboardLayout bgColor={pageBg}>
       <DndContext sensors={sensors}>
-        <div className="w-full h-full relative">
+        <div className="w-full h-full relative ">
           {leftSidebarTool && (
             <div className="absolute top-0 left-0 z-30">
               <LeftSidebar />

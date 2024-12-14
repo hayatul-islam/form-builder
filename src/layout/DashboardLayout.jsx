@@ -1,10 +1,14 @@
-import React from "react";
 import BuilderHeader from "../components/form-builder/BuilderHeader";
 import SidebarMenu from "../components/form-builder/SidebarMenu";
 
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = ({ children, className, bgColor }) => {
   return (
-    <div>
+    <div
+      style={{
+        background: "" || "",
+      }}
+      className={className}
+    >
       <BuilderHeader />
       <div className="grid grid-cols-[60px_auto]">
         <SidebarMenu />
