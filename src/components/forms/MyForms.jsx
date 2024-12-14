@@ -68,7 +68,7 @@ const MyForms = () => {
             ))}
           </div>
           {isOpen && (
-            <Modal width="400" isBack={false} onClose={onClose}>
+            <Modal width="400" isClose={false} onClose={onClose}>
               <DeleteModal onClick={handleDelete} />
             </Modal>
           )}
