@@ -34,7 +34,7 @@ const Builder = () => {
       <DndContext sensors={sensors}>
         <div className="w-full h-full relative">
           {leftSidebarTool && (
-            <div className="absolute top-0 left-0 w-full">
+            <div className="absolute top-0 left-0 z-30">
               <LeftSidebar />
             </div>
           )}
