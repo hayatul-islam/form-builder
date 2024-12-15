@@ -2,15 +2,16 @@ import { AiOutlineDesktop } from "react-icons/ai";
 import { FaMobileAlt } from "react-icons/fa";
 import { MdTabletMac } from "react-icons/md";
 import { TiArrowBackOutline } from "react-icons/ti";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useBuilder from "../../hooks/useBuilder";
 
 const PreviewHeader = () => {
   const { previewMode, onPreviewMode } = useBuilder();
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const goBack = () => {
-    navigate("/builder");
+    id ? navigate(`/builder/${id}`) : navigate("/builder");
   };
 
   return (

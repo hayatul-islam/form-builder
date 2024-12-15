@@ -1,5 +1,6 @@
 import { useState } from "react";
 import GetStartModal from "../common/GetStartModal";
+import SectionHeadline from "../common/SectionHeadline";
 import Button from "../ui/Button";
 
 const GetStarted = () => {
@@ -14,7 +15,7 @@ const GetStarted = () => {
   };
 
   return (
-    <div className="flex justify-center text-center  py-12 pb-[120px]">
+    <div className="flex justify-center text-center py-12 pb-[120px]">
       <div className="space-y-6">
         <img
           className="w-[150px] mx-auto text-red-500"
@@ -30,16 +31,15 @@ const GetStarted = () => {
           // src="https://cdn-icons-png.flaticon.com/128/3135/3135663.png"
           alt=""
         />
-        <div>
-          <h2 className="text-[42px] leading-none">Your forms, your style</h2>
-          <p className="text-gray-500 text-[20px]">
-            Customize the style and content of your forms to match your brand
-          </p>
-
-          <Button className="mt-3" onClick={handleOpen}>
-            Get Started for free
-          </Button>
-        </div>
+        <SectionHeadline
+          title="Your forms, your style"
+          subTitle=" Customize the style and content of your forms to match your brand"
+          button={
+            <Button className="mt-3" onClick={handleOpen}>
+              Get Started for free
+            </Button>
+          }
+        />
       </div>
 
       {isOpen && <GetStartModal handleClose={handleClose} />}

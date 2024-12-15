@@ -1,20 +1,15 @@
 import { features } from "../../data";
+import SectionHeadline from "../common/SectionHeadline";
 
 const Features = () => {
   return (
     <div className="container space-y-10">
-      <div className="text-center space-y-2 text-black max-w-[600px] mx-auto">
-        <h2 className="text-[42px] font-medium leading-none">
-          {/* Enterprise-grade features */}
-          Simple and Powerful
-        </h2>
-        <p className="text-gray-500 text-[20px]">
-          {/* A complete solution for easy-to-use, flexible form creation. */}A
-          complete solution for creating easy-to-use, flexible forms.
-        </p>
-      </div>
+      <SectionHeadline
+        title="Simple and Powerful"
+        subTitle="complete solution for creating easy-to-use, flexible forms."
+      />
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {features.slice(0, -2).map((item, i) => (
           <div
             key={i}
@@ -22,7 +17,7 @@ const Features = () => {
             className="rounded-xl space-y-3 border p-5"
           >
             <img className="w-[50px]" src={item?.image} alt="" />
-            <p className="text-gray-500 text-[18px]">
+            <p className="text-gray-500 text-[14px] sm:text-[18px]">
               <span className="text-black font-bold">{item?.title}.</span>{" "}
               <span> {item?.description}</span>
             </p>

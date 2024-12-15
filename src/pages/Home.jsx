@@ -7,7 +7,7 @@ import PageLayout from "../layout/PageLayout";
 
 const Home = () => {
   return (
-    <PageLayout type="main" className="space-y-36">
+    <PageLayout type="main" className="space-y-20 md:space-y-36">
       {/* <HeroSection /> */}
       <HeroSectionTwo />
       <VideoSection />
