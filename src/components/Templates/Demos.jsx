@@ -19,7 +19,7 @@ const Demos = () => {
   };
 
   return (
-    <div className="container grid grid-cols-4 gap-8 py-6 mb-20">
+    <div className="container grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-6 mb-20">
       <div className="space-y-2">
         <button
           onClick={() => onOpenModal({})}
@@ -42,7 +42,7 @@ const Demos = () => {
       {demo?.map((demo) => (
         <div
           key={demo?.id}
-          className="h-[300px] w-auto rounded-3xl bg-gray flex justify-center items-center relative group hover:scale-105 duration-500 transform"
+          className="sm:h-[300px] w-auto rounded-3xl bg-gray flex justify-center items-center relative group hover:scale-105 duration-500 transform"
         >
           <img
             src={demo?.image}
