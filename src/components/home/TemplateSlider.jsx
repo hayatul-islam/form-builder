@@ -43,26 +43,15 @@ const TemplateSlider = () => {
   };
 
   return (
-    <div className="space-y-28">
+    <div className="space-y-12 md:space-y-20 lg:space-y-28">
       <div className="flex items-center justify-center">
         {selectItems?.map((item, index) => (
-          <div
+          <TemplateSlide
             key={item?.id}
-            onClick={() => onOpenModal(item)}
-            className={`relative cursor-pointer ${
-              index === 2
-                ? "scale-150 z-30"
-                : index === 1 || index === 3
-                ? "scale-125 z-20"
-                : "scale-100"
-            }`}
-          >
-            <img
-              className="h-[300px] w-[250px] rounded-2xl"
-              src={item?.image}
-              alt=""
-            />
-          </div>
+            item={item}
+            index={index}
+            onOpenModal={onOpenModal}
+          />
         ))}
       </div>
 
@@ -100,3 +89,26 @@ const TemplateSlider = () => {
 };
 
 export default TemplateSlider;
+
+const TemplateSlide = ({ item, index, onOpenModal }) => {
+  return (
+    <div
+      onClick={() => onOpenModal(item)}
+      className={`relative cursor-pointer
+        ${index === 0 || index === 4 ? "hidden md:block" : ""}
+         ${
+           index === 2
+             ? "scale-125 md:scale-150 z-30"
+             : index === 1 || index === 3
+             ? "scale-100 md:scale-125 z-20"
+             : "scale-100"
+         }`}
+    >
+      <img
+        className="w-[120px] h-[150px] sm:h-[200px] sm:w-[150px] lg:h-[300px] lg:w-[250px] rounded-2xl"
+        src={item?.image}
+        alt=""
+      />
+    </div>
+  );
+};

@@ -15,7 +15,7 @@ const GetStarted = () => {
   };
 
   return (
-    <div className="flex justify-center text-center py-12 pb-[120px]">
+    <div className="flex justify-center text-center px-6 py-12 pb-[120px]">
       <div className="space-y-6">
         <img
           className="w-[150px] mx-auto text-red-500"

@@ -4,7 +4,7 @@ import TemplateSlider from "./TemplateSlider";
 
 const TemplateSection = () => {
   return (
-    <div className="container space-y-28">
+    <div className="container space-y-8 sm:space-y-12 md:space-y-20 lg:space-y-28">
       <SectionHeadline
         title="Start with a template"
         subTitle=" Start with one of our ready-made form templates for common use cases
