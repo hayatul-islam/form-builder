@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="text-black">
-      <div className="container py-12 border-t text-center space-y-4 flex justify-between items-center">
+      <div className="container py-12 border-t text-center space-y-4 md:flex justify-between items-center">
         <div className="text-[16px] ">
           <span className="text-gray-500">© 2024 Made by</span>{" "}
           <span className="font-bold">Md. Hayatul Islam</span>
