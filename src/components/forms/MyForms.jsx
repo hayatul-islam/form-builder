@@ -3,23 +3,42 @@ import { useState } from "react";
 import { DiCode } from "react-icons/di";
 import { FiEdit, FiEye } from "react-icons/fi";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useBuilder from "../../hooks/useBuilder";
+import Code from "../code/Code";
 import DeleteModal from "../ui/DeleteModal";
 import Modal from "../ui/Modal";
 
 const MyForms = () => {
-  const { forms, onDeleteForm } = useBuilder();
+  const { forms, onDeleteForm, onGetForm } = useBuilder();
   const [isOpen, setIsOpen] = useState(false);
+  const [modalType, setModalType] = useState("");
   const [deleteId, setDeleteId] = useState("");
+  const navigate = useNavigate();
 
-  const onOpen = (id) => {
+  const onOpen = (type) => {
     setIsOpen(true);
-    setDeleteId(id);
+    setModalType(type);
   };
 
   const onClose = () => {
     setIsOpen(false);
+    setModalType("");
+  };
+
+  const handlePreview = (id) => {
+    onGetForm(id);
+    navigate(`/preview/${id}`);
+  };
+
+  const handleCode = (id) => {
+    onGetForm(id);
+    onOpen("code");
+  };
+
+  const handleDeleteConfirm = (id) => {
+    setDeleteId(id);
+    onOpen("delete");
   };
 
   const handleDelete = () => {
@@ -62,13 +81,19 @@ const MyForms = () => {
                       </div>
                     </td>
                     <td className="text-center">
-                      <button className="text-black">
+                      <button
+                        onClick={() => handleCode(form?.id)}
+                        className="text-black"
+                      >
                         <DiCode size={32} />
                       </button>
                     </td>
                     <td className="text-center">
-                      <button className="text-gray-600 hover:text-gray-800">
-                        <FiEye size={20} />
+                      <button
+                        onClick={() => handlePreview(form?.id)}
+                        className="text-black "
+                      >
+                        <FiEye size={20} className="mx-auto" />
                       </button>
                     </td>
                     <td className="text-center">
@@ -78,7 +103,7 @@ const MyForms = () => {
                     </td>
                     <td className="text-center">
                       <button
-                        onClick={() => onOpen(form?.id)}
+                        onClick={() => handleDeleteConfirm(form?.id)}
                         className="text-black "
                       >
                         <RiDeleteBinLine size={20} />
@@ -90,7 +115,12 @@ const MyForms = () => {
             </table>
           </div>
 
-          {isOpen && (
+          {isOpen && modalType === "code" && (
+            <Modal title="Form Code" width="1100" onClose={onClose}>
+              <Code />
+            </Modal>
+          )}
+          {isOpen && modalType === "delete" && (
             <Modal width="400" isClose={false} onClose={onClose}>
               <DeleteModal onClick={handleDelete} />
             </Modal>

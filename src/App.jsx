@@ -20,6 +20,7 @@ function App() {
           <Route path="/builder" element={<FormBuilder />} />
           <Route path="/builder/:id" element={<EditBuilder />} />
           <Route path="/preview" element={<Preview />} />
+          <Route path="/preview/:id" element={<Preview />} />
         </Routes>
       </BrowserRouter>
     </div>
