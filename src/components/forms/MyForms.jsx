@@ -1,8 +1,8 @@
 import moment from "moment";
 import { useState } from "react";
-import { BiSolidEdit } from "react-icons/bi";
-import { FaWpforms } from "react-icons/fa6";
-import { MdOutlineDelete } from "react-icons/md";
+import { DiCode } from "react-icons/di";
+import { FiEdit, FiEye } from "react-icons/fi";
+import { RiDeleteBinLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import useBuilder from "../../hooks/useBuilder";
 import DeleteModal from "../ui/DeleteModal";
@@ -31,42 +31,65 @@ const MyForms = () => {
   return (
     <>
       {forms?.length > 0 && (
-        <div className="container space-y-2">
-          <h3>My Forms</h3>
-          <div className="space-y-3">
-            {forms?.map((form) => (
-              <div
-                key={form?.id}
-                className="bg-white/50 shadow-sm border rounded border-gray px-4 py-2 flex justify-between items-center group"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="p-2 border border-black/10 rounded ">
-                    <FaWpforms className="text-primary  text-[18px]" />
-                  </div>
-                  <div>
-                    <h4 className="pt-1">{form?.name}</h4>
-                    <p className="text-[12px] text-black/40">
-                      Create on: {moment(form?.createdAt)?.format("ll")}
-                    </p>
-                  </div>
-                </div>
-                <div className="hidden group-hover:flex items-center gap-2">
-                  <Link
-                    to={`/builder/${form?.id}`}
-                    className="text-[20px] text-blue-500"
+        <div className="container space-y-4 ">
+          <h2 className="text-[20px] font-bold text-black">My Forms</h2>
+
+          <div className="overflow-x-auto rounded-lg border">
+            <table className="table-auto w-full bg-white text-left rounded-lg">
+              <thead className="bg-primary/80 text-white">
+                <tr>
+                  <th className="py-5 px-6 text-sm font-semibold">Form Name</th>
+                  <th className="text-center text-sm font-semibold">Code</th>
+                  <th className="text-center text-sm font-semibold">Preview</th>
+                  <th className="text-center text-sm font-semibold">Edit</th>
+                  <th className="text-center text-sm font-semibold">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                {forms.map((form, index) => (
+                  <tr
+                    key={index}
+                    className="even:bg-gray-50 odd:bg-gray-100 hover:bg-white transition-all duration-300"
                   >
-                    <BiSolidEdit />
-                  </Link>
-                  <button
-                    onClick={() => onOpen(form?.id)}
-                    className="text-[20px] text-red-500"
-                  >
-                    <MdOutlineDelete />
-                  </button>
-                </div>
-              </div>
-            ))}
+                    <td className="py-4 px-6">
+                      <div className="text-black">
+                        <h4 className="text-[16px] font-medium">
+                          {form?.name}
+                        </h4>
+                        <p className="text-sm text-gray-500">
+                          Created on: {moment(form?.createdAt).format("ll")}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="text-center">
+                      <button className="text-black">
+                        <DiCode size={32} />
+                      </button>
+                    </td>
+                    <td className="text-center">
+                      <button className="text-gray-600 hover:text-gray-800">
+                        <FiEye size={20} />
+                      </button>
+                    </td>
+                    <td className="text-center">
+                      <Link to={`/builder/${form?.id}`} className="text-black ">
+                        <FiEdit size={20} className="mx-auto" />
+                      </Link>
+                    </td>
+                    <td className="text-center">
+                      <button
+                        onClick={() => onOpen(form?.id)}
+                        className="text-black "
+                      >
+                        <RiDeleteBinLine size={20} />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
+
           {isOpen && (
             <Modal width="400" isClose={false} onClose={onClose}>
               <DeleteModal onClick={handleDelete} />

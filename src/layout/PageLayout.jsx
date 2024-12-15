@@ -26,7 +26,7 @@ const PageLayout = ({ children, type, className }) => {
           {header}
         </div>
       ) : (
-        <div className="bg-white">{header}</div>
+        <div className="bg-gray shadow-sm">{header}</div>
       )}
       <div className={className}>{children}</div>
 

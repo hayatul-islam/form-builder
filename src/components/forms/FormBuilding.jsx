@@ -20,10 +20,10 @@ const FormBuilding = ({ type = "page", onModalType }) => {
   return (
     <>
       <div className="max-w-[900px] mx-auto space-y-12">
-        <div className="text-center">
+        {/* <div className="text-center">
           <h3 className="text-[32px] font-medium">Create a Form</h3>
           <p>Create or utilize a form to start gathering data</p>
-        </div>
+        </div> */}
 
         {type === "modal" ? (
           <div className="flex justify-center items-center gap-6 mx-auto pb-8">
