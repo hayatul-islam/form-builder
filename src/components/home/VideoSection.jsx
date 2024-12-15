@@ -5,7 +5,7 @@ const VideoSection = () => {
 
   return (
     <div className="container">
-      <div className="h-[550p] w-full mt-20 mb-6 rounded-lg relative">
+      <div className="max-h-[550p] w-full mt-20 mb-6 rounded-lg relative">
         {!isPlaying ? (
           <img
             src="https://gettravel.com/wp-content/uploads/2018/04/Video-Placeholder.jpg"

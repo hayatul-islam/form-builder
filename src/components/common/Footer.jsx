@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="container py-12 border-t text-center space-y-4 md:flex justify-between items-center">
         <div className="text-[16px] ">
           <span className="text-gray-500">© 2024 Made by</span>{" "}
-          <span className="font-bold">Md. Hayatul Islam</span>
+          <span className="text-black font-medium">Md. Hayatul Islam</span>
         </div>
         <div className="flex justify-center text-[24px] space-x-3">
           <Link
