@@ -17,7 +17,7 @@ const HeroSectionTwo = () => {
   return (
     <div className="container mt-24 md:mt-32 bg-gradient-to-b flex items-center justify-center ">
       <div className="text-center px-4 sm:px-6 space-y-3 md:space-y-5 py-5">
-        <button className="px-4 py-2 border-2 rounded-full border-white text-black text-[14px] font-medium cursor-auto flex items-center gap-1 justify-center mx-auto bg-gradient-to-r from-[#F7F7F7] to-[#ffffff]">
+        <button className="px-2 sm:px-4 py-1.5 sm:py-2 border-2 rounded-full border-white text-black text-[10px] sm:text-[14px] font-medium cursor-auto flex items-center gap-1 justify-center mx-auto bg-gradient-to-r from-[#F7F7F7] to-[#ffffff]">
           <RiDragMove2Fill />
           Welcome to Form Builder
         </button>
