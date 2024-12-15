@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import CreateFormModal from "../common/CreateFormModal";
+import SectionHeadline from "../common/SectionHeadline";
 import Modal from "../ui/Modal";
 
 const FormBuilding = ({ type = "page", onModalType }) => {
@@ -20,39 +21,38 @@ const FormBuilding = ({ type = "page", onModalType }) => {
   return (
     <>
       <div className="max-w-[900px] mx-auto space-y-12">
-        <div className="text-center text-black">
-          <h2 className="text-[42px]  leading-none">Create a Form</h2>
-          <p className="text-gray-500 text-[20px]">
-            Create or utilize a form to start gathering data
-          </p>
-        </div>
+        <SectionHeadline
+          title="Create a Form"
+          subTitle="Create or utilize a form to start gathering data"
+        />
 
         {type === "modal" ? (
-          <div className="flex justify-center items-center gap-6 mx-auto pb-8">
+          <div className="flex justify-center items-center gap-4 md:gap-6 mx-auto pb-8">
             <div className="space-y-3">
               <button
                 onClick={onOpenModal}
-                className="h-[220px] w-[250px] mx-auto rounded-2xl bg-gray flex justify-center items-center text-primary"
+                className="w-[120px] h-[120px] sm:h-[150px] sm:w-[180px] lg:h-[220px] lg:w-[250px] mx-auto rounded-2xl bg-gray flex justify-center items-center text-primary"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 24 24"
-                  width="80"
-                  height="80"
+                  className="w-[50px] h-[50px] md:w-[80px] md:h-[80px]"
                 >
                   <path d="M13 5a1 1 0 1 0-2 0v6H5a1 1 0 1 0 0 2h6v6a1 1 0 1 0 2 0v-6h6a1 1 0 1 0 0-2h-6V5Z"></path>
                 </svg>
               </button>
-              <div className="text-center text-black">
-                <h3 className="font-medium text-[22px] ">Start form scratch</h3>
-                <p>A blank slate is all you need</p>
+              <div className="text-center text-black hidden sm:block">
+                <h3 className="font-medium text-[18px] md:text-[22px] ">
+                  Start form scratch
+                </h3>
+                <p className="hidden sm:block">A blank slate is all you need</p>
               </div>
             </div>
             <div className="space-y-3">
               <Link
                 to="/templates"
-                className="h-[220px] w-[250px] rounded-2xl bg-gray flex justify-center items-center text-primary mx-auto"
+                className="w-[120px] h-[120px] sm:h-[150px] sm:w-[180px] lg:h-[220px] lg:w-[250px] rounded-2xl bg-gray flex justify-center items-center text-primary mx-auto"
               >
                 <svg
                   fill="none"
@@ -113,45 +113,49 @@ const FormBuilding = ({ type = "page", onModalType }) => {
                   ></rect>
                 </svg>
               </Link>
-              <div className="text-center text-black">
-                <h3 className="font-medium text-[22px] ">Use Template</h3>
+              <div className="text-center text-black hidden sm:block">
+                <h3 className="font-medium text-[18px] md:text-[22px] ">
+                  Use Template
+                </h3>
                 <p>Choose from 100+ pre-made forms</p>
               </div>
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-2 gap-12">
+          <div className="grid sm:grid-cols-2 gap-12 px-6">
             <div className="space-y-3">
               <button
                 onClick={onOpenModal}
-                className="h-[350px] w-full rounded-3xl bg-white flex justify-center items-center text-primary"
+                className="h-[200px] sm:h-[280px] lg:h-[350px] w-full rounded-3xl bg-white flex justify-center items-center text-primary"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 24 24"
-                  width="80"
-                  height="80"
+                  className="w-[60px]  md:w-[80px]"
                 >
                   <path d="M13 5a1 1 0 1 0-2 0v6H5a1 1 0 1 0 0 2h6v6a1 1 0 1 0 2 0v-6h6a1 1 0 1 0 0-2h-6V5Z"></path>
                 </svg>
               </button>
               <div className="text-center text-black">
-                <h3 className="font-medium text-[22px] ">Start form scratch</h3>
-                <p>A blank slate is all you need</p>
+                <h3 className="font-medium text-[20px] sm:text-[22px] ">
+                  Start form scratch
+                </h3>
+                <p className="text-[14px] sm:text-[16px]">
+                  A blank slate is all you need
+                </p>
               </div>
             </div>
             <div className="space-y-3">
               <Link
                 to="/templates"
-                className="h-[350px] w-full rounded-3xl bg-white flex justify-center items-center text-primary"
+                className="h-[200px] sm:h-[280px] lg:h-[350px] w-full rounded-3xl bg-white flex justify-center items-center text-primary"
               >
                 <svg
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 162 204"
-                  width="200"
-                  height="300"
+                  className="w-[100px] h-[150px] sm:w-[150px] sm:h-[200px] lg:w-[200px] lg:h-[300px]"
                 >
                   <rect width="162" height="204" rx="4" fill="#fff"></rect>
                   <rect
@@ -206,8 +210,12 @@ const FormBuilding = ({ type = "page", onModalType }) => {
                 </svg>
               </Link>
               <div className="text-center text-black">
-                <h3 className="font-medium text-[22px] ">Use Template</h3>
-                <p>Choose from 100+ pre-made forms</p>
+                <h3 className="font-medium text-[20px] sm:text-[22px] ">
+                  Use Template
+                </h3>
+                <p className="text-[14px] sm:text-[16px]">
+                  Choose from 100+ pre-made forms
+                </p>
               </div>
             </div>
           </div>

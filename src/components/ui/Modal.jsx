@@ -52,7 +52,7 @@ const Modal = ({
           maxHeight: "95vh",
           overflowY: "auto",
         }}
-        className={`${className} z-10 w-full space-y-4 rounded-xl`}
+        className={`${className} px-6 z-10 w-full space-y-4 rounded-xl`}
       >
         <div className="rounded-xl bg-white dark:bg-dark mr-1">
           <div className="flex items-center justify-between sticky top-0 z-40 bg-white rounded-t-xl px-5 py-3">

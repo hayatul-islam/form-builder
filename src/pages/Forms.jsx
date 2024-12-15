@@ -4,7 +4,7 @@ import PageLayout from "../layout/PageLayout";
 
 const Forms = () => {
   return (
-    <PageLayout className="space-y-24 py-24">
+    <PageLayout className="space-y-12 sm:space-y-16 md:space-y-24 py-12 sm:py-16 md:py-24">
       <MyForms />
       <FormBuilding />
     </PageLayout>

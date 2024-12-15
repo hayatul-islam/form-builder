@@ -58,10 +58,18 @@ const MyForms = () => {
               <thead className="bg-primary/80 text-white">
                 <tr>
                   <th className="py-5 px-6 text-sm font-semibold">Form Name</th>
-                  <th className="text-center text-sm font-semibold">Code</th>
-                  <th className="text-center text-sm font-semibold">Preview</th>
-                  <th className="text-center text-sm font-semibold">Edit</th>
-                  <th className="text-center text-sm font-semibold">Delete</th>
+                  <th className="text-center text-sm font-semibold min-w-[80px]">
+                    Code
+                  </th>
+                  <th className="text-center text-sm font-semibold min-w-[80px]">
+                    Preview
+                  </th>
+                  <th className="text-center text-sm font-semibold min-w-[80px]">
+                    Edit
+                  </th>
+                  <th className="text-center text-sm font-semibold min-w-[80px]">
+                    Delete
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -70,7 +78,7 @@ const MyForms = () => {
                     key={index}
                     className="even:bg-gray-50 odd:bg-gray-100 hover:bg-white transition-all duration-300"
                   >
-                    <td className="py-4 px-6">
+                    <td className="py-4 px-6 min-w-[300px]">
                       <div className="text-black">
                         <h4 className="text-[16px] font-medium">
                           {form?.name}
