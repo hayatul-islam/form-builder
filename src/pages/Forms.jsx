@@ -4,11 +4,9 @@ import PageLayout from "../layout/PageLayout";
 
 const Forms = () => {
   return (
-    <PageLayout>
-      <div className="py-12 space-y-20">
-        <MyForms />
-        <FormBuilding />
-      </div>
+    <PageLayout className="space-y-24 py-24">
+      <MyForms />
+      <FormBuilding />
     </PageLayout>
   );
 };
