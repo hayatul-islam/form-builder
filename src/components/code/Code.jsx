@@ -18,6 +18,8 @@ const Code = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+
+
   return (
     // <PageLayout type="builder">
     <div className="relative bg-[#1E1E1E] text-white overflow-hidden">
@@ -34,7 +36,11 @@ const Code = () => {
         )}
       </button>
 
+
+      
+
       {/* Syntax Highlighter with Line Numbers and Line Wrapping */}
+
       <SyntaxHighlighter
         language="javascript"
         style={vscDarkPlus}
@@ -54,6 +60,7 @@ const Code = () => {
           fontSize: "12px",
         }}
       >
+       
         {code?.reactCode || "// No code available"}
       </SyntaxHighlighter>
     </div>

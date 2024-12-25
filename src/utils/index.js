@@ -405,20 +405,20 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
   // Field generators
   const generateSelectField = (field) =>
     `<select
-      name="${field.name}"
-      className="${
-        inputStyle?.className || ""
-      } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      ${field.isRequired ? "required" : ""}
-      ${field.isReadOnly ? "readOnly" : ""}
-    >
-      ${field.options
-        ?.map(
-          (option) =>
-            `<option value="${option?.value}">${option?.label}</option>`
-        )
-        .join("")}
-    </select>`;
+                  name="${field.name}"
+                  className="${
+                    inputStyle?.className || ""
+                  } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  ${field.isRequired ? "required" : ""}
+                  ${field.isReadOnly ? "readOnly" : ""}
+                >
+                   ${field.options
+                     ?.map(
+                       (option) =>
+                         `<option value="${option?.value}">${option?.label}</option>`
+                     )
+                     .join("")}
+                </select>`;
 
   const generateRadioField = (field) => {
     const elementStyle = onElementStyle(field?.type, field?.settings);
@@ -477,44 +477,44 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
 
   const generateInputField = (field) =>
     `<input
-      type="${field.type}"
-      name="${field.name}"
-      placeholder="${field.placeholder || ""}"
-      ${field.isRequired ? "required" : ""}
-      ${field.isReadOnly ? "readOnly" : ""}
-      className="${inputStyle?.className || ""}"
-    />`;
+                type="${field.type}"
+                name="${field.name}"
+                placeholder="${field.placeholder || ""}"
+                ${field.isRequired ? "required" : ""}
+                ${field.isReadOnly ? "readOnly" : ""}
+                className="${inputStyle?.className || ""}"
+              />`;
 
   const generateTextarea = (field) =>
     `<textarea
-        rows={3}
-        placeholder="${field.placeholder || ""}"
-        ${field.isRequired ? "required" : ""}
-        ${field.isReadOnly ? "readOnly" : ""}
-        className="${inputStyle?.className || ""}"
-      />`;
+                rows={3}
+                placeholder="${field.placeholder || ""}"
+                ${field.isRequired ? "required" : ""}
+                ${field.isReadOnly ? "readOnly" : ""}
+                className="${inputStyle?.className || ""}"
+              />`;
 
   const generateButton = (field) => {
     const buttonStyle = onButtonStyle(field?.settings);
 
     const { className, alignmentClassName } = buttonStyle || {};
 
-    return `<div className="${alignmentClassName}">
-            <button
-              type="submit"
-              className="${className || ""}"
-            >
-              ${field?.label}
-            </button>
-          </div>`;
+    return `  <div className="${alignmentClassName}">
+                <button
+                  type="submit"
+                  className="${className || ""}"
+                >
+                  ${field?.label}
+                </button>
+              </div>`;
   };
 
   const generateHeadline = (field) => {
     const headlineStyle = onHeadlineStyle(field?.settings);
 
-    return `<h2 className="${headlineStyle?.className || ""}">
-              ${field?.label}
-            </h2>`;
+    return `  <h2 className="${headlineStyle?.className || ""}">
+                ${field?.label}
+              </h2>`;
   };
 
   // Field mapping
@@ -537,20 +537,27 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
         : generateInputField(field);
 
     // Only render the label if the field type is not "submit"
+    const isLabel = field.type !== "submit" && field.type !== "title";
     const labelHTML =
-      field.type !== "submit" &&
+      isLabel &&
       `<label className="${labelStyle?.className || ""}">
-          ${field.label}${requiredAsterisk(
+                ${field.label}${requiredAsterisk(
         field.isRequired,
         settings?.label?.requiredColor?.light
       )}
-        </label>`;
+              </label>`;
 
-    return `
-    <div>
-        ${labelHTML}
-        ${fieldHTML}
-      </div>`;
+    return `${
+      isLabel
+        ? `<div>
+              ${labelHTML}
+              ${fieldHTML}
+            </div>`
+        : `<div>
+            ${fieldHTML}
+            </div>`
+    }
+            `;
   };
 
   // Generate React Code (only uses className)
@@ -561,7 +568,7 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
       return (
         <div className="${pageStyle?.className || ""}">
           <form className="${formStyle?.className || ""}">
-            ${elements.map((field) => mapFieldsToHTML(field, false)).join("")}
+            ${elements.map((field) => mapFieldsToHTML(field)).join("")}
           </form>
         </div>
       );
@@ -571,208 +578,4 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
   `;
 
   return { reactCode };
-};
-
-export const onFormCodeGeneratorOld = ({
-  elements = [],
-  settings = {},
-} = {}) => {
-  // Helper functions for generating styles and classes
-  const pageStyle = onPageStyle(settings?.layout);
-  const formStyle = onFormStyle(settings?.layout);
-  const labelStyle = onLabelStyle(settings?.label);
-  const inputStyle = onInputStyle(settings?.inputField);
-
-  // Helper for required asterisk
-  const requiredAsterisk = (required, color) =>
-    required
-      ? `<span style={${JSON.stringify(
-          labelStyle?.requiredStyle || {}
-        )}} className="text-[${color || "red"}]"> *</span>`
-      : "";
-
-  // Field generators
-  const generateSelectField = (field, isPreview) =>
-    `<select
-      name="${field.name}"
-      ${field.isRequired ? "required" : ""}
-      ${field.isReadOnly ? "readOnly" : ""}
-      ${isPreview ? `style={${JSON.stringify(inputStyle?.style || {})}}` : ""}
-      className="${
-        inputStyle?.className || ""
-      } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-    >
-      ${field.options
-        ?.map(
-          (option) =>
-            `<option value="${option?.value}">${option?.label}</option>`
-        )
-        .join("")}
-    </select>`;
-
-  const generateRadioField = (field, isPreview) => {
-    const elementStyle = onElementStyle(field?.type, field?.settings);
-
-    return `<div ${
-      isPreview ? `style={${JSON.stringify(elementStyle?.style || {})}}` : ""
-    }
-      className="${elementStyle?.className || ""}">
-      ${field.options
-        ?.map(
-          (option) => `
-      <label className="flex items-center gap-2">
-        <input
-          type="radio"
-          name="${field.name}"
-          value="${option?.value}"
-          className="focus:ring focus:ring-blue-400"
-        />
-        ${option?.label}
-      </label>`
-        )
-        .join("")}
-    </div>`;
-  };
-
-  const generateCheckboxField = (field, isPreview) => {
-    const elementStyle = onElementStyle(field?.type, field?.settings);
-
-    return `<div ${
-      isPreview ? `style={${JSON.stringify(elementStyle?.style || {})}}` : ""
-    }
-      className="${elementStyle?.className || ""}">
-      ${field.options
-        ?.map(
-          (option) => `
-      <label className="flex items-center gap-2">
-        <input
-          type="checkbox"
-          name="${field.name}"
-          value="${option?.value}"
-          className="focus:ring focus:ring-blue-400"
-        />
-        ${option?.label}
-      </label>`
-        )
-        .join("")}
-    </div>`;
-  };
-
-  const generateInputField = (field, isPreview) =>
-    `<input
-      type="${field.type}"
-      name="${field.name}"
-      placeholder="${field.placeholder || ""}"
-      ${field.isRequired ? "required" : ""}
-      ${field.isReadOnly ? "readOnly" : ""}
-      ${isPreview ? `style={${JSON.stringify(inputStyle?.style || {})}}` : ""}
-      className="${
-        inputStyle?.className || ""
-      } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-    />`;
-
-  const generateTextarea = (field, isPreview) =>
-    `<textarea
-        rows={3}
-        placeholder="${field.placeholder || ""}"
-        ${field.isRequired ? "required" : ""}
-        ${field.isReadOnly ? "readOnly" : ""}
-        ${isPreview ? `style={${JSON.stringify(inputStyle?.style || {})}}` : ""}
-        className="${
-          inputStyle?.className || ""
-        } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      />`;
-
-  const generateButton = (field, isPreview) => {
-    const buttonStyle = onButtonStyle(field?.settings);
-
-    const { style, className, alignmentStyle, alignmentClassName } =
-      buttonStyle || {};
-
-    return `
-          <div ${
-            isPreview ? `style={${JSON.stringify(alignmentStyle || {})}}` : ""
-          }
-            className="${alignmentClassName}"
-          >
-            <button
-              type="submit"
-             ${isPreview ? `style={${JSON.stringify(style || {})}}` : ""}
-              className="${className || ""}"
-            >
-              Submit
-            </button>
-          </div>
-        `;
-  };
-
-  // Field mapping
-  const mapFieldsToHTML = (field, isPreview) => {
-    const fieldHTML =
-      field.type === "select"
-        ? generateSelectField(field, isPreview)
-        : field.type === "radio"
-        ? generateRadioField(field, isPreview)
-        : field.type === "checkbox"
-        ? generateCheckboxField(field, isPreview)
-        : field.type === "textarea"
-        ? generateTextarea(field, isPreview)
-        : field.type === "submit"
-        ? generateButton(field, isPreview)
-        : generateInputField(field, isPreview);
-
-    // Only render the label if the field type is not "submit"
-    const labelHTML =
-      field.type !== "submit"
-        ? `<label ${
-            isPreview
-              ? `style='${JSON.stringify(labelStyle?.style || {})}'`
-              : ""
-          } 
-          class="${labelStyle?.className || ""}">
-          ${field.label}${requiredAsterisk(
-            field.isRequired,
-            settings?.label?.requiredColor?.light
-          )}
-        </label>`
-        : "";
-
-    return `
-      <div>
-        ${labelHTML}
-        ${fieldHTML}
-      </div>`;
-  };
-
-  // Generate Preview Code (uses styles)
-  const previewCode = `
-    <div style={${JSON.stringify(pageStyle?.style || {})}} className="${
-    pageStyle?.className || ""
-  }">
-      <form style={${JSON.stringify(formStyle?.style || {})}} className="${
-    formStyle?.className || ""
-  }">
-        ${elements.map((field) => mapFieldsToHTML(field, true)).join("")}
-      </form>
-    </div>
-  `;
-
-  // Generate React Code (only uses className)
-  const reactCode = `
-    import React from "react";
-
-    const Form = () => {
-      return (
-        <div className="${pageStyle?.className || "p-4 bg-gray-100"}">
-          <form className="${formStyle?.className || "space-y-4"}">
-            ${elements.map((field) => mapFieldsToHTML(field, false)).join("")}
-          </form>
-        </div>
-      );
-    };
-
-    export default Form;
-  `;
-
-  return { previewCode, reactCode };
 };
