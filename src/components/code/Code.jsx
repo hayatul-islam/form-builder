@@ -22,7 +22,7 @@ const Code = () => {
 
   return (
     // <PageLayout type="builder">
-    <div className="relative bg-[#1E1E1E] text-white overflow-hidden">
+    <div className="relative bg-[#1E1E1E] text-white overflow-hidden rounded-xl">
       <button
         onClick={handleCopy}
         className="absolute top-3 right-3 text-white"
@@ -37,10 +37,7 @@ const Code = () => {
       </button>
 
 
-      
-
       {/* Syntax Highlighter with Line Numbers and Line Wrapping */}
-
       <SyntaxHighlighter
         language="javascript"
         style={vscDarkPlus}
@@ -48,19 +45,19 @@ const Code = () => {
         wrapLines={true}
         wrapLongLines={true}
         customStyle={{
-          backgroundColor: "#1E1E1E",
+          backgroundColor: "",
+          // backgroundColor: "#1E1E1E",
           padding: "20px",
           borderRadius: "8px",
           fontFamily: "Fira Code, monospace",
-          fontSize: "14px",
+          // fontSize: "26px",
         }}
         lineNumberStyle={{
           color: "#6A6A6A",
           paddingRight: "10px",
-          fontSize: "12px",
+          fontSize: "14px",
         }}
       >
-       
         {code?.reactCode || "// No code available"}
       </SyntaxHighlighter>
     </div>

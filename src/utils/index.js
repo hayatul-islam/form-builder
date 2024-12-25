@@ -405,20 +405,20 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
   // Field generators
   const generateSelectField = (field) =>
     `<select
-                  name="${field.name}"
-                  className="${
-                    inputStyle?.className || ""
-                  } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  ${field.isRequired ? "required" : ""}
-                  ${field.isReadOnly ? "readOnly" : ""}
-                >
-                   ${field.options
-                     ?.map(
-                       (option) =>
-                         `<option value="${option?.value}">${option?.label}</option>`
-                     )
-                     .join("")}
-                </select>`;
+                name="${field.name}"
+                className="${
+                  inputStyle?.className || ""
+                } rounded p-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                ${field.isRequired ? "required" : ""}
+                ${field.isReadOnly ? "readOnly" : ""}
+              >
+                ${field.options
+                  ?.map(
+                    (option) =>
+                      `<option value="${option?.value}">${option?.label}</option>`
+                  )
+                  .join("")}
+              </select>`;
 
   const generateRadioField = (field) => {
     const elementStyle = onElementStyle(field?.type, field?.settings);
@@ -447,19 +447,19 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
     return `<div className="${elementStyle?.className || ""}">
       ${field.options
         ?.map(
-          (option) => `
-      <label className="flex items-center gap-2">
-        <input
-          type="checkbox"
-          name="${field.name}"
-          value="${option?.value}"
-          className="focus:ring focus:ring-blue-400"
-        />
-        ${option?.label}
-      </label>`
+          (option) => `         
+                <label className="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    name="${field.name}"
+                    value="${option?.value}"
+                    className="focus:ring focus:ring-blue-400"
+                  />
+                  ${option?.label}
+                </label>`
         )
         .join("")}
-    </div>`;
+              </div>`;
   };
 
   const generateSingleCheckboxField = (field) => {
@@ -480,9 +480,10 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
                 type="${field.type}"
                 name="${field.name}"
                 placeholder="${field.placeholder || ""}"
-                ${field.isRequired ? "required" : ""}
-                ${field.isReadOnly ? "readOnly" : ""}
                 className="${inputStyle?.className || ""}"
+                ${field.isRequired ? "required" : ""} ${
+      field.isReadOnly ? "readOnly" : ""
+    }
               />`;
 
   const generateTextarea = (field) =>
