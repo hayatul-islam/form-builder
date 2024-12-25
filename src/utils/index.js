@@ -427,18 +427,18 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
       ${field.options
         ?.map(
           (option) => `
-      <label className="flex items-center gap-2">
-        <input
-          type="radio"
-          name="${field.name}"
-          value="${option?.value}"
-          className="focus:ring focus:ring-blue-400"
-        />
-        ${option?.label}
-      </label>`
+                <label className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="${field.name}"
+                    value="${option?.value}"
+                    className="focus:ring focus:ring-blue-400"
+                  />
+                  ${option?.label}
+                </label>`
         )
         .join("")}
-    </div>`;
+              </div>`;
   };
 
   const generateCheckboxField = (field) => {
