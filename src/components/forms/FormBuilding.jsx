@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { demo } from "../../data";
 import CreateFormModal from "../common/CreateFormModal";
 import SectionHeadline from "../common/SectionHeadline";
 import Modal from "../ui/Modal";
@@ -117,7 +118,7 @@ const FormBuilding = ({ type = "page", onModalType }) => {
                 <h3 className="font-medium text-[18px] md:text-[22px] ">
                   Use Template
                 </h3>
-                <p>Choose from 100+ pre-made forms</p>
+                <p>Choose from {demo?.length}+ pre-made forms</p>
               </div>
             </div>
           </div>
@@ -214,7 +215,7 @@ const FormBuilding = ({ type = "page", onModalType }) => {
                   Use Template
                 </h3>
                 <p className="text-[14px] sm:text-[16px]">
-                  Choose from 100+ pre-made forms
+                  Choose from {demo?.length}+ pre-made forms
                 </p>
               </div>
             </div>

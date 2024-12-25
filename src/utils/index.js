@@ -391,6 +391,7 @@ export const onHeadlineStyle = (settings = {}) => {
   return { style, className };
 };
 
+// react code generate func
 export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
   // Helper functions for generating styles and classes
   const pageStyle = onPageStyle(settings?.layout);
