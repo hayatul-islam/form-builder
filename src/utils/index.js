@@ -464,15 +464,15 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
 
   const generateSingleCheckboxField = (field) => {
     return `<label className="flex items-center gap-2">
-        <input
-          type="checkbox"
-          name="${field.name}"
-          className="focus:ring focus:ring-blue-400"
-        />
-        <span>
-          ${field?.label}
-        </span>
-      </label>`;
+                <input
+                  type="checkbox"
+                  name="${field.name}"
+                  className="focus:ring focus:ring-blue-400"
+                />
+                <span>
+                  ${field?.label}
+                </span>
+              </label>`;
   };
 
   const generateInputField = (field) =>
@@ -490,9 +490,10 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
     `<textarea
                 rows={3}
                 placeholder="${field.placeholder || ""}"
-                ${field.isRequired ? "required" : ""}
-                ${field.isReadOnly ? "readOnly" : ""}
                 className="${inputStyle?.className || ""}"
+                ${field.isRequired ? "required" : ""}  ${
+      field.isReadOnly ? "readOnly" : ""
+    }
               />`;
 
   const generateButton = (field) => {
