@@ -21,7 +21,7 @@ const SelectOptions = ({
   return (
     <div className="space-y-1">
       {label && (
-        <label style={labelStyle?.style}>
+        <label className={labelStyle?.className} style={labelStyle?.style}>
           {label}
           {isRequired && (
             <span style={labelStyle?.requiredStyle} className="text-red-500">
@@ -37,7 +37,7 @@ const SelectOptions = ({
         id={name}
         // value={value || ""}
         style={inputStyle?.style}
-        className={`${className}  rounded border  w-full bg-transparent px-4 text-[14px] focus:outline-blue-400`}
+        className={`${className}  rounded border w-full bg-transparent px-4 text-[14px] focus:outline-blue-400`}
       >
         {options?.map((option) => (
           <option key={option?.value} value={option?.value}>

@@ -550,8 +550,14 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
         ? generateHeadline(field)
         : generateInputField(field);
 
+    const columnStyle = onColumnStyle(field?.column);
+
     // Only render the label if the field type is not "submit"
-    const isLabel = field.type !== "submit" && field.type !== "title";
+    const isLabel =
+      field.type !== "submit" &&
+      field.type !== "title" &&
+      field.type !== "single-check";
+
     const labelHTML =
       isLabel &&
       `<label className="${labelStyle?.className || ""}">
@@ -563,11 +569,11 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
 
     return `${
       isLabel
-        ? `<div>
+        ? `<div className="${columnStyle?.className}">
               ${labelHTML}
               ${fieldHTML}
             </div>`
-        : `<div>
+        : `<div className="${columnStyle?.className}">
             ${fieldHTML}
             </div>`
     }
