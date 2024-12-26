@@ -78,6 +78,7 @@ export const onFormStyle = (layout = {}) => {
   // Generate css style
   const style = {
     display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
     gap: gap ? `${gap}px` : "12px",
     maxWidth: width !== "200" ? `${width}px` : "100%",
     backgroundColor: background.light || "white",
@@ -110,15 +111,12 @@ export const onFormStyle = (layout = {}) => {
     margin.right ? `mr-[${margin.right}px]` : "",
     padding?.vertical ? `px-[${padding.vertical}px]` : "px-4",
     padding?.horizontal ? `py-[${padding.horizontal}px]` : "py-4",
-    // padding.top ? `pt-[${padding.top}px]` : "pt-4",
-    // padding.bottom ? `pb-[${padding.bottom}px]` : "pb-4",
-    // padding.left ? `pl-[${padding.left}px]` : "pl-4",
-    // padding.right ? `pr-[${padding.right}px]` : "pr-4",
     border.thickness ? `border-[${border.thickness}px]` : "",
     border.style ? `border-${border.style}` : "border-none",
     border.color ? `border-[${border.color}]` : "",
     border.radius ? `rounded-[${border.radius}px]` : "8px",
     gap ? `space-y-[${gap}px]` : "space-y-3",
+    "grid grid-cols-2",
   ]
     .filter(Boolean)
     .join(" ");
@@ -389,6 +387,19 @@ export const onHeadlineStyle = (settings = {}) => {
     .join(" ");
 
   return { style, className };
+};
+
+export const onColumnStyle = (column) => {
+  const style = {
+    gridColumn: column === "full" ? "1/-1" : "",
+  };
+
+  const className = `${column === "full" ? "col-span-full" : ""}`;
+
+  return {
+    style,
+    className,
+  };
 };
 
 // react code generate func

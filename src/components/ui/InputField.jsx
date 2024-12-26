@@ -1,5 +1,5 @@
 import useBuilder from "../../hooks/useBuilder";
-import { onInputStyle, onLabelStyle } from "../../utils";
+import { onInputStyle, onLabelStyle, onColumnStyle } from "../../utils";
 
 const InputField = ({
   name,

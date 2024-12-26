@@ -3,6 +3,7 @@ import { useState } from "react";
 import { RiDeleteBin6Line, RiSettingsLine } from "react-icons/ri";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import useBuilder from "../../hooks/useBuilder";
+import { onColumnStyle } from "../../utils";
 import DroppableElement from "../ui/DroppableElement";
 import SingleElement from "./SingleElement";
 
@@ -10,8 +11,8 @@ const ElementWrapper = ({ element }) => {
   const { onRemoveElement, selectedElement, onSelectedElement } = useBuilder();
 
   const [mouseIsOver, setMouseIsOver] = useState(false);
-
   const isSelected = selectedElement?.id === element?.id;
+  const columnStyle = onColumnStyle(element?.column);
 
   const draggable = useDraggable({
     id: element.id + "-drag-handler",
@@ -53,7 +54,9 @@ const ElementWrapper = ({ element }) => {
       }}
       onMouseEnter={() => setMouseIsOver(true)}
       onMouseLeave={() => setMouseIsOver(false)}
-      className="relative cursor-pointer rounded-md group"
+      // className="relative cursor-pointer rounded-md group"
+      style={columnStyle?.style}
+      className={`${columnStyle?.className} relative cursor-pointer rounded-md group`}
     >
       <div
         ref={topHalf.setNodeRef}

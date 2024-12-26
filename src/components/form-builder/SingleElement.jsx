@@ -7,6 +7,8 @@ import SingleCheckbox from "../ui/SingleCheckbox";
 import SubmitButton from "../ui/SubmitButton";
 import TextareaField from "../ui/TextareaField";
 
+import { onColumnStyle } from "../../utils";
+
 const SingleElement = ({ element }) => {
   let filed;
   switch (element?.type) {
@@ -43,7 +45,13 @@ const SingleElement = ({ element }) => {
       break;
   }
 
-  return <div>{filed}</div>;
+  const columnStyle = onColumnStyle(element?.column);
+
+  return (
+    <div style={columnStyle?.style} className={columnStyle?.className}>
+      {filed}
+    </div>
+  );
 };
 
 export default SingleElement;

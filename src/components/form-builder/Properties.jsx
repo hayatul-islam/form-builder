@@ -3,6 +3,7 @@ import useBuilder from "../../hooks/useBuilder";
 import { onInputValueChange } from "../../utils";
 import Alignment from "../ui/Alignment";
 import ColorPicker from "../ui/ColorPicker";
+import Columns from "../ui/Columns";
 import Input from "../ui/Input";
 import MarginPaddingStyle from "../ui/MarginPaddingStyle";
 import Options from "../ui/Options";
@@ -47,29 +48,6 @@ const Properties = () => {
 
   return (
     <div className="rounded-lg space-y-4 p-4">
-      {/* <div className="border border-primary/50 w-[130px] p-0.5 mx-auto h-[35px] rounded-full flex items-center justify-between">
-        <button
-          onClick={() => setType("property")}
-          className={`${
-            type === "property"
-              ? "bg-primary/70 text-white"
-              : "bg-gray text-black"
-          } rounded-full w-[60px] h-full flex justify-center items-center`}
-        >
-          <RiSettingsLine size={16} />
-        </button>
-        <button
-          onClick={() => setType("design")}
-          className={`${
-            type === "design"
-              ? "bg-primary/70 text-white"
-              : "bg-gray text-black"
-          } rounded-full w-[60px] h-full flex justify-center items-center`}
-        >
-          <MdOutlineColorLens />
-        </button>
-      </div> */}
-
       <Input
         name="label"
         label="Label"
@@ -86,6 +64,13 @@ const Properties = () => {
           onChange={onChange}
         />
       )}
+
+      <Columns
+        label="Column"
+        name="column"
+        value={selectedElement?.column || ""}
+        onChange={onChange}
+      />
 
       {isRequired && (
         <ToggleButton
