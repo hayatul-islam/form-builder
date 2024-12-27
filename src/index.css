@@ -7,13 +7,15 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+body,
+span {
   /* font-family: "Rethink Sans", sans-serif; */
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 h1,
-h2 {
+h2,
+label {
   font-family: "Noto Naskh Arabic", serif;
 }
 

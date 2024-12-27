@@ -19,7 +19,7 @@ const MarginPaddingStyle = ({
 
   return (
     <div className="space-y-2">
-      <h3>{label}</h3>
+      <h2 className="font-medium">{label}</h2>
       {type === "horizontalAndVertical" ? (
         <div className="flex justify-between items-center gap-3">
           <Input

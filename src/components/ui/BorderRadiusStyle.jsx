@@ -16,8 +16,8 @@ const BorderRadiusStyle = ({ label, name, value, subKey, onChange }) => {
   };
 
   return (
-    <div className="space-y-1">
-      <h3>{label}</h3>
+    <div>
+      <h3 className="font-medium pb-1">{label}</h3>
       <div className="grid grid-cols-4 border border-black/20 rounded">
         <button
           onClick={() => handleBorderChange("0")}

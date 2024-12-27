@@ -8,8 +8,8 @@ const Select = ({
   className,
 }) => {
   return (
-    <div className="space-y-1">
-      <label className="font-normal block">{label}</label>
+    <div>
+      <label className="font-medium block pb-1">{label}</label>
       <select
         name={name}
         id={name}

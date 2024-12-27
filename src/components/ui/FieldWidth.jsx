@@ -4,7 +4,7 @@ import { TbLayoutColumns } from "react-icons/tb";
 const FieldWidth = ({ label, name, value, subKey, onChange }) => {
   return (
     <div className="space-y-1">
-      <h3>{label}</h3>
+      <label className="font-medium">{label}</label>
       <div className={`grid grid-cols-2 border border-black/20 rounded`}>
         <button
           onClick={() => onChange(name, "half", subKey)}

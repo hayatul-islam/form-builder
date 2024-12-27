@@ -8,7 +8,7 @@ import {
 const Alignment = ({ label, name, value, subKey, onChange, columns = "4" }) => {
   return (
     <div className="space-y-1">
-      <h3>{label}</h3>
+      <h2 className="font-medium ">{label}</h2>
       <div
         className={`grid ${
           columns === 3 ? "grid-cols-3" : "grid-cols-4 "

@@ -9,8 +9,8 @@ const Input = ({
   className,
 }) => {
   return (
-    <div className="space-y-1">
-      <label className="font-normal">{label}</label>
+    <div>
+      <label className="font-medium pb-1">{label}</label>
       <input
         type={type}
         name={name}

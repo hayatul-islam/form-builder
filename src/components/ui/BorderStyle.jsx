@@ -15,7 +15,7 @@ const BorderStyle = ({ label, name, value, onChange, subKey }) => {
 
   return (
     <div className="space-y-2">
-      <h3>{label}</h3>
+      <h2 className="font-medium">{label}</h2>
 
       {/* when dark mode available  */}
       {/* <div className="flex justify-between items-center gap-3">
