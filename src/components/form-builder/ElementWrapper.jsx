@@ -12,7 +12,7 @@ const ElementWrapper = ({ element }) => {
 
   const [mouseIsOver, setMouseIsOver] = useState(false);
   const isSelected = selectedElement?.id === element?.id;
-  const columnStyle = onColumnStyle(element?.column);
+  const columnStyle = onColumnStyle(element?.width);
 
   const draggable = useDraggable({
     id: element.id + "-drag-handler",

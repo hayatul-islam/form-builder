@@ -45,7 +45,7 @@ const SingleElement = ({ element }) => {
       break;
   }
 
-  const columnStyle = onColumnStyle(element?.column);
+  const columnStyle = onColumnStyle(element?.width);
 
   return (
     <div style={columnStyle?.style} className={columnStyle?.className}>

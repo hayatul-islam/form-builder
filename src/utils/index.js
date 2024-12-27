@@ -389,12 +389,12 @@ export const onHeadlineStyle = (settings = {}) => {
   return { style, className };
 };
 
-export const onColumnStyle = (column) => {
+export const onColumnStyle = (width = "full") => {
   const style = {
-    gridColumn: column === "full" ? "1/-1" : "",
+    gridColumn: width === "full" ? "1/-1" : "",
   };
 
-  const className = `${column === "full" ? "col-span-full" : ""}`;
+  const className = `${width === "full" ? "col-span-full" : ""}`;
 
   return {
     style,
@@ -550,7 +550,7 @@ export const onFormCodeGenerator = ({ elements = [], settings = {} } = {}) => {
         ? generateHeadline(field)
         : generateInputField(field);
 
-    const columnStyle = onColumnStyle(field?.column);
+    const columnStyle = onColumnStyle(field?.width);
 
     // Only render the label if the field type is not "submit"
     const isLabel =

@@ -1,6 +1,7 @@
-import { TbColumns1, TbColumns2 } from "react-icons/tb";
+import { CgDisplayFullwidth } from "react-icons/cg";
+import { TbLayoutColumns } from "react-icons/tb";
 
-const Columns = ({ label, name, value, subKey, onChange }) => {
+const FieldWidth = ({ label, name, value, subKey, onChange }) => {
   return (
     <div className="space-y-1">
       <h3>{label}</h3>
@@ -11,7 +12,9 @@ const Columns = ({ label, name, value, subKey, onChange }) => {
             value === "half" ? "bg-primary text-white" : "hover:bg-primary/10"
           } p-2 flex justify-center items-center text-[18px] border-r border-black/20 `}
         >
-          <TbColumns2 />
+          <TbLayoutColumns />
+          {/* <PiSquareHalfThin /> */}
+          {/* <TbColumns2 /> */}
         </button>
 
         <button
@@ -20,11 +23,11 @@ const Columns = ({ label, name, value, subKey, onChange }) => {
             value === "full" ? "bg-primary text-white" : "hover:bg-primary/10"
           } p-2 flex justify-center items-center text-[18px] border-r border-black/20 `}
         >
-          <TbColumns1 />
+          <CgDisplayFullwidth />
         </button>
       </div>
     </div>
   );
 };
 
-export default Columns;
+export default FieldWidth;

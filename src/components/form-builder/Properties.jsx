@@ -3,7 +3,7 @@ import useBuilder from "../../hooks/useBuilder";
 import { onInputValueChange } from "../../utils";
 import Alignment from "../ui/Alignment";
 import ColorPicker from "../ui/ColorPicker";
-import Columns from "../ui/Columns";
+import FieldWidth from "../ui/FieldWidth";
 import Input from "../ui/Input";
 import MarginPaddingStyle from "../ui/MarginPaddingStyle";
 import Options from "../ui/Options";
@@ -45,6 +45,7 @@ const Properties = () => {
   const isNumberOfOptions = type === "checkbox" || type === "radio";
   const isButton = type === "submit";
   const isHeadline = type === "title";
+  const isWidth = !isButton && !isHeadline;
 
   return (
     <div className="rounded-lg space-y-4 p-4">
@@ -65,12 +66,14 @@ const Properties = () => {
         />
       )}
 
-      <Columns
-        label="Width"
-        name="column"
-        value={selectedElement?.column || ""}
-        onChange={onChange}
-      />
+      {isWidth && (
+        <FieldWidth
+          label="Width"
+          name="width"
+          value={selectedElement?.width || ""}
+          onChange={onChange}
+        />
+      )}
 
       {isRequired && (
         <ToggleButton

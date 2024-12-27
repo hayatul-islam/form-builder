@@ -67,7 +67,7 @@ export const btnElements = [
     label: "Headline",
     icon: <FaHeading />,
     type: "title",
-    column: "full",
+    width: "full",
     settings: {
       color: "",
       background: "",
@@ -88,7 +88,7 @@ export const btnElements = [
     placeholder: "Enter text here",
     isRequired: false,
     isReadOnly: false,
-    column: "full",
+    width: "full",
   },
   {
     name: "textarea",
@@ -98,7 +98,7 @@ export const btnElements = [
     placeholder: "Enter text here",
     isRequired: false,
     isReadOnly: false,
-    column: "full",
+    width: "full",
   },
 
   {
@@ -109,7 +109,7 @@ export const btnElements = [
     placeholder: "Enter your email",
     isRequired: true,
     isReadOnly: false,
-    column: "full",
+    width: "full",
   },
   {
     name: "number",
@@ -119,7 +119,7 @@ export const btnElements = [
     placeholder: "Enter a number",
     isRequired: false,
     isReadOnly: false,
-    column: "full",
+    width: "full",
   },
   {
     name: "password",
@@ -129,7 +129,7 @@ export const btnElements = [
     placeholder: "Enter your password",
     isRequired: true,
     isReadOnly: false,
-    column: "full",
+    width: "full",
   },
   {
     name: "url",
@@ -139,7 +139,7 @@ export const btnElements = [
     placeholder: "Enter a URL",
     isRequired: false,
     isReadOnly: false,
-    column: "full",
+    width: "full",
   },
   {
     name: "select",
@@ -149,7 +149,7 @@ export const btnElements = [
     placeholder: "Select an option",
     isRequired: false,
     isReadOnly: false,
-    column: "full",
+    width: "full",
     options: [
       {
         label: "Option 1",
@@ -173,7 +173,7 @@ export const btnElements = [
     placeholder: "",
     isRequired: false,
     isReadOnly: false,
-    column: "full",
+    width: "full",
   },
   {
     name: "date",
@@ -183,7 +183,7 @@ export const btnElements = [
     placeholder: "Select a date",
     isRequired: false,
     isReadOnly: false,
-    column: "full",
+    width: "full",
   },
   {
     name: "time",
@@ -193,7 +193,7 @@ export const btnElements = [
     placeholder: "Select a time",
     isRequired: false,
     isReadOnly: false,
-    column: "full",
+    width: "full",
   },
   {
     name: "single check",
@@ -203,7 +203,7 @@ export const btnElements = [
     placeholder: "",
     isRequired: false,
     isReadOnly: false,
-    column: "full",
+    width: "full",
   },
   {
     name: "checkbox",
@@ -213,7 +213,7 @@ export const btnElements = [
     placeholder: "",
     isRequired: false,
     isReadOnly: false,
-    column: "full",
+    width: "full",
     options: [
       {
         label: "Option 1",
@@ -237,7 +237,7 @@ export const btnElements = [
     placeholder: "",
     isRequired: false,
     isReadOnly: false,
-    column: "full",
+    width: "full",
     options: [
       {
         label: "Option 1",
@@ -259,7 +259,7 @@ export const btnElements = [
     icon: <RxButton />,
     type: "submit",
     placeholder: "",
-    column: "full",
+    width: "full",
     settings: {
       background: "#00ADB5",
       color: "#ffffff",
@@ -303,7 +303,7 @@ export const demo = [
         name: "headline",
         label: "Register Form",
         type: "title",
-        column: "full",
+        width: "full",
         settings: {
           0: "d",
           color: "#37b8a3",
@@ -325,7 +325,7 @@ export const demo = [
         placeholder: "Name",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "9ec0e87f-aafb-4300-9797-ffffe9dd9c36",
@@ -335,7 +335,7 @@ export const demo = [
         placeholder: "Email",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "cf527164-2434-48b4-9f65-dc10087959d9",
@@ -352,7 +352,7 @@ export const demo = [
         placeholder: "Phone",
         isRequired: false,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "47625468-37cf-48f1-9f54-5b54ad318a69",
@@ -362,7 +362,7 @@ export const demo = [
         placeholder: "********",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "bbcc02ae-b917-468b-9ac7-505811766661",
@@ -379,7 +379,7 @@ export const demo = [
         placeholder: "********",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "7e44e9ea-ced5-4fff-8365-71e1f2bd04b4",
@@ -396,7 +396,7 @@ export const demo = [
         placeholder: "",
         isRequired: false,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "4dee839a-3d38-449a-82c6-064e7580ccec",
@@ -404,7 +404,7 @@ export const demo = [
         label: "Create Account",
         type: "submit",
         placeholder: "",
-        column: "full",
+        width: "full",
         settings: {
           background: "#20c997",
           color: "#ffffff",
@@ -463,7 +463,7 @@ export const demo = [
         id: "29ad86e1-bd80-4031-8d1a-63f0a54fc108",
         name: "headline",
         label: "Booking Form",
-        column: "full",
+        width: "full",
         icon: {
           key: null,
           ref: null,
@@ -499,7 +499,7 @@ export const demo = [
         placeholder: "Name",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "4c1ba51b-e9a6-499e-b57d-2f5afe5d8b61",
@@ -516,7 +516,7 @@ export const demo = [
         placeholder: "Email",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "3a541a6a-ebaa-48b1-ba5f-dfec28189966",
@@ -533,7 +533,7 @@ export const demo = [
         placeholder: "Phone number",
         isRequired: false,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "bac142cd-596f-48d1-b762-af94b291e19b",
@@ -550,7 +550,7 @@ export const demo = [
         placeholder: "Select a date",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "c93ad1d5-155e-4df7-adbe-35acf356ef3b",
@@ -567,7 +567,7 @@ export const demo = [
         placeholder: "Select an option",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
         options: [
           {
             label: "3",
@@ -618,7 +618,7 @@ export const demo = [
         placeholder: "Select an option",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
         options: [
           {
             label: "1",
@@ -646,7 +646,7 @@ export const demo = [
         id: "7f9a191a-a88d-4715-a179-c9f73fbd1040",
         name: "button",
         label: "Book",
-        column: "full",
+        width: "full",
         icon: {
           key: null,
           ref: null,
@@ -709,7 +709,7 @@ export const demo = [
         id: "57d4849e-8181-4fdf-8a07-7b19e17528aa",
         name: "headline",
         label: "Information Request",
-        column: "full",
+        width: "full",
         icon: {
           key: null,
           ref: null,
@@ -745,7 +745,7 @@ export const demo = [
         placeholder: "",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "0947a0b6-adcd-4135-a820-e892898e7f4c",
@@ -762,7 +762,7 @@ export const demo = [
         placeholder: "",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "561250a6-70e0-4c24-8635-5d5f76746245",
@@ -779,7 +779,7 @@ export const demo = [
         placeholder: "",
         isRequired: false,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "6ab895fa-851a-4f45-9410-b8af6d907de9",
@@ -796,7 +796,7 @@ export const demo = [
         placeholder: "",
         isRequired: false,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "90dd3632-404a-4baa-8b5f-b3cff5b5fd20",
@@ -813,13 +813,13 @@ export const demo = [
         placeholder: "",
         isRequired: false,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "cdab637c-1ea4-4f90-b78b-061df19d709c",
         name: "button",
         label: "Submit",
-        column: "full",
+        width: "full",
         icon: {
           key: null,
           ref: null,
@@ -875,7 +875,7 @@ export const demo = [
         id: "19175f4e-da27-4589-a408-6e9c153a46cc",
         name: "headline",
         label: "Feedback Form",
-        column: "full",
+        width: "full",
         icon: {
           key: null,
           ref: null,
@@ -911,7 +911,7 @@ export const demo = [
         placeholder: "",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
         options: [
           {
             label: "Comments",
@@ -927,7 +927,7 @@ export const demo = [
           },
         ],
         settings: {
-          numberOfColumns: "3",
+          numberOfwidths: "3",
         },
       },
       {
@@ -945,7 +945,7 @@ export const demo = [
         placeholder: "",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "d639f7b9-70e6-48b1-b7cc-51b9e74b4847",
@@ -962,7 +962,7 @@ export const demo = [
         placeholder: "",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "1bc1ece7-e74d-4d7f-ba2a-6d6ae27b00df",
@@ -979,13 +979,13 @@ export const demo = [
         placeholder: "",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "b3f69c6e-85f4-446c-bd60-ada2c15b30e6",
         name: "button",
         label: "Submit",
-        column: "full",
+        width: "full",
         icon: {
           key: null,
           ref: null,
@@ -1046,7 +1046,7 @@ export const demo = [
         id: "eb7a5681-2d4a-496c-bbfc-d4c014f1fca2",
         name: "headline",
         label: "Business Register",
-        column: "full",
+        width: "full",
         icon: {
           key: null,
           ref: null,
@@ -1075,7 +1075,7 @@ export const demo = [
         placeholder: "",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "6ba62d07-219d-49b9-8256-9de7de0548e7",
@@ -1092,7 +1092,7 @@ export const demo = [
         placeholder: "",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "55cbc68b-2296-4501-8e81-18bcb9818c3d",
@@ -1109,7 +1109,7 @@ export const demo = [
         placeholder: "Select an option",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
         options: [
           {
             label: "Shop/cafe",
@@ -1140,7 +1140,7 @@ export const demo = [
         placeholder: "",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "a0555eea-1da1-487f-8308-64ba22d57eb2",
@@ -1157,7 +1157,7 @@ export const demo = [
         placeholder: "",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "a01ad370-69cb-4272-ac70-384fd066d7bf",
@@ -1174,7 +1174,7 @@ export const demo = [
         placeholder: "",
         isRequired: false,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "11fd782e-2fb7-48ef-ab9e-afa939d755da",
@@ -1189,7 +1189,7 @@ export const demo = [
         },
         type: "submit",
         placeholder: "",
-        column: "full",
+        width: "full",
         settings: {
           background: "#001f3f",
           color: "#ffffff",
@@ -1255,7 +1255,7 @@ export const demo = [
         name: "headline",
         label: "Login",
         type: "title",
-        column: "full",
+        width: "full",
         settings: {
           0: "d",
           color: "#37b8a3",
@@ -1270,7 +1270,7 @@ export const demo = [
         placeholder: "Email",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "47625468-37cf-48f1-9f54-5b54ad318a69",
@@ -1280,7 +1280,7 @@ export const demo = [
         placeholder: "********",
         isRequired: true,
         isReadOnly: false,
-        column: "full",
+        width: "full",
       },
       {
         id: "4dee839a-3d38-449a-82c6-064e7580ccec",
@@ -1288,7 +1288,7 @@ export const demo = [
         label: "SIGN IN",
         type: "submit",
         placeholder: "",
-        column: "full",
+        width: "full",
         settings: {
           background: "#37b8a3",
           color: "#ffffff",
