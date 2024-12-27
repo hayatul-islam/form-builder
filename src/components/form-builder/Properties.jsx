@@ -66,7 +66,7 @@ const Properties = () => {
       )}
 
       <Columns
-        label="Column"
+        label="Width"
         name="column"
         value={selectedElement?.column || ""}
         onChange={onChange}
