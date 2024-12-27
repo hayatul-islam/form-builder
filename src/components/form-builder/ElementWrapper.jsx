@@ -11,6 +11,7 @@ const ElementWrapper = ({ element }) => {
   const { onRemoveElement, selectedElement, onSelectedElement } = useBuilder();
 
   const [mouseIsOver, setMouseIsOver] = useState(false);
+
   const isSelected = selectedElement?.id === element?.id;
   const columnStyle = onColumnStyle(element?.width);
 
@@ -78,9 +79,12 @@ const ElementWrapper = ({ element }) => {
           <div className="absolute -right-1 top-[50%] translate-y-[-50%] space-y-1 ">
             <RxDragHandleDots2 />
           </div>
-          <div className="absolute -right-7 top-[50%] translate-y-[-50%] space-y-3 ">
+          <div className="absolute -right-7 top-[50%] translate-y-[-50%] space-y-3 z-[999]">
             <button
-              // onClick={handleSetting}
+              onClick={(e) => {
+                e.stopPropagation();
+                onSelectedElement(element);
+              }}
               className="bg-black text-white w-[24px] h-[24px] rounded-full flex justify-center items-center"
             >
               <RiSettingsLine size={14} />
