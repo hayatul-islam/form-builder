@@ -32,12 +32,12 @@ const CreateFormModal = ({ demo, onClose }) => {
   return (
     <form onSubmit={onSubmit} className="py-2 space-y-5">
       <div className="space-y-1.5">
-        <label className="font-medium">Name</label>
+        <label className="font-medium text-[18px]">Name</label>
         <input
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          className="w-full border rounded px-4 py-2 border-black/30 focus:outline-none focus:border-black/60"
+          className="w-full border rounded px-4 py-2 text-[15px] text-black border-black/30 focus:outline-none focus:border-black/60"
           required
         />
       </div>
@@ -50,7 +50,7 @@ const CreateFormModal = ({ demo, onClose }) => {
         >
           Cancel
         </Button>
-        <Button type="submit" className="px-6">
+        <Button type="submit" className="!px-6">
           Save
         </Button>
       </div>

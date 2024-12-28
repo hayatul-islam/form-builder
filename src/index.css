@@ -8,7 +8,7 @@
 @tailwind utilities;
 
 body,
-span {
+.secondary-font {
   /* font-family: "Rethink Sans", sans-serif; */
   font-family: "Plus Jakarta Sans", sans-serif;
 }

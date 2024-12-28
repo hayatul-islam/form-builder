@@ -20,44 +20,29 @@ import feedbackFormImg from "../assets/demos/feedback-form.png";
 import informationRequestForm from "../assets/demos/information-request-form.png";
 import loginImg from "../assets/demos/login-page.png";
 import registerFormImg from "../assets/demos/register-form.png";
+import codeIcon from "../assets/icons/code.png";
+import dragIcon from "../assets/icons/drag.png";
+import settingIcon from "../assets/icons/settings.png";
 
 export const features = [
   {
     title: "Drag-and-Drop",
-    // description:
-    //   "Effortlessly create forms by simply dragging and dropping fields. No technical skills required.",
     description:
       "Create custom forms without writing code. Simply drag and drop fields.",
-    // description:
-    //   "Easily build forms by dragging and dropping fields like text, dropdowns, and checkboxes into place. No coding required.",
-    image: "https://cdn-icons-png.flaticon.com/128/6591/6591195.png",
+    image: dragIcon,
   },
 
   {
     title: "Your forms, your way",
     description:
       "Customize the colors, layout, and fields to match your unique style.",
-    image: "https://cdn-icons-png.flaticon.com/128/17561/17561097.png",
+    image: settingIcon,
   },
   {
     title: "Code Generation",
     description:
       "Save development time by automatically generating the code for your forms.",
-    // description:
-    //   "Automatically generate code for your forms, saving development time.",
-    image: "https://cdn-icons-png.flaticon.com/128/9476/9476927.png",
-  },
-  {
-    title: "Real-Time Preview",
-    description:
-      "Instantly see how your form will look and function while building it, ensuring a seamless design process.",
-    image: "https://cdn-icons-png.flaticon.com/128/1185/1185279.png",
-  },
-  {
-    title: "Beautiful Visual Layouts",
-    description:
-      "Design visually stunning forms with pre-built templates and customizable themes to match your branding.",
-    image: "https://cdn-icons-png.flaticon.com/128/648/648392.png",
+    image: codeIcon,
   },
 ];
 

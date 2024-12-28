@@ -15,7 +15,7 @@ const ToggleButton = ({ label, name, value, onChange }) => {
         />
 
         <div
-          className={`shadow-card flex h-[40px] w-[76px] items-center justify-center rounded-md bg-white ${
+          className={`shadow-card flex h-[40px] w-[76px] items-center justify-center rounded-md bg-white secondary-font ${
             isChecked && "!bg-primary/10"
           }`}
         >
