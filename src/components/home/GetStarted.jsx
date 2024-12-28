@@ -35,7 +35,7 @@ const GetStarted = () => {
           title="Your forms, your style"
           subTitle=" Customize the style and content of your forms to match your brand"
           button={
-            <Button className="mt-3" onClick={handleOpen}>
+            <Button className="!mt-3" onClick={handleOpen}>
               Get Started for free
             </Button>
           }

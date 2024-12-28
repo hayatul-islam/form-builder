@@ -22,16 +22,16 @@ const HeroSectionTwo = () => {
           <BsStars />
           Welcome to Form Builder
         </button>
-        <h1 className="text-[24px] sm:text-[32px] md:text-[54px] leading-none space-y-2 text-black font-normal ">
+        <div className="text-[24px] sm:text-[32px] md:text-[54px] leading-none space-y-2 text-black font-normal ">
           {/* <span> Faster form building with </span>
           <span className="block"> drag and drop</span> */}
 
           {/* <span> Your Forms, Your Way</span> */}
           {/* <span> Power Up Your Forms</span> */}
           {/* <span>Create Forms, Your Way</span> */}
-          <span>Build Better Forms, Faster</span>
-          <span className="block">Drag, Drop, Done</span>
-        </h1>
+          <h2>Build Better Forms, Faster</h2>
+          <h2 className="block">Drag, Drop, Done</h2>
+        </div>
         <p className="text-gray-500 text-[14px] sm:text-[18px] md:text-[20px] max-w-[375px] sm:max-w-[550px] mx-auto">
           {/* Create beautiful forms and surveys without writing a single line of
           code—design, customize, and generate code! */}
