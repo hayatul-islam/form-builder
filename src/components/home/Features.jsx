@@ -13,7 +13,7 @@ const Features = () => {
         {features.map((item) => (
           <div
             key={item?.title}
-            className="rounded-xl space-y-3 border p-5 hover:bg-white duration-500 "
+            className="rounded-xl space-y-3 border p-5 hover:bg-gray-50 duration-500 hover:scale-105  transform"
           >
             <img className="w-[40px] lg:w-[50px]" src={item?.image} alt="" />
             <p className="text-gray-500 text-[16px] sm:text-[18px]">
