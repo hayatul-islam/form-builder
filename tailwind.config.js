@@ -15,12 +15,15 @@ export default {
         gray: {
           DEFAULT: "#F7F7F7",
           light: "#FAFAFA",
+          dark: "#000000",
+          300: "#D1D5DB",
+          500: "#6B7280",
         },
 
         black: {
           DEFAULT: "#393737",
-          // 100: "#888787",
         },
+        dark: "#000000",
       },
     },
   },

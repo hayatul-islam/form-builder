@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { HiOutlineSun } from "react-icons/hi";
+import { RxMoon } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import useBuilder from "../../hooks/useBuilder";
 import Button from "../ui/Button";
@@ -51,7 +53,7 @@ export default Header;
 export const HeaderBrand = () => (
   <Link
     to="/"
-    className="logo-font bg-gradient-to-r text-transparent bg-clip-text text-[22px] md:text-[24px] font-medium text-black dark:text-white flex items-center gap-2"
+    className="logo-font bg-gradient-to-r text-transparent bg-clip-text text-[22px] md:text-[24px] font-medium !text-black dark:!text-white flex items-center gap-2"
   >
     {/* <img
       className="h-[36px]"
@@ -59,7 +61,7 @@ export const HeaderBrand = () => (
       alt=""
     /> */}
     {/* <p>Tailor Forms</p> */}
-    <p>Form Builder</p>
+    Form Builder
     {/* Tailor Forms */}
     {/* tailor forms */}
   </Link>
@@ -69,24 +71,20 @@ export const ThemeMode = () => {
   const { isDarkTheme, onToggleTheme } = useBuilder();
 
   return (
-    <div>
+    <div className="flex items-center">
       {isDarkTheme ? (
-        <button onClick={() => onToggleTheme("light")}>
-          <img
-            className="w-[28px]"
-            src="https://cdn-icons-png.freepik.com/512/11960/11960790.png?ga=GA1.1.1050340683.1723631310"
-            alt=""
-          />
+        <button
+          onClick={() => onToggleTheme("light")}
+          className="text-yellow-50"
+        >
+          <HiOutlineSun size={20} />
         </button>
       ) : (
-        <button onClick={() => onToggleTheme("dark")}>
-          <img
-            className="w-[28px]"
-            // src="https://static.thenounproject.com/png/6724405-200.png"
-            src="https://static.thenounproject.com/png/5268238-200.png"
-            // src="https://cdn-icons-png.freepik.com/512/11960/11960790.png?ga=GA1.1.1050340683.1723631310"
-            alt=""
-          />
+        <button
+          onClick={() => onToggleTheme("dark")}
+          className="text-black flex justify-center items-center"
+        >
+          <RxMoon size={20} />
         </button>
       )}
     </div>
