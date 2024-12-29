@@ -19,22 +19,26 @@ const Header = () => {
   return (
     <div className="container flex justify-between items-center px-6 py-5 ">
       <HeaderBrand />
-      <div className="flex items-center gap-4">
-        {forms?.length > 0 ? (
-          <Button
-            link="/my-forms"
-            className="!px-4 !py-2 !md:px-6 !md:py-2.5 !rounded-full "
-          >
-            My Forms
-          </Button>
-        ) : (
-          <Button
-            onClick={handleOpen}
-            className="!px-4 !py-2 !md:px-6 !md:py-2.5 !rounded-full "
-          >
-            Create Form
-          </Button>
-        )}
+
+      <div className="flex items-center gap-3">
+        <ThemeMode />
+        <div className="flex items-center gap-4">
+          {forms?.length > 0 ? (
+            <Button
+              link="/my-forms"
+              className="!px-4 !py-2 !md:px-6 !md:py-2.5 !rounded-full "
+            >
+              My Forms
+            </Button>
+          ) : (
+            <Button
+              onClick={handleOpen}
+              className="!px-4 !py-2 !md:px-6 !md:py-2.5 !rounded-full "
+            >
+              Create Form
+            </Button>
+          )}
+        </div>
       </div>
 
       {isOpen && <GetStartModal handleClose={handleClose} />}
@@ -47,7 +51,7 @@ export default Header;
 export const HeaderBrand = () => (
   <Link
     to="/"
-    className="logo-font bg-gradient-to-r text-transparent bg-clip-text text-[22px] md:text-[24px] font-medium !from-black !to-black from-primary to-primary-100 flex items-center gap-2"
+    className="logo-font bg-gradient-to-r text-transparent bg-clip-text text-[22px] md:text-[24px] font-medium text-black dark:text-white flex items-center gap-2"
   >
     {/* <img
       className="h-[36px]"
@@ -60,3 +64,31 @@ export const HeaderBrand = () => (
     {/* tailor forms */}
   </Link>
 );
+
+export const ThemeMode = () => {
+  const { isDarkTheme, onToggleTheme } = useBuilder();
+
+  return (
+    <div>
+      {isDarkTheme ? (
+        <button onClick={() => onToggleTheme("light")}>
+          <img
+            className="w-[28px]"
+            src="https://cdn-icons-png.freepik.com/512/11960/11960790.png?ga=GA1.1.1050340683.1723631310"
+            alt=""
+          />
+        </button>
+      ) : (
+        <button onClick={() => onToggleTheme("dark")}>
+          <img
+            className="w-[28px]"
+            // src="https://static.thenounproject.com/png/6724405-200.png"
+            src="https://static.thenounproject.com/png/5268238-200.png"
+            // src="https://cdn-icons-png.freepik.com/512/11960/11960790.png?ga=GA1.1.1050340683.1723631310"
+            alt=""
+          />
+        </button>
+      )}
+    </div>
+  );
+};

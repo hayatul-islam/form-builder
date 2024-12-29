@@ -11,19 +11,17 @@ import Templates from "./pages/Templates";
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/my-forms" element={<Forms />} />
-          <Route path="/templates" element={<Templates />} />
-          <Route path="/builder" element={<FormBuilder />} />
-          <Route path="/builder/:id" element={<EditBuilder />} />
-          <Route path="/preview" element={<Preview />} />
-          <Route path="/preview/:id" element={<Preview />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/my-forms" element={<Forms />} />
+        <Route path="/templates" element={<Templates />} />
+        <Route path="/builder" element={<FormBuilder />} />
+        <Route path="/builder/:id" element={<EditBuilder />} />
+        <Route path="/preview" element={<Preview />} />
+        <Route path="/preview/:id" element={<Preview />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

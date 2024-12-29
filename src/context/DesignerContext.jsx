@@ -14,6 +14,10 @@ export default function DesignerContextProvider({ children }) {
   const [selectedElement, setSelectedElement] = useState();
   const [previewMode, setPreviewMode] = useState("desktop");
   const [leftSidebarTool, setLeftSidebarTool] = useState("fields");
+  const [isDarkTheme, setIsDarkTheme] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
+
   const elements = selectForm?.elements || [];
   const settings = selectForm?.settings || {};
 
@@ -132,6 +136,26 @@ export default function DesignerContextProvider({ children }) {
     }
   }, [selectForm]);
 
+  // dark and light mode function
+  const onToggleTheme = (mode) => {
+    if (mode === "dark") {
+      setIsDarkTheme(true);
+    } else {
+      setIsDarkTheme(false);
+    }
+  };
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (isDarkTheme) {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDarkTheme]);
+
   return (
     <DesignerContext.Provider
       value={{
@@ -157,6 +181,8 @@ export default function DesignerContextProvider({ children }) {
         onLeftSidebarTool,
         previewMode,
         onPreviewMode,
+        isDarkTheme,
+        onToggleTheme,
       }}
     >
       {children}
