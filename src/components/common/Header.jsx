@@ -47,9 +47,15 @@ export default Header;
 export const HeaderBrand = () => (
   <Link
     to="/"
-    className="logo-font bg-gradient-to-r text-transparent bg-clip-text text-[22px] md:text-[24px] font-medium !from-black !to-black from-primary to-primary-100"
+    className="logo-font bg-gradient-to-r text-transparent bg-clip-text text-[22px] md:text-[24px] font-medium !from-black !to-black from-primary to-primary-100 flex items-center gap-2"
   >
-    Form Builder
+    {/* <img
+      className="h-[36px]"
+      src="https://static.thenounproject.com/png/603575-200.png"
+      alt=""
+    /> */}
+    {/* <p>Tailor Forms</p> */}
+    <p>Form Builder</p>
     {/* Tailor Forms */}
     {/* tailor forms */}
   </Link>

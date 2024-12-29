@@ -1,4 +1,5 @@
 import { useState } from "react";
+import editFormIcon from "../../assets/icons/edit-form.png";
 import GetStartModal from "../common/GetStartModal";
 import SectionHeadline from "../common/SectionHeadline";
 import Button from "../ui/Button";
@@ -15,11 +16,11 @@ const GetStarted = () => {
   };
 
   return (
-    <div className="flex justify-center text-center px-6 py-12 pb-[120px]">
+    <div className="flex justify-center text-center px-6 pb-[120px]">
       <div className="space-y-6">
         <img
           className="w-[250px] mx-auto text-red-500"
-          src="https://static.thenounproject.com/png/603575-200.png"
+          src={editFormIcon}
           // src="https://cdn-icons-png.flaticon.com/128/3417/3417311.png"
           // src="https://cdn-icons-png.flaticon.com/128/12468/12468147.png"
           // src="https://cdn-icons-png.flaticon.com/128/15188/15188645.png"
