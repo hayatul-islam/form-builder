@@ -47,8 +47,10 @@ export default Header;
 export const HeaderBrand = () => (
   <Link
     to="/"
-    className="bg-gradient-to-r text-transparent bg-clip-text text-[22px] md:text-[24px] font-bold  from-[#1C28AA] to-[#3A86FF]"
+    className="logo-font bg-gradient-to-r text-transparent bg-clip-text text-[22px] md:text-[24px] font-medium !from-black !to-black from-primary to-primary-100"
   >
     Form Builder
+    {/* Tailor Forms */}
+    {/* tailor forms */}
   </Link>
 );
