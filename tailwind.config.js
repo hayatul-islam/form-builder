@@ -8,11 +8,8 @@ export default {
         // primary: "#4A90E2",
         // primary: "#1C28AA",
         primary: {
-          DEFAULT: "#1C28AA",
-          // DEFAULT: "#7330c0",
-
-          100: "#3A86FF",
-          // 100: "#9e62ea",
+          DEFAULT: "#3A86FF",
+          100: "#1C28AA",
         },
         gray: {
           DEFAULT: "#F7F7F7",
