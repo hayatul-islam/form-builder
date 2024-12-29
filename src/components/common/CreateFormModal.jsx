@@ -46,7 +46,7 @@ const CreateFormModal = ({ demo, onClose }) => {
         <Button
           type="button"
           onClick={onClose}
-          className="border !text-black from-[#fff] to-[#fff]"
+          className="border !text-black !from-[#fff] !to-[#fff]"
         >
           Cancel
         </Button>
