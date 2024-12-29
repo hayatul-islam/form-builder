@@ -18,9 +18,10 @@ const GetStarted = () => {
     <div className="flex justify-center text-center px-6 py-12 pb-[120px]">
       <div className="space-y-6">
         <img
-          className="w-[150px] mx-auto text-red-500"
+          className="w-[250px] mx-auto text-red-500"
+          src="https://static.thenounproject.com/png/603575-200.png"
+          // src="https://cdn-icons-png.flaticon.com/128/3417/3417311.png"
           // src="https://cdn-icons-png.flaticon.com/128/12468/12468147.png"
-          src="https://cdn-icons-png.flaticon.com/128/3417/3417311.png"
           // src="https://cdn-icons-png.flaticon.com/128/15188/15188645.png"
           // src="https://cdn-icons-png.flaticon.com/128/3649/3649823.png"
           // src="https://cdn-icons-png.flaticon.com/128/3417/3417309.png"
