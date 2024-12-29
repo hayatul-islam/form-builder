@@ -13,11 +13,13 @@ const Features = () => {
         {features.map((item) => (
           <div
             key={item?.title}
-            className="rounded-xl space-y-3 border p-5 hover:bg-gray-50 duration-500 hover:scale-105  transform"
+            className="rounded-xl space-y-3 border dark:border-gray-800 p-5 hover:bg-gray-50 dark:hover:bg-gray-950 duration-500 hover:scale-105 transform"
           >
             <img className="w-[40px] lg:w-[50px]" src={item?.image} alt="" />
-            <p className="text-gray-500 text-[16px] sm:text-[18px]">
-              <span className="text-black font-bold">{item?.title}.</span>{" "}
+            <p className="text-gray-500 dark:text-gray-300 text-[16px] sm:text-[18px]">
+              <span className="text-black dark:text-white font-bold">
+                {item?.title}.
+              </span>{" "}
               <span> {item?.description}</span>
             </p>
           </div>
