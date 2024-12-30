@@ -21,7 +21,8 @@ import informationRequestForm from "../assets/demos/information-request-form.png
 import loginImg from "../assets/demos/login-page.png";
 import registerFormImg from "../assets/demos/register-form.png";
 import codeIcon from "../assets/icons/code.png";
-import dragIcon from "../assets/icons/drag.png";
+// import dragIcon from "../assets/icons/drag.png";
+import dragWhiteIcon from "../assets/icons/drag-white.png";
 import settingIcon from "../assets/icons/settings.png";
 
 export const features = [
@@ -29,7 +30,8 @@ export const features = [
     title: "Drag-and-Drop",
     description:
       "Create custom forms without writing code. Simply drag and drop fields.",
-    image: dragIcon,
+    image: dragWhiteIcon,
+    // image: dragIcon,
   },
 
   {
