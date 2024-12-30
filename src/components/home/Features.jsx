@@ -1,4 +1,3 @@
-import { GiSettingsKnobs } from "react-icons/gi";
 import { features } from "../../data";
 import SectionHeadline from "../common/SectionHeadline";
 
@@ -16,17 +15,7 @@ const Features = () => {
             key={item?.title}
             className="rounded-xl space-y-3 border dark:border-gray-800 p-5 hover:bg-gray-50 dark:hover:bg-gray-950 duration-500 hover:scale-105 transform"
           >
-            {/* <TbDragDrop size={40} /> */}
-            {/* <RiDragDropLine size={40} /> */}
-
-            {/* <TbCodeDots size={40} /> */}
-            {/* <SiLintcode size={40} /> */}
-            {/* <BiCodeCurly size={40} /> */}
-
-            {/* <VscTools size={40} /> */}
-            {/* <FaTools size={40} /> */}
-            <GiSettingsKnobs size={40} />
-
+            <span className="dark:text-white">{item?.icon}</span>
             {/* <img className="w-[40px] lg:w-[50px]" src={item?.image} alt="" /> */}
             <p className="text-gray-500 dark:text-gray-300 text-[16px] sm:text-[18px]">
               <span className="text-black dark:text-white font-bold">

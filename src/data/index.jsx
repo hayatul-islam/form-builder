@@ -13,7 +13,10 @@ import {
 } from "react-icons/fa";
 import { FaHeading } from "react-icons/fa6";
 import { IoText } from "react-icons/io5";
+import { RiDragDropLine } from "react-icons/ri";
 import { RxButton } from "react-icons/rx";
+import { TbCodeDots } from "react-icons/tb";
+import { VscTools } from "react-icons/vsc";
 import bookingFormImg from "../assets/demos/booking-form.png";
 import businessRegisterImg from "../assets/demos/business-register5.png";
 import feedbackFormImg from "../assets/demos/feedback-form.png";
@@ -21,8 +24,7 @@ import informationRequestForm from "../assets/demos/information-request-form.png
 import loginImg from "../assets/demos/login-page.png";
 import registerFormImg from "../assets/demos/register-form.png";
 import codeIcon from "../assets/icons/code.png";
-// import dragIcon from "../assets/icons/drag.png";
-import dragWhiteIcon from "../assets/icons/drag-white.png";
+import dragIcon from "../assets/icons/drag.png";
 import settingIcon from "../assets/icons/settings.png";
 
 export const features = [
@@ -30,8 +32,9 @@ export const features = [
     title: "Drag-and-Drop",
     description:
       "Create custom forms without writing code. Simply drag and drop fields.",
-    image: dragWhiteIcon,
-    // image: dragIcon,
+    image: dragIcon,
+    // icon: <TbDragDrop size={40} />,
+    icon: <RiDragDropLine size={40} />,
   },
 
   {
@@ -39,12 +42,15 @@ export const features = [
     description:
       "Customize the colors, layout, and fields to match your unique style.",
     image: settingIcon,
+    icon: <VscTools size={40} />,
+    // icon: <VscSettings size={40} />,
   },
   {
     title: "Code Generation",
     description:
       "Save development time by automatically generating the code for your forms.",
     image: codeIcon,
+    icon: <TbCodeDots size={40} />,
   },
 ];
 
