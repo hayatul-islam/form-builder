@@ -1,5 +1,5 @@
 import { useState } from "react";
-import editFormIcon from "../../assets/icons/edit-form.png";
+import editFormIcon from "../../assets/icons/build-form.svg";
 import GetStartModal from "../common/GetStartModal";
 import SectionHeadline from "../common/SectionHeadline";
 import Button from "../ui/Button";
@@ -19,19 +19,10 @@ const GetStarted = () => {
     <div className="flex justify-center text-center px-6 pb-[120px]">
       <div className="space-y-6">
         <img
-          className="w-[250px] mx-auto text-red-500"
+          className="w-[180px] mx-auto text-red-500 "
           src={editFormIcon}
-          // src="https://cdn-icons-png.flaticon.com/128/3417/3417311.png"
-          // src="https://cdn-icons-png.flaticon.com/128/12468/12468147.png"
-          // src="https://cdn-icons-png.flaticon.com/128/15188/15188645.png"
-          // src="https://cdn-icons-png.flaticon.com/128/3649/3649823.png"
-          // src="https://cdn-icons-png.flaticon.com/128/3417/3417309.png"
-          // src="https://cdn-icons-png.flaticon.com/128/5335/5335265.png"
-          // src="https://cdn-icons-png.flaticon.com/128/15188/15188916.png"
-          // src="https://cdn-icons-png.flaticon.com/128/3200/3200792.png"
-          // src="https://cdn-icons-png.flaticon.com/128/3135/3135632.png"
-          // src="https://cdn-icons-png.flaticon.com/128/3135/3135663.png"
-          alt=""
+          // src="https://img.freepik.com/free-vector/hand-student-writing-with-pencil-paper-3d-illustration-cartoon-drawing-hand-holding-writing-tool-document-test-paper-3d-style-white-background-education-concept_778687-1664.jpg?ga=GA1.1.1050340683.1723631310&semt=ais_hybrid"
+          alt="build-form"
         />
         <SectionHeadline
           title="Your forms, your style"
