@@ -7,7 +7,7 @@ const Forms = () => {
   const { forms } = useBuilder();
 
   return (
-    <PageLayout className="space-y-12 sm:space-y-16 md:space-y-24 py-12 sm:py-16 md:py-24">
+    <PageLayout className="space-y-12 sm:space-y-16 md:space-y-24 py-12 sm:py-16 md:py-24 min-h-[70vh]">
       {forms?.length > 0 ? <MyForms /> : <FormBuilding />}
     </PageLayout>
   );
