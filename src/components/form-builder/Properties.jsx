@@ -193,7 +193,9 @@ const Properties = () => {
           </div>
 
           <div className="space-y-2">
-            <h2 className="text-[16px] font-medium">Button Style</h2>
+            <h2 className="text-[16px] font-medium dark:text-gray-100">
+              Button Style
+            </h2>
             <div className="grid grid-cols-2 gap-2">
               {buttonStyle?.map((btn, i) => (
                 <button

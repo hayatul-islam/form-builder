@@ -8,18 +8,20 @@ import {
 const Alignment = ({ label, name, value, subKey, onChange, columns = "4" }) => {
   return (
     <div className="space-y-1">
-      <h2 className="font-medium ">{label}</h2>
+      <h2 className="font-medium dark:text-gray-100">{label}</h2>
       <div
         className={`grid ${
           columns === 3 ? "grid-cols-3" : "grid-cols-4 "
-        } border border-black/20 rounded`}
+        } border border-black/20 dark:border-gray-600 rounded`}
       >
         {columns === "4" && (
           <button
             onClick={() => onChange(name, "full", subKey)}
             className={`${
-              value === "full" ? "bg-primary text-white" : "hover:bg-primary/10"
-            } p-2 flex justify-center items-center text-[18px] border-r border-black/20 `}
+              value === "full"
+                ? "bg-primary text-white"
+                : "hover:bg-primary/10 dark:text-gray-100"
+            } p-2 flex justify-center items-center text-[18px] border-r border-black/20 dark:border-gray-600 `}
           >
             <LuAlignJustify />
           </button>
@@ -28,24 +30,30 @@ const Alignment = ({ label, name, value, subKey, onChange, columns = "4" }) => {
         <button
           onClick={() => onChange(name, "left", subKey)}
           className={`${
-            value === "left" ? "bg-primary text-white" : "hover:bg-primary/10"
-          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 `}
+            value === "left"
+              ? "bg-primary text-white"
+              : "hover:bg-primary/10 dark:text-gray-100"
+          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 dark:border-gray-600 `}
         >
           <MdOutlineAlignHorizontalLeft />
         </button>
         <button
           onClick={() => onChange(name, "center", subKey)}
           className={`${
-            value === "center" ? "bg-primary text-white" : "hover:bg-primary/10"
-          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 `}
+            value === "center"
+              ? "bg-primary text-white"
+              : "hover:bg-primary/10 dark:text-gray-100"
+          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 dark:border-gray-600`}
         >
           <MdAlignHorizontalCenter />
         </button>
         <button
           onClick={() => onChange(name, "right", subKey)}
           className={`${
-            value === "right" ? "bg-primary text-white" : "hover:bg-primary/10"
-          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 `}
+            value === "right"
+              ? "bg-primary text-white"
+              : "hover:bg-primary/10 dark:text-gray-100"
+          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 dark:border-gray-600`}
         >
           <MdOutlineAlignHorizontalRight />
         </button>

@@ -5,7 +5,7 @@ const ToggleButton = ({ label, name, value, onChange }) => {
 
   return (
     <div className="space-y-1">
-      <label className="block font-medium">{label}</label>
+      <label className="block font-medium dark:text-gray-100">{label}</label>
       <label className="themeSwitcherThree relative inline-flex cursor-pointer select-none items-center">
         <input
           type="checkbox"
@@ -15,20 +15,24 @@ const ToggleButton = ({ label, name, value, onChange }) => {
         />
 
         <div
-          className={`shadow-card flex h-[40px] w-[76px] items-center justify-center rounded-md bg-white secondary-font ${
-            isChecked && "!bg-primary/10"
+          className={`shadow-card flex h-[40px] w-[76px] items-center justify-center rounded-md bg-white dark:bg-gray-900 secondary-font ${
+            isChecked && "!bg-primary/10 dark:!bg-primary/20"
           }`}
         >
           <span
             className={`flex h-8 w-8 items-center justify-center rounded font-medium text-[12px] ${
-              !isChecked ? "bg-primary text-white" : "text-body-color"
+              !isChecked
+                ? "bg-primary text-white"
+                : "text-body-color dark:text-gray-100"
             }`}
           >
             OFF
           </span>
           <span
             className={`flex h-8 w-8 items-center justify-center rounded text-[12px] font-medium ${
-              isChecked ? "bg-primary text-white" : "text-body-color"
+              isChecked
+                ? "bg-primary text-white"
+                : "text-body-color dark:text-gray-100"
             }`}
           >
             ON

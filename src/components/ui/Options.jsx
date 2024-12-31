@@ -29,7 +29,7 @@ const Options = ({ name, label, onChange, options }) => {
 
   return (
     <div className="space-y-2">
-      <h3>{label}</h3>
+      <h3 className="dark:text-gray-100">{label}</h3>
       {options?.map((option) => (
         <div key={option?.value} className="flex items-center gap-2">
           <div className="w-full">

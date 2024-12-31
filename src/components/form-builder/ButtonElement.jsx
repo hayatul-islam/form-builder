@@ -28,11 +28,13 @@ const ButtonElement = ({ element }) => {
       {...draggable.attributes}
       onClick={handleClick}
       className={`h-[90px] cursor-grab rounded-md text-center ${
-        draggable.isDragging && "ring-1 ring-black !bg-gray"
-      } bg-white `}
+        draggable.isDragging && "ring-1 ring-black !bg-gray dark:!bg-gray-950"
+      } bg-white dark:bg-gray-900 `}
     >
-      <span className="mx-auto inline-block">{element?.icon}</span>
-      <p>{element?.label}</p>
+      <span className="mx-auto inline-block dark:text-gray-100">
+        {element?.icon}
+      </span>
+      <p className="dark:text-gray-100">{element?.label}</p>
     </button>
   );
 };
@@ -42,10 +44,12 @@ export default ButtonElement;
 export const ButtonElementOverlay = ({ element }) => {
   return (
     <button
-      className={`h-[90px] w-[150px] cursor-grab bg-white rounded-md text-center `}
+      className={`h-[90px] w-[150px] cursor-grab bg-white dark:bg-gray-900 rounded-md text-center `}
     >
-      <span className="mx-auto inline-block">{element?.icon}</span>
-      <p>{element?.label}</p>
+      <span className="mx-auto inline-block dark:text-gray-100">
+        {element?.icon}
+      </span>
+      <p className="dark:text-gray-100">{element?.label}</p>
     </button>
   );
 };
