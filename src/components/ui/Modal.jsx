@@ -54,15 +54,18 @@ const Modal = ({
         }}
         className={`${className} px-6 z-10 w-full space-y-4 rounded-xl`}
       >
-        <div className="rounded-xl bg-white dark:bg-dark mr-1">
-          <div className="flex items-center justify-between sticky top-0 z-40 bg-white rounded-t-xl px-5 py-3">
+        <div className="rounded-xl bg-white dark:bg-gray-900 mr-1">
+          <div className="flex items-center justify-between sticky top-0 z-40 bg-white dark:bg-gray-900 rounded-t-xl px-5 py-3">
             {title && (
               <h3 className="text-[20px] font-bold text-black dark:text-white">
                 {title}
               </h3>
             )}
             {isClose && (
-              <button onClick={handleClose}>
+              <button
+                onClick={handleClose}
+                className="text-black dark:text-white"
+              >
                 <MdOutlineClose size={24} />
               </button>
             )}

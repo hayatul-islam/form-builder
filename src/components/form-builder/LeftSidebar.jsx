@@ -9,7 +9,7 @@ const LeftSidebar = () => {
 
   return (
     <div
-      className={` w-[320px] h-[calc(100vh-70px)] overflow-y-auto no-scrollbar bg-gray `}
+      className={` w-[320px] h-[calc(100vh-70px)] overflow-y-auto no-scrollbar bg-gray dark:bg-gray-900 `}
     >
       <div className="flex justify-between items-center px-6 py-3 sticky top-0 bg-gray text-black shadow-sm">
         <h2 className="font-medium text-[18px]">Toolbox</h2>

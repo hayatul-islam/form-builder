@@ -34,11 +34,13 @@ const FormBuilding = ({ type = "page", onModalType }) => {
                 onClick={onOpenModal}
                 className="w-[120px] !h-[120px] sm:!h-[150px] sm:w-[180px] lg:!h-[220px] lg:w-[250px] mx-auto"
               />
-              <div className="text-center text-black hidden sm:block">
+              <div className="text-center text-black dark:text-gray-300 hidden sm:block">
                 <h3 className="font-medium text-[18px] md:text-[22px] ">
                   Start form scratch
                 </h3>
-                <p className="hidden sm:block">A blank slate is all you need</p>
+                <p className="hidden sm:block text-gray-500 dark:text-gray-400">
+                  A blank slate is all you need
+                </p>
               </div>
             </div>
             <div className="space-y-3">
@@ -46,11 +48,13 @@ const FormBuilding = ({ type = "page", onModalType }) => {
                 className="!bg-primary/10 w-[120px] !h-[120px] sm:!h-[150px] sm:w-[180px] lg:!h-[220px] lg:w-[250px] rounded-2xl"
                 iconClass="!w-[100px] h-[150px]"
               />
-              <div className="text-center text-black hidden sm:block">
+              <div className="text-center text-black dark:text-gray-300 hidden sm:block">
                 <h3 className="font-medium text-[18px] md:text-[22px] ">
                   Use Template
                 </h3>
-                <p>Choose from {demo?.length}+ pre-made forms</p>
+                <p className="text-gray-500 dark:text-gray-400">
+                  Choose from {demo?.length}+ pre-made forms
+                </p>
               </div>
             </div>
           </div>
