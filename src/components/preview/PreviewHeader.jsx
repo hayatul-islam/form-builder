@@ -31,7 +31,7 @@ const PreviewHeader = () => {
           className={`flex items-center justify-center gap-2 py-2 font-medium text-black/60 px-2 text-[10px] rounded-lg w-[35px] h-[35px] ${
             previewMode === "desktop"
               ? "border border-primary text-primary"
-              : ""
+              : "dark:text-gray-100"
           } `}
         >
           <AiOutlineDesktop size={20} />
@@ -39,7 +39,9 @@ const PreviewHeader = () => {
         <button
           onClick={() => onPreviewMode("tablet")}
           className={`flex items-center justify-center text-black/60 rounded-lg w-[35px] h-[35px] ${
-            previewMode === "tablet" ? "border border-primary text-primary" : ""
+            previewMode === "tablet"
+              ? "border border-primary text-primary"
+              : "dark:text-gray-100"
           } `}
         >
           <MdTabletMac size={20} />
@@ -48,7 +50,9 @@ const PreviewHeader = () => {
         <button
           onClick={() => onPreviewMode("mobile")}
           className={`flex items-center justify-center text-black/60 rounded-lg w-[35px] h-[35px] ${
-            previewMode === "mobile" ? "border border-primary text-primary" : ""
+            previewMode === "mobile"
+              ? "border border-primary text-primary"
+              : "dark:text-gray-100"
           } `}
         >
           <FaMobileAlt size={20} />
