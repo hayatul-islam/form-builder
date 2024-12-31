@@ -17,15 +17,15 @@ const BorderRadiusStyle = ({ label, name, value, subKey, onChange }) => {
 
   return (
     <div>
-      <h3 className="font-medium pb-1">{label}</h3>
-      <div className="grid grid-cols-4 border border-black/20 rounded">
+      <h3 className="font-medium pb-1 dark:text-gray-100">{label}</h3>
+      <div className="grid grid-cols-4 border border-black/20 dark:border-gray-600 rounded">
         <button
           onClick={() => handleBorderChange("0")}
           className={`${
             value?.radius === "0"
               ? "bg-primary text-white"
-              : "hover:bg-primary/10"
-          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 `}
+              : "hover:bg-primary/10 dark:text-gray-100"
+          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 dark:border-gray-600 `}
         >
           <TbBorderCornerSquare />
         </button>
@@ -34,8 +34,8 @@ const BorderRadiusStyle = ({ label, name, value, subKey, onChange }) => {
           className={`${
             value?.radius === "10"
               ? "bg-primary text-white"
-              : "hover:bg-primary/10"
-          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 `}
+              : "hover:bg-primary/10 dark:text-gray-100"
+          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 dark:border-gray-600 `}
         >
           <TbBorderCornerRounded />
         </button>
@@ -44,8 +44,8 @@ const BorderRadiusStyle = ({ label, name, value, subKey, onChange }) => {
           className={`${
             value?.radius === "20"
               ? "bg-primary text-white"
-              : "hover:bg-primary/10"
-          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 `}
+              : "hover:bg-primary/10 dark:text-gray-100"
+          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 dark:border-gray-600 `}
         >
           <TbBorderCornerPill />
         </button>
@@ -54,8 +54,8 @@ const BorderRadiusStyle = ({ label, name, value, subKey, onChange }) => {
           className={`${
             value?.radius === "bottom"
               ? "bg-primary text-white"
-              : "hover:bg-primary/10"
-          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 `}
+              : "hover:bg-primary/10 dark:text-gray-100"
+          } p-2 flex justify-center items-center text-[18px] border-r border-black/20 dark:border-gray-600 `}
         >
           <CgBorderBottom />
         </button>

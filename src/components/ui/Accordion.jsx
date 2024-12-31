@@ -5,12 +5,12 @@ const Accordion = ({ title, children, value = false }) => {
   const [isOpen, setIsOpen] = useState(value);
 
   return (
-    <div className="space-y-4 border-b border-black/10 pb-2">
+    <div className="space-y-4 border-b border-black/10 dark:border-gray-600 pb-2">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`flex justify-between items-center w-full  ${
-          isOpen && "bg-primary text-white p-2 px-3 rounded "
-        } text-black`}
+          isOpen && "bg-primary text-white dark:text-white p-2 px-3 rounded "
+        } text-black dark:text-gray-300`}
       >
         <h4 className="text-[16px] font-medium uppercase ">{title}</h4>
         {isOpen ? (

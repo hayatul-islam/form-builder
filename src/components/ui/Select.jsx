@@ -9,13 +9,15 @@ const Select = ({
 }) => {
   return (
     <div>
-      <label className="font-medium block pb-1">{label}</label>
+      <label className="font-medium block pb-1 dark:text-gray-100">
+        {label}
+      </label>
       <select
         name={name}
         id={name}
         value={value || ""}
         onChange={(e) => onChange(name, e.target.value, subKey)}
-        className={`${className} w-full border border-black/20 bg-white py-1.5 px-2 rounded focus:border-black/50 focus:outline-none`}
+        className={`${className} w-full border border-black/20 bg-white dark:bg-gray-950 dark:text-gray-300 dark:border-gray-600 py-1.5 px-2 rounded focus:border-black/50 focus:outline-none`}
       >
         {options?.map((option) => (
           <option key={option?.value} value={option?.value}>

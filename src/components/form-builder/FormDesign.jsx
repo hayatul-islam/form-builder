@@ -50,7 +50,9 @@ const FormDesign = () => {
       {/* layout  */}
       <Accordion title="Layout">
         <div className="space-y-3">
-          <h3 className="font-bold text-[18px] border-b">Form</h3>
+          <h3 className="font-bold text-[18px] border-b dark:text-white dark:border-gray-600">
+            Form
+          </h3>
           <div className="space-y-3">
             <Input
               label="Max Width"
@@ -103,7 +105,9 @@ const FormDesign = () => {
           </div>
         </div>
         <div className="space-y-3 pt-4">
-          <h3 className="font-bold border-b text-[18px]">Page</h3>
+          <h3 className="font-bold border-b text-[18px] dark:text-white dark:border-gray-600">
+            Page
+          </h3>
           <div className="space-y-3">
             <DualColorPicker
               label="Background"
