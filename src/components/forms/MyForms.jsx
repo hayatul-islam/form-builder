@@ -51,9 +51,11 @@ const MyForms = () => {
     <>
       {forms?.length > 0 && (
         <div className="container space-y-4 ">
-          <h2 className="text-[20px] font-bold text-black">My Forms</h2>
+          <h2 className="text-[20px] font-bold text-black dark:text-white">
+            My Forms
+          </h2>
 
-          <div className="overflow-x-auto rounded-lg border">
+          <div className="overflow-x-auto rounded-lg border dark:border-gray-900">
             <table className="table-auto w-full bg-white text-left rounded-lg">
               <thead className="bg-primary/80 text-white">
                 <tr>
@@ -76,14 +78,14 @@ const MyForms = () => {
                 {forms.map((form, index) => (
                   <tr
                     key={index}
-                    className="even:bg-gray-50 odd:bg-gray-100 hover:bg-white transition-all duration-300"
+                    className="even:bg-gray-50 dark:even:bg-dark odd:bg-gray-100 dark:odd:bg-gray-950 hover:bg-white dark:hover:bg-gray-950 transition-all duration-300"
                   >
                     <td className="py-4 px-6 min-w-[300px]">
-                      <div className="text-black">
+                      <div className="text-black dark:text-white">
                         <h4 className="text-[16px] font-medium">
                           {form?.name}
                         </h4>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-500 dark:text-gray-300">
                           Created on: {moment(form?.createdAt).format("ll")}
                         </p>
                       </div>
@@ -91,7 +93,7 @@ const MyForms = () => {
                     <td className="text-center">
                       <button
                         onClick={() => handleCode(form?.id)}
-                        className="text-black"
+                        className="text-black dark:text-gray-300"
                       >
                         <DiCode size={32} />
                       </button>
@@ -99,20 +101,23 @@ const MyForms = () => {
                     <td className="text-center">
                       <button
                         onClick={() => handlePreview(form?.id)}
-                        className="text-black "
+                        className="text-black dark:text-gray-300"
                       >
                         <FiEye size={20} className="mx-auto" />
                       </button>
                     </td>
                     <td className="text-center">
-                      <Link to={`/builder/${form?.id}`} className="text-black ">
+                      <Link
+                        to={`/builder/${form?.id}`}
+                        className="text-black dark:text-gray-300"
+                      >
                         <FiEdit size={20} className="mx-auto" />
                       </Link>
                     </td>
                     <td className="text-center">
                       <button
                         onClick={() => handleDeleteConfirm(form?.id)}
-                        className="text-black "
+                        className="text-black dark:text-gray-300"
                       >
                         <RiDeleteBinLine size={20} />
                       </button>

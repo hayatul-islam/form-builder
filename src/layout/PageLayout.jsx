@@ -22,11 +22,11 @@ const PageLayout = ({ children, type, className }) => {
       {type === "main" ? (
         <div className="h-[70px] absolute top-0 w-full z-50">{header}</div>
       ) : type === "preview" ? (
-        <div className="h-[70px] sticky top-0 z-50 bg-gray shadow-sm flex justify-center items-center">
+        <div className="h-[70px] sticky top-0 z-50 bg-gray dark:bg-dark shadow-sm flex justify-center items-center">
           {header}
         </div>
       ) : (
-        <div className="bg-gray shadow-sm">{header}</div>
+        <div className="bg-gray dark:bg-dark  shadow-sm">{header}</div>
       )}
       <div className={className}>{children}</div>
 
