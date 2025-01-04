@@ -22,7 +22,7 @@ export default {
           500: "#6B7280",
           900: "#212830",
         },
-
+        white: "#f3f3f3",
         black: {
           DEFAULT: "#393737",
         },
