@@ -38,7 +38,7 @@ export const SecondaryButton = ({
       {link ? (
         <Link
           to={link}
-          className={`${className} border  px-3 py-1.5 md:px-4 md:py-2 rounded-lg bg-white dark:bg-dark border-gray-200 dark:border-gray-600  dark:text-white text-[12px] md:text-[14px] text-black transition-all duration-500  hover:border-black dark:hover:border-white `}
+          className={`${className} border  px-3 py-1.5 md:px-4 md:py-2 rounded-lg bg-transparent  border-gray-200 dark:border-gray-600  dark:text-white text-[12px] md:text-[14px] text-black transition-all duration-500  hover:border-black dark:hover:border-white `}
         >
           {children}
         </Link>
@@ -46,7 +46,7 @@ export const SecondaryButton = ({
         <button
           onClick={onClick}
           type={type}
-          className={`${className} border  px-3 py-1.5 md:px-4 md:py-2 rounded-lg bg-white dark:bg-dark border-gray-200 dark:border-gray-600  dark:text-white text-[12px] md:text-[14px] text-black transition-all duration-500  hover:border-black dark:hover:border-white `}
+          className={`${className} border  px-3 py-1.5 md:px-4 md:py-2 rounded-lg bg-transparent  border-gray-200 dark:border-gray-600  dark:text-white text-[12px] md:text-[14px] text-black transition-all duration-500  hover:border-black dark:hover:border-white `}
         >
           {children}
         </button>
