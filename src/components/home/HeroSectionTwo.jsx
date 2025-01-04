@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BsStars } from "react-icons/bs";
 import GetStartModal from "../common/GetStartModal";
-import Button from "../ui/Button";
+import Button, { SecondaryButton } from "../ui/Button";
 
 const HeroSectionTwo = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,13 +40,7 @@ const HeroSectionTwo = () => {
         </p>
         <div className=" flex justify-center gap-4">
           <Button onClick={handleOpen}>Creating form for free</Button>
-          <Button
-            link="/templates"
-            className="border border-gray-200  !text-black dark:!text-white !from-gray !to-white 
-            dark:!from-dark dark:!to-gray-dark "
-          >
-            Demo
-          </Button>
+          <SecondaryButton link="/templates">Demo</SecondaryButton>
         </div>
       </div>
       {isOpen && <GetStartModal handleClose={handleClose} />}

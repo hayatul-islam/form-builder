@@ -1,5 +1,5 @@
 import SectionHeadline from "../common/SectionHeadline";
-import Button from "../ui/Button";
+import { SecondaryButton } from "../ui/Button";
 import TemplateSlider from "./TemplateSlider";
 
 const TemplateSection = () => {
@@ -11,12 +11,9 @@ const TemplateSection = () => {
           or create your form from scratch"
         button={
           <div className="pt-3">
-            <Button
-              link="/templates"
-              className="border border-gray-200 !text-black !from-gray !to-white dark:!from-dark dark:!to-gray-dark dark:!text-white "
-            >
+            <SecondaryButton link="/templates">
               View all templates
-            </Button>
+            </SecondaryButton>
           </div>
         }
       />

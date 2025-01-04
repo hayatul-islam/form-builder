@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { initialTemplate } from "../../data";
 import useBuilder from "../../hooks/useBuilder";
-import Button from "../ui/Button";
+import Button, { SecondaryButton } from "../ui/Button";
 
 const CreateFormModal = ({ demo, onClose }) => {
   const { onAddForm } = useBuilder();
@@ -45,13 +45,13 @@ const CreateFormModal = ({ demo, onClose }) => {
       </div>
 
       <div className="flex justify-end items-center gap-4 pt-6">
-        <Button
+        <SecondaryButton
+          className="dark:!bg-transparent"
           type="button"
           onClick={onClose}
-          className="border !text-black !from-[#fff] !to-[#fff]"
         >
           Cancel
-        </Button>
+        </SecondaryButton>
         <Button type="submit" className="!px-6">
           Save
         </Button>
