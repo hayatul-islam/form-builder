@@ -13,7 +13,7 @@ const TemplateSection = () => {
           <div className="pt-3">
             <Button
               link="/templates"
-              className="border border-gray-200 !text-black !from-gray !to-white "
+              className="border border-gray-200 !text-black !from-gray !to-white dark:!from-dark dark:!to-gray-dark dark:!text-white "
             >
               View all templates
             </Button>
