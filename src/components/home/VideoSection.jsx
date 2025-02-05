@@ -6,7 +6,7 @@ const VideoSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <div className="container">
+    <div className="container ">
       <div className="max-h-[550p] w-full mt-20 mb-6 rounded-lg relative">
         {!isPlaying ? (
           <img
