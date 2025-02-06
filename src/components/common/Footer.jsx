@@ -1,16 +1,16 @@
-import React from "react";
 import { CiLinkedin } from "react-icons/ci";
-
 import { PiGithubLogo } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
     <div className="text-black dark:text-white">
       <div className="container py-12 border-t dark:border-gray-800 text-center space-y-4 md:flex justify-between items-center">
         <div className="text-[16px] ">
           <span className="text-gray-500 dark:text-gray-300">
-            © 2024 Made by
+            © {year} Made by
           </span>{" "}
           <span className="text-black dark:text-white font-medium">
             Md. Hayatul Islam
