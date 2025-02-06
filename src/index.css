@@ -126,11 +126,20 @@ input[type="number"]::-webkit-outer-spin-button {
 } */
 
 .dark .hero-bg {
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
+  /* background: radial-gradient(
     51% 51% at 50% 68%,
     rgba(47, 107, 224, 0.8) 0%,
     rgba(12, 3, 46, 1) 100%
-  );
+  ); */
+  background: radial-gradient(
+      60% 60% at 50% 70%,
+      rgba(47, 107, 224, 0.9) 0%,
+      rgba(12, 3, 46, 0.9) 70%
+    ),
+    radial-gradient(
+      120% 100% at 50% 30%,
+      rgba(67, 114, 208, 0.6) 0%,
+      rgba(12, 3, 46, 1) 100%
+    ),
+    #0a0a1a;
 }
