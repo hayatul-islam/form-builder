@@ -15,8 +15,8 @@ const HeroSectionTwo = () => {
   };
 
   return (
-    <div className="container mt-24 md:mt-32 bg-gradient-to-b flex items-center justify-center ">
-      <div className="text-center  sm:px-6 space-y-3 md:space-y-5 py-5">
+    <div className="container pt-24 md:pt-32 bg-gradient-to-b flex items-center justify-center ">
+      <div className="text-center sm:px-6 space-y-3 md:space-y-5 py-5">
         <button className="px-2 sm:px-4 py-1.5 sm:py-2 border-2 rounded-full border-white dark:border-gray-950 text-black dark:text-white text-[10px] sm:text-[14px] font-medium cursor-auto flex items-center gap-1 justify-center mx-auto bg-gradient-to-r from-gray to-white dark:from-dark dark:to-gary-dark ">
           {/* <GiStarShuriken /> */}
           <BsStars />

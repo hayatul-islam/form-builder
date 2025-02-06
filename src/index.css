@@ -77,3 +77,60 @@ input[type="number"]::-webkit-outer-spin-button {
 .dark ::-webkit-scrollbar-thumb {
   background: rgb(114, 114, 114);
 }
+
+.dark .hero-bg {
+  background: radial-gradient(
+    51% 51% at 49% 86%,
+    rgba(47, 107, 224, 0.8) 0%,
+    rgba(12, 3, 46, 1) 100%
+  );
+  background: radial-gradient(
+    51% 51% at 50% 68%,
+    rgba(47, 107, 224, 0.8) 0%,
+    rgba(12, 3, 46, 1) 100%
+  );
+  background: radial-gradient(
+    51% 51% at 50% 68%,
+    rgba(67, 114, 208, 0.8) 0%,
+    rgba(12, 3, 46, 1) 100%
+  );
+  background: radial-gradient(
+    51% 51% at 50% 68%,
+    rgba(17, 72, 192, 0.8) 0%,
+    rgba(12, 3, 46, 1) 100%
+  );
+  background: radial-gradient(
+    51% 51% at 50% 68%,
+    rgba(3, 63, 192, 0.8) 0%,
+    rgba(12, 3, 46, 1) 100%
+  );
+}
+
+/* .dark .hero-bg {
+  background: radial-gradient(
+      60% 60% at 50% 70%,
+      rgba(3, 63, 192, 0.9) 0%,
+      rgba(12, 3, 46, 0.9) 70%
+    ),
+    radial-gradient(
+      80% 80% at 50% 50%,
+      rgba(17, 72, 192, 0.6) 0%,
+      rgba(12, 3, 46, 0.8) 100%
+    ),
+    radial-gradient(
+      100% 100% at 50% 50%,
+      rgba(47, 107, 224, 0.3) 0%,
+      rgba(12, 3, 46, 1) 100%
+    ),
+    #0a0a1a;
+} */
+
+.dark .hero-bg {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    51% 51% at 50% 68%,
+    rgba(47, 107, 224, 0.8) 0%,
+    rgba(12, 3, 46, 1) 100%
+  );
+}
