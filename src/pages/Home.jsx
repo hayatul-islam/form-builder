@@ -11,7 +11,7 @@ const Home = () => {
     <div className="space-y-20 md:space-y-36">
       {/* <PageLayout type="main" className="space-y-20 md:space-y-36"> */}
       {/* <HeroSection /> */}
-      <div className="relative hero-bg ">
+      <div className="relative  ">
         <div className="h-[70px] absolute top-0 w-full z-50">
           <Header />
         </div>

@@ -69,6 +69,12 @@ input[type="number"]::-webkit-outer-spin-button {
   background: transparent;
   border-radius: 10px;
 }
+.dark ::-webkit-scrollbar {
+  background: black;
+}
+.dark ::-webkit-scrollbar-track {
+  background: black;
+}
 
 ::-webkit-scrollbar-thumb {
   border-radius: 8px;
@@ -163,4 +169,31 @@ input[type="number"]::-webkit-outer-spin-button {
     #04021a 70%,
     #01000a 100%
   ); */
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  background: radial-gradient(
+    70% 70% at 50% 100%,
+    rgb(226 226 255) 50%,
+    #e6e5f6 65%,
+    rgb(255, 255, 255) 100%
+  );
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.dark body {
+  height: 100vh;
+  margin: 0;
+  background: radial-gradient(
+    100% 100% at 50% 100%,
+    rgb(12, 26, 65) 25%,
+    rgba(2, 15, 60, 1) 50%,
+    #02010d 100%
+  );
+
+  background-attachment: fixed;
+  background-size: cover;
 }
