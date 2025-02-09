@@ -109,10 +109,19 @@ body {
     rgba(4, 2, 26, 0.9)
   );
 
+  /* background: linear-gradient(
+    to right,
+    rgba(1, 0, 10, 0.9),
+    #1b2540,
+    rgba(4, 2, 26, 0.9)
+  ); */
+
   /* background: linear-gradient(to right, #1b1b2e, #1c1a3f, #0f0c29); */
-  /* background: linear-gradient(135deg, #01000a, #0e0a2f, #020014); */
-  /* background: linear-gradient(to right, #02000e, #1c1f40, #030718); */
   /* background: linear-gradient(to right, #010106, #0f0b30, #02000f); */
+  /* background: linear-gradient(to right, #02000e, #1c1f40, #030718); */
+
+  /* background: linear-gradient(to right, #1c1f40, #030718); */
+  /* background: linear-gradient(to right, #161830, #030718); */
 
   background-attachment: fixed;
   background-size: cover;

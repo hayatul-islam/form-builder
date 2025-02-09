@@ -16,13 +16,7 @@ const GetStarted = () => {
   };
 
   return (
-    <div
-      // style={{
-      //   background:
-      //     "radial-gradient(51% 51% at 49% 86%,rgba(47, 107, 224, 0.8) 0%,rgba(12, 3, 46, 1) 100%)",
-      // }}
-      className="flex justify-center text-center px-6 pb-20 md:pb-36 container"
-    >
+    <div className=" flex justify-center text-center px-6 pb-20 md:pb-36 container">
       <div className="space-y-6">
         <img
           className="w-[180px] mx-auto text-red-500 "
