@@ -6,8 +6,8 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <div className="text-black dark:text-white">
-      <div className="container py-12 border-t dark:border-gray-800 text-center space-y-4 md:flex justify-between items-center">
+    <div className="text-black dark:text-white ">
+      <div className="container py-12 dark:border-gray-800 text-center space-y-4 md:flex justify-between items-center">
         <div className="text-[16px] ">
           <span className="text-gray-500 dark:text-gray-300">
             © {year} Made by

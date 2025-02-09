@@ -12,11 +12,11 @@ const VideoSection = () => {
           <img
             src={videoPlaceholder}
             alt="Video Thumbnail"
-            className="w-full h-full rounded-t-[20px] cursor-pointer"
+            className="w-full h-full rounded-[20px] cursor-pointer"
             onClick={() => setIsPlaying(true)}
           />
         ) : (
-          <video src={comingSoon} autoPlay loop className="rounded-t-[20px]" />
+          <video src={comingSoon} autoPlay loop className="rounded-[20px]" />
         )}
       </div>
     </div>
