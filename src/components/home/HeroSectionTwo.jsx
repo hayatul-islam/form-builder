@@ -22,7 +22,7 @@ const HeroSectionTwo = () => {
           <BsStars />
           Welcome to Form Builder
         </button>
-        <div className="text-[24px] sm:text-[32px] md:text-[54px] leading-none space-y-2 text-black font-normal dark:text-white">
+        <div className="text-[24px] sm:text-[32px] md:text-[54px] lg:text-[60px] leading-none space-y-2 text-black font-normal dark:text-white">
           {/* <span> Faster form building with </span>
           <span className="block"> drag and drop</span> */}
 

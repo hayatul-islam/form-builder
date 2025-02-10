@@ -14,9 +14,10 @@ export default function DesignerContextProvider({ children }) {
   const [selectedElement, setSelectedElement] = useState();
   const [previewMode, setPreviewMode] = useState("desktop");
   const [leftSidebarTool, setLeftSidebarTool] = useState("fields");
-  const [isDarkTheme, setIsDarkTheme] = useState(
-    localStorage.getItem("theme") === "light" ? false : true
-  );
+  // const [isDarkTheme, setIsDarkTheme] = useState(
+  //   localStorage.getItem("theme") === "light" ? false : true
+  // );
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
 
   const elements = selectForm?.elements || [];
   const settings = selectForm?.settings || {};

@@ -10,10 +10,16 @@ const Features = () => {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        {features.map((item) => (
+        {features.map((item, i) => (
           <div
             key={item?.title}
-            className="rounded-xl space-y-3 border dark:border-gray-800 p-5 hover:bg-gray-50 dark:hover:bg-gray-950 duration-500 hover:scale-105 transform"
+            className={`${
+              i === 0
+                ? "dark:bg-[#121228]"
+                : i === 1
+                ? "dark:bg-[#0b0d21]"
+                : "dark:bg-[#0f0e21]"
+            } rounded-xl space-y-3 border dark:border-gray-800 p-5 hover:bg-gray-50  dark:hover:bg-gray-950 duration-500 hover:scale-105 transform`}
           >
             <span className="dark:text-white">{item?.icon}</span>
             {/* <img className="w-[40px] lg:w-[50px]" src={item?.image} alt="" /> */}

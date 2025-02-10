@@ -23,7 +23,7 @@ const Header = () => {
       <HeaderBrand />
 
       <div className="flex items-center gap-3">
-        <ThemeMode />
+        {/* <ThemeMode /> */}
         <div className="flex items-center gap-4">
           {forms?.length > 0 ? (
             <Button
