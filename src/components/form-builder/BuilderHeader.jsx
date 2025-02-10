@@ -25,7 +25,7 @@ const BuilderHeader = () => {
       <div className="flex items-center gap-3">
         <Button
           onClick={handleOpen}
-          className="flex justify-center items-center gap-2 border border-primary !text-primary !bg-gradient-to-r !from-gray !to-white "
+          className="flex justify-center items-center gap-2 border border-primary !text-primary !bg-gradient-to-r !from-gray !to-white dark:!from-dark dark:!to-dark "
         >
           <FaCode className="text-[18px]" />
           <span> Code</span>
