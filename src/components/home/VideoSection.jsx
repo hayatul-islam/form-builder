@@ -67,7 +67,7 @@ const VideoSection = () => {
 
             <motion.button
               onClick={() => setIsPlaying(true)}
-              className="relative bg-primary rounded-full w-24 h-24 z-10 flex items-center justify-center hover:bg-primary/90"
+              className="relative bg-primary rounded-full w-16 h-16 md:w-24 md:h-24 z-10 flex items-center justify-center "
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
