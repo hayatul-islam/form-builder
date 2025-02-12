@@ -55,9 +55,9 @@ const MyForms = () => {
             My Forms
           </h2>
 
-          <div className="overflow-x-auto rounded-lg border dark:border-gray-900">
-            <table className="table-auto w-full bg-white text-left rounded-lg">
-              <thead className="bg-primary/80 text-white">
+          <div className="overflow-x-auto rounded-lg border dark:border-gray-900 ">
+            <table className="table-auto w-full bg-white text-left rounded-lg ">
+              <thead className="bg-primary text-white sticky top-0  ">
                 <tr>
                   <th className="py-5 px-6 text-sm font-semibold">Form Name</th>
                   <th className="text-center text-sm font-semibold min-w-[80px]">

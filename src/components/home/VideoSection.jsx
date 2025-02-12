@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { IoIosPlay } from "react-icons/io";
 import comingSoon from "../../assets/video/comming-soon.mov";
 import videoPlaceholder from "../../assets/video/Video-Placeholder.png";
 import Modal from "../ui/Modal";
@@ -10,6 +9,32 @@ const VideoSection = () => {
 
   const onClose = () => {
     setIsPlaying(false);
+  };
+
+  const pulseVariants = {
+    animate: {
+      scale: [1, 1.3, 1],
+      opacity: [0.7, 0.3, 0],
+    },
+  };
+
+  const pulseTransition = {
+    duration: 2,
+    repeat: Infinity,
+    ease: "easeInOut",
+    times: [0, 0.5, 1],
+  };
+
+  const iconVariants = {
+    initial: { pathLength: 0, opacity: 0 },
+    animate: {
+      pathLength: 1,
+      opacity: 1,
+      transition: {
+        pathLength: { duration: 1, ease: "easeInOut" },
+        opacity: { duration: 0.5 },
+      },
+    },
   };
 
   return (
@@ -23,7 +48,7 @@ const VideoSection = () => {
           />
 
           <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
-            <motion.div
+            {/* <motion.div
               whileHover={{ scale: 1.1 }}
               animate={{ scale: [1, 1.2, 1] }}
               transition={{
@@ -38,7 +63,58 @@ const VideoSection = () => {
               >
                 <IoIosPlay className="text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl" />
               </button>
-            </motion.div>
+            </motion.div> */}
+
+            <motion.button
+              onClick={() => setIsPlaying(true)}
+              className="relative bg-primary rounded-full w-24 h-24 z-10 flex items-center justify-center hover:bg-primary/90"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              {/* First pulse ring */}
+              <motion.div
+                className="absolute inset-0 bg-green-500/30 rounded-full"
+                variants={pulseVariants}
+                animate="animate"
+                transition={{
+                  ...pulseTransition,
+                  delay: 0,
+                }}
+              />
+
+              {/* Second pulse ring */}
+              <motion.div
+                className="absolute inset-0 bg-red-400/30 rounded-full"
+                variants={pulseVariants}
+                animate="animate"
+                transition={{
+                  ...pulseTransition,
+                  delay: 0.5,
+                }}
+              />
+
+              {/* Play icon */}
+              <motion.div
+                className="relative w-8 h-8"
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <motion.svg
+                  viewBox="0 0 24 24"
+                  className="w-full h-full"
+                  initial="initial"
+                  animate="animate"
+                >
+                  <motion.path
+                    d="M8 5v14l11-7z"
+                    className="fill-white stroke-white stroke-2"
+                    variants={iconVariants}
+                  />
+                </motion.svg>
+              </motion.div>
+            </motion.button>
           </div>
         </div>
       </div>
