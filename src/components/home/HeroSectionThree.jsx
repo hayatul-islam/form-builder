@@ -2,7 +2,7 @@ import { BsStars } from "react-icons/bs";
 
 const HeroSectionThree = () => {
   return (
-    <section className=" pt-36 pb-24 relative overflow-hidden bg-gradient-to-b from-[#0A0F1C] via-[#101729] to-[#151C32]">
+    <section className=" pt-36  relative overflow-hidden bg-gradient-to-b ">
       <div className="container flex flex-col items-center text-center relative z-10">
         <div className="inline-flex items-center bg-gradient-to-r from-blue-500/20 to-purple-500/10 rounded-full px-4 md:px-6 py-2 md:py-3 mb-6 md:mb-8 backdrop-blur-sm border border-blue-400/10">
           <BsStars className="text-blue-400 mr-2" />
