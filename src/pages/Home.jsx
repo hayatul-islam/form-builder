@@ -15,6 +15,7 @@ const Home = () => {
       <Features />
       <TemplateSection />
       <GetStarted />
+      {/* <GetStartedTwo /> */}
     </PageLayout>
   );
 };

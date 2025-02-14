@@ -40,7 +40,7 @@ const HeroSectionThree = () => {
             onClick={handleOpen}
             className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 md:px-10 py-3 md:py-4 rounded-button text-base md:text-lg font-medium whitespace-nowrap shadow-lg shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
           >
-            Start Building Free
+            Get Started for Free
           </button>
           <Link
             to="/templates"
