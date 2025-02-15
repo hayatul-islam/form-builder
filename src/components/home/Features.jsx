@@ -22,7 +22,7 @@ const Features = () => {
       <div className="container space-y-12">
         <SectionHeadline
           title="Simple and Powerful"
-          subTitle="complete solution for creating easy-to-use, flexible forms."
+          subTitle="Complete solution for creating easy-to-use, flexible forms."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
