@@ -38,7 +38,7 @@ const VideoSection = () => {
   };
 
   return (
-    <div className="container ">
+    <div className="container section-gap">
       <div className="relative h-auto w-full mx-auto mt-10 mb-6 rounded-xl p-[1px] bg-gradient-to-r from-blue-300 via-green-300 to-purple-300">
         <div className="bg-white rounded-xl overflow-hidden pointer-events-none">
           <img

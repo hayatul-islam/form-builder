@@ -37,6 +37,10 @@ label,
   @apply max-w-[1200px] mx-auto px-6;
 }
 
+.section-gap {
+  @apply py-12 md:py-24;
+}
+
 /* color picker color imamge hidden  */
 #colorPicker img {
   display: none !important;
@@ -86,48 +90,14 @@ input[type="number"]::-webkit-outer-spin-button {
 } */
 
 body {
-  /* height: 100vh;
-  margin: 0;
-
-  background: radial-gradient(
-    70% 70% at 50% 100%,
-    rgb(226 226 255) 50%,
-    #e6e5f6 65%,
-    rgb(255, 255, 255) 100%
-  );
-
-  background-attachment: fixed;
-  background-size: cover; */
-
   background: #f3f7f6;
 }
 
 .dark body {
-  height: 100vh;
-  margin: 0;
-
-  background: linear-gradient(
-    to right,
-    rgba(1, 0, 10, 0.9),
-    rgba(23, 21, 52, 0.9),
-    rgba(4, 2, 26, 0.9)
-  );
-
-  /* background: linear-gradient(
-    to right,
-    rgba(1, 0, 10, 0.9),
-    #1b2540,
-    rgba(4, 2, 26, 0.9)
-  ); */
-
-  background: linear-gradient(to right, #1b1b2e, #1c1a3f, #0f0c29);
   /* background: linear-gradient(to right, #010106, #0f0b30, #02000f); */
   /* background: linear-gradient(to right, #02000e, #1c1f40, #030718); */
 
   /* background: linear-gradient(to right, #1c1f40, #030718); */
   /* background: linear-gradient(to right, #161830, #030718); */
   background: linear-gradient(to right, rgb(5, 10, 24), #050b19);
-
-  background-attachment: fixed;
-  background-size: cover;
 }

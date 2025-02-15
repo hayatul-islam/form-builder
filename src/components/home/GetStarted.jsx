@@ -15,7 +15,7 @@ const GetStarted = () => {
   };
 
   return (
-    <div className="pb-20 md:pb-36 px-6">
+    <div className="section-gap px-6 dark:bg-[#04060a]">
       <div
         style={{
           backgroundImage: ` url(${getStatedBg})`,
@@ -38,7 +38,7 @@ const GetStarted = () => {
 
           <button
             onClick={handleOpen}
-            className=" bg-dark hover:bg-dark/80 text-white px-8 md:px-10 py-3 md:py-4 rounded-button text-base md:text-lg font-medium whitespace-nowrap shadow-lg shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
+            className="bg-dark hover:bg-gray-800 text-white px-8 md:px-10 py-3 md:py-4 !rounded-button text-base md:text-lg font-medium whitespace-nowrap shadow-lg shadow-gray-500/25 transition-all duration-300 transform hover:scale-105 w-auto"
           >
             Get Started for Free
           </button>

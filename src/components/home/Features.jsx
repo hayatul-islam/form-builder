@@ -18,7 +18,7 @@ const Features = () => {
   };
 
   return (
-    <div className="bg-[#04060a] py-12 md:py-20">
+    <div className="dark:bg-[#04060a] section-gap">
       <div className="container space-y-12">
         <SectionHeadline
           title="Simple and Powerful"
