@@ -18,17 +18,18 @@ const Features = () => {
   };
 
   return (
-    <div className="container space-y-10 bg-dark">
-      <SectionHeadline
-        title="Simple and Powerful"
-        subTitle="complete solution for creating easy-to-use, flexible forms."
-      />
+    <div className="bg-[#04060a] py-12 md:py-20">
+      <div className="container space-y-10">
+        <SectionHeadline
+          title="Simple and Powerful"
+          subTitle="complete solution for creating easy-to-use, flexible forms."
+        />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {features.map((item, i) => (
-          <div
-            key={item.title}
-            className={`
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((item, i) => (
+            <div
+              key={item.title}
+              className={`
               relative overflow-hidden rounded-2xl p-6 border 
               ${
                 isDarkTheme
@@ -42,25 +43,26 @@ const Features = () => {
               }
               transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group
             `}
-          >
-            <span className="inline-block p-3 rounded-xl dark:bg-gray-800 bg-gray-100 dark:text-white shadow-sm">
-              {item.icon}
-            </span>
+            >
+              <span className="inline-block p-3 rounded-xl dark:bg-gray-800 bg-gray-100 dark:text-white shadow-sm">
+                {item.icon}
+              </span>
 
-            <p className="text-gray-500 dark:text-gray-300 text-[16px] sm:text-[18px] pt-3">
-              <span className="text-black dark:text-white font-bold">
-                {item?.title}.
-              </span>{" "}
-              <span>{item?.description}</span>
-            </p>
+              <p className="text-gray-500 dark:text-gray-300 text-[16px] sm:text-[18px] pt-3">
+                <span className="text-black dark:text-white font-bold">
+                  {item?.title}.
+                </span>{" "}
+                <span>{item?.description}</span>
+              </p>
 
-            <div
-              className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${
-                isDarkTheme ? "from-white/5" : "from-gray-100/50"
-              } to-transparent rounded-bl-[100px] -z-10`}
-            ></div>
-          </div>
-        ))}
+              <div
+                className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${
+                  isDarkTheme ? "from-white/5" : "from-gray-100/50"
+                } to-transparent rounded-bl-[100px] -z-10`}
+              ></div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
