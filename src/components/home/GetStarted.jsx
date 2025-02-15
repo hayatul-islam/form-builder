@@ -23,12 +23,12 @@ const GetStarted = () => {
           backgroundRepeat: "no-repeat",
           backgroundBlendMode: "soft-light",
         }}
-        className="flex justify-center text-center py-10 md:py-16 px-4 md:px-6 rounded-2xl container bg-dark/20"
+        className="flex justify-center text-center py-10 md:py-16 px-4 md:px-6 rounded-xl md:rounded-2xl container bg-dark/20"
       >
         <div className="space-y-4 md:space-y-6 text-white">
           <h2 className="text-2xl md:text-4xl font-bold ">
-            Ready to Build Amazing Forms?
-            {/* Your forms, your style */}
+            {/* Ready to Build Amazing Forms? */}
+            Your forms, your style
           </h2>
           <p className="text-lg md:text-xl pb-2 max-w-2xl mx-auto ">
             Design and deploy custom forms effortlessly with our drag-and-drop
