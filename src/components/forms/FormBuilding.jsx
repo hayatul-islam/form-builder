@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FcTemplate } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { demo } from "../../data";
 import CreateFormModal from "../common/CreateFormModal";
@@ -32,7 +33,7 @@ const FormBuilding = ({ type = "page", onModalType }) => {
             <div className="space-y-3">
               <BuildNewForm
                 onClick={onOpenModal}
-                className="w-[120px] !h-[120px] sm:!h-[150px] sm:w-[180px] lg:!h-[220px] lg:w-[250px] mx-auto"
+                className="!w-[120px] !h-[120px] sm:!h-[150px] sm:!w-[180px] lg:!h-[220px] lg:!w-[250px] mx-auto"
               />
               <div className="text-center text-black dark:text-gray-300 hidden sm:block">
                 <h3 className="font-medium text-[18px] md:text-[22px] ">
@@ -45,7 +46,7 @@ const FormBuilding = ({ type = "page", onModalType }) => {
             </div>
             <div className="space-y-3">
               <BuildWithDemo
-                className="!bg-primary/10 w-[120px] !h-[120px] sm:!h-[150px] sm:w-[180px] lg:!h-[220px] lg:w-[250px] rounded-2xl"
+                className="!bg-primary/10 !w-[120px] !h-[120px] sm:!h-[150px] sm:!w-[180px] lg:!h-[220px] lg:!w-[250px] rounded-2xl"
                 iconClass="!w-[100px] h-[150px]"
               />
               <div className="text-center text-black dark:text-gray-300 hidden sm:block">
@@ -100,7 +101,7 @@ export const BuildNewForm = ({ className, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={`${className} h-[200px] sm:h-[280px] lg:h-[350px] w-full rounded-3xl bg-primary/10 text-primary flex justify-center items-center text-black/50 hover:scale-105 duration-500 transform`}
+      className={`${className} h-[200px] sm:h-[280px] lg:h-[350px] w-full rounded-xl md:rounded-3xl bg-primary/10 text-primary flex justify-center items-center text-black/50 hover:scale-105 duration-500 transform`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -123,9 +124,10 @@ export const BuildWithDemo = ({
   return (
     <Link
       to={link}
-      className={`${className} h-[200px] sm:h-[280px] lg:h-[350px] w-full rounded-3xl  flex justify-center items-center bg-white dark:bg-gray-950 hover:scale-105 duration-500 transform`}
+      className={`${className} h-[200px] sm:h-[280px] lg:h-[350px] w-full rounded-xl md:rounded-3xl  flex justify-center items-center bg-white dark:bg-gray-950 hover:scale-105 duration-500 transform`}
     >
-      <svg
+      <FcTemplate className={`${iconClass} `} />
+      {/* <svg
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 162 204"
@@ -153,7 +155,7 @@ export const BuildWithDemo = ({
         ></rect>
         <rect x="9" y="67" width="68" height="14" rx="7" fill="#E6E6F5"></rect>
         <rect x="9" y="114" width="68" height="14" rx="7" fill="#E6E6F5"></rect>
-      </svg>
+      </svg> */}
     </Link>
   );
 };

@@ -52,7 +52,7 @@ const Demos = () => {
 
           <button
             onClick={() => onOpenModal(demo)}
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#000] text-white py-2 px-4 rounded-full z-10 opacity-0 group-hover:opacity-100 transition duration-500 text-[12px] flex justify-center items-center gap-1"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 hover:bg-gray-900 text-white py-2 px-4 z-10 opacity-0 group-hover:opacity-100 transition duration-500 text-[12px] flex justify-center items-center gap-1"
           >
             <HiTemplate />
             <span> Use Template</span>

@@ -11,12 +11,9 @@ const TemplateSection = () => {
          or create your form from scratch"
         button={
           <div className="pt-4">
-            {/* <SecondaryButton link="/templates">
-                View all templates
-              </SecondaryButton> */}
             <Link
               to="/templates"
-              className="bg-white/10 backdrop-blur-sm hover:bg-white/15 text-white px-8 md:px-10 py-2.5 rounded-button text-base md:text-lg font-medium whitespace-nowrap border border-white/20 transition-all duration-300 transform hover:scale-105"
+              className="bg-white/10 backdrop-blur-sm hover:bg-white/15 text-white px-8 md:px-10 py-2.5 rounded-button text-base md:text-lg font-medium whitespace-nowrap border border-white/20 transition-all duration-300 transform hover:scale-105 block w-[250px] mx-auto"
             >
               View all templates
             </Link>
