@@ -38,7 +38,7 @@ const GetStarted = () => {
 
           <button
             onClick={handleOpen}
-            className="bg-dark hover:bg-gray-800 text-white px-8 md:px-10 py-3 md:py-4 !rounded-button text-base md:text-lg font-medium whitespace-nowrap shadow-lg shadow-gray-500/25 transition-all duration-300 transform hover:scale-105 w-auto"
+            className="bg-dark/90 hover:bg-gray-800 text-white px-8 md:px-10 py-3 md:py-4 !rounded-button text-base md:text-lg font-medium whitespace-nowrap shadow-lg shadow-gray-500/25 transition-all duration-300 transform hover:scale-105 w-auto"
           >
             Get Started for Free
           </button>
