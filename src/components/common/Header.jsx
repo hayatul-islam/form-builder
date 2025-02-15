@@ -28,14 +28,14 @@ const Header = () => {
           {forms?.length > 0 ? (
             <Button
               link="/my-forms"
-              className="!px-4 !py-2 !md:px-6 !md:py-2.5 !rounded-full "
+              className="!px-4 !py-2 md:!px-6 md:!py-2.5 !rounded-full "
             >
               My Forms
             </Button>
           ) : (
             <Button
               onClick={handleOpen}
-              className="!px-4 !py-2 !md:px-6 !md:py-2.5 !rounded-full "
+              className="!px-4 !py-2 md:!px-6 md:!py-2.5 !rounded-full "
             >
               Create Form
             </Button>
