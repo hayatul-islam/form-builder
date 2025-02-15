@@ -19,7 +19,7 @@ const Features = () => {
 
   return (
     <div className="bg-[#04060a] py-12 md:py-20">
-      <div className="container space-y-10">
+      <div className="container space-y-12">
         <SectionHeadline
           title="Simple and Powerful"
           subTitle="complete solution for creating easy-to-use, flexible forms."
