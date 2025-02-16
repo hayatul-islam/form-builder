@@ -9,7 +9,7 @@ const Accordion = ({ title, children, value = false }) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`flex justify-between items-center w-full  ${
-          isOpen && "bg-primary text-white dark:text-white p-2 px-3 rounded "
+          isOpen && "bg-primary text-white dark:text-white p-2 px-3 "
         } text-black dark:text-gray-300`}
       >
         <h4 className="text-[16px] font-medium uppercase ">{title}</h4>
