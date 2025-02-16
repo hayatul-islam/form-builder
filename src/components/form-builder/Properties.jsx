@@ -160,7 +160,7 @@ const Properties = () => {
             />
 
             <ColorPicker
-              label="Custom Color"
+              label="Color"
               name="settings"
               subKey="color"
               value={selectedElement?.settings?.color || ""}
@@ -168,7 +168,7 @@ const Properties = () => {
               onChange={onChange}
             />
             <ColorPicker
-              label="Custom Background"
+              label="Background"
               name="settings"
               subKey="background"
               value={selectedElement?.settings?.background || ""}
