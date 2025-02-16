@@ -34,7 +34,7 @@ const Builder = () => {
       <DndContext sensors={sensors}>
         <div className="w-full h-full relative overflow-hidden ">
           <div
-            className={`absolute top-0 left-0 h-full w-64 bg-white shadow-lg transition-transform duration-700 ${
+            className={`z-20 absolute top-0 left-0 h-full w-64 bg-white dark:bg-dark shadow-lg transition-transform duration-700 ${
               leftSidebarTool ? "translate-x-0" : "-translate-x-[400px] "
             }`}
           >
@@ -42,7 +42,7 @@ const Builder = () => {
           </div>
           <FormBuilder />
           <div
-            className={`absolute top-0 right-0 h-full bg-white shadow-lg transition-transform duration-700 ${
+            className={`z-20 absolute top-0 right-0 h-full bg-white shadow-lg transition-transform duration-700 ${
               selectedElement ? "translate-x-0" : "translate-x-full "
             }`}
           >
