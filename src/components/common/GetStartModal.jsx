@@ -13,7 +13,7 @@ const GetStartModal = ({ handleClose }) => {
   return (
     <div>
       {modalType === "create-form" ? (
-        <Modal title="Crete new form" onClose={handleClose} width="500">
+        <Modal title="Create a new form" onClose={handleClose} width="500">
           <CreateFormModal />
         </Modal>
       ) : (

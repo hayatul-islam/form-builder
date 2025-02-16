@@ -61,7 +61,7 @@ const Demos = () => {
       ))}
 
       {isOpen && (
-        <Modal title={"New Form"} onClose={onClose} width="600">
+        <Modal title={"Create a new form"} onClose={onClose} width="600">
           <CreateFormModal demo={selectDemo} />
         </Modal>
       )}
