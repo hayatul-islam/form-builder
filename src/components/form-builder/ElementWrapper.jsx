@@ -76,8 +76,8 @@ const ElementWrapper = ({ element }) => {
 
       {isSelected && (
         <>
-          <div className="absolute -right-1 top-[50%] translate-y-[-50%] space-y-1 ">
-            <RxDragHandleDots2 />
+          <div className="absolute right-0 top-[50%] translate-y-[-50%] space-y-1 ">
+            <RxDragHandleDots2 className="text-green-500 font-bold" />
           </div>
           <div className="absolute -right-7 top-[50%] translate-y-[-50%] space-y-3 z-[999]">
             <button
@@ -108,7 +108,9 @@ const ElementWrapper = ({ element }) => {
 
       <div
         className={`p-3  rounded-md ${
-          (mouseIsOver || isSelected) && " bg-gray group-hover:blur-6"
+          mouseIsOver || isSelected
+            ? "border-2 border-primary group-hover:blur-6"
+            : "border-2 border-transparent"
         }`}
       >
         <SingleElement element={element} />

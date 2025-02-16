@@ -2,7 +2,7 @@ import { DragOverlay, useDndMonitor } from "@dnd-kit/core";
 import { useState } from "react";
 import useBuilder from "../../hooks/useBuilder";
 import { ButtonElementOverlay } from "../form-builder/ButtonElement";
-import InputField from "./InputField";
+import SingleElement from "../form-builder/SingleElement";
 
 function DragOverlayWrapper() {
   const { elements } = useBuilder();
@@ -40,8 +40,8 @@ function DragOverlayWrapper() {
       node = <div>Element not found!</div>;
     } else {
       node = (
-        <div className="bg-gray rounded-md p-4 opacity-80 ">
-          <InputField label={element?.label} type={element?.type} />
+        <div className="border border-primary bg-primary/10 shadow-lg rounded-md p-4 opacity-80 ">
+          <SingleElement element={element} />
         </div>
       );
     }
