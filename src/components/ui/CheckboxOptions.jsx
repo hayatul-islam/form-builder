@@ -36,22 +36,21 @@ const CheckboxOptions = ({
 
       <div style={elementStyle?.style} className={elementStyle?.className}>
         {options.map((option, index) => (
-          <label key={index} className="flex items-center gap-2 cursor-pointer">
+          <div key={index} className="flex gap-2 cursor-pointer">
             <input
               type="checkbox"
               name={name}
-              // value={option?.value}
-              // checked={value === option?.value}
               disabled={isDisabled}
               className="accent-blue-600 w-4 h-4 cursor-pointer"
             />
-            <span
-              style={{ color: isDisabled ? "#a0a0a0" : "#333" }}
+            <label
+              style={labelStyle?.style}
+              // style={{ color: isDisabled ? "#a0a0a0" : "#333" }}
               className="text-base"
             >
               {option?.label}
-            </span>
-          </label>
+            </label>
+          </div>
         ))}
       </div>
     </div>

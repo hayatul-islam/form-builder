@@ -1,23 +1,17 @@
 import useBuilder from "../../hooks/useBuilder";
-import { onElementStyle } from "../../utils";
+import { onLabelStyle } from "../../utils";
 
 const SingleCheckbox = ({
   name,
-  value = "",
   label,
-  className = "",
   isDisabled = false,
   isRequired = false,
-
-  settings: elementSettings = {},
-  type,
 }) => {
   const { settings } = useBuilder();
-
-  const elementStyle = onElementStyle(type, elementSettings);
+  const labelStyle = onLabelStyle(settings?.label);
 
   return (
-    <div className="flex items-center gap-2 ">
+    <div className="flex gap-2 ">
       <input
         type="checkbox"
         name={name}
@@ -26,12 +20,13 @@ const SingleCheckbox = ({
         disabled={isDisabled}
         className="accent-blue-600 w-4 h-4 cursor-pointer"
       />
-      <span
-        style={{ color: isDisabled ? "#a0a0a0" : "#333" }}
+      <label
+        style={labelStyle?.style}
+        // style={{ color: isDisabled ? "#a0a0a0" : "#333" }}
         className="text-base"
       >
         {label}
-      </span>
+      </label>
     </div>
   );
 };

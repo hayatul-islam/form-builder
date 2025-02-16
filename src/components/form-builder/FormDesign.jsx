@@ -196,6 +196,13 @@ const FormDesign = () => {
             onChange={onChange}
           />
           <DualColorPicker
+            label="Color"
+            name="inputField"
+            value={settings?.inputField?.color || {}}
+            onChange={onChange}
+            subKey="color"
+          />
+          <DualColorPicker
             label="Background"
             name="inputField"
             value={settings?.inputField?.background || {}}
