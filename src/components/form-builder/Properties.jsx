@@ -68,7 +68,7 @@ const Properties = () => {
 
       {isWidth && (
         <FieldWidth
-          label="Width"
+          label="Column"
           name="width"
           value={selectedElement?.width || ""}
           onChange={onChange}
