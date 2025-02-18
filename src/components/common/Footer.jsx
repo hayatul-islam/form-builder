@@ -6,9 +6,9 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <div className="text-black dark:text-white shadow-xl">
+    <div className="bg-white dark:bg-gray-dark text-black dark:text-white shadow">
       <div className="container py-12 dark:border-gray-800 text-center space-y-4 md:flex justify-between items-center">
-        <div className="text-[16px] ">
+        <div className="text-[16px]">
           <span className="text-gray-500 dark:text-gray-300">
             © {year} Made by
           </span>{" "}
