@@ -2,7 +2,7 @@ const TemplateHero = () => {
   return (
     <div className="container mt-12 bg-gradient-to-b flex items-center justify-center ">
       <div className="text-center space-y-5 py-5">
-        <h1 className="text-[24px] sm:text-[32px] md:text-[54px] leading-none space-y-2 text-black dark:text-white font-normal ">
+        <h1 className="text-[24px] sm:text-[32px] md:text-[54px] lg:text-[60px] leading-none lg:leading-[65px] space-y-2 text-black dark:text-white font-normal ">
           <span>Say Goodbye to Blank Forms </span>
           <span className="block"> Start with Templates</span>
         </h1>
