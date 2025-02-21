@@ -46,6 +46,32 @@ const GetStarted = () => {
 
         {isOpen && <GetStartModal handleClose={handleClose} />}
       </div>
+
+      <div className="pt-12">
+        <div className="relative !p-0 container w-full  h-[350px] bg-gradient-to-r from-primary/40  grid grid-cols-10 grid-rows-5 gap-px rounded-lg overflow-hidden">
+          {/* Grid Cells */}
+          {Array.from({ length: 50 }).map((_, index) => (
+            <div
+              key={index}
+              className="bg-white/10  transition-colors duration-300 hover:bg-white/30"
+            ></div>
+          ))}
+
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4 pointer-events-none space-y-6">
+            <SectionHeadline
+              className="text-white"
+              title="Your forms, your style"
+              subTitle="Design and deploy custom forms effortlessly with our drag-and-drop builder—no coding needed!"
+            />
+            <button
+              onClick={handleOpen}
+              className="pointer-events-auto bg-dark/90 hover:bg-gray-800 text-white px-8 md:px-10 py-3 md:py-4 !rounded-button text-base md:text-lg font-medium whitespace-nowrap shadow-lg shadow-gray-500/25 transition-all duration-300 transform hover:scale-105 w-auto"
+            >
+              Get Started for Free
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
