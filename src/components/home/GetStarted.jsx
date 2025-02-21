@@ -47,13 +47,13 @@ const GetStarted = () => {
         {isOpen && <GetStartModal handleClose={handleClose} />}
       </div>
 
-      <div className="pt-12">
-        <div className="relative !p-0 container w-full  h-[350px] bg-gradient-to-r from-primary/40  grid grid-cols-10 grid-rows-5 gap-px rounded-lg overflow-hidden">
-          {/* Grid Cells */}
-          {Array.from({ length: 50 }).map((_, index) => (
+      {/* <div className="pt-12">
+        <div className="relative !p-0 container w-full h-[350px] bg-gradient-to-r bg-[#3b5bdb]  to-blue-500 grid grid-cols-12 grid-rows-5 gap-px rounded-lg overflow-hidden">
+       
+          {Array.from({ length: 60 }).map((_, index) => (
             <div
               key={index}
-              className="bg-white/10  transition-colors duration-300 hover:bg-white/30"
+              className="bg-gray-100/10 transition-colors duration-300 hover:bg-white/30"
             ></div>
           ))}
 
@@ -71,7 +71,7 @@ const GetStarted = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
