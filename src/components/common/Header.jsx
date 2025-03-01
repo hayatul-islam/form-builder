@@ -2,6 +2,8 @@ import { useState } from "react";
 import { HiOutlineSun } from "react-icons/hi";
 import { RxMoon } from "react-icons/rx";
 import { Link } from "react-router-dom";
+// import logo from "../../assets/img/logo.svg";
+import logo from "../../assets/img/BuildForm.svg";
 import useBuilder from "../../hooks/useBuilder";
 import Button from "../ui/Button";
 import GetStartModal from "./GetStartModal";
@@ -55,13 +57,9 @@ export const HeaderBrand = () => (
     to="/"
     className="logo-font bg-gradient-to-r text-transparent bg-clip-text text-[22px] md:text-[24px] font-medium !text-black dark:!text-white flex items-center gap-2"
   >
-    {/* <img
-      className="h-[36px]"
-      src="https://static.thenounproject.com/png/603575-200.png"
-      alt=""
-    /> */}
+    <img className="h-[36px] md:h-[42px]" src={logo} alt="logo" />
     {/* <p>Tailor Forms</p> */}
-    Form Builder
+    {/* Form Builder */}
     {/* Tailor Forms */}
     {/* tailor forms */}
   </Link>
