@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // import logo from "../../assets/img/logo.svg";
 // import logo from "../../assets/img/BuildForm.svg";
 // import logo from "../../assets/img/Logo_white.svg";
-import logo from "../../assets/img/Logo_white2.svg";
+import logo from "../../assets/img/logo_white2.svg";
 import useBuilder from "../../hooks/useBuilder";
 import Button from "../ui/Button";
 import GetStartModal from "./GetStartModal";
@@ -59,7 +59,7 @@ export const HeaderBrand = () => (
     to="/"
     className="logo-font bg-gradient-to-r text-transparent bg-clip-text text-[22px] md:text-[24px] font-medium !text-black dark:!text-white flex items-center gap-2"
   >
-    <img className="h-[28px] md:h-[32px]" src={logo} alt="logo" />
+    <img className="h-[24px] md:h-[30px]" src={logo} alt="logo" />
     {/* <p>Tailor Forms</p> */}
     {/* Form Builder */}
     {/* Tailor Forms */}
