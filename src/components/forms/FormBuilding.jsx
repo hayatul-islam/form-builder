@@ -73,7 +73,10 @@ const FormBuilding = ({ type = "page", onModalType }) => {
               </div>
             </div>
             <div className="space-y-3">
-              <BuildWithDemo />
+              <BuildWithDemo
+                className={"shadow"}
+                iconClass="!w-[60px] h-[60px] md:!w-[100px] md:!h-[150px]"
+              />
               <div className="text-center text-black">
                 <h3 className="font-medium text-[20px] sm:text-[22px] text-black dark:text-white">
                   Use Template
