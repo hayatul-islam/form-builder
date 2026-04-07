@@ -7,8 +7,8 @@ const Footer = () => {
 
   return (
     <div className="bg-white dark:bg-gray-dark text-black dark:text-white shadow">
-      <div className="container py-12 dark:border-gray-800 text-center space-y-4 md:flex justify-between items-center">
-        <div className="text-[16px]">
+      <div className="container py-8 md:py-12 dark:border-gray-800 text-center space-y-4 md:flex justify-between items-center">
+        <div className="text-[14px] md:text-[16px]">
           <span className="text-gray-500 dark:text-gray-300">
             © {year} Build by
           </span>{" "}
@@ -16,7 +16,7 @@ const Footer = () => {
             Md. Hayatul Islam
           </span>
         </div>
-        <div className="flex justify-center text-[24px] space-x-3">
+        <div className="flex justify-center text-[18px] md:text-[24px] space-x-3">
           <Link
             className="hover:text-primary transform delay-100 duration-200"
             target="_blank"
