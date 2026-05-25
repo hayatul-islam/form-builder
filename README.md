@@ -54,13 +54,13 @@ Live Website: https://form-builder-24.vercel.app/
 
 ##  Challenges
 
-** Drag & Drop State Consistency**
+**Drag & Drop State Consistency**
 Keeping the visual canvas in sync with the underlying form schema during drag reorders required careful index management and optimistic UI updates to prevent flicker or desync.
 
-** Accurate Code Generation**
+**Accurate Code Generation**
 Generating clean, production-quality React and HTML code from a dynamic schema — including proper validation attributes, accessibility labels, and styling — demanded a structured template engine approach.
 
-** Multi-device Live Preview**
+**Multi-device Live Preview**
 Simulating real device viewports inside a builder UI — without iframes or separate routes — required CSS-only viewport scaling with container queries and fixed-width simulation containers.
 
 ---
