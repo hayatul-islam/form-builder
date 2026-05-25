@@ -47,8 +47,7 @@ Live Website: https://form-builder-24.vercel.app/
 ---
 
 ## Tech Stack
-
-| **Frontend** | React.js, JavaScript, Tailwind CSS, dnd-kit |
+ React.js, JavaScript, Tailwind CSS, dnd-kit 
 
 
 ---
