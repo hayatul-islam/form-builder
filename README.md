@@ -40,7 +40,7 @@ Live Website: https://form-builder-24.vercel.app/
 
 ### Preview & Export
 - Live preview across mobile, tablet & desktop
-- Auto-generate clean React/HTML code
+- Auto-generate clean React code
 - One-click code copy
 - Responsive output for all screen sizes
 
