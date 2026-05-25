@@ -17,10 +17,10 @@ Live Website: https://form-builder-24.vercel.app/
 
 ##  Problems it solves
 
-- ⏱️ Writing repetitive form code manually wastes developer time on boilerplate
-- 🎨 Non-developers cannot create or customize forms without engineering support
-- 📱 Testing form layouts across devices requires building first, then checking
-- 🔁 Iterating on form designs means rewriting code repeatedly for small tweaks
+-  Writing repetitive form code manually wastes developer time on boilerplate
+-  Non-developers cannot create or customize forms without engineering support
+-  Testing form layouts across devices requires building first, then checking
+-  Iterating on form designs means rewriting code repeatedly for small tweaks
 
 ---
 
